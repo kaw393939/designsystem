@@ -13,11 +13,15 @@ describe("layout shells and primitives", () => {
       </PageShell>,
     );
 
-    expect(screen.getByRole("link", { name: "Skip to content" })).toHaveAttribute("href", "#main-content");
+    expect(
+      screen.getByRole("link", { name: "Skip to content" }),
+    ).toHaveAttribute("href", "#main-content");
     expect(screen.getByRole("banner")).toBeInTheDocument();
-    expect(screen.getByRole("main")).toBeInTheDocument();
+    expect(screen.getByRole("main")).toHaveAttribute("tabindex", "-1");
     expect(screen.getByRole("contentinfo")).toBeInTheDocument();
-    expect(within(screen.getByRole("main")).getByText("Shell body")).toBeInTheDocument();
+    expect(
+      within(screen.getByRole("main")).getByText("Shell body"),
+    ).toBeInTheDocument();
   });
 
   it("supports LessonShell pages with no local navigation", () => {
@@ -27,7 +31,9 @@ describe("layout shells and primitives", () => {
       </LessonShell>,
     );
 
-    expect(screen.queryByRole("navigation", { name: "Lesson navigation" })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("navigation", { name: "Lesson navigation" }),
+    ).not.toBeInTheDocument();
     expect(screen.getByText("Lesson 3 of 5")).toBeInTheDocument();
     expect(screen.getByText("Lesson body")).toBeInTheDocument();
   });

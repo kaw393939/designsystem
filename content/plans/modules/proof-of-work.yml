@@ -1,0 +1,17 @@
+schema: module-brief/v1
+id: proof-of-work
+experienceId: bseai-program
+title: Proof of Work
+job: Turn claims into visible receipts, selected evidence, and trust-bearing proof surfaces.
+sequencePosition: 10
+learningOutcomes:
+  - Distinguish adjective-heavy self-description from real proof.
+  - Build a proof block that strengthens trust and supports the intended promise.
+curatorialQuestions:
+  - What evidence should appear first for this promise to feel credible?
+  - Which proof surfaces help a stranger trust the work in under a minute?
+candidateUnits:
+  - proof-of-work-overview
+sourceRefs:
+  - identity
+  - bseai

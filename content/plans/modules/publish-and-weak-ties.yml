@@ -1,0 +1,17 @@
+schema: module-brief/v1
+id: publish-and-weak-ties
+experienceId: bseai-program
+title: Publish and Weak Ties
+job: Teach learners how to move a built artifact into real rooms, weak ties, and follow-up loops.
+sequencePosition: 12
+learningOutcomes:
+  - Choose a room-specific deployment move that fits the current artifact.
+  - Write a short follow-up path that turns publication into opportunity rather than a dead-end.
+curatorialQuestions:
+  - Where should this artifact go first and why?
+  - What proof and follow-up does each room require?
+candidateUnits:
+  - publish-and-weak-ties-overview
+sourceRefs:
+  - identity
+  - bseai

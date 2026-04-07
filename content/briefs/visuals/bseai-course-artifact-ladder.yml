@@ -1,0 +1,20 @@
+schema: visual-brief/v1
+id: bseai-course-artifact-ladder
+experienceId: bseai-program
+forUnit: bseai-course-spine-overview
+kind: sequence-map
+visualClass: diagram
+intent: Show how the eight-course spine builds artifacts from first signal surface to advanced AI, product, orchestration, or governance depth.
+mustShow:
+  - all eight spine slots in sequence
+  - the signature artifact associated with each slot
+  - explicit placeholder language for selected advanced depth in slot 8
+accessibilityNeeds:
+  - short alt text
+  - long description
+  - tabular equivalent for the sequence
+sourceRefs:
+  - sourceId: bseai
+styleProfile: Clear editorial ladder or staircase diagram with course-to-artifact pairing and no decorative complexity.
+captionDirection: Emphasize that the degree becomes legible through an accumulating ladder of public and professional artifacts.
+longDescriptionDirection: Walk through each course slot, its role, its artifact, and the placeholder status of the final advanced-depth slot.

@@ -1,0 +1,35 @@
+schema: visual-spec/v1
+id: bseai-formation-wheel
+version: v2026-04-06T043759Z
+status: frozen_candidate
+kind: system-map
+visualClass: diagram
+intent: Show the seven capacities as one reinforcing formation system rather
+  than as disconnected skills.
+forUnit: bseai-formation-model
+supersedes: v2026-04-06T043748Z
+provider: gpt-image
+prompt: >
+  Create a clean educational diagram showing seven capacities arranged as one
+  formation system. Group read, write, and reason together. Group quantify,
+  compute, orchestrate, and represent together. Place a central anchor such as
+  responsible public practice or visible capability at the center. Keep labels
+  legible and the composition calm, serious, and schematic.
+negativePrompt: No abstract neon gradients, no decorative icons that replace
+  labels, no cluttered wheel, no mystical symbolism.
+sourceRefs:
+  - sourceId: bseai
+  - sourceId: renesaince
+styleProfile: Clear, calm diagram with grouped capacity labels, strong central
+  anchor, and no decorative clutter.
+caption: The updated trivium and quadrivium work together as one formation
+  system for public capability.
+alt: Diagram grouping the updated trivium and quadrivium around a center of
+  responsible public practice.
+longDescription: The diagram groups read, write, and reason together as one band
+  and quantify, compute, orchestrate, and represent as another. At the center is
+  a label showing responsible public practice or visible capability. The overall
+  point is that the capacities reinforce one another and appear in artifacts and
+  decisions.
+assetRefs: []
+reviewRefs: []

@@ -1,0 +1,27 @@
+schema: unit-brief/v1
+id: bseai-studio-introduction
+experienceId: bseai-program
+moduleId: bseai-studio-entry
+recipe: learning-homepage
+title: Studio Is Where the Degree Becomes Visible
+dominantJob: Explain why public practice is part of the degree and point learners into the live studio sequence quickly.
+learningObjective: Explain the path from signal to proof to build to publish and why the portfolio is the longitudinal public-practice spine.
+curatorialJob: Keep the page as a handoff into action rather than a full reteaching of every studio module.
+targetAudience:
+  - current-students
+  - early-career-builders
+  - faculty-reviewers
+sourceRefs:
+  - sourceId: identity
+  - sourceId: bseai
+misconceptions:
+  - Portfolio work is branding only.
+  - The studio is optional enrichment beside the real degree.
+requiredEvidence:
+  - studio sequence from signal through publish
+  - first artifact path
+  - worked-exemplar hook
+requiredVisuals:
+  - archetype-signal-map
+assessmentIdea: Name the first artifact the learner should build and why it matters.
+nextStepIntent: Move into identity-and-signal and the IS117 wrapper without extra explanation.

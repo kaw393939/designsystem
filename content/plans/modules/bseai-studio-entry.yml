@@ -1,0 +1,18 @@
+schema: module-brief/v1
+id: bseai-studio-entry
+experienceId: bseai-program
+title: BSEAI Studio Entry
+job: Explain why portfolio and public practice are part of the degree and route learners into the live studio path.
+sequencePosition: 5
+learningOutcomes:
+  - Explain why public artifacts are part of the degree rather than a side project.
+  - Identify the first artifact path through the studio sequence.
+curatorialQuestions:
+  - Why is the portfolio the longitudinal proof spine for the degree?
+  - What does the learner build first and how does it connect to later courses?
+candidateUnits:
+  - bseai-studio-introduction
+sourceRefs:
+  - identity
+  - bseai
+  - renesaince

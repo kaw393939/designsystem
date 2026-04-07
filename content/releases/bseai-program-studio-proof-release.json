@@ -1,0 +1,52 @@
+{
+  "schema": "release/v1",
+  "id": "bseai-program-studio-proof-release",
+  "experience": "bseai-program",
+  "createdAt": "2026-04-06T05:36:02.361Z",
+  "routeIds": [
+    "experience-ai-second-renaissance",
+    "experience-bseai",
+    "experience-bseai-why-now",
+    "experience-bseai-philosophy",
+    "experience-bseai-course-spine",
+    "experience-bseai-studio",
+    "experience-identity-portfolio",
+    "experience-identity-portfolio-signal",
+    "experience-identity-portfolio-style",
+    "experience-identity-portfolio-proof",
+    "experience-identity-portfolio-build",
+    "experience-identity-portfolio-publish",
+    "experience-identity-portfolio-diagnose",
+    "experience-identity-portfolio-examples",
+    "experience-identity-portfolio-labs-archetypes",
+    "experience-identity-portfolio-labs-psychology",
+    "experience-identity-portfolio-labs-persuasion",
+    "experience-identity-portfolio-system-map",
+    "experience-identity-portfolio-sources",
+    "experience-bseai-modules",
+    "experience-bseai-course-is117"
+  ],
+  "unitVersions": [
+    "bseai-homepage@v2026-04-06T043603Z",
+    "bseai-program-pillars@v2026-04-06T043632Z",
+    "bseai-why-now@v2026-04-06T043634Z",
+    "print-to-ai-knowledge-shift@v2026-04-05T031410Z",
+    "bseai-formation-model@v2026-04-06T043640Z",
+    "bseai-course-spine-overview@v2026-04-06T043644Z",
+    "bseai-studio-introduction@v2026-04-06T043648Z",
+    "choose-primary-archetype@v2026-04-05T120000Z",
+    "bseai-module-library@v2026-04-06T043653Z",
+    "is117-path-entry@v2026-04-06T043656Z"
+  ],
+  "visualVersions": [
+    "bseai-program-hero@v2026-04-06T043708Z",
+    "renaissance-to-ai-hero@v2026-04-05T031424Z",
+    "ai-labor-demand-chart@v2026-04-05T031424Z",
+    "bseai-formation-wheel@v2026-04-06T043748Z",
+    "bseai-course-artifact-ladder@v2026-04-06T043757Z",
+    "archetype-signal-map@v2026-04-05T031424Z"
+  ],
+  "status": "approved",
+  "notes": "Expanded BSEAI preview release with the identity portfolio studio route family active under the BSEAI shell.",
+  "supersedes": "bseai-program-proof-release"
+}

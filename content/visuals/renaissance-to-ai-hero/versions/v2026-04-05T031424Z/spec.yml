@@ -1,0 +1,36 @@
+schema: visual-spec/v1
+id: renaissance-to-ai-hero
+version: v2026-04-05T031424Z
+status: approved
+kind: editorial-hero
+visualClass: illustration
+intent: Establish the printing-press to AI analogy as a serious historical and
+  educational frame rather than generic spectacle.
+forUnit: print-to-ai-knowledge-shift
+supersedes: null
+provider: gpt-image
+prompt: >
+  Create an editorial illustration split between a fifteenth-century print shop
+  and a modern AI workspace. Emphasize tools, hands, paper, screens, and
+  institutional atmosphere. Keep it grounded, serious, and historically
+  suggestive rather than sci-fi.
+negativePrompt: No futuristic neon city, no readable fake text, no floating
+  holograms, no celebrity likenesses.
+sourceRefs:
+  - sourceId: renesaince
+    sections:
+      - Why the printing press is the right analogy
+styleProfile: Renaissance palette meeting modern studio lighting without turning
+  into fantasy art.
+caption: The analogy works because both eras change who can participate in
+  producing and distributing symbolic work.
+alt: Split-scene illustration pairing a print shop with a modern AI workspace.
+longDescription: On the left, printers handle type, paper, and stacked books in
+  a workshop. On the right, a modern builder works beside screens, notebooks,
+  and diagrams. The two scenes align as parallel sites of knowledge production
+  rather than as spectacle.
+assetRefs:
+  - prompt.txt
+  - image.svg
+reviewRefs:
+  - review-renaissance-to-ai-hero-v2026-04-05T031424Z-visual

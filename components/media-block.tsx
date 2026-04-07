@@ -32,8 +32,12 @@ export function MediaBlock({
       {caption || credit ? (
         <figcaption className="type-caption text-[var(--ink-body)]">
           {caption ? <span>{caption}</span> : null}
-          {caption && credit ? <span className="mx-2 text-[var(--ink-muted)]">/</span> : null}
-          {credit ? <span className="text-[var(--ink-muted)]">{credit}</span> : null}
+          {caption && credit ? (
+            <span className="mx-2 text-[var(--ink-muted)]">/</span>
+          ) : null}
+          {credit ? (
+            <span className="text-[var(--ink-muted)]">{credit}</span>
+          ) : null}
         </figcaption>
       ) : null}
     </figure>
@@ -43,9 +47,17 @@ export function MediaBlock({
     return (
       <SplitLayout
         ratio="feature"
-        primary={<TonePanel tone={tone} className="p-6">{figure}</TonePanel>}
+        primary={
+          <TonePanel tone={tone} className="p-6">
+            {figure}
+          </TonePanel>
+        }
         secondary={
-          <CalloutBand label="Annotation" title="Why this visual placement matters" tone="reflection">
+          <CalloutBand
+            label="Annotation"
+            title="Why this visual placement matters"
+            tone="reflection"
+          >
             {annotation}
           </CalloutBand>
         }
@@ -60,7 +72,11 @@ export function MediaBlock({
     <TonePanel tone={tone} className={`p-6 ${className}`.trim()}>
       <div className={widthClass}>
         {figure}
-        {annotation ? <div className="mt-4 type-caption text-[var(--ink-body)]">{annotation}</div> : null}
+        {annotation ? (
+          <div className="mt-4 type-caption text-[var(--ink-body)]">
+            {annotation}
+          </div>
+        ) : null}
       </div>
     </TonePanel>
   );

@@ -69,10 +69,24 @@ If any required input is missing, unapproved, or inconsistent, the build must fa
 validate schema
 -> validate workflow
 -> validate release <release-id>
+-> validate observatory [--visibility all]
 -> build experience <experience-id> --release <release-id>
+-> export observatory --visibility public
 -> run checks against exported output
 -> publish artifact
 ```
+
+## Observable-state export baseline
+
+Phase 3 adds a generated observable-state bundle layer that remains local and build-time-only until public observatory routes consume it.
+
+Required behavior:
+
+1. Validate observable-state bundles before treating them as publishable evidence.
+2. Write generated bundles under `.site/observable-state/public/` and `.site/observable-state/maintainer/`.
+3. Keep observable-state output outside `out/` until a later sprint explicitly wires route generation to those files.
+4. Preserve public redaction even when maintainer bundles retain richer local orchestration detail.
+5. Keep observable-state export optional for deployment until Sprint 12 lands the public observatory route family.
 
 ## Routing and URL rules
 
@@ -129,7 +143,8 @@ Run these gates on every pull request:
 6. validate schema
 7. validate workflow
 8. validate release `<release-id>` for the target experience
-9. static build with export settings
+9. validate observatory
+10. static build with export settings
 
 ### Push to main
 
@@ -137,9 +152,10 @@ Run all quality gates, then:
 
 1. build the selected experience with explicit `experience` and `release` ids
 2. set `NEXT_PUBLIC_BASE_PATH`
-3. run Lighthouse CI against the exported output using the committed config
-4. upload `out/` as the Pages artifact
-5. deploy only after the quality job passes
+3. validate or export the observable-state bundle if the change touches observability or route-consumption logic
+4. run Lighthouse CI against the exported output using the committed config
+5. upload `out/` as the Pages artifact
+6. deploy only after the quality job passes
 
 ## Minimum CI gates for phase 1
 
@@ -150,14 +166,16 @@ Run all quality gates, then:
 5. `npm run site -- validate schema`
 6. `npm run site -- validate workflow`
 7. `npm run site -- validate release <release-id>`
-8. `npm run site -- build experience <experience-id> --release <release-id>`
-9. `npm run lighthouse`
+8. `npm run site -- validate observatory`
+9. `npm run site -- build experience <experience-id> --release <release-id>`
+10. `npm run lighthouse`
 
 Recommended additions during implementation:
 
 - `npm run test:browser`
 - link-integrity check against exported output
 - explicit manifest-to-route sanity check
+- `npm run site -- export observatory --visibility public`
 
 ## Lighthouse policy
 
@@ -176,6 +194,26 @@ Production and CI builds should use explicit environment or workflow inputs such
 - `NEXT_PUBLIC_BASE_PATH`
 
 These values should be visible in workflow configuration, not hidden behind implicit defaults.
+
+## Sprint 6 maintainer verification routine
+
+Use the same selected-release inputs locally and in CI so baseline proof is reproducible.
+
+Root-path verification:
+
+1. `SITE_EXPERIENCE_ID=phase-1-baseline SITE_RELEASE_ID=phase-1-baseline-release npm run site:validate`
+2. `SITE_EXPERIENCE_ID=phase-1-baseline SITE_RELEASE_ID=phase-1-baseline-release npm run typecheck`
+3. `SITE_EXPERIENCE_ID=phase-1-baseline SITE_RELEASE_ID=phase-1-baseline-release npm run lint`
+4. `SITE_EXPERIENCE_ID=phase-1-baseline SITE_RELEASE_ID=phase-1-baseline-release npm run test`
+5. `SITE_EXPERIENCE_ID=phase-1-baseline SITE_RELEASE_ID=phase-1-baseline-release CI=1 npm run test:browser`
+6. `SITE_EXPERIENCE_ID=phase-1-baseline SITE_RELEASE_ID=phase-1-baseline-release npm run lighthouse`
+
+Repository base-path verification:
+
+1. `NEXT_PUBLIC_BASE_PATH=/education_design NEXT_PUBLIC_SITE_URL=https://kaw393939.github.io SITE_EXPERIENCE_ID=phase-1-baseline SITE_RELEASE_ID=phase-1-baseline-release CI=1 npm run test:browser`
+2. `NEXT_PUBLIC_BASE_PATH=/education_design NEXT_PUBLIC_SITE_URL=https://kaw393939.github.io SITE_EXPERIENCE_ID=phase-1-baseline SITE_RELEASE_ID=phase-1-baseline-release npm run lighthouse`
+
+If any step fails, do not treat the baseline as locked until the relevant implementation QA artifact records a clean rerun.
 
 ## Failure conditions
 

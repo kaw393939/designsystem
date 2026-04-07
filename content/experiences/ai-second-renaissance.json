@@ -1,0 +1,26 @@
+{
+  "schema": "experience/v1",
+  "id": "ai-second-renaissance",
+  "title": "Enterprise AI and the Second Renaissance",
+  "theme": "ai-second-renaissance",
+  "audience": "Students, early-career builders, and career-switchers who need a historical frame for AI as an institutional shift.",
+  "homepage": "experience-ai-second-renaissance",
+  "description": "File-backed Sprint 9 proof experience for the printing-press to AI analogy with selected illustration and deterministic chart rendering.",
+  "navigation": [
+    "experience-ai-second-renaissance"
+  ],
+  "unitRefs": [
+    "print-to-ai-knowledge-shift"
+  ],
+  "visualRefs": [
+    "renaissance-to-ai-hero",
+    "ai-labor-demand-chart"
+  ],
+  "moduleRefs": [
+    "print-to-ai-knowledge-shift"
+  ],
+  "siteMetadata": {
+    "title": "Enterprise AI and the Second Renaissance",
+    "description": "Selected-release proof for the AI second renaissance experience with file-backed illustration and chart assembly."
+  }
+}

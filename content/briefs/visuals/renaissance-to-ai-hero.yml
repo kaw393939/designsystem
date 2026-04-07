@@ -1,0 +1,24 @@
+schema: visual-brief/v1
+id: renaissance-to-ai-hero
+experienceId: ai-second-renaissance
+forUnit: print-to-ai-knowledge-shift
+kind: editorial-hero
+visualClass: illustration
+intent: Establish the printing-press to AI analogy as a serious historical and educational frame rather than generic spectacle.
+mustShow:
+  - a print shop atmosphere
+  - a contemporary AI workspace
+  - a visual bridge that implies institutional change across eras
+accessibilityNeeds:
+  - short alt text
+  - caption
+  - no text embedded in the image
+sourceRefs:
+  - sourceId: renesaince
+    sections:
+      - Why the printing press is the right analogy
+styleProfile: Renaissance palette meeting modern studio lighting without turning into fantasy art.
+provenanceRequirements:
+  - avoid identifiable living people
+  - avoid fabricated historical documents with readable fake text
+captionDirection: Frame the image as an analogy about the economics of knowledge, not as literal time travel.

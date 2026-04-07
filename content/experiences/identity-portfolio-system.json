@@ -1,0 +1,25 @@
+{
+  "schema": "experience/v1",
+  "id": "identity-portfolio-system",
+  "title": "Identity Portfolio System",
+  "theme": "identity-portfolio-system",
+  "audience": "Students and early-career builders who need a coherent public signal before they diversify their portfolio voice.",
+  "homepage": "experience-identity-portfolio",
+  "description": "File-backed Sprint 9 proof experience for portfolio identity, archetype coherence, and selected-release diagram rendering.",
+  "navigation": [
+    "experience-identity-portfolio"
+  ],
+  "unitRefs": [
+    "choose-primary-archetype"
+  ],
+  "visualRefs": [
+    "archetype-signal-map"
+  ],
+  "moduleRefs": [
+    "archetype-and-identity"
+  ],
+  "siteMetadata": {
+    "title": "Identity Portfolio System",
+    "description": "Selected-release proof for the identity portfolio experience with file-backed unit and diagram assembly."
+  }
+}

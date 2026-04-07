@@ -1,0 +1,23 @@
+schema: visual-brief/v1
+id: archetype-signal-map
+experienceId: identity-portfolio-system
+forUnit: choose-primary-archetype
+kind: system-map
+visualClass: diagram
+intent: Show how one dominant archetype organizes secondary traits into a coherent public signal system.
+mustShow:
+  - primary archetype at the center
+  - secondary traits orbiting as supporting signals
+  - audience interpretation moving from coherence to trust
+accessibilityNeeds:
+  - short alt text
+  - long description
+  - mobile-safe labels
+sourceRefs:
+  - sourceId: identity
+    sections:
+      - Choose One Primary Archetype
+      - Public Signal and Portfolio Coherence
+styleProfile: Clean editorial diagram with sparse labels and one dominant directional flow.
+captionDirection: Emphasize that one stable center makes secondary traits readable instead of noisy.
+longDescriptionDirection: Explain how the diagram moves from dominant signal to audience interpretation.

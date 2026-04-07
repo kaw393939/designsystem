@@ -1,0 +1,39 @@
+{
+  "schema": "release/v1",
+  "id": "phase-1-baseline-release",
+  "experience": "phase-1-baseline",
+  "createdAt": "2026-04-04T00:00:00Z",
+  "routeIds": [
+    "overview",
+    "process",
+    "status",
+    "tokens",
+    "layouts",
+    "primitives",
+    "recipes",
+    "recipes-feedback-loops",
+    "recipes-public-space-observation",
+    "examples-module",
+    "examples-lesson",
+    "examples-reading-map"
+  ],
+  "unitVersions": [
+    "concept-feedback-loops",
+    "assignment-field-observation",
+    "reading-map-design-ethics",
+    "recipe-concept-feedback-loops",
+    "recipe-lesson-public-space-observation"
+  ],
+  "visualVersions": [
+    "feedback-loop-map",
+    "kitchen-queue-diagram",
+    "observation-memo-sketch",
+    "field-note-break",
+    "feedback-loop-park-system",
+    "shade-bench-diagram",
+    "public-square-overview",
+    "public-square-route-diagram"
+  ],
+  "status": "published",
+  "notes": "Published phase-1 baseline release for the completed educational design system baseline."
+}

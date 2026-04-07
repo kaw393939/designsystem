@@ -13,6 +13,8 @@ jobs:
     env:
       NEXT_PUBLIC_BASE_PATH: ""
       NEXT_PUBLIC_SITE_URL: https://example.com
+      SITE_EXPERIENCE_ID: phase-1-baseline
+      SITE_RELEASE_ID: phase-1-baseline-release
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -32,6 +34,15 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Site schema validation
+        run: npm run site -- validate schema
+
+      - name: Site workflow validation
+        run: npm run site -- validate workflow
+
+      - name: Selected release validation
+        run: npm run site -- validate release
+
       - name: Unit tests
         run: npm run test
 
@@ -48,12 +59,16 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
           NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io
+          SITE_EXPERIENCE_ID: phase-1-baseline
+          SITE_RELEASE_ID: phase-1-baseline-release
         run: npm run test:browser
 
       - name: Lighthouse checks with repository base path
         env:
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
           NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io
+          SITE_EXPERIENCE_ID: phase-1-baseline
+          SITE_RELEASE_ID: phase-1-baseline-release
         run: npm run lighthouse
 
       - name: Upload Playwright report

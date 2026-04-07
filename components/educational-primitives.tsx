@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ElementType, ReactNode } from "react";
 
@@ -59,11 +60,17 @@ function ActionLinks({ actions, className = "" }: ActionLinksProps) {
   return (
     <div className={`flex flex-wrap gap-3 ${className}`.trim()}>
       {actions.map((action) => {
-        const actionClass = action.kind === "primary" ? "action-primary" : "action-secondary";
+        const actionClass =
+          action.kind === "primary" ? "action-primary" : "action-secondary";
 
         if (isInternalHref(action.href)) {
           return (
-            <Link key={`${action.label}-${action.href}`} href={action.href} prefetch={false} className={actionClass}>
+            <Link
+              key={`${action.label}-${action.href}`}
+              href={action.href}
+              prefetch={false}
+              className={actionClass}
+            >
               {action.label}
             </Link>
           );
@@ -98,9 +105,16 @@ function MetadataList({ items, className = "" }: MetadataListProps) {
   return (
     <dl className={`grid gap-4 sm:grid-cols-2 ${className}`.trim()}>
       {items.map((item) => (
-        <div key={`${item.label}-${item.value}`} className="rounded-[var(--radius-card)] border border-[var(--border-neutral)] bg-[rgba(255,255,255,0.56)] px-4 py-3">
-          <dt className="type-meta text-[var(--accent-strong)]">{item.label}</dt>
-          <dd className="mt-2 type-caption text-[var(--ink-body)]">{item.value}</dd>
+        <div
+          key={`${item.label}-${item.value}`}
+          className="rounded-(--radius-card) border border-(--border-neutral) bg-[rgba(255,255,255,0.56)] px-4 py-3"
+        >
+          <dt className="type-meta text-(--accent-strong)">
+            {item.label}
+          </dt>
+          <dd className="mt-2 type-caption text-(--ink-body)">
+            {item.value}
+          </dd>
         </div>
       ))}
     </dl>
@@ -117,18 +131,60 @@ function VisualPlaceholder({ visual, className = "" }: VisualPlaceholderProps) {
     <div
       role="img"
       aria-label={visual.alt ?? visual.caption ?? visual.visualRef}
-      className={`flex aspect-[16/10] items-end rounded-[var(--radius-card)] bg-[linear-gradient(135deg,_rgba(125,152,117,0.32),_rgba(239,229,215,0.86),_rgba(228,234,242,0.92))] p-4 ${className}`.trim()}
+      className={`flex aspect-16/10 items-end rounded-(--radius-card) bg-[linear-gradient(135deg,rgba(125,152,117,0.32),rgba(239,229,215,0.86),rgba(228,234,242,0.92))] p-4 ${className}`.trim()}
     >
-      <span className="type-caption rounded-full bg-[rgba(255,255,255,0.76)] px-3 py-1 text-[var(--ink-body)]">
+      <span className="type-caption rounded-full bg-[rgba(255,255,255,0.76)] px-3 py-1 text-(--ink-body)">
         {visual.caption ?? visual.visualRef}
       </span>
     </div>
   );
 }
 
+async function ResolvedVisualMedia({
+  visual,
+  className = "",
+}: VisualPlaceholderProps) {
+  const { resolveVisualReferenceToRenderable } = await import(
+    "@/lib/site-visual-resolver"
+  );
+  const resolvedVisual = resolveVisualReferenceToRenderable(visual.visualRef);
+
+  if (
+    !resolvedVisual?.primaryAsset?.dataUri ||
+    !resolvedVisual.primaryAsset.mediaType.startsWith("image/")
+  ) {
+    return <VisualPlaceholder visual={visual} className={className} />;
+  }
+
+  return (
+    <div
+      className={`overflow-hidden rounded-(--radius-card) bg-[linear-gradient(135deg,rgba(125,152,117,0.18),rgba(255,255,255,0.92),rgba(228,234,242,0.88))] p-3 ${className}`.trim()}
+    >
+      <Image
+        src={resolvedVisual.primaryAsset.dataUri}
+        alt={
+          resolvedVisual.alt ??
+          visual.alt ??
+          resolvedVisual.caption ??
+          visual.caption ??
+          visual.visualRef
+        }
+        width={960}
+        height={600}
+        unoptimized
+        className="aspect-16/10 h-full w-full rounded-[calc(var(--radius-card)-0.35rem)] bg-[rgba(255,255,255,0.84)] object-contain"
+      />
+    </div>
+  );
+}
+
 type HeadingLevel = 1 | 2 | 3;
 
-function renderHeading(level: HeadingLevel, className: string, children: ReactNode) {
+function renderHeading(
+  level: HeadingLevel,
+  className: string,
+  children: ReactNode,
+) {
   const Element = `h${level}` as ElementType;
   return <Element className={className}>{children}</Element>;
 }
@@ -158,16 +214,20 @@ export function LessonHero({
 }: LessonHeroProps) {
   const body = (
     <div className="space-y-5">
-      {eyebrow ? <p className="type-meta text-[var(--accent-strong)]">{eyebrow}</p> : null}
+      {eyebrow ? (
+        <p className="type-meta text-(--accent-strong)">{eyebrow}</p>
+      ) : null}
       {renderHeading(
         headingLevel,
-        "type-hero measure-hero text-balance text-[var(--ink-strong)]",
+        "type-hero measure-hero text-balance text-(--ink-strong)",
         title,
       )}
       <ProseBlock lead>
         <p>{dek}</p>
       </ProseBlock>
-      {progress ? <p className="type-meta text-[var(--signal)]">{progress}</p> : null}
+      {progress ? (
+        <p className="type-meta text-(--signal)">{progress}</p>
+      ) : null}
       <MetadataList items={metadata} />
       <ActionLinks actions={actions} />
     </div>
@@ -175,7 +235,11 @@ export function LessonHero({
 
   return (
     <EditorialBand tone="emphasis" paddingScale="hero" className={className}>
-      {visual ? <SplitLayout ratio="feature" primary={body} secondary={visual} /> : body}
+      {visual ? (
+        <SplitLayout ratio="feature" primary={body} secondary={visual} />
+      ) : (
+        body
+      )}
     </EditorialBand>
   );
 }
@@ -200,12 +264,24 @@ export function SectionBlock({
   className = "",
 }: SectionBlockProps) {
   return (
-    <section id={id} className={`space-y-6 ${className}`.trim()}>
+    <section id={id} className={`scroll-mt-32 space-y-6 ${className}`.trim()}>
       <TonePanel tone={tone} className="p-6 lg:p-8">
-        {eyebrow ? <p className="type-meta text-[var(--accent-strong)]">{eyebrow}</p> : null}
-        <h2 className="mt-3 type-section text-balance text-[var(--ink-strong)]">{title}</h2>
-        {summary ? <p className="mt-4 type-body text-[var(--ink-body)]">{summary}</p> : null}
-        <div className="mt-5 type-body text-[var(--ink-body)]">{children}</div>
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,19rem)_minmax(0,1fr)] lg:gap-8">
+          <div className="space-y-3">
+            {eyebrow ? (
+              <p className="type-meta text-(--accent-strong)">{eyebrow}</p>
+            ) : null}
+            <h2 className="type-section text-balance text-(--ink-strong)">
+              {title}
+            </h2>
+            {summary ? (
+              <p className="type-body text-(--ink-body)">{summary}</p>
+            ) : null}
+          </div>
+          <div className="border-t border-(--border-neutral) pt-5 type-body text-(--ink-body) lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+            {children}
+          </div>
+        </div>
       </TonePanel>
     </section>
   );
@@ -229,27 +305,50 @@ export function WhyItMatters({
   className = "",
 }: WhyItMattersProps) {
   return (
-    <CalloutBand label="Why it matters" title={title} tone="emphasis" className={className}>
+    <CalloutBand
+      label="Why it matters"
+      title={title}
+      tone="emphasis"
+      className={className}
+    >
       <div className="space-y-4">
         <p>{summary}</p>
         <p>{stakes}</p>
-        {audience ? <p className="type-caption text-[var(--ink-muted)]">{audience}</p> : null}
+        {audience ? (
+          <p className="type-caption text-(--ink-muted)">{audience}</p>
+        ) : null}
         <ActionLinks actions={links} />
       </div>
     </CalloutBand>
   );
 }
 
-function SectionIntro({ eyebrow, title, summary }: { eyebrow: string; title?: string; summary?: string }) {
+function SectionIntro({
+  eyebrow,
+  title,
+  summary,
+}: {
+  eyebrow: string;
+  title?: string;
+  summary?: string;
+}) {
   if (!title && !summary) {
     return null;
   }
 
   return (
     <div className="space-y-3">
-      <p className="type-meta text-[var(--accent-strong)]">{eyebrow}</p>
-      {title ? <h2 className="type-section text-balance text-[var(--ink-strong)]">{title}</h2> : null}
-      {summary ? <p className="type-body measure-reading text-[var(--ink-body)]">{summary}</p> : null}
+      <p className="type-meta text-(--accent-strong)">{eyebrow}</p>
+      {title ? (
+        <h2 className="type-section text-balance text-(--ink-strong)">
+          {title}
+        </h2>
+      ) : null}
+      {summary ? (
+        <p className="type-body measure-reading text-(--ink-body)">
+          {summary}
+        </p>
+      ) : null}
     </div>
   );
 }
@@ -262,21 +361,43 @@ type ConceptGridProps = {
   className?: string;
 };
 
-export function ConceptGrid({ title, summary, items, columns = 3, className = "" }: ConceptGridProps) {
-  const minCardWidth = columns >= 3 ? "15rem" : "18rem";
+export function ConceptGrid({
+  title,
+  summary,
+  items,
+  columns = 3,
+  className = "",
+}: ConceptGridProps) {
+  const minCardWidth = columns >= 3 ? "16.75rem" : "18rem";
 
   return (
     <section className={`space-y-6 ${className}`.trim()}>
-      <SectionIntro eyebrow="Concept grid" title={title} summary={summary} />
+      <SectionIntro eyebrow="Quick map" title={title} summary={summary} />
       <ContentGrid minCardWidth={minCardWidth}>
         {items.map((item) => (
-          <TonePanel key={item.title} tone="reading" className="card-shell p-6">
-            {item.tag ? <p className="type-meta text-[var(--accent-strong)]">{item.tag}</p> : null}
-            <h3 className="mt-3 type-concept text-[var(--ink-strong)]">{item.title}</h3>
-            <p className="mt-3 type-body text-[var(--ink-body)]">{item.summary}</p>
+          <TonePanel
+            key={item.title}
+            tone="reading"
+            className="card-shell p-5 lg:p-6"
+          >
+            {item.tag ? (
+              <p className="type-meta text-(--accent-strong)">
+                {item.tag}
+              </p>
+            ) : null}
+            <h3 className="mt-3 type-concept text-(--ink-strong)">
+              {item.title}
+            </h3>
+            <p className="mt-3 type-body text-(--ink-body)">
+              {item.summary}
+            </p>
             {item.href ? (
               <div className="mt-5">
-                <ActionLinks actions={[{ label: "Open", href: item.href, kind: "secondary" }]} />
+                <ActionLinks
+                  actions={[
+                    { label: "Open", href: item.href, kind: "secondary" },
+                  ]}
+                />
               </div>
             ) : null}
           </TonePanel>
@@ -292,16 +413,30 @@ type SummaryGridProps = {
   className?: string;
 };
 
-export function SummaryGrid({ title, items, className = "" }: SummaryGridProps) {
+export function SummaryGrid({
+  title,
+  items,
+  className = "",
+}: SummaryGridProps) {
   return (
     <section className={`space-y-6 ${className}`.trim()}>
-      <SectionIntro eyebrow="Summary" title={title} />
-      <ContentGrid minCardWidth="16rem">
+      <SectionIntro eyebrow="Keep this" title={title} />
+      <ContentGrid minCardWidth="18rem">
         {items.map((item) => (
-          <TonePanel key={item.title} tone="synthesis" className="card-shell p-6">
-            <h3 className="type-concept text-[var(--ink-strong)]">{item.title}</h3>
-            <p className="mt-3 type-body text-[var(--ink-body)]">{item.takeaway}</p>
-            {item.action ? <ActionLinks actions={[item.action]} className="mt-5" /> : null}
+          <TonePanel
+            key={item.title}
+            tone="synthesis"
+            className="card-shell p-5 lg:p-6"
+          >
+            <h3 className="type-concept text-(--ink-strong)">
+              {item.title}
+            </h3>
+            <p className="mt-3 type-body text-(--ink-body)">
+              {item.takeaway}
+            </p>
+            {item.action ? (
+              <ActionLinks actions={[item.action]} className="mt-5" />
+            ) : null}
           </TonePanel>
         ))}
       </ContentGrid>
@@ -331,12 +466,21 @@ export function ComparisonGrid({
       <SectionIntro eyebrow="Comparison" title={title} summary={legend} />
       <TonePanel tone="synthesis" className="overflow-x-auto p-4 lg:p-6">
         <table className="min-w-full border-separate border-spacing-0 text-left">
-          {caption ? <caption className="mb-4 text-left type-caption text-[var(--ink-muted)]">{caption}</caption> : null}
+          {caption ? (
+            <caption className="mb-4 text-left type-caption text-(--ink-muted)">
+              {caption}
+            </caption>
+          ) : null}
           <thead>
             <tr>
-              <th className="border-b border-[var(--border-neutral)] px-4 py-3 type-meta text-[var(--accent-strong)]">Focus</th>
+              <th className="border-b border-(--border-neutral) px-4 py-3 type-meta text-(--accent-strong)">
+                Focus
+              </th>
               {columns.map((column) => (
-                <th key={column.key} className="border-b border-[var(--border-neutral)] px-4 py-3 type-meta text-[var(--accent-strong)]">
+                <th
+                  key={column.key}
+                  className="border-b border-(--border-neutral) px-4 py-3 type-meta text-(--accent-strong)"
+                >
                   {column.label}
                 </th>
               ))}
@@ -345,11 +489,17 @@ export function ComparisonGrid({
           <tbody>
             {rows.map((row) => (
               <tr key={row.label}>
-                <th scope="row" className="border-b border-[var(--border-neutral)] px-4 py-4 align-top type-concept text-[var(--ink-strong)]">
+                <th
+                  scope="row"
+                  className="border-b border-(--border-neutral) px-4 py-4 align-top type-concept text-(--ink-strong)"
+                >
                   {row.label}
                 </th>
                 {columns.map((column, index) => (
-                  <td key={`${row.label}-${column.key}`} className="border-b border-[var(--border-neutral)] px-4 py-4 type-body text-[var(--ink-body)]">
+                  <td
+                    key={`${row.label}-${column.key}`}
+                    className="border-b border-(--border-neutral) px-4 py-4 type-body text-(--ink-body)"
+                  >
                     {row.cells[index] ?? ""}
                   </td>
                 ))}
@@ -375,21 +525,50 @@ type SequenceTimelineProps = {
   className?: string;
 };
 
-export function SequenceTimeline({ title, summary, mode, items, className = "" }: SequenceTimelineProps) {
+export function SequenceTimeline({
+  title,
+  summary,
+  mode,
+  items,
+  className = "",
+}: SequenceTimelineProps) {
   return (
     <section className={`space-y-6 ${className}`.trim()}>
-      <SectionIntro eyebrow={mode === "timeline" ? "Timeline" : "Process"} title={title} summary={summary} />
+      <SectionIntro
+        eyebrow={mode === "timeline" ? "How it shifts" : "Do this in order"}
+        title={title}
+        summary={summary}
+      />
       <ol className="space-y-4">
         {items.map((item) => (
           <li key={`${item.label}-${item.title}`} className="relative pl-6">
-            <span className="absolute left-0 top-4 h-full w-px bg-[var(--border-strong)]" aria-hidden="true" />
-            <TonePanel tone={mode === "timeline" ? "proof" : "next"} className="card-shell p-5">
+            <span
+              className="absolute left-0 top-4 h-full w-px bg-(--border-strong)"
+              aria-hidden="true"
+            />
+            <TonePanel
+              tone={mode === "timeline" ? "proof" : "next"}
+              className="card-shell p-5"
+            >
               <div className="flex flex-wrap items-center gap-3">
-                <span className="type-meta text-[var(--accent-strong)]">{item.label}</span>
-                <h3 className="type-concept text-[var(--ink-strong)]">{item.title}</h3>
+                <span className="type-meta text-(--accent-strong)">
+                  {item.label}
+                </span>
+                <h3 className="type-concept text-(--ink-strong)">
+                  {item.title}
+                </h3>
               </div>
-              <p className="mt-3 type-body text-[var(--ink-body)]">{item.summary}</p>
-              {item.href ? <ActionLinks actions={[{ label: "Open", href: item.href, kind: "secondary" }]} className="mt-5" /> : null}
+              <p className="mt-3 type-body text-(--ink-body)">
+                {item.summary}
+              </p>
+              {item.href ? (
+                <ActionLinks
+                  actions={[
+                    { label: "Open", href: item.href, kind: "secondary" },
+                  ]}
+                  className="mt-5"
+                />
+              ) : null}
             </TonePanel>
           </li>
         ))}
@@ -419,16 +598,29 @@ export function WorkedExample({
 }: WorkedExampleProps) {
   const primary = (
     <TonePanel tone="proof" className="p-6">
-      <p className="type-meta text-[var(--accent-strong)]">Worked example</p>
-      <h2 className="mt-3 type-section text-balance text-[var(--ink-strong)]">{title}</h2>
-      <p className="mt-4 type-body text-[var(--ink-body)]">{prompt}</p>
+      <p className="type-meta text-(--accent-strong)">Worked example</p>
+      <h2 className="mt-3 type-section text-balance text-(--ink-strong)">
+        {title}
+      </h2>
+      <p className="mt-4 type-body text-(--ink-body)">{prompt}</p>
       <ol className="mt-6 space-y-4">
         {steps.map((step, index) => (
-          <li key={`${step.title}-${index}`} className="rounded-[var(--radius-card)] border border-[var(--border-neutral)] bg-[rgba(255,255,255,0.5)] px-4 py-4">
-            <p className="type-meta text-[var(--accent-strong)]">Step {index + 1}</p>
-            <h3 className="mt-2 type-concept text-[var(--ink-strong)]">{step.title}</h3>
-            <p className="mt-3 type-body text-[var(--ink-body)]">{step.body}</p>
-            {step.outcome ? <p className="mt-3 type-caption text-[var(--ink-muted)]">{step.outcome}</p> : null}
+          <li
+            key={`${step.title}-${index}`}
+            className="rounded-(--radius-card) border border-(--border-neutral) bg-[rgba(255,255,255,0.5)] px-4 py-4"
+          >
+            <p className="type-meta text-(--accent-strong)">
+              Step {index + 1}
+            </p>
+            <h3 className="mt-2 type-concept text-(--ink-strong)">
+              {step.title}
+            </h3>
+            <p className="mt-3 type-body text-(--ink-body)">{step.body}</p>
+            {step.outcome ? (
+              <p className="mt-3 type-caption text-(--ink-muted)">
+                {step.outcome}
+              </p>
+            ) : null}
           </li>
         ))}
       </ol>
@@ -441,20 +633,31 @@ export function WorkedExample({
     <TonePanel tone="reflection" className="p-6">
       {result ? (
         <>
-          <p className="type-meta text-[var(--accent-strong)]">Result</p>
-          <p className="mt-3 type-body text-[var(--ink-body)]">{result}</p>
+          <p className="type-meta text-(--accent-strong)">Result</p>
+          <p className="mt-3 type-body text-(--ink-body)">{result}</p>
         </>
       ) : null}
       {reflection ? (
         <>
-          <p className={`type-meta text-[var(--accent-strong)] ${result ? "mt-6" : ""}`.trim()}>Reflection</p>
-          <p className="mt-3 type-body text-[var(--ink-body)]">{reflection}</p>
+          <p
+            className={`type-meta text-(--accent-strong) ${result ? "mt-6" : ""}`.trim()}
+          >
+            Reflection
+          </p>
+          <p className="mt-3 type-body text-(--ink-body)">{reflection}</p>
         </>
       ) : null}
     </TonePanel>
   ) : undefined;
 
-  return <SplitLayout ratio="feature" primary={primary} secondary={secondaryContent} className={className} />;
+  return (
+    <SplitLayout
+      ratio="feature"
+      primary={primary}
+      secondary={secondaryContent}
+      className={className}
+    />
+  );
 }
 
 type EditorialAsideProps = {
@@ -465,19 +668,33 @@ type EditorialAsideProps = {
   className?: string;
 };
 
-export function EditorialAside({ title, children, tone = "reflection", icon, className = "" }: EditorialAsideProps) {
+export function EditorialAside({
+  title,
+  children,
+  tone = "reflection",
+  icon,
+  className = "",
+}: EditorialAsideProps) {
   return (
-    <aside className={className}>
+    <div className={className}>
       <TonePanel tone={tone} className="p-6">
         <div className="flex items-start gap-4">
-          {icon ? <div className="type-meta text-[var(--accent-strong)]">{icon}</div> : null}
+          {icon ? (
+            <div className="type-meta text-(--accent-strong)">{icon}</div>
+          ) : null}
           <div className="min-w-0">
-            {title ? <h2 className="type-concept text-[var(--ink-strong)]">{title}</h2> : null}
-            <div className={`type-body text-[var(--ink-body)] ${title ? "mt-3" : ""}`.trim()}>{children}</div>
+            {title ? (
+              <h2 className="type-concept text-(--ink-strong)">{title}</h2>
+            ) : null}
+            <div
+              className={`type-body text-(--ink-body) ${title ? "mt-3" : ""}`.trim()}
+            >
+              {children}
+            </div>
           </div>
         </div>
       </TonePanel>
-    </aside>
+    </div>
   );
 }
 
@@ -488,13 +705,26 @@ type PullInsightProps = {
   className?: string;
 };
 
-export function PullInsight({ quote, attribution, context, className = "" }: PullInsightProps) {
+export function PullInsight({
+  quote,
+  attribution,
+  context,
+  className = "",
+}: PullInsightProps) {
   return (
     <TonePanel tone="synthesis" className={`p-6 lg:p-8 ${className}`.trim()}>
       <blockquote className="space-y-4">
-        <p className="type-section text-balance text-[var(--ink-strong)]">“{quote}”</p>
-        {attribution ? <footer className="type-meta text-[var(--accent-strong)]">{attribution}</footer> : null}
-        {context ? <p className="type-caption text-[var(--ink-body)]">{context}</p> : null}
+        <p className="type-section text-balance text-(--ink-strong)">
+          “{quote}”
+        </p>
+        {attribution ? (
+          <footer className="type-meta text-(--accent-strong)">
+            {attribution}
+          </footer>
+        ) : null}
+        {context ? (
+          <p className="type-caption text-(--ink-body)">{context}</p>
+        ) : null}
       </blockquote>
     </TonePanel>
   );
@@ -508,17 +738,35 @@ type VisualBreakProps = {
   className?: string;
 };
 
-export function VisualBreak({ title, body, visual, tone = "synthesis", className = "" }: VisualBreakProps) {
+export function VisualBreak({
+  title,
+  body,
+  visual,
+  tone = "synthesis",
+  className = "",
+}: VisualBreakProps) {
   const content = (
     <div className="space-y-4">
-      {title ? <h2 className="type-section text-balance text-[var(--ink-strong)]">{title}</h2> : null}
-      {body ? <p className="type-body measure-reading text-[var(--ink-body)]">{body}</p> : null}
+      {title ? (
+        <h2 className="type-section text-balance text-(--ink-strong)">
+          {title}
+        </h2>
+      ) : null}
+      {body ? (
+        <p className="type-body measure-reading text-(--ink-body)">
+          {body}
+        </p>
+      ) : null}
     </div>
   );
 
   return (
     <EditorialBand tone={tone} paddingScale="hero" className={className}>
-      {visual ? <SplitLayout ratio="feature" primary={content} secondary={visual} /> : content}
+      {visual ? (
+        <SplitLayout ratio="feature" primary={content} secondary={visual} />
+      ) : (
+        content
+      )}
     </EditorialBand>
   );
 }
@@ -541,7 +789,12 @@ export function ReflectionPrompt({
   className = "",
 }: ReflectionPromptProps) {
   return (
-    <CalloutBand label={mode} title={title} tone="reflection" className={className}>
+    <CalloutBand
+      label={mode}
+      title={title}
+      tone="reflection"
+      className={className}
+    >
       <div className="space-y-4">
         <p>{prompt}</p>
         {questions.length ? (
@@ -551,7 +804,11 @@ export function ReflectionPrompt({
             ))}
           </ul>
         ) : null}
-        {timeEstimate ? <p className="type-caption text-[var(--ink-muted)]">Suggested time: {timeEstimate}</p> : null}
+        {timeEstimate ? (
+          <p className="type-caption text-(--ink-muted)">
+            Suggested time: {timeEstimate}
+          </p>
+        ) : null}
       </div>
     </CalloutBand>
   );
@@ -574,13 +831,22 @@ export function NextStepBlock({
   context,
   className = "",
 }: NextStepBlockProps) {
-  const actions = secondaryAction ? [primaryAction, secondaryAction] : [primaryAction];
+  const actions = secondaryAction
+    ? [primaryAction, secondaryAction]
+    : [primaryAction];
 
   return (
-    <CalloutBand label="Next step" title={title} tone="next" className={className}>
+    <CalloutBand
+      label="Next step"
+      title={title}
+      tone="next"
+      className={className}
+    >
       <div className="space-y-4">
         {summary ? <p>{summary}</p> : null}
-        {context ? <p className="type-caption text-[var(--ink-muted)]">{context}</p> : null}
+        {context ? (
+          <p className="type-caption text-(--ink-muted)">{context}</p>
+        ) : null}
         <ActionLinks actions={actions} />
       </div>
     </CalloutBand>
@@ -594,18 +860,40 @@ type SourceAnchorGridProps = {
   className?: string;
 };
 
-export function SourceAnchorGrid({ title, summary, items, className = "" }: SourceAnchorGridProps) {
+export function SourceAnchorGrid({
+  title,
+  summary,
+  items,
+  className = "",
+}: SourceAnchorGridProps) {
   return (
     <section className={`space-y-6 ${className}`.trim()}>
       <SectionIntro eyebrow="Sources" title={title} summary={summary} />
       <ContentGrid minCardWidth="17rem">
         {items.map((item) => (
-          <TonePanel key={`${item.title}-${item.href}`} tone="proof" className="card-shell p-6">
-            <p className="type-meta text-[var(--accent-strong)]">{item.type}</p>
-            <h3 className="mt-3 type-concept text-[var(--ink-strong)]">{item.title}</h3>
-            <p className="mt-3 type-body text-[var(--ink-body)]">{item.description}</p>
-            {item.note ? <p className="mt-3 type-caption text-[var(--ink-muted)]">{item.note}</p> : null}
-            <ActionLinks actions={[{ label: "Open source", href: item.href, kind: "secondary" }]} className="mt-5" />
+          <TonePanel
+            key={`${item.title}-${item.href}`}
+            tone="proof"
+            className="card-shell p-6"
+          >
+            <p className="type-meta text-(--accent-strong)">{item.type}</p>
+            <h3 className="mt-3 type-concept text-(--ink-strong)">
+              {item.title}
+            </h3>
+            <p className="mt-3 type-body text-(--ink-body)">
+              {item.description}
+            </p>
+            {item.note ? (
+              <p className="mt-3 type-caption text-(--ink-muted)">
+                {item.note}
+              </p>
+            ) : null}
+            <ActionLinks
+              actions={[
+                { label: "Open source", href: item.href, kind: "secondary" },
+              ]}
+              className="mt-5"
+            />
           </TonePanel>
         ))}
       </ContentGrid>
@@ -620,31 +908,64 @@ type ReadingMapGridProps = {
   className?: string;
 };
 
-export function ReadingMapGrid({ title, progression, clusters, className = "" }: ReadingMapGridProps) {
+export function ReadingMapGrid({
+  title,
+  progression,
+  clusters,
+  className = "",
+}: ReadingMapGridProps) {
   return (
     <section className={`space-y-6 ${className}`.trim()}>
-      <SectionIntro eyebrow="Reading map" title={title} summary={progression} />
-      <ContentGrid minCardWidth="18rem">
+      <SectionIntro eyebrow="Open this next" title={title} summary={progression} />
+      <ContentGrid minCardWidth="19rem">
         {clusters.map((cluster) => (
-          <TonePanel key={cluster.title} tone="reading" className="card-shell p-6">
-            <h3 className="type-concept text-[var(--ink-strong)]">{cluster.title}</h3>
-            <p className="mt-3 type-body text-[var(--ink-body)]">{cluster.summary}</p>
+          <TonePanel
+            key={cluster.title}
+            tone="reading"
+            className="card-shell p-5 lg:p-6"
+          >
+            <h3 className="type-concept text-(--ink-strong)">
+              {cluster.title}
+            </h3>
+            <p className="mt-3 type-body text-(--ink-body)">
+              {cluster.summary}
+            </p>
             <ul className="mt-4 space-y-3">
               {cluster.links.map((link) => (
-                <li key={`${cluster.title}-${link.label}`} className="rounded-[var(--radius-card)] border border-[var(--border-neutral)] bg-[rgba(255,255,255,0.5)] px-4 py-3">
+                <li
+                  key={`${cluster.title}-${link.label}`}
+                  className="rounded-(--radius-card) border border-(--border-neutral) bg-[rgba(255,255,255,0.5)] px-4 py-3"
+                >
                   <div className="flex flex-wrap items-center gap-2">
-                    {link.type ? <span className="type-meta text-[var(--accent-strong)]">{link.type}</span> : null}
+                    {link.type ? (
+                      <span className="type-meta text-(--accent-strong)">
+                        {link.type}
+                      </span>
+                    ) : null}
                     {isInternalHref(link.href) ? (
-                      <Link href={link.href} prefetch={false} className="type-caption font-semibold text-[var(--ink-strong)] underline-offset-4 hover:underline">
+                      <Link
+                        href={link.href}
+                        prefetch={false}
+                        className="type-caption font-semibold text-(--ink-strong) underline-offset-4 hover:underline"
+                      >
                         {link.label}
                       </Link>
                     ) : (
-                      <a href={link.href} className="type-caption font-semibold text-[var(--ink-strong)] underline-offset-4 hover:underline" target="_blank" rel="noreferrer">
+                      <a
+                        href={link.href}
+                        className="type-caption font-semibold text-(--ink-strong) underline-offset-4 hover:underline"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         {link.label}
                       </a>
                     )}
                   </div>
-                  {link.note ? <p className="mt-2 type-annotation text-[var(--ink-body)]">{link.note}</p> : null}
+                  {link.note ? (
+                    <p className="mt-2 type-annotation text-(--ink-body)">
+                      {link.note}
+                    </p>
+                  ) : null}
                 </li>
               ))}
             </ul>
@@ -662,17 +983,34 @@ type GlossaryBlockProps = {
   className?: string;
 };
 
-export function GlossaryBlock({ title, terms, layout = "list", className = "" }: GlossaryBlockProps) {
+export function GlossaryBlock({
+  title,
+  terms,
+  layout = "list",
+  className = "",
+}: GlossaryBlockProps) {
   return (
     <section className={`space-y-6 ${className}`.trim()}>
       <SectionIntro eyebrow="Glossary" title={title} />
       {layout === "grid" ? (
         <ContentGrid minCardWidth="15rem">
           {terms.map((term) => (
-            <TonePanel key={term.term} tone="reading" className="card-shell p-5">
-              <h3 className="type-concept text-[var(--ink-strong)]">{term.term}</h3>
-              <p className="mt-3 type-body text-[var(--ink-body)]">{term.definition}</p>
-              {term.note ? <p className="mt-3 type-caption text-[var(--ink-muted)]">{term.note}</p> : null}
+            <TonePanel
+              key={term.term}
+              tone="reading"
+              className="card-shell p-5"
+            >
+                <h3 className="type-concept text-(--ink-strong)">
+                {term.term}
+              </h3>
+                <p className="mt-3 type-body text-(--ink-body)">
+                {term.definition}
+              </p>
+              {term.note ? (
+                  <p className="mt-3 type-caption text-(--ink-muted)">
+                  {term.note}
+                </p>
+              ) : null}
             </TonePanel>
           ))}
         </ContentGrid>
@@ -681,9 +1019,17 @@ export function GlossaryBlock({ title, terms, layout = "list", className = "" }:
           <dl className="space-y-5">
             {terms.map((term) => (
               <div key={term.term}>
-                <dt className="type-concept text-[var(--ink-strong)]">{term.term}</dt>
-                <dd className="mt-2 type-body text-[var(--ink-body)]">{term.definition}</dd>
-                {term.note ? <p className="mt-2 type-caption text-[var(--ink-muted)]">{term.note}</p> : null}
+                <dt className="type-concept text-(--ink-strong)">
+                  {term.term}
+                </dt>
+                <dd className="mt-2 type-body text-(--ink-body)">
+                  {term.definition}
+                </dd>
+                {term.note ? (
+                  <p className="mt-2 type-caption text-(--ink-muted)">
+                    {term.note}
+                  </p>
+                ) : null}
               </div>
             ))}
           </dl>
@@ -694,7 +1040,7 @@ export function GlossaryBlock({ title, terms, layout = "list", className = "" }:
 }
 
 function buildVisualMedia(visual: VisualReferenceSpec) {
-  return <VisualPlaceholder visual={visual} />;
+  return <ResolvedVisualMedia visual={visual} />;
 }
 
 type UnitRendererProps = {
@@ -703,11 +1049,25 @@ type UnitRendererProps = {
   className?: string;
 };
 
-export function UnitRenderer({ unit, headingLevel = 1, className = "" }: UnitRendererProps) {
-  return <div className={`space-y-8 ${className}`.trim()}>{unit.blocks.map((block, index) => renderUnitBlock(block, headingLevel, index))}</div>;
+export function UnitRenderer({
+  unit,
+  headingLevel = 1,
+  className = "",
+}: UnitRendererProps) {
+  return (
+    <div className={`space-y-8 ${className}`.trim()}>
+      {unit.blocks.map((block, index) =>
+        renderUnitBlock(block, headingLevel, index),
+      )}
+    </div>
+  );
 }
 
-function renderUnitBlock(block: UnitBlockSpec, headingLevel: HeadingLevel, index: number) {
+function renderUnitBlock(
+  block: UnitBlockSpec,
+  headingLevel: HeadingLevel,
+  index: number,
+) {
   const key = block.id ?? `${block.type}-${index}`;
 
   switch (block.type) {
@@ -721,7 +1081,9 @@ function renderUnitBlock(block: UnitBlockSpec, headingLevel: HeadingLevel, index
           metadata={block.metadata}
           progress={block.progress}
           actions={block.actions}
-          visual={block.visualRef ? buildVisualMedia(block.visualRef) : undefined}
+          visual={
+            block.visualRef ? buildVisualMedia(block.visualRef) : undefined
+          }
           headingLevel={headingLevel}
         />
       );
@@ -750,7 +1112,15 @@ function renderUnitBlock(block: UnitBlockSpec, headingLevel: HeadingLevel, index
         </SectionBlock>
       );
     case "conceptGrid":
-      return <ConceptGrid key={key} title={block.title} summary={block.summary} items={block.items} columns={block.columns} />;
+      return (
+        <ConceptGrid
+          key={key}
+          title={block.title}
+          summary={block.summary}
+          items={block.items}
+          columns={block.columns}
+        />
+      );
     case "summaryGrid":
       return <SummaryGrid key={key} title={block.title} items={block.items} />;
     case "comparisonGrid":
@@ -765,7 +1135,15 @@ function renderUnitBlock(block: UnitBlockSpec, headingLevel: HeadingLevel, index
         />
       );
     case "sequenceTimeline":
-      return <SequenceTimeline key={key} title={block.title} summary={block.summary} mode={block.mode} items={block.items} />;
+      return (
+        <SequenceTimeline
+          key={key}
+          title={block.title}
+          summary={block.summary}
+          mode={block.mode}
+          items={block.items}
+        />
+      );
     case "workedExample":
       return (
         <WorkedExample
@@ -784,7 +1162,14 @@ function renderUnitBlock(block: UnitBlockSpec, headingLevel: HeadingLevel, index
                 caption={block.visualRef.caption}
                 credit={block.visualRef.credit}
                 annotation={
-                  block.reflection ? <p>{block.reflection}</p> : <p>The renderer can derive media placement from a visual reference without storing React nodes.</p>
+                  block.reflection ? (
+                    <p>{block.reflection}</p>
+                  ) : (
+                    <p>
+                      The renderer can derive media placement from a visual
+                      reference without storing React nodes.
+                    </p>
+                  )
                 }
               />
             ) : undefined
@@ -793,12 +1178,24 @@ function renderUnitBlock(block: UnitBlockSpec, headingLevel: HeadingLevel, index
       );
     case "editorialAside":
       return (
-        <EditorialAside key={key} title={block.title} tone={block.tone} icon={block.icon}>
+        <EditorialAside
+          key={key}
+          title={block.title}
+          tone={block.tone}
+          icon={block.icon}
+        >
           <TextStack content={block.body} />
         </EditorialAside>
       );
     case "pullInsight":
-      return <PullInsight key={key} quote={block.quote} attribution={block.attribution} context={block.context} />;
+      return (
+        <PullInsight
+          key={key}
+          quote={block.quote}
+          attribution={block.attribution}
+          context={block.context}
+        />
+      );
     case "visualBreak":
       return (
         <VisualBreak
@@ -806,7 +1203,9 @@ function renderUnitBlock(block: UnitBlockSpec, headingLevel: HeadingLevel, index
           title={block.title}
           body={block.body}
           tone={block.tone}
-          visual={block.visualRef ? buildVisualMedia(block.visualRef) : undefined}
+          visual={
+            block.visualRef ? buildVisualMedia(block.visualRef) : undefined
+          }
         />
       );
     case "reflectionPrompt":
@@ -832,10 +1231,31 @@ function renderUnitBlock(block: UnitBlockSpec, headingLevel: HeadingLevel, index
         />
       );
     case "sourceAnchorGrid":
-      return <SourceAnchorGrid key={key} title={block.title} summary={block.summary} items={block.items} />;
+      return (
+        <SourceAnchorGrid
+          key={key}
+          title={block.title}
+          summary={block.summary}
+          items={block.items}
+        />
+      );
     case "glossary":
-      return <GlossaryBlock key={key} title={block.title} terms={block.terms} layout={block.layout} />;
+      return (
+        <GlossaryBlock
+          key={key}
+          title={block.title}
+          terms={block.terms}
+          layout={block.layout}
+        />
+      );
     case "readingMapGrid":
-      return <ReadingMapGrid key={key} title={block.title} progression={block.progression} clusters={block.clusters} />;
+      return (
+        <ReadingMapGrid
+          key={key}
+          title={block.title}
+          progression={block.progression}
+          clusters={block.clusters}
+        />
+      );
   }
 }

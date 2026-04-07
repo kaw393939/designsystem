@@ -13,8 +13,10 @@ export function ContentGrid({
 }: ContentGridProps) {
   return (
     <div
-      className={`grid gap-4 ${className}`.trim()}
-      style={{ gridTemplateColumns: `repeat(auto-fit, minmax(${minCardWidth}, 1fr))` }}
+      className={`grid gap-5 lg:gap-6 ${className}`.trim()}
+      style={{
+        gridTemplateColumns: `repeat(auto-fit, minmax(${minCardWidth}, 1fr))`,
+      }}
     >
       {children}
     </div>

@@ -1,0 +1,25 @@
+schema: unit-brief/v1
+id: is117-path-entry
+experienceId: bseai-program
+moduleId: is117-entry
+recipe: learning-homepage
+title: Start IS117 by Defining the Site Before You Build It
+dominantJob: Give IS117 students a clear start-here path for the term and connect the strategy pack to later build work.
+learningObjective: Explain the semester product, the strategy pack, and the three-phase assignment ladder.
+curatorialJob: Keep the wrapper page thin, specific, and immediately usable in the first two weeks.
+targetAudience:
+  - current-students
+sourceRefs:
+  - sourceId: bseai
+  - sourceId: identity
+misconceptions:
+  - Coding should start before audience, signal, and proof are defined.
+  - Background reading is the main work of the first two weeks.
+requiredEvidence:
+  - three-phase assignment ladder
+  - strategy-pack crosswalk
+  - week-1 and week-2 required outputs
+requiredVisuals:
+  - archetype-signal-map
+assessmentIdea: Complete a start-here checklist for the first two weeks of the term.
+nextStepIntent: Move into the presence audit, signal brief, and archetype decision.

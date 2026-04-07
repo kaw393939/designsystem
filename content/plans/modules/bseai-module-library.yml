@@ -1,0 +1,17 @@
+schema: module-brief/v1
+id: bseai-module-library
+experienceId: bseai-program
+title: BSEAI Module Library
+job: Show the reusable module system clearly so students and instructors can see what each module teaches and where it belongs.
+sequencePosition: 90
+learningOutcomes:
+  - Explain the difference between public routes, canonical modules, and course wrappers.
+  - Identify which module family supports a given signal, proof, build, or deployment problem.
+curatorialQuestions:
+  - What belongs in the durable module library rather than in a single course week?
+  - How should the library feel navigable instead of encyclopedic?
+candidateUnits:
+  - bseai-module-library
+sourceRefs:
+  - bseai
+  - identity

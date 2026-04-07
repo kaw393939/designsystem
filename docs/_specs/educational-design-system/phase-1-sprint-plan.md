@@ -6,19 +6,21 @@ This document breaks phase 1 into bounded implementation sprints with clear outp
 
 The guiding rule is simple: each sprint should leave behind a durable artifact, verifiable behavior, and no ambiguity about what was actually completed.
 
+Status note: all phase-1 sprint objectives are complete and the baseline release `phase-1-baseline-release` is now published. Keep this document as the authoritative record of phase-1 scope until a new phase plan supersedes it.
+
 This sprint plan assumes the current active specs in `docs/_specs/educational-design-system/` are the governing artifacts.
 
 ## Phase-1 sprint sequence
 
-| Sprint | Title | Primary outcome | Depends on |
-| --- | --- | --- | --- |
-| 0 | Repo analysis and abstraction map | Spec set, content model, and abstraction decisions | None |
-| 1 | Theme tokens and visual baseline | Semantic design token system | 0 |
-| 2 | Layout primitives and shell hardening | Reusable layout system | 1 |
-| 3 | Educational content primitives | First-class pedagogical components and render contracts | 2 |
-| 4 | Page recipes and exemplar pages | Working recipe proof from unit configs | 3 |
-| 5 | Static export and Pages hardening | Deployment-safe application and release baseline | 4 |
-| 6 | QA, accessibility, and proof | Documented quality gate and workflow baseline | 5 |
+| Sprint | Title                                 | Primary outcome                                         | Depends on |
+| ------ | ------------------------------------- | ------------------------------------------------------- | ---------- |
+| 0      | Repo analysis and abstraction map     | Spec set, content model, and abstraction decisions      | None       |
+| 1      | Theme tokens and visual baseline      | Semantic design token system                            | 0          |
+| 2      | Layout primitives and shell hardening | Reusable layout system                                  | 1          |
+| 3      | Educational content primitives        | First-class pedagogical components and render contracts | 2          |
+| 4      | Page recipes and exemplar pages       | Working recipe proof from unit configs                  | 3          |
+| 5      | Static export and Pages hardening     | Deployment-safe application and release baseline        | 4          |
+| 6      | QA, accessibility, and proof          | Documented quality gate and workflow baseline           | 5          |
 
 ## Cross-sprint rules
 
@@ -85,15 +87,15 @@ This sprint plan assumes the current active specs in `docs/_specs/educational-de
 
 ## Test matrix expectations by sprint
 
-| Sprint | Positive tests | Negative tests | Edge cases | Accessibility | Export checks |
-| --- | --- | --- | --- | --- | --- |
-| 0 | Classification completeness | Missing family detection | Ambiguous component mapping and schema overlap | N/A | N/A |
-| 1 | Token application across page types | Missing token fallback | High-contrast and reduced-motion behavior | Contrast audit | Build after token refactor |
-| 2 | Responsive shells and grids | Broken stack behavior | Long headings, dense cards, empty side content | Landmark and heading checks | Exported layout sanity |
-| 3 | Component rendering from unit contracts | Missing prop and empty-state behavior | Very short and very long content | Semantic structure and keyboard focus | Static rendering sanity |
-| 4 | Recipe composition from approved units | Wrong section order or missing required section | Sparse and dense content variants | Page-level heading flow | Route and navigation validation |
-| 5 | Base-path builds and release-manifest assembly | Broken asset and link paths | Nested routes and remote media | Metadata checks | Full export verification |
-| 6 | End-to-end baseline confidence | Regression detection and workflow drift | CI-environment differences | Audit follow-up | Deploy artifact validation |
+| Sprint | Positive tests                                 | Negative tests                                  | Edge cases                                     | Accessibility                         | Export checks                   |
+| ------ | ---------------------------------------------- | ----------------------------------------------- | ---------------------------------------------- | ------------------------------------- | ------------------------------- |
+| 0      | Classification completeness                    | Missing family detection                        | Ambiguous component mapping and schema overlap | N/A                                   | N/A                             |
+| 1      | Token application across page types            | Missing token fallback                          | High-contrast and reduced-motion behavior      | Contrast audit                        | Build after token refactor      |
+| 2      | Responsive shells and grids                    | Broken stack behavior                           | Long headings, dense cards, empty side content | Landmark and heading checks           | Exported layout sanity          |
+| 3      | Component rendering from unit contracts        | Missing prop and empty-state behavior           | Very short and very long content               | Semantic structure and keyboard focus | Static rendering sanity         |
+| 4      | Recipe composition from approved units         | Wrong section order or missing required section | Sparse and dense content variants              | Page-level heading flow               | Route and navigation validation |
+| 5      | Base-path builds and release-manifest assembly | Broken asset and link paths                     | Nested routes and remote media                 | Metadata checks                       | Full export verification        |
+| 6      | End-to-end baseline confidence                 | Regression detection and workflow drift         | CI-environment differences                     | Audit follow-up                       | Deploy artifact validation      |
 
 ## Definition of done for phase 1
 
@@ -106,3 +108,5 @@ Phase 1 is done when:
 5. Approved units and visuals can be assembled into a reproducible release.
 6. The project builds and deploys statically.
 7. QA gates are documented and runnable.
+
+Current status: satisfied by the published `phase-1-baseline-release` baseline. The next round of work should start by creating a new phase plan rather than extending this completed sprint set in place.

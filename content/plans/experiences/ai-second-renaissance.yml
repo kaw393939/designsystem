@@ -1,0 +1,22 @@
+schema: experience-north-star/v1
+id: ai-second-renaissance
+title: Enterprise AI and the Second Renaissance
+audience:
+  - students
+  - early-career builders
+  - career-switchers
+learnerTransformation: Learners leave able to explain AI as an institutional shift, not just a tool trend, and connect that shift to their own practice.
+curatorialThesis: The printing press and AI both redistribute who can produce symbolic work, but institutions still decide how that new power becomes legitimate.
+siteMode: interpretation-site
+sourceRefs:
+  - renesaince
+primaryRecipes:
+  - learning-homepage
+  - timeline-story
+  - concept-explainer
+  - reading-map
+requiredVisualClasses:
+  - illustration
+  - diagram
+  - chart
+description: Checked-in Sprint 9 planning direction for a historically grounded AI-and-education interpretation site.

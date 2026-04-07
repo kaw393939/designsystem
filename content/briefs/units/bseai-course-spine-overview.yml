@@ -1,0 +1,26 @@
+schema: unit-brief/v1
+id: bseai-course-spine-overview
+experienceId: bseai-program
+moduleId: bseai-course-spine
+recipe: module-overview
+title: The Eight-Course Spine as an Artifact Ladder
+dominantJob: Show how the degree sequence builds from first public legibility into deeper systems, orchestration, and deployment work.
+learningObjective: Explain what each spine course contributes and how artifacts accumulate into visible proof over time.
+curatorialJob: Treat the spine as a sequence of roles and outputs rather than as a registrar-only table.
+targetAudience:
+  - prospective-students
+  - current-students
+  - faculty-reviewers
+sourceRefs:
+  - sourceId: bseai
+misconceptions:
+  - The courses are isolated and only loosely related.
+  - The eighth slot is already a fixed public promise.
+requiredEvidence:
+  - eight-course sequence with role logic
+  - signature artifact per slot
+  - explicit placeholder note for selected advanced depth at slot 8
+requiredVisuals:
+  - bseai-course-artifact-ladder
+assessmentIdea: Describe how one chosen course changes the visible portfolio or proof surface.
+nextStepIntent: Move into studio or IS117 entry as the first real artifact path.

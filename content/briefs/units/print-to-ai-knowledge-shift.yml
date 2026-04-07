@@ -1,0 +1,25 @@
+schema: unit-brief/v1
+id: print-to-ai-knowledge-shift
+experienceId: ai-second-renaissance
+moduleId: print-to-ai-knowledge-shift
+recipe: timeline-story
+title: Why the Printing Press and AI Reshape Institutions in Similar Ways
+dominantJob: Help learners compare two knowledge revolutions without collapsing them into a superficial analogy.
+learningObjective: Explain how lowering the cost of copying or producing symbolic work redistributes authority, access, and opportunity.
+curatorialJob: Stage the analogy as a sequence of institutional consequences rather than a gadget timeline.
+targetAudience:
+  - students
+  - early-career builders
+sourceRefs:
+  - sourceId: renesaince
+    sections:
+      - Why the printing press is the right analogy
+      - The Renaissance and Reformation as institutional power redistribution
+requiredEvidence:
+  - knowledge revolutions timeline
+  - historical parallels table
+requiredVisuals:
+  - renaissance-to-ai-hero
+  - ai-labor-demand-chart
+assessmentIdea: Compare one print-era institution and one AI-era institution in a short explanatory note.
+nextStepIntent: Move from the historical analogy into labor-market and educational design implications.

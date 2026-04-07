@@ -1,0 +1,18 @@
+schema: module-brief/v1
+id: identity-and-signal
+experienceId: bseai-program
+title: Identity and Signal
+job: Help learners define audience, need, promise, and dominant signal before they start styling or building.
+sequencePosition: 6
+learningOutcomes:
+  - Define an audience-facing promise and signal clearly.
+  - Distinguish a coherent first-read signal from vague self-description.
+curatorialQuestions:
+  - What should a stranger understand about this person or artifact on first contact?
+  - Which signal decisions stabilize the rest of the build?
+candidateUnits:
+  - bseai-studio-introduction
+  - choose-primary-archetype
+sourceRefs:
+  - identity
+  - bseai

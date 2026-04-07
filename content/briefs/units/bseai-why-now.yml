@@ -1,0 +1,31 @@
+schema: unit-brief/v1
+id: bseai-why-now
+experienceId: bseai-program
+moduleId: bseai-why-now
+recipe: concept-explainer
+title: Why This Degree Exists Now
+dominantJob: Connect the AI institutional shift to the degree's public promise and student urgency.
+learningObjective: Explain why cheaper symbolic production raises the value of judgment, proof, communication, and responsible deployment.
+curatorialJob: Bridge the broader second-renaissance analogy into the degree-specific case without repeating the full timeline page.
+targetAudience:
+  - prospective-students
+  - current-students
+  - faculty-reviewers
+sourceRefs:
+  - sourceId: renesaince
+    sections:
+      - Why the printing press is the right analogy
+      - The Renaissance and Reformation as institutional power redistribution
+  - sourceId: bseai
+misconceptions:
+  - AI education is mainly prompt engineering or tool familiarity.
+  - Historical framing is decorative rather than operational.
+requiredEvidence:
+  - print-to-AI institutional comparison
+  - labor-market signal
+  - degree-response ladder from formation to deployment
+requiredVisuals:
+  - renaissance-to-ai-hero
+  - ai-labor-demand-chart
+assessmentIdea: Write a short explanation of why this degree needs public practice and portfolio work.
+nextStepIntent: Move from urgency into the formation model and the course spine.

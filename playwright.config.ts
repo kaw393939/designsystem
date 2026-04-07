@@ -2,7 +2,10 @@ import { defineConfig, devices } from "@playwright/test";
 
 import { getPreviewBaseUrl } from "./lib/site-config";
 
-const previewBaseUrl = getPreviewBaseUrl();
+const previewPort = Number(process.env.SITE_PREVIEW_PORT || process.env.PORT || 3100);
+const previewBaseUrl = getPreviewBaseUrl(
+  `http://127.0.0.1:${previewPort}`,
+);
 
 export default defineConfig({
   testDir: "./tests/browser",
@@ -10,7 +13,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   reporter: process.env.CI ? "html" : "list",
   use: {
-    baseURL: "http://127.0.0.1:3000",
+    baseURL: previewBaseUrl,
     trace: "on-first-retry",
   },
   projects: [
@@ -24,9 +27,15 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm run build && npm run preview",
+    command: "npm run build && node scripts/preview-export-runner.mjs",
+    env: {
+      ...process.env,
+      SITE_PREVIEW_PORT: `${previewPort}`,
+      PORT: `${previewPort}`,
+    },
     url: previewBaseUrl,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer:
+      process.env.PLAYWRIGHT_REUSE_PREVIEW_SERVER === "1",
     timeout: 120000,
   },
 });

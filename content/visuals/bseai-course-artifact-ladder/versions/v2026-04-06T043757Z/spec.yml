@@ -1,0 +1,35 @@
+schema: visual-spec/v1
+id: bseai-course-artifact-ladder
+version: v2026-04-06T043757Z
+status: approved
+kind: sequence-map
+visualClass: diagram
+intent: Show how the eight-course spine builds artifacts from first signal
+  surface to advanced AI, product, orchestration, or governance depth.
+forUnit: bseai-course-spine-overview
+supersedes: null
+provider: mermaid
+prompt: >
+  Create a reviewable ladder or staircase diagram specification showing eight
+  course slots in sequence. Pair each slot with one signature artifact. Make the
+  final slot visibly provisional as selected advanced depth rather than a fixed
+  course promise. Keep the structure clear enough to translate directly into
+  Mermaid, SVG, or another deterministic diagram format.
+dataSource: BSEAI course spine note and degree planning sheet.
+sourceRefs:
+  - sourceId: bseai
+styleProfile: Clear editorial ladder diagram with one course slot and one
+  signature artifact per step.
+caption: The course spine becomes legible when each course adds a stronger
+  public or professional artifact.
+alt: Diagram showing eight course slots and their signature artifacts as a ladder.
+longDescription: The diagram presents the eight-course sequence as a ladder.
+  Each step names a course and the artifact it produces, moving from the first
+  portfolio page through system maps, applications, data models, requirements
+  packages, AI systems, workflow redesign, and a final selected advanced-depth
+  artifact.
+assetRefs:
+  - diagram.mmd
+  - diagram.svg
+reviewRefs:
+  - review-bseai-course-artifact-ladder-v2026-04-06T043757Z-visual

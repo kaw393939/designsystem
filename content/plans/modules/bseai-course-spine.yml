@@ -1,0 +1,16 @@
+schema: module-brief/v1
+id: bseai-course-spine
+experienceId: bseai-program
+title: BSEAI Course Spine
+job: Show how the eight-course sequence builds capability and artifacts over time.
+sequencePosition: 4
+learningOutcomes:
+  - Explain what role each spine course plays in the larger degree story.
+  - Trace how artifacts accumulate into a visible public proof ladder.
+curatorialQuestions:
+  - How do the courses fit together instead of reading like isolated catalog entries?
+  - What should a reviewer be able to infer from the artifact ladder?
+candidateUnits:
+  - bseai-course-spine-overview
+sourceRefs:
+  - bseai

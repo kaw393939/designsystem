@@ -1,0 +1,16 @@
+schema: module-brief/v1
+id: archetype-gallery
+experienceId: bseai-program
+title: Archetype Gallery
+job: Help learners compare archetypes as public meaning systems and commit to one coherent choice.
+sequencePosition: 7
+learningOutcomes:
+  - Explain why one dominant archetype creates stronger legibility than mixed-signaling.
+  - Justify a primary archetype using audience need, proof style, and congruence.
+curatorialQuestions:
+  - Which archetype matches the promise the learner can really support?
+  - Where does archetype choice become overperformance or personality theater?
+candidateUnits:
+  - choose-primary-archetype
+sourceRefs:
+  - identity

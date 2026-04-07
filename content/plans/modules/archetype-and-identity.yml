@@ -1,0 +1,16 @@
+schema: module-brief/v1
+id: archetype-and-identity
+experienceId: identity-portfolio-system
+title: Archetype and Identity
+job: Help learners choose one dominant portfolio signal before they diversify tone or proof.
+sequencePosition: 1
+learningOutcomes:
+  - Explain why a single dominant archetype improves portfolio legibility.
+  - Distinguish controlled secondary traits from uncontrolled mixed signals.
+curatorialQuestions:
+  - What makes a public-facing identity feel coherent instead of improvised?
+  - How does the portfolio act like a gallery of signals rather than a neutral container?
+candidateUnits:
+  - choose-primary-archetype
+sourceRefs:
+  - identity

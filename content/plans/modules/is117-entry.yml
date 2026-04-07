@@ -1,0 +1,17 @@
+schema: module-brief/v1
+id: is117-entry
+experienceId: bseai-program
+title: IS117 Entry Path
+job: Give IS117 students a clear first-term path from orientation into strategy pack, build, and publish work.
+sequencePosition: 100
+learningOutcomes:
+  - Explain what IS117 is asking the student to build over the term.
+  - Identify the first artifacts and decisions required in the strategy pack.
+curatorialQuestions:
+  - What should a student complete first so the course stops feeling abstract?
+  - How do the wrapper expectations connect to the canonical studio sequence?
+candidateUnits:
+  - is117-path-entry
+sourceRefs:
+  - bseai
+  - identity

@@ -1,0 +1,26 @@
+schema: unit-brief/v1
+id: bseai-program-pillars
+experienceId: bseai-program
+moduleId: bseai-orientation
+recipe: module-overview
+title: The Program Pillars That Make BSEAI Different
+dominantJob: Make the degree's differentiators, graduate capabilities, and route families scannable on one page-level unit.
+learningObjective: Explain how historical framing, formation, technical depth, public proof, and deployment practice fit together.
+curatorialJob: Use a compact overview pattern that clarifies the pillars without duplicating the full home route.
+targetAudience:
+  - prospective-students
+  - faculty-reviewers
+  - employers-and-collaborators
+sourceRefs:
+  - sourceId: bseai
+  - sourceId: renesaince
+  - sourceId: identity
+misconceptions:
+  - Formation and deployment are separate tracks instead of one system.
+  - Historical framing replaces technical rigor.
+requiredEvidence:
+  - differentiator-to-route map
+  - capability-to-artifact translation
+  - module and wrapper boundary explanation
+assessmentIdea: Identify which pillar matters most for a chosen audience and why.
+nextStepIntent: Move from orientation into course spine, philosophy, or studio.

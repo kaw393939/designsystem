@@ -88,6 +88,12 @@ stateDiagram-v2
 - `published`: the visual appears in a published release.
 - `retired`: the visual is no longer active in future releases.
 
+Approval for a visual version should only happen after:
+
+1. generation has written version-owned assets under that exact visual version directory
+2. at least one append-only review record has outcome `approved`
+3. no review record for that version still has outcome `changes_requested` or `blocked`
+
 ## Release workflow
 
 ### Release lifecycle
@@ -108,8 +114,8 @@ stateDiagram-v2
 - `assembled`: a candidate release manifest exists.
 - `review_requested`: the candidate manifest is under review.
 - `changes_requested`: the release contains invalid, missing, or unapproved references.
-- `approved`: the release is ready to publish.
-- `published`: the release is live.
+- `approved`: the release passed QA and is ready to publish, but is not yet the live baseline.
+- `published`: the release is live and becomes the active baseline until superseded.
 - `superseded`: a newer release replaced it.
 
 ## Review roles
@@ -158,10 +164,11 @@ This loop may repeat as many times as needed until approval is explicit.
 
 1. Working drafts may never appear in a release or production build.
 2. Only approved version snapshots may appear in a release.
-3. Only published releases may drive production builds.
+3. Only published releases may drive production builds or be described as the current live baseline.
 4. A release may not reference unpublished or retired visual versions.
 5. A review record may not be deleted once created.
 6. A retired artifact may remain in historical releases but not in new ones unless explicitly reintroduced through a new version.
+7. Generated visual assets must remain owned by the exact visual version directory that produced them.
 
 ## Failure modes to prevent
 

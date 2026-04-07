@@ -1,0 +1,16 @@
+schema: module-brief/v1
+id: attention-trust-and-persuasion
+experienceId: bseai-program
+title: Attention, Trust, and Persuasion
+job: Teach how first-read attention, proof placement, and ethical influence shape whether a page is trusted.
+sequencePosition: 9
+learningOutcomes:
+  - Diagnose why a page move earns or loses trust.
+  - Use proof, pacing, and attention cues ethically rather than manipulatively.
+curatorialQuestions:
+  - Why do some pages feel credible before a reader studies them in detail?
+  - What separates ethical persuasion from empty polish?
+candidateUnits:
+  - attention-trust-and-persuasion-overview
+sourceRefs:
+  - identity

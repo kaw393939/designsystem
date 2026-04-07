@@ -1,0 +1,18 @@
+schema: module-brief/v1
+id: bseai-why-now
+experienceId: bseai-program
+title: Why BSEAI Exists Now
+job: Explain AI as an institutional shift that changes the value of judgment, proof, and public capability.
+sequencePosition: 2
+learningOutcomes:
+  - Explain why cheaper symbolic production changes institutional power, labor expectations, and educational design.
+  - Distinguish serious historical framing from AI hype language.
+curatorialQuestions:
+  - What changes when production becomes cheaper but trust becomes harder?
+  - Why does this degree respond with formation and deployment rather than tool familiarity alone?
+candidateUnits:
+  - print-to-ai-knowledge-shift
+  - bseai-why-now
+sourceRefs:
+  - renesaince
+  - bseai

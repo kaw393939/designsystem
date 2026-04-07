@@ -1,0 +1,22 @@
+schema: unit-brief/v1
+id: choose-primary-archetype
+experienceId: identity-portfolio-system
+moduleId: archetype-and-identity
+recipe: concept-explainer
+title: Choose a Primary Archetype Without Losing Complexity
+dominantJob: Help the learner commit to one dominant portfolio signal without flattening nuance.
+learningObjective: Explain why one primary archetype creates coherence in a portfolio system.
+curatorialJob: Frame archetype choice as a legibility and trust decision rather than a personality quiz.
+targetAudience:
+  - students
+sourceRefs:
+  - sourceId: identity
+    sections:
+      - Choose One Primary Archetype
+      - Public Signal and Portfolio Coherence
+misconceptions:
+  - Strong brands must blend many archetypes equally.
+requiredEvidence:
+  - comparison of primary vs mixed signals
+assessmentIdea: Rewrite a portfolio hero with one dominant archetype.
+nextStepIntent: Move from concept selection into a portfolio self-audit.

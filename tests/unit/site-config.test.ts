@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { buildAbsoluteSiteUrl, getPreviewBaseUrl, normalizeBasePath, normalizeRoute } from "@/lib/site-config";
+import {
+  buildAbsoluteSiteUrl,
+  getPreviewBaseUrl,
+  normalizeBasePath,
+  normalizeRoute,
+} from "@/lib/site-config";
 
 describe("site-config helpers", () => {
   it("normalizes base paths and routes consistently", () => {
@@ -16,7 +21,9 @@ describe("site-config helpers", () => {
     process.env.NEXT_PUBLIC_SITE_URL = "https://example.com";
 
     expect(getPreviewBaseUrl()).toBe("http://127.0.0.1:3000/design-system");
-    expect(buildAbsoluteSiteUrl("/tokens/")).toBe("https://example.com/design-system/tokens/");
+    expect(buildAbsoluteSiteUrl("/tokens/")).toBe(
+      "https://example.com/design-system/tokens/",
+    );
 
     process.env.NEXT_PUBLIC_BASE_PATH = "";
     process.env.NEXT_PUBLIC_SITE_URL = "https://example.com";

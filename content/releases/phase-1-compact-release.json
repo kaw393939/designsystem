@@ -1,0 +1,33 @@
+{
+  "schema": "release/v1",
+  "id": "phase-1-compact-release",
+  "experience": "phase-1-baseline",
+  "createdAt": "2026-04-04T00:00:00Z",
+  "routeIds": [
+    "overview",
+    "tokens",
+    "primitives",
+    "recipes",
+    "recipes-feedback-loops",
+    "recipes-public-space-observation"
+  ],
+  "unitVersions": [
+    "concept-feedback-loops",
+    "assignment-field-observation",
+    "reading-map-design-ethics",
+    "recipe-concept-feedback-loops",
+    "recipe-lesson-public-space-observation"
+  ],
+  "visualVersions": [
+    "feedback-loop-map",
+    "kitchen-queue-diagram",
+    "observation-memo-sketch",
+    "field-note-break",
+    "feedback-loop-park-system",
+    "shade-bench-diagram",
+    "public-square-overview",
+    "public-square-route-diagram"
+  ],
+  "status": "approved",
+  "notes": "Reduced-navigation release fixture used to prove route selection and sitemap filtering behavior."
+}

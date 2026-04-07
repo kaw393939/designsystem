@@ -1,0 +1,18 @@
+schema: module-brief/v1
+id: bseai-orientation
+experienceId: bseai-program
+title: BSEAI Orientation
+job: Explain what the degree is, why it exists now, and where each audience should begin.
+sequencePosition: 1
+learningOutcomes:
+  - Explain BSEAI as a formation-and-deployment program rather than a generic AI survey.
+  - Choose the right next route based on whether the visitor is a prospective student, current student, instructor, or reviewer.
+curatorialQuestions:
+  - What problem does this degree solve in an AI-shaped world?
+  - What is the clearest next move for each major audience?
+candidateUnits:
+  - bseai-homepage
+  - bseai-program-pillars
+sourceRefs:
+  - bseai
+  - renesaince

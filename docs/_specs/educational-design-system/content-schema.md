@@ -289,24 +289,24 @@ Markdown-bearing fields such as `body`, `summary`, `stakes`, `prompt`, `takeaway
 
 ### Phase-1 block union
 
-| Block type | Renders through | Required payload | Common optional fields |
-| --- | --- | --- | --- |
-| `hero` | `LessonHero` | `title`, `dek` | `eyebrow`, `metadata[]`, `progress`, `actions[]`, `visualRef` |
-| `whyItMatters` | `WhyItMatters` | `summary`, `stakes` | `title`, `audience`, `links[]` |
-| `section` | `SectionBlock` | `id`, `title`, `body` | `eyebrow`, `summary`, `tone` |
-| `conceptGrid` | `ConceptGrid` | `items[]` | `id`, `title`, `summary`, `columns` |
-| `summaryGrid` | `SummaryGrid` | `items[]` | `id`, `title` |
-| `comparisonGrid` | `ComparisonGrid` | `columns[]`, `rows[]` | `id`, `title`, `legend`, `caption` |
-| `sequenceTimeline` | `SequenceTimeline` | `mode`, `items[]` | `id`, `title`, `summary` |
-| `workedExample` | `WorkedExample` | `prompt`, `steps[]` | `id`, `title`, `result`, `reflection`, `visualRef` |
-| `editorialAside` | `EditorialAside` | `body` | `id`, `title`, `tone`, `icon` |
-| `pullInsight` | `PullInsight` | `quote` | `attribution`, `context` |
-| `visualBreak` | `VisualBreak` | at least one of `title`, `body`, `visualRef` | `id`, `tone`, `caption`, `credit`, `alt` |
-| `reflectionPrompt` | `ReflectionPrompt` | `prompt` | `id`, `title`, `questions[]`, `mode`, `timeEstimate` |
-| `nextStep` | `NextStepBlock` | `title`, `primaryAction` | `summary`, `secondaryAction`, `context` |
-| `sourceAnchorGrid` | `SourceAnchorGrid` | `items[]` | `id`, `title`, `summary` |
-| `glossary` | `GlossaryBlock` | `terms[]` | `id`, `title`, `layout` |
-| `readingMapGrid` | `ReadingMapGrid` | `clusters[]` | `id`, `title`, `progression` |
+| Block type         | Renders through    | Required payload                             | Common optional fields                                        |
+| ------------------ | ------------------ | -------------------------------------------- | ------------------------------------------------------------- |
+| `hero`             | `LessonHero`       | `title`, `dek`                               | `eyebrow`, `metadata[]`, `progress`, `actions[]`, `visualRef` |
+| `whyItMatters`     | `WhyItMatters`     | `summary`, `stakes`                          | `title`, `audience`, `links[]`                                |
+| `section`          | `SectionBlock`     | `id`, `title`, `body`                        | `eyebrow`, `summary`, `tone`                                  |
+| `conceptGrid`      | `ConceptGrid`      | `items[]`                                    | `id`, `title`, `summary`, `columns`                           |
+| `summaryGrid`      | `SummaryGrid`      | `items[]`                                    | `id`, `title`                                                 |
+| `comparisonGrid`   | `ComparisonGrid`   | `columns[]`, `rows[]`                        | `id`, `title`, `legend`, `caption`                            |
+| `sequenceTimeline` | `SequenceTimeline` | `mode`, `items[]`                            | `id`, `title`, `summary`                                      |
+| `workedExample`    | `WorkedExample`    | `prompt`, `steps[]`                          | `id`, `title`, `result`, `reflection`, `visualRef`            |
+| `editorialAside`   | `EditorialAside`   | `body`                                       | `id`, `title`, `tone`, `icon`                                 |
+| `pullInsight`      | `PullInsight`      | `quote`                                      | `attribution`, `context`                                      |
+| `visualBreak`      | `VisualBreak`      | at least one of `title`, `body`, `visualRef` | `id`, `tone`, `caption`, `credit`, `alt`                      |
+| `reflectionPrompt` | `ReflectionPrompt` | `prompt`                                     | `id`, `title`, `questions[]`, `mode`, `timeEstimate`          |
+| `nextStep`         | `NextStepBlock`    | `title`, `primaryAction`                     | `summary`, `secondaryAction`, `context`                       |
+| `sourceAnchorGrid` | `SourceAnchorGrid` | `items[]`                                    | `id`, `title`, `summary`                                      |
+| `glossary`         | `GlossaryBlock`    | `terms[]`                                    | `id`, `title`, `layout`                                       |
+| `readingMapGrid`   | `ReadingMapGrid`   | `clusters[]`                                 | `id`, `title`, `progression`                                  |
 
 Block order matters because recipes validate sequence as well as presence.
 
@@ -411,6 +411,8 @@ Required fields:
 Optional fields:
 
 - `description`
+- `visualRefs`
+- `moduleRefs`
 - `siteMetadata`
 - `featureFlags`
 - `releasePolicy`
@@ -424,6 +426,7 @@ Required fields:
 - `id`
 - `experience`
 - `createdAt`
+- `routeIds`
 - `unitVersions`
 - `visualVersions`
 - `status`
@@ -441,6 +444,62 @@ Recommended status values:
 - `approved`
 - `published`
 - `superseded`
+
+During the migration from checked-in approved fixtures to file-backed unit versions, `unitVersions` may contain either:
+
+- an approved fixture id such as `recipe-concept-feedback-loops`
+- an explicit file-backed unit reference in the form `unit-id@version`, for example `choose-primary-archetype@v2026-04-05T120000Z`
+
+During the same migration, `visualVersions` may contain either:
+
+- an approved fixture id such as `feedback-loop-map`
+- an explicit file-backed visual reference in the form `visual-id@version`, for example `archetype-signal-map@v2026-04-05T031424Z`
+
+Release validation should reject working drafts, unapproved file-backed versions, and duplicate selections for the same unit id.
+
+## Phase-2 planning and orchestration artifacts
+
+Phase 2 adds planning and orchestration artifacts that guide authoring and local workflow state before publishable units and releases exist.
+
+These artifacts are not direct production inputs for the static site build. They define how a source document becomes an experience, how a page gets planned before drafting, and how local workflow operations are recorded durably.
+
+The detailed field definitions for these artifacts live in `agentic-orchestration.md`.
+
+### `ExperienceNorthStar`
+
+Use for:
+
+- the governing thesis, audience, transformation, recipe mix, and visual direction for one site experience
+
+### `ModuleBrief`
+
+Use for:
+
+- module, gallery, or narrative-section planning before page-level drafting begins
+
+### `UnitBrief`
+
+Use for:
+
+- page-level planning that joins instructional and curatorial jobs before a `UnitDraft` exists
+
+### `VisualBrief`
+
+Use for:
+
+- deciding whether a page needs an illustration, diagram, chart, graph, photo, or timeline and what that visual must accomplish
+
+### `OrchestrationRun`
+
+Use for:
+
+- append-only local workflow run history such as validation, build, assembly, or publish attempts
+
+### `OrchestrationLock`
+
+Use for:
+
+- preventing overlapping local operations where concurrent workflow state would be unsafe
 
 ## Add-only and remove-only versioning model
 
@@ -491,6 +550,12 @@ content/
   sources/
     identity.md
     renesaince.md
+  plans/
+    experiences/
+    modules/
+  briefs/
+    units/
+    visuals/
   drafts/
     units/
       student-readiness-lesson.md
@@ -527,6 +592,9 @@ content/
   releases/
     enterprise-ai-degree/
       release-2026-04-12.yml
+
+.site/
+  orchestration.sqlite
 ```
 
 ## Example unit draft
@@ -617,12 +685,13 @@ supersedes: null
 ## Build model
 
 1. Parse source documents, working drafts, unit versions, visuals, experiences, and release manifests.
-2. Ignore working drafts for production builds.
-3. Select an experience and explicit release.
-4. Resolve approved unit and visual versions from the release manifest.
-5. Validate recipe contracts against each selected unit's `blocks[]` array.
-6. Render units through the page recipes and design-system primitives.
-7. Produce static output.
+2. Ignore planning briefs and local orchestration files for production builds.
+3. Ignore working drafts for production builds.
+4. Select an experience and explicit release.
+5. Resolve approved unit and visual versions from the release manifest.
+6. Validate recipe contracts against each selected unit's `blocks[]` array.
+7. Render units through the page recipes and design-system primitives.
+8. Produce static output.
 
 The build should never infer live content from "latest file wins" without an explicit release selection.
 

@@ -1,0 +1,58 @@
+{
+  "schema": "experience/v1",
+  "id": "bseai-program",
+  "title": "BSEAI Formation and Deployment",
+  "theme": "bseai-program",
+  "audience": "Prospective students, current students, faculty reviewers, and employers who need a legible public view of the degree's judgment, proof, and deployment model.",
+  "homepage": "experience-bseai",
+  "description": "Selected-release BSEAI experience that turns the approved degree orientation, why-now framing, formation model, course spine, studio bridge, first-course wrapper, and identity-portfolio studio slice into live reviewable routes.",
+  "navigation": [
+    "experience-bseai",
+    "experience-bseai-why-now",
+    "experience-bseai-philosophy",
+    "experience-bseai-course-spine",
+    "experience-bseai-studio",
+    "experience-bseai-modules",
+    "experience-bseai-course-is117"
+  ],
+  "unitRefs": [
+    "bseai-homepage",
+    "bseai-program-pillars",
+    "bseai-why-now",
+    "print-to-ai-knowledge-shift",
+    "bseai-formation-model",
+    "bseai-course-spine-overview",
+    "bseai-studio-introduction",
+    "choose-primary-archetype",
+    "bseai-module-library",
+    "is117-path-entry"
+  ],
+  "visualRefs": [
+    "bseai-program-hero",
+    "renaissance-to-ai-hero",
+    "ai-labor-demand-chart",
+    "bseai-formation-wheel",
+    "bseai-course-artifact-ladder",
+    "archetype-signal-map"
+  ],
+  "moduleRefs": [
+    "bseai-orientation",
+    "bseai-why-now",
+    "bseai-formation-model",
+    "bseai-course-spine",
+    "bseai-studio-entry",
+    "identity-and-signal",
+    "archetype-gallery",
+    "visual-design-literacy",
+    "attention-trust-and-persuasion",
+    "proof-of-work",
+    "build-and-product-shape",
+    "publish-and-weak-ties",
+    "bseai-module-library",
+    "is117-entry"
+  ],
+  "siteMetadata": {
+    "title": "BSEAI Formation and Deployment",
+    "description": "Live proof release for the BSEAI degree framing, formation model, course spine, studio bridge, deeper identity studio slice, and first-course wrapper."
+  }
+}

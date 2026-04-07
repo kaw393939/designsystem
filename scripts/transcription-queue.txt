@@ -1,0 +1,14 @@
+# Priority audio queue for batch transcription.
+# One file per line. Paths are workspace-relative.
+
+docs/_research/books/Positioning - The Battle for Your Mind.mp3
+docs/_research/books/Pre-Suasion - Channeling Attention for Change.mp3
+docs/_research/books/The 22 Immutable Laws of Branding.mp3
+docs/_research/books/The 22 Immutable Laws of Marketing.mp3
+docs/_research/books/Blink - The Power of Thinking Without Thinking.mp3
+docs/_research/books/Change by Design- How Design Thinking Transforms Organizations and Inspires Innovation.mp3
+docs/_research/books/Life 3.0 - Being Human in the Age of Artificial Intelligence.mp3
+docs/_research/books/The Second Machine Age.mp3
+docs/_research/books/Dawn of the New Everything.mp3
+docs/_research/books/The Innovator's Dilemma.mp3
+docs/_research/books/The Innovators.mp3

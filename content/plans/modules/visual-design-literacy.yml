@@ -1,0 +1,16 @@
+schema: module-brief/v1
+id: visual-design-literacy
+experienceId: bseai-program
+title: Visual Design Literacy
+job: Teach how design lineages, hierarchy, and pacing change trust and interpretation on first read.
+sequencePosition: 8
+learningOutcomes:
+  - Choose a visual lane that supports the intended signal and audience.
+  - Explain how hierarchy, imagery, and pace influence credibility.
+curatorialQuestions:
+  - What visual traditions does this page borrow from and what do they imply?
+  - Which design decisions support clarity and which create noise?
+candidateUnits:
+  - visual-design-literacy-overview
+sourceRefs:
+  - identity

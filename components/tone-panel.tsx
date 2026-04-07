@@ -19,6 +19,14 @@ type TonePanelProps = {
   className?: string;
 };
 
-export function TonePanel({ children, tone = "neutral", className = "" }: TonePanelProps) {
-  return <div className={`panel-shell ${toneClasses[tone]} ${className}`.trim()}>{children}</div>;
+export function TonePanel({
+  children,
+  tone = "neutral",
+  className = "",
+}: TonePanelProps) {
+  return (
+    <div className={`panel-shell ${toneClasses[tone]} ${className}`.trim()}>
+      {children}
+    </div>
+  );
 }

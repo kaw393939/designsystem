@@ -4,7 +4,7 @@ import { stat } from "node:fs/promises";
 import path from "node:path";
 
 const outDir = path.resolve(process.cwd(), "out");
-const port = Number(process.env.PORT || 3000);
+const port = Number(process.env.SITE_PREVIEW_PORT || process.env.PORT || 3000);
 const basePath = normalizeBasePath(process.env.NEXT_PUBLIC_BASE_PATH || "");
 
 const contentTypes = {
@@ -77,7 +77,8 @@ function sendResponseHeaders(response, filePath, statusCode = 200) {
 
   response.writeHead(statusCode, {
     "Content-Type": contentType,
-    "Cache-Control": extension === ".html" ? "no-cache" : "public, max-age=0, must-revalidate",
+    "Cache-Control":
+      extension === ".html" ? "no-cache" : "public, max-age=0, must-revalidate",
   });
 }
 

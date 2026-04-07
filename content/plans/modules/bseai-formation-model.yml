@@ -1,0 +1,18 @@
+schema: module-brief/v1
+id: bseai-formation-model
+experienceId: bseai-program
+title: BSEAI Formation Model
+job: Translate the updated trivium and quadrivium into a clear seven-capacity model for AI-native builders.
+sequencePosition: 3
+learningOutcomes:
+  - Explain the seven capacities the degree is trying to form.
+  - Connect formation language to visible artifacts, judgment, and public behavior.
+curatorialQuestions:
+  - What kind of person is this degree trying to form?
+  - How do reading, writing, reasoning, quantifying, computing, orchestrating, and representing appear in real outputs?
+candidateUnits:
+  - bseai-formation-model
+sourceRefs:
+  - bseai
+  - renesaince
+  - identity

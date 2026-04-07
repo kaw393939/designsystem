@@ -3,40 +3,117 @@ import Link from "next/link";
 import { CalloutBand } from "@/components/callout-band";
 import { ContentGrid } from "@/components/content-grid";
 import { EditorialBand } from "@/components/editorial-band";
+import {
+  ProgressPathVisual,
+  StudentPortraitBadge,
+} from "@/components/human-signal-visuals";
 import { MediaBlock } from "@/components/media-block";
 import { PageShell } from "@/components/page-shell";
 import { ProseBlock } from "@/components/prose-block";
 import { SectionHeading } from "@/components/section-heading";
 import { SplitLayout } from "@/components/split-layout";
+import { StudentFastPath } from "@/components/student-fast-path";
 import { TonePanel } from "@/components/tone-panel";
 import { readingMapClusters } from "@/lib/layout-primitives-content";
+
+const readingMapReaders = [
+  {
+    name: "Kira",
+    label: "Needs a first route through the sources",
+    palette: "sky" as const,
+  },
+  {
+    name: "Mateo",
+    label: "Needs context before a long list of references",
+    palette: "amber" as const,
+  },
+];
+
+const readingMapFastPathSteps = [
+  {
+    title: "Start with the suggested order",
+    summary:
+      "A reading map works when it gives you a first route through the material instead of dumping every source at once.",
+  },
+  {
+    title: "Choose one cluster",
+    summary:
+      "Use the cluster cards to decide which lane you need right now rather than trying to process the whole library in one sitting.",
+  },
+  {
+    title: "Return with purpose",
+    summary:
+      "The map should send you back to the course or guide pages with sharper context, not leave you wandering in references forever.",
+  },
+] as const;
 
 export default function ReadingMapExamplePage() {
   return (
     <PageShell>
       <EditorialBand tone="next" paddingScale="hero">
-        <p className="type-meta text-[var(--accent-strong)]">Reading-map example</p>
-        <h1 className="type-hero measure-hero mt-4 text-[var(--ink-strong)]">A resource map can guide movement without turning into a directory dump.</h1>
+        <p className="type-meta text-(--accent-strong)">
+          Reading-map example
+        </p>
+        <h1 className="type-hero measure-hero mt-4 text-(--ink-strong)">
+          A resource map should feel like a way in, not homework dumped on a page.
+        </h1>
         <ProseBlock lead className="mt-6">
           <p>
-            This example uses the same PageShell, ContentGrid, CalloutBand, and MediaBlock layer to support a
-            reading-map job instead of a lesson or overview job.
+            Use this when you need to guide someone into the material without
+            turning the page into an academic wall. Start with one route, one
+            reason, and one return path.
           </p>
         </ProseBlock>
       </EditorialBand>
 
+      <StudentFastPath
+        title="Use this page when you need a guided way into the reading instead of a giant source dump."
+        summary="Start with the suggested order, pick one cluster, then return to the course or guide pages with a clearer sense of what matters."
+        steps={readingMapFastPathSteps}
+        primaryAction={{
+          label: "Back to layout guide",
+          href: "/layouts",
+        }}
+        secondaryAction={{
+          label: "Review process",
+          href: "/process",
+          kind: "secondary",
+        }}
+      />
+
       <SplitLayout
         ratio="feature"
         primary={
-          <ProseBlock>
-            <p>
-              A reading map is structurally different from a lesson. It needs to cluster sources, explain order, and
-              preserve a strong next action without pretending to be a narrative walkthrough.
-            </p>
-          </ProseBlock>
+          <div className="space-y-6">
+            <ProseBlock>
+              <p>
+                A reading map is different from a lesson. It has to cluster
+                sources, suggest order, and keep a strong next move without
+                pretending every link matters equally.
+              </p>
+              <p>
+                The goal is simple: the page should feel inviting, not like a
+                test.
+              </p>
+            </ProseBlock>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {readingMapReaders.map((reader) => (
+                <StudentPortraitBadge
+                  key={reader.name}
+                  name={reader.name}
+                  label={reader.label}
+                  palette={reader.palette}
+                />
+              ))}
+            </div>
+          </div>
         }
         secondary={
-          <CalloutBand label="Suggested order" title="Guide the first pass, then deepen." tone="reflection">
+          <CalloutBand
+            label="Suggested order"
+            title="Guide the first pass, then deepen."
+            tone="reflection"
+          >
             <ol className="space-y-2 pl-5">
               <li>Read the foundation spec.</li>
               <li>Check the active QA artifacts.</li>
@@ -49,15 +126,23 @@ export default function ReadingMapExamplePage() {
       <section className="space-y-6">
         <SectionHeading
           eyebrow="Source clusters"
-          title="The same grid primitive can hold resource clusters without hardcoded card wrappers."
-          body="Sparse and dense clusters both collapse to one readable column on small screens." 
+          title="Resource clusters can stay readable without turning into link soup."
+          body="Sparse and dense clusters both collapse cleanly on small screens, but the clusters still need to feel like routes through the material."
         />
         <ContentGrid minCardWidth="17rem">
           {readingMapClusters.map((cluster) => (
-            <TonePanel key={cluster.title} tone="reading" className="card-shell p-6">
-              <h2 className="type-concept text-[var(--ink-strong)]">{cluster.title}</h2>
-              <p className="mt-3 type-body text-[var(--ink-body)]">{cluster.summary}</p>
-              <ul className="mt-4 space-y-2 pl-5 type-caption text-[var(--ink-body)]">
+            <TonePanel
+              key={cluster.title}
+              tone="reading"
+              className="card-shell p-6"
+            >
+              <h2 className="type-concept text-(--ink-strong)">
+                {cluster.title}
+              </h2>
+              <p className="mt-3 type-body text-(--ink-body)">
+                {cluster.summary}
+              </p>
+              <ul className="mt-4 space-y-2 pl-5 type-caption text-(--ink-body)">
                 {cluster.items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -71,19 +156,26 @@ export default function ReadingMapExamplePage() {
         alignment="wide"
         tone="reflection"
         media={
-          <div
-            role="img"
-            aria-label="Annotated reading map showing clustered source paths and suggested sequence"
-            className="aspect-[16/8] rounded-[var(--radius-card)] bg-[linear-gradient(135deg,_rgba(239,229,215,0.86),_rgba(230,239,227,0.92))]"
+          <ProgressPathVisual
+            ariaLabel="Reading map path from first source to return path"
+            steps={["Start", "Cluster", "Compare", "Return"]}
+            palette="amber"
           />
         }
-        caption="Placeholder reading-map visual"
-        credit="Sprint 2 structural proof"
-        annotation="The page can support a wide contextual visual without abandoning the same shell and spacing rules used by the lesson and module examples."
+        caption="Reading-map movement visual"
+        credit="Source-path sketch"
+        annotation="Use the wide visual to suggest movement and return instead of letting it sit there as filler."
       />
 
-      <CalloutBand label="Next step" title="Return to the layout guide or continue into future content primitives." tone="next">
-        <p>The structural work is now in reusable primitives. The next sprint can build richer instructional primitives on top of this layer.</p>
+      <CalloutBand
+        label="Next step"
+        title="Take the context back to a working page."
+        tone="next"
+      >
+        <p>
+          Use the map to sharpen what you need, then go back to the guide or
+          course instead of circling the references forever.
+        </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link href="/layouts" className="action-primary">
             Back to layout guide

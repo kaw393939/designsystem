@@ -19,7 +19,9 @@ export function ProseBlock({
   const leadClass = lead ? "text-[1.08rem]" : "";
 
   return (
-    <Element className={`${measureClass} space-y-4 type-body text-[var(--ink-body)] ${leadClass} ${className}`.trim()}>
+    <Element
+      className={`${measureClass} space-y-4 type-body text-[var(--ink-body)] ${leadClass} ${className}`.trim()}
+    >
       {children}
     </Element>
   );

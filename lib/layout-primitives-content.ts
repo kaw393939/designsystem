@@ -10,56 +10,73 @@ export const layoutPrimitiveNotes: Array<{
   {
     name: "PageShell",
     tone: "reading",
-    purpose: "Provides the outer frame, background, skip link, header, footer, and shared width rules.",
-    proof: "Used by the overview, process, status, token, layout, and example routes.",
+    purpose:
+      "Keeps the outer frame, background, skip link, header, footer, and shared width rules stable.",
+    proof:
+      "Use it when you do not want to hand-tune the outside frame on every page.",
   },
   {
     name: "LessonShell",
     tone: "emphasis",
-    purpose: "Pairs reading-width lesson content with optional local navigation and progress context.",
-    proof: "Used by the lesson example to combine prose, callouts, media, and local navigation.",
+    purpose:
+      "Pairs reading-width lesson content with optional local navigation and progress context.",
+    proof:
+      "Best when a long page needs progress, local nav, and calm reading width at the same time.",
   },
   {
     name: "ProseBlock",
     tone: "reading",
-    purpose: "Standardizes readable text measure and section rhythm for long-form explanation.",
-    proof: "Used in lesson, module, and reading-map examples for content-heavy sections.",
+    purpose:
+      "Standardizes readable text measure and section rhythm for long-form explanation.",
+    proof:
+      "Best when the page needs real explanation, not just summary cards.",
   },
   {
     name: "EditorialBand",
     tone: "synthesis",
-    purpose: "Creates wide structural bands that still align inner content to the page system.",
-    proof: "Used for page introductions and transitions without page-specific wrapper hacks.",
+    purpose:
+      "Creates wide structural bands that still align inner content to the page system.",
+    proof:
+      "Use it for page openers and transitions that need room to breathe.",
   },
   {
     name: "SplitLayout",
     tone: "proof",
-    purpose: "Pairs related regions such as explanation plus example or media plus annotation.",
-    proof: "Used for worked examples, process explanations, and layout notes.",
+    purpose:
+      "Pairs related regions such as explanation plus example or media plus annotation.",
+    proof: "Best when one idea needs a main explanation plus a supporting side.",
   },
   {
     name: "ContentGrid",
     tone: "neutral",
-    purpose: "Builds responsive card grids that collapse cleanly without page-specific rescue wrappers.",
-    proof: "Used for home cards, lesson maps, module cards, and reading clusters.",
+    purpose:
+      "Builds responsive card grids that collapse cleanly without page-specific rescue wrappers.",
+    proof:
+      "Best when cards need to breathe on desktop and collapse cleanly on mobile.",
   },
   {
     name: "CalloutBand",
     tone: "warning",
-    purpose: "Surfaces bounded proof, warning, reflection, or next-step notes with consistent structure.",
-    proof: "Used across process, lesson, and reading-map flows for focused instructional emphasis.",
+    purpose:
+      "Holds proof, warning, reflection, or next-step notes without breaking the page rhythm.",
+    proof:
+      "Best when one bounded note needs to stand out without becoming a giant detour.",
   },
   {
     name: "MediaBlock",
     tone: "proof",
-    purpose: "Groups visual media, caption, credit, and annotation in one export-safe primitive.",
-    proof: "Used in the lesson and reading-map examples with captioned placeholder visuals.",
+    purpose:
+      "Keeps visual media, caption, credit, and annotation together in one export-safe primitive.",
+    proof:
+      "Best when a visual and a note need to land as one idea.",
   },
   {
     name: "LocalNav",
     tone: "next",
-    purpose: "Provides optional on-page orientation that stays readable and keyboard reachable on small screens.",
-    proof: "Used in the lesson example and the layouts route to prove optional sticky behavior.",
+    purpose:
+      "Provides optional on-page orientation that stays readable and keyboard reachable on small screens.",
+    proof:
+      "Best when a long page needs orientation without taking over the main read.",
   },
 ];
 
@@ -73,27 +90,46 @@ export const examplePageCards: Array<{
     title: "Module Overview Example",
     href: "/examples/module",
     tone: "synthesis",
-    summary: "Shows a wide overview shell, concept grid, proof band, and next-step transition.",
+    summary:
+      "Use this when the page has to explain the big picture and the first move in the same screen.",
   },
   {
     title: "Lesson Example",
     href: "/examples/lesson",
     tone: "reading",
-    summary: "Shows LessonShell, LocalNav, ProseBlock, SplitLayout, MediaBlock, and reflection framing.",
+    summary:
+      "Use this when the page needs real explanation, support blocks, and a clear ending.",
   },
   {
     title: "Reading Map Example",
     href: "/examples/reading-map",
     tone: "next",
-    summary: "Shows resource clustering, callout guidance, and export-safe navigation through source groups.",
+    summary:
+      "Use this when you need to guide someone through sources without dumping everything at once.",
   },
 ];
 
 export const lessonNavItems: LocalNavItem[] = [
-  { id: "orientation", label: "Orientation", description: "What this lesson is for and why it matters." },
-  { id: "comparison", label: "Comparison", description: "How wide and narrow layouts cooperate." },
-  { id: "worked-example", label: "Worked example", description: "A split layout and media treatment." },
-  { id: "reflection", label: "Reflection", description: "How the shell ends with a next action." },
+  {
+    id: "orientation",
+    label: "Orientation",
+    description: "What this lesson is for and why it matters.",
+  },
+  {
+    id: "comparison",
+    label: "Comparison",
+    description: "How wide and narrow layouts cooperate.",
+  },
+  {
+    id: "worked-example",
+    label: "Worked example",
+    description: "A split layout and media treatment.",
+  },
+  {
+    id: "reflection",
+    label: "Reflection",
+    description: "How the shell ends with a next action.",
+  },
 ];
 
 export const moduleCards = [
@@ -106,25 +142,33 @@ export const moduleCards = [
     summary: "How the lessons relate to each other and why that order matters.",
   },
   {
-    title: "Proof and expectations",
-    summary: "How the page uses evidence, success criteria, and next steps together.",
+    title: "Receipts and next move",
+    summary:
+      "How the page uses evidence, success criteria, and next steps together.",
   },
 ];
 
 export const readingMapClusters = [
   {
-    title: "Core architecture",
-    summary: "Read the foundation spec, then the operating runbook, then the planning and QA rules.",
+    title: "Start here",
+    summary:
+      "Read the foundation spec, then the runbook, then the planning and QA rules so the rest makes sense.",
     items: ["Foundation spec", "Operating runbook", "Planning QA spec"],
   },
   {
-    title: "Implementation evidence",
-    summary: "Use the QA artifacts to confirm what was actually implemented and approved.",
-    items: ["Scaffold implementation QA", "Sprint 1 implementation QA", "Planning artifacts"],
+    title: "What already shipped",
+    summary:
+      "Use these artifacts when you want to see what actually happened, not what was hoped for.",
+    items: [
+      "Scaffold implementation QA",
+      "Sprint 1 implementation QA",
+      "Planning artifacts",
+    ],
   },
   {
-    title: "Forward work",
-    summary: "Use the sprint briefs as the work queue, not as proof that work is already done.",
+    title: "What comes next",
+    summary:
+      "Use the sprint briefs as the future queue, not as proof the work already exists.",
     items: ["Sprint 2 brief", "Sprint 3 brief", "Deployment spec"],
   },
 ];

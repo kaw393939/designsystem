@@ -1,0 +1,34 @@
+schema: visual-spec/v1
+id: archetype-signal-map
+version: v2026-04-05T031424Z
+status: approved
+kind: system-map
+visualClass: diagram
+intent: Show how one dominant archetype organizes secondary traits into a
+  coherent public signal system.
+forUnit: choose-primary-archetype
+supersedes: null
+provider: mermaid
+prompt: >
+  Create a reviewable diagram specification, not an atmospheric illustration.
+  Place one dominant archetype at the center, show secondary traits around it,
+  and end with audience trust as the outcome.
+dataSource: Identity portfolio planning notes.
+sourceRefs:
+  - sourceId: identity
+    sections:
+      - Choose One Primary Archetype
+styleProfile: Clean editorial diagram with sparse labels and one dominant directional flow.
+caption: One dominant archetype creates a stable public signal; secondary traits
+  stay legible only when they orbit that center.
+alt: Diagram showing a primary archetype at the center with secondary traits
+  feeding into audience trust.
+longDescription: The diagram places the primary archetype at the center,
+  positions warmth, rigor, and rebellion as secondary traits around it, and
+  shows audience trust growing when those secondary cues support rather than
+  replace the dominant signal.
+assetRefs:
+  - diagram.mmd
+  - diagram.svg
+reviewRefs:
+  - review-archetype-signal-map-v2026-04-05T031424Z-visual

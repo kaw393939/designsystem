@@ -36,43 +36,57 @@ export const completedItems = [
   "Sprint 3 educational primitives and normalized render-contract types",
   "Unit-driven renderer plus the /primitives guide route",
   "Concept, assignment, and reading-map block examples rendered from structured unit payloads",
+  "Sprint 4 recipe checks and checked-in approved example units",
+  "Recipe guide plus dedicated concept and lesson exemplar routes",
+  "Validated root-path and GitHub Pages-style base-path QA after Sprint 4 recipe changes",
+  "Sprint 5 checked-in experience and release examples for selected static export",
+  "Selected-release metadata, primary navigation, sitemap, and Lighthouse route scope",
+  "Validated fresh out artifacts in root-path and GitHub Pages-style base-path modes after Sprint 5 export changes",
+  "Sprint 6 accessibility smoke audits and keyboard-focus fixes",
+  "Reduced-motion and forced-colors coverage on representative long-form routes",
+  "Documented root-path and GitHub Pages-style maintainer verification routine",
 ];
 
 export const pendingItems = [
-  "Sprint 4 recipe proof from approved unit configs",
-  "Release-manifest-driven site build",
+  "Release QA for a publishable selected release candidate",
+  "Full file-based approved-unit and release-manifest workflow beyond the current Sprint 5 selected example",
   "Approved content and visual version flow",
   "Release QA artifacts tied to real release manifests",
 ];
 
 export const qualityBars = [
-  "Static export is the baseline, not an afterthought.",
-  "Lighthouse runs against exported output, not the dev server.",
-  "Accessibility, best-practices, and SEO are the first blocking categories.",
-  "Performance is tracked but remains non-blocking until budgets stabilize.",
-  "Base-path-aware checks run in CI so repository-hosted Pages builds are not a later surprise.",
+  "Test the exported site, not the dev server.",
+  "Pick the experience and release explicitly before exporting.",
+  "Run Lighthouse against the exported output.",
+  "Accessibility, best practices, and SEO are the first gate — nothing ships without passing those.",
+  "Watch performance scores, but do not fake confidence before the budgets are stable.",
+  "Guide and example pages need passing accessibility audits before you trust them.",
+  "Keep skip links, heading order, reduced motion, and high-contrast states in your browser testing.",
+  "Rebuild the export from scratch before previewing or running Lighthouse.",
+  "Run base-path checks in CI so deploys to GitHub Pages do not break unexpectedly.",
 ];
 
 export const automationNotes = [
-  "The Quality workflow runs typecheck, lint, unit tests, browser smoke tests, and Lighthouse on pull requests and main pushes.",
-  "The Pages workflow waits for a successful main-branch Quality run, rebuilds with the repository base path, and deploys the exported artifact.",
-  "Playwright and Lighthouse both read the current base path so local, CI, and Pages verification stay aligned.",
+  "The quality workflow checks schema, workflow state, and the selected release before running typecheck, tests, and Lighthouse.",
+  "Browser tests include accessibility audits plus keyboard, reduced-motion, and forced-colors checks on the longest lesson page.",
+  "The Pages workflow rebuilds the selected experience and release with the correct base path before deploying.",
+  "Both Playwright and Lighthouse read the current base path, while the build selection stays explicit through environment variables.",
 ];
 
 export const topLevelCards = [
   {
     title: "System",
     description:
-      "A static-first educational site baseline with token, layout, and pedagogical layers derived from the strongest instructional patterns in the reference museum project.",
+      "One place for tokens, layouts, lessons, recipes, releases, and accessibility checks — so the site feels coherent instead of stitched together.",
   },
   {
     title: "Process",
     description:
-      "Specs, planning QA, implementation, implementation QA, release QA, then publish. Files are the system of record.",
+      "Read the specs, plan the work, build it, review it, approve it, then publish. Files are the source of truth.",
   },
   {
     title: "Verification",
     description:
-      "Vitest, Playwright, and Lighthouse are wired so the exported artifact can be validated deterministically.",
+      "Typecheck, Playwright tests, and Lighthouse audits keep the live site honest.",
   },
 ];

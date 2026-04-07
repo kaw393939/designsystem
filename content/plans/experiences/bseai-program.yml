@@ -1,0 +1,27 @@
+schema: experience-north-star/v1
+id: bseai-program
+title: BSEAI Program
+audience:
+  - prospective-students
+  - current-students
+  - faculty-reviewers
+  - employers-and-collaborators
+learnerTransformation: Learners and reviewers should be able to understand why the degree exists now, what capabilities it forms, how the course spine works, and where public proof begins.
+curatorialThesis: AI lowers the cost of symbolic production, which raises the value of judgment, proof, communication, and responsible deployment. The degree should therefore read as a formation-and-deployment system rather than a generic AI survey.
+siteMode: hybrid-program-studio
+sourceRefs:
+  - bseai
+  - renesaince
+  - identity
+primaryRecipes:
+  - learning-homepage
+  - concept-explainer
+  - timeline-story
+  - module-overview
+  - assignment-project
+requiredVisualClasses:
+  - diagram
+  - chart
+  - illustration
+  - screenshot
+description: Release-1 north star for the selected BSEAI experience spanning program shell, why-now framing, philosophy, course spine, studio, modules, and the first IS117 wrapper.

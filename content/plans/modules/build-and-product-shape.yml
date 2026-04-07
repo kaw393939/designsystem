@@ -1,0 +1,17 @@
+schema: module-brief/v1
+id: build-and-product-shape
+experienceId: bseai-program
+title: Build and Product Shape
+job: Turn signal and proof decisions into a coherent page or product surface that can actually be reviewed.
+sequencePosition: 11
+learningOutcomes:
+  - Translate strategy decisions into a stable page structure.
+  - Build a first version that aligns promise, proof, and next move.
+curatorialQuestions:
+  - What should the learner build first so the site becomes real quickly?
+  - Which structural decisions hold the signal and proof together?
+candidateUnits:
+  - build-and-product-shape-overview
+sourceRefs:
+  - identity
+  - bseai

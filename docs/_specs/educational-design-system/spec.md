@@ -4,6 +4,7 @@
 
 - Status: Active phase-1 source of truth
 - Scope: Phase 1 fundamentals only
+- Current baseline release: `content/releases/phase-1-baseline-release.json` is published and represents the completed phase-1 baseline
 - Reference implementation: `/Users/kwilliams/Desktop/nextjs_ai_orchestration_spec_sprint_process`
 - Research inputs: `docs/_research/identity.md`, `docs/_research/renesaince.md`
 
@@ -261,3 +262,5 @@ This model allows a single research base to produce multiple learning experience
 ## Definition of phase-1 success
 
 Phase 1 is successful when the project has a clear doctrine, a reusable component and layout baseline, a configuration-driven content model, documented recipe grammar, export-safe deployment guidance, and a quality bar that matches the seriousness of the reference implementation.
+
+The published `phase-1-baseline-release` baseline satisfies that phase-1 success condition. Subsequent work should extend the system through a new phase plan rather than reopening the completed phase-1 scope implicitly.

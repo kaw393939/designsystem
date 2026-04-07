@@ -1,0 +1,29 @@
+{
+  "schema": "release/v1",
+  "id": "identity-portfolio-system-proof-release",
+  "experience": "identity-portfolio-system",
+  "createdAt": "2026-04-05T03:15:00Z",
+  "routeIds": [
+    "experience-identity-portfolio",
+    "experience-identity-portfolio-signal",
+    "experience-identity-portfolio-style",
+    "experience-identity-portfolio-proof",
+    "experience-identity-portfolio-build",
+    "experience-identity-portfolio-publish",
+    "experience-identity-portfolio-diagnose",
+    "experience-identity-portfolio-examples",
+    "experience-identity-portfolio-labs-archetypes",
+    "experience-identity-portfolio-labs-psychology",
+    "experience-identity-portfolio-labs-persuasion",
+    "experience-identity-portfolio-system-map",
+    "experience-identity-portfolio-sources"
+  ],
+  "unitVersions": [
+    "choose-primary-archetype@v2026-04-05T031355Z"
+  ],
+  "visualVersions": [
+    "archetype-signal-map@v2026-04-05T031424Z"
+  ],
+  "status": "approved",
+  "notes": "Proof release for the identity portfolio experience after the one-job-per-page route split, with a file-backed concept unit and approved diagram on the signal step."
+}

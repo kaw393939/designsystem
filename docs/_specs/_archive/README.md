@@ -16,6 +16,8 @@ Historical vision briefs and early prompts that helped establish the system dire
 
 Superseded planning or repair artifacts whose contents have been integrated into the active spec set.
 
+This folder also holds historical kickoff material such as `sprint-0-repo-analysis.md` once that work no longer serves as an active implementation target.
+
 ## Usage rule
 
 Only consult archived docs when you need historical context, decision lineage, or original framing.

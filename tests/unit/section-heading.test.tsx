@@ -14,7 +14,26 @@ describe("SectionHeading", () => {
     );
 
     expect(screen.getByText("Process")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "One operating loop" })).toBeInTheDocument();
-    expect(screen.getByText("The files, not the chat, define what is approved.")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "One operating loop", level: 2 }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("The files, not the chat, define what is approved."),
+    ).toBeInTheDocument();
+  });
+
+  it("supports top-level page headings when requested", () => {
+    render(
+      <SectionHeading
+        eyebrow="Status"
+        title="What is actually done"
+        body="Use this component as a page hero only when the route has no other h1."
+        headingLevel={1}
+      />,
+    );
+
+    expect(
+      screen.getByRole("heading", { name: "What is actually done", level: 1 }),
+    ).toBeInTheDocument();
   });
 });

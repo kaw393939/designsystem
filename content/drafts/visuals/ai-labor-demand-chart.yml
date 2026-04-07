@@ -1,0 +1,20 @@
+schema: visual-draft/v1
+id: ai-labor-demand-chart
+status: working_draft
+kind: evidence-chart
+visualClass: chart
+intent: Show the recent increase in US AI-related job postings as a concrete labor-market signal behind the second-renaissance argument.
+forUnit: print-to-ai-knowledge-shift
+provider: vega-lite
+dataSource: Stanford AI Index 2025 labor demand summary.
+sourceRefs:
+  - sourceId: renesaince
+    sections:
+      - What is changing in the labor market
+styleProfile: Editorial bar chart with restrained annotations and no decorative gradients.
+caption: US AI-related job postings rose from 1.4 percent to 1.8 percent of all postings from 2023 to 2024.
+alt: Two-bar chart showing AI-related US job postings at 1.4 percent in 2023 and 1.8 percent in 2024.
+longDescription: The chart compares two labeled bars. The 2023 bar reaches 1.4 percent of all postings, and the 2024 bar reaches 1.8 percent. A note explains that the increase is used as one labor-market signal, not as a complete forecast.
+notes:
+  - Keep the y-axis explicit about percent of all job postings.
+  - Prepare a tabular equivalent alongside any future generated SVG.

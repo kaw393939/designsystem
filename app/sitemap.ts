@@ -1,12 +1,15 @@
 import type { MetadataRoute } from "next";
 
 import { buildAbsoluteSiteUrl } from "@/lib/site-config";
+import { getSelectedSiteBuildContext } from "@/lib/site-release";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ["/", "/process/", "/status/", "/tokens/"].map((route) => ({
-    url: buildAbsoluteSiteUrl(route),
-    lastModified: new Date("2026-04-04T00:00:00Z"),
+  const { release, sitemapRoutes } = getSelectedSiteBuildContext();
+
+  return sitemapRoutes.map((route) => ({
+    url: buildAbsoluteSiteUrl(route.href),
+    lastModified: new Date(release.createdAt),
   }));
 }

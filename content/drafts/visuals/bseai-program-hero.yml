@@ -1,0 +1,23 @@
+schema: visual-draft/v1
+id: bseai-program-hero
+status: working_draft
+kind: editorial-illustration
+visualClass: illustration
+intent: Show the degree as a path from historical shift and formation to visible public capability and deployment.
+forUnit: bseai-homepage
+provider: gpt-image
+sourceRefs:
+  - sourceId: renesaince
+    sections:
+      - Why the printing press is the right analogy
+  - sourceId: bseai
+styleProfile: Editorial illustration with restrained institutional tone, visible pathway structure, and no hype-tech clichés.
+caption: The degree should read as a path from historical context and formation into visible public capability.
+alt: Editorial illustration showing a learner moving from research and historical framing into studio work and public proof.
+longDescription: The image should suggest a progression from historical and institutional framing into present-day studio work. The learner or builder appears in a grounded environment with research materials, diagrams, screens, and visible work artifacts, ending in a more public-facing proof or deployment surface.
+prompt: |
+  Create an editorial illustration for a university degree homepage. Show a grounded learner or early-career builder moving through three connected zones: historical and research framing, studio or artifact-building work, and public proof or deployment. Keep the tone serious, human-scaled, and institutionally credible. Avoid sci-fi aesthetics and avoid generic campus-brochure imagery.
+negativePrompt: No neon cyberpunk, no floating holograms, no exaggerated futuristic cityscape, no stock graduation poses, no readable fake text.
+notes:
+  - Leave visual breathing room for homepage headline copy.
+  - Keep the image suggestive of a pathway rather than a collage of unrelated scenes.

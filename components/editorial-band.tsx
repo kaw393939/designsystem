@@ -27,7 +27,10 @@ export function EditorialBand({
   const bleedClass = bleed ? "-mx-2 sm:-mx-4 lg:-mx-6" : "";
 
   return (
-    <TonePanel tone={tone} className={`${paddingClasses[paddingScale]} ${bleedClass} ${className}`.trim()}>
+    <TonePanel
+      tone={tone}
+      className={`${paddingClasses[paddingScale]} ${bleedClass} ${className}`.trim()}
+    >
       {children}
     </TonePanel>
   );

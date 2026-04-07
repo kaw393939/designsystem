@@ -1,0 +1,23 @@
+schema: visual-brief/v1
+id: ai-labor-demand-chart
+experienceId: ai-second-renaissance
+forUnit: print-to-ai-knowledge-shift
+kind: evidence-chart
+visualClass: chart
+intent: Show the recent increase in US AI-related job postings as a concrete labor-market signal behind the second-renaissance argument.
+mustShow:
+  - 2023 share of AI-related postings at 1.4 percent
+  - 2024 share of AI-related postings at 1.8 percent
+  - clear annotation that the numbers are shares of all postings
+accessibilityNeeds:
+  - short alt text
+  - long description
+  - tabular equivalent
+dataSource: Stanford AI Index 2025 labor demand summary.
+sourceRefs:
+  - sourceId: renesaince
+    sections:
+      - What is changing in the labor market
+styleProfile: Editorial data chart with restrained annotations and no decorative gradients.
+captionDirection: Tie the chart to labor demand, not hype.
+longDescriptionDirection: State the values, the direction of change, and why the comparison matters.

@@ -1,0 +1,25 @@
+schema: unit-brief/v1
+id: bseai-module-library
+experienceId: bseai-program
+moduleId: bseai-module-library
+recipe: module-overview
+title: The Reusable Module Library Behind BSEAI
+dominantJob: Catalog the canonical modules clearly so learners and instructors can tell what each one teaches and when to use it.
+learningObjective: Explain the difference between public routes, canonical modules, galleries, and course wrappers.
+curatorialJob: Keep the library decision-oriented rather than encyclopedic.
+targetAudience:
+  - current-students
+  - faculty-reviewers
+  - employers-and-collaborators
+sourceRefs:
+  - sourceId: bseai
+  - sourceId: identity
+misconceptions:
+  - A module is the same as a route or a week.
+  - The module library should feel like a browse-everything archive.
+requiredEvidence:
+  - module taxonomy
+  - prerequisite chain
+  - route-to-module ownership map
+assessmentIdea: Choose the right module family for a given signal, proof, or deployment problem.
+nextStepIntent: Move into studio, galleries, or the IS117 path based on the learner's current need.

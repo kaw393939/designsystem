@@ -1,148 +1,176 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CalloutBand } from "@/components/callout-band";
 import { ContentGrid } from "@/components/content-grid";
 import { EditorialBand } from "@/components/editorial-band";
-import { SectionHeading } from "@/components/section-heading";
 import { PageShell } from "@/components/page-shell";
-import { ProseBlock } from "@/components/prose-block";
-import { SplitLayout } from "@/components/split-layout";
+import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
-import { examplePageCards } from "@/lib/layout-primitives-content";
-import { completedItems, operatingLoop, qualityBars, topLevelCards } from "@/lib/site-content";
+import {
+  atlasHomeHighlights,
+  designStyles,
+  familyOverviews,
+  heroExamples,
+  selectionSteps,
+} from "@/lib/archetype-atlas-content";
+
+export const metadata: Metadata = {
+  title: "Overview",
+};
 
 export default function HomePage() {
   return (
     <PageShell>
-      <EditorialBand tone="emphasis" paddingScale="hero">
-        <div className="grid gap-6 lg:grid-cols-[1.4fr_0.9fr] lg:items-end">
+      <EditorialBand tone="emphasis" paddingScale="hero" className="overflow-hidden">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div className="measure-wide">
-            <p className="type-meta text-[var(--accent-strong)]">
-              Sprint 3 Educational Primitives
-            </p>
-            <h1 className="type-hero measure-hero mt-4 text-balance text-[var(--ink-strong)]">
-              Documentation, QA, render contracts, and educational primitives now share one system.
+            <p className="type-meta text-(--accent-strong)">Brand archetype atlas</p>
+            <h1 className="type-hero mt-4 text-balance text-(--ink-strong)">
+              Pick one brand personality, lock in a visual style, and build a site that lands on the first look.
             </h1>
-            <ProseBlock lead className="mt-6">
-              <p>
-                The app is no longer proving itself only with shell-level layout. Sprint 3 adds the pedagogical layer:
-                unit-driven blocks now map into reusable heroes, sections, comparisons, examples, summaries,
-                reading maps, and next-step components through one shared renderer.
-              </p>
-            </ProseBlock>
+            <p className="mt-6 type-body text-(--ink-body)">
+              This is your practical field guide for building personal and business brand sites. You will learn how to choose a brand archetype (think: the core personality your site projects), pair it with a visual style, pick the right words and fonts, and turn those decisions into hero sections, proof blocks, and pages people actually trust.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/playbook" className="action-primary">
+                Start the playbook
+              </Link>
+              <Link href="/archetypes" className="action-secondary">
+                Browse all archetypes
+              </Link>
+            </div>
           </div>
 
-          <CalloutBand label="Current focus" title="The educational layer is now explicit." tone="next">
-            <ul className="space-y-2 pl-5">
-              <li>Structured block payloads now map into first-class educational primitives.</li>
-              <li>Shared sub-shapes keep actions, metadata, and source links from drifting across components.</li>
-              <li>The new primitives guide proves concept, assignment, and reading-map units render from one contract.</li>
-              <li>Exported-site QA still gates the result in both root-path and Pages-style base-path modes.</li>
-            </ul>
-          </CalloutBand>
+          <figure className="atlas-figure atlas-figure--hero">
+            <img
+              src="/archetype-atlas/styles/swiss-grid.png"
+              alt="Swiss-grid style board used as the visual anchor for the archetype atlas overview."
+              className="atlas-image"
+            />
+            <figcaption className="atlas-figure-caption">
+              Strategy first: archetype, style lens, proof, then CTA.
+            </figcaption>
+          </figure>
         </div>
       </EditorialBand>
 
-      <ContentGrid minCardWidth="17rem">
-        {topLevelCards.map((card) => (
-          <TonePanel key={card.title} tone="neutral" className="card-shell p-6">
-            <h2 className="type-concept text-[var(--ink-strong)]">{card.title}</h2>
-            <p className="type-body mt-3 text-[var(--ink-body)]">{card.description}</p>
-          </TonePanel>
-        ))}
-      </ContentGrid>
+      <section className="space-y-6">
+        <SectionHeading
+          eyebrow="What this atlas does"
+          title="It turns brand personality into concrete design moves."
+          body="The goal is not to hand out personality labels. The goal is to help you choose one dominant signal — the first impression your site makes — pair it with a visual style, and build pages that feel intentional instead of mixed or generic."
+        />
+        <ContentGrid minCardWidth="17rem">
+          {atlasHomeHighlights.map((item) => (
+            <TonePanel key={item.title} tone="reading" className="card-shell p-6">
+              <h2 className="type-concept text-(--ink-strong)">{item.title}</h2>
+              <p className="mt-3 type-body text-(--ink-body)">{item.summary}</p>
+            </TonePanel>
+          ))}
+        </ContentGrid>
+      </section>
 
       <section className="space-y-6">
         <SectionHeading
-          eyebrow="Proof Routes"
-          title="Layout proof pages remain, and the new primitives guide adds unit-driven rendering proof."
-          body="The route set now proves both structural reuse and pedagogical reuse: the shell system still carries page layout, while the primitives guide renders structured units through the new content layer." 
+          eyebrow="Four cluster rooms"
+          title="Four families instead of a flat list of twelve."
+          body="Each family groups archetypes by the kind of emotional response they promise — safety, ambition, belonging, or authority. Starting from a family makes the comparison easier because you can see the trade-offs before you commit."
         />
-        <ContentGrid minCardWidth="18rem">
-          {examplePageCards.map((page) => (
-            <TonePanel key={page.title} tone={page.tone} className="card-shell p-6">
-              <p className="type-meta text-[var(--accent-strong)]">Layout proof page</p>
-              <h2 className="mt-3 type-concept text-[var(--ink-strong)]">{page.title}</h2>
-              <p className="mt-3 type-body text-[var(--ink-body)]">{page.summary}</p>
-              <Link href={page.href} className="action-secondary mt-5 w-fit">
-                Open example
+        <ContentGrid minCardWidth="16rem">
+          {familyOverviews.map((family) => (
+            <TonePanel key={family.id} tone="synthesis" className="card-shell p-6">
+              <p className="type-meta text-(--accent-strong)">{family.archetypesLabel}</p>
+              <h2 className="mt-3 type-concept text-(--ink-strong)">{family.title}</h2>
+              <p className="mt-3 type-body text-(--ink-body)">{family.summary}</p>
+              <Link href={`/archetypes#${family.id}`} className="action-secondary mt-5 inline-flex w-fit">
+                Open this family
               </Link>
             </TonePanel>
           ))}
         </ContentGrid>
-        <TonePanel tone="proof" className="p-6">
-          <p className="type-meta text-[var(--accent-strong)]">New guide route</p>
-          <h2 className="mt-3 type-concept text-[var(--ink-strong)]">Primitives guide</h2>
-          <p className="mt-3 type-body text-[var(--ink-body)]">
-            The new guide shows the shared contract layer, then renders concept, assignment, and reading-map units from
-            ordered block arrays instead of hand-composed page files.
-          </p>
-          <Link href="/primitives" className="action-secondary mt-5 w-fit">
-            Open primitives guide
-          </Link>
-        </TonePanel>
       </section>
-
-      <SplitLayout
-        ratio="feature"
-        primary={
-          <CalloutBand label="Operating Loop" title="The process is part of the product baseline." tone="neutral">
-            <ol className="space-y-3 pl-5">
-              {operatingLoop.map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ol>
-          </CalloutBand>
-        }
-        secondary={
-          <CalloutBand label="Quality Gates" title="Exported output is still the thing we trust." tone="proof">
-            <ul className="space-y-3 pl-5">
-              {qualityBars.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <Link href="/primitives" className="action-secondary mt-5 w-fit">
-              Review educational primitives
-            </Link>
-          </CalloutBand>
-        }
-      />
 
       <section className="space-y-6">
         <SectionHeading
-          eyebrow="Completed Now"
-          title="The repo has moved from shell proof into unit-driven pedagogical proof."
-          body="Sprint 3 adds the contract types, block renderer, and educational primitives that sit on top of the shell system while keeping the validation path rooted in exported output." 
+          eyebrow="How to choose"
+          title="A good archetype decision is a sequence, not a vibe check."
+          body="Start from what your audience needs to feel, pick the personality that delivers that feeling, translate it into real design choices, and only then decide whether the page should be crystal-clear or carry some deliberate tension."
         />
-        <SplitLayout
-          ratio="feature"
-          primary={
-            <ContentGrid minCardWidth="15rem">
-              {completedItems.map((item) => (
-                <TonePanel key={item} tone="reading" className="card-shell p-5">
-                  <p className="type-caption text-[var(--ink-body)]">{item}</p>
-                </TonePanel>
-              ))}
-            </ContentGrid>
-          }
-          secondary={
-            <TonePanel tone="next" className="p-6">
-              <p className="type-meta text-[var(--signal)]">Next routes to review</p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <Link href="/primitives" className="action-primary">
-                  Primitives guide
-                </Link>
-                <Link href="/layouts" className="action-primary">
-                  Layout guide
-                </Link>
-                <Link href="/examples/lesson" className="action-secondary">
-                  Lesson example
-                </Link>
+        <ContentGrid minCardWidth="18rem">
+          {selectionSteps.map((step) => (
+            <TonePanel key={step.title} tone="proof" className="card-shell p-6">
+              <h2 className="type-concept text-(--ink-strong)">{step.title}</h2>
+              <p className="mt-3 type-body text-(--ink-body)">{step.summary}</p>
+              <p className="mt-4 type-caption text-(--signal)">
+                <strong>Prompt:</strong> {step.prompt}
+              </p>
+            </TonePanel>
+          ))}
+        </ContentGrid>
+      </section>
+
+      <section className="space-y-6">
+        <SectionHeading
+          eyebrow="Style contrast"
+          title="Swiss keeps it clean. Punk and brutalist add deliberate edge."
+          body="If your page needs to be understood in seconds, start with Swiss grid or systems-modern structure — think clean lines, clear hierarchy. If you want to provoke curiosity, tension, or rebellious energy, lean into brutalist or punk styling on purpose — but keep at least one layer stable so the message still comes through."
+        />
+        <ContentGrid minCardWidth="17rem">
+          {designStyles.slice(0, 4).map((style) => (
+            <TonePanel key={style.slug} tone="reading" className="card-shell overflow-hidden p-0">
+              <img src={style.imagePath} alt={`${style.name} style board`} className="atlas-card-image" />
+              <div className="p-6">
+                <h2 className="type-concept text-(--ink-strong)">{style.name}</h2>
+                <p className="mt-3 type-body text-(--ink-body)">{style.stance}</p>
+                <p className="mt-3 type-caption text-(--signal)">
+                  <strong>Best for:</strong> {style.bestFor}
+                </p>
               </div>
             </TonePanel>
-          }
-        />
+          ))}
+        </ContentGrid>
+        <div>
+          <Link href="/design-styles" className="action-secondary inline-flex">
+            Enter the style lab
+          </Link>
+        </div>
       </section>
+
+      <section className="space-y-6">
+        <SectionHeading
+          eyebrow="Live hero sections"
+          title="Live coded hero sections, not just mood boards."
+          body="Each example below is a real hero section — the first thing visitors see — so you can study how picking a different archetype changes the headline, the supporting text, the evidence strip, the call-to-action button, and the overall visual feel."
+        />
+        <ContentGrid minCardWidth="19rem">
+          {heroExamples.slice(0, 3).map((example) => (
+            <TonePanel key={example.slug} tone="synthesis" className="card-shell p-6">
+              <p className="type-meta text-(--accent-strong)">
+                {example.archetype} x {example.style}
+              </p>
+              <h2 className="mt-3 type-concept text-(--ink-strong)">{example.title}</h2>
+              <p className="mt-3 type-body text-(--ink-body)">{example.headline}</p>
+              <p className="mt-3 type-caption text-(--ink-body)">{example.deck}</p>
+            </TonePanel>
+          ))}
+        </ContentGrid>
+        <div>
+          <Link href="/hero-examples" className="action-primary inline-flex">
+            Study the hero examples
+          </Link>
+        </div>
+      </section>
+
+      <CalloutBand
+        label="Naming the contrast"
+        title="Not muddying. Controlled friction."
+        tone="warning"
+      >
+        <p>
+          When a page needs intrigue, rebellion, or appetite, the design can add texture, interruption, and edge on purpose. The useful term is controlled friction: enough roughness to shape the feeling, but not so much that the signal becomes unreadable.
+        </p>
+      </CalloutBand>
     </PageShell>
   );
 }

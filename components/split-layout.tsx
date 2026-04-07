@@ -38,7 +38,9 @@ export function SplitLayout({
   }
 
   return (
-    <div className={`grid gap-6 ${ratioClasses[stackAt][ratio]} ${className}`.trim()}>
+    <div
+      className={`grid gap-6 ${ratioClasses[stackAt][ratio]} ${className}`.trim()}
+    >
       <div className="min-w-0">{primary}</div>
       <div className="min-w-0">{secondary}</div>
     </div>

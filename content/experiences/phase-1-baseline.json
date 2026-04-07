@@ -1,0 +1,29 @@
+{
+  "schema": "experience/v1",
+  "id": "phase-1-baseline",
+  "title": "Educational Design System",
+  "theme": "phase-1-baseline",
+  "audience": "Maintainers, reviewers, and contributors building static educational experiences.",
+  "homepage": "overview",
+  "description": "Documentation-first educational design system baseline with explicit release-selected static export.",
+  "navigation": [
+    "overview",
+    "tokens",
+    "layouts",
+    "primitives",
+    "recipes",
+    "process",
+    "status"
+  ],
+  "unitRefs": [
+    "concept-feedback-loops",
+    "assignment-field-observation",
+    "reading-map-design-ethics",
+    "recipe-concept-feedback-loops",
+    "recipe-lesson-public-space-observation"
+  ],
+  "siteMetadata": {
+    "title": "Educational Design System",
+    "description": "Static-first educational site scaffold with semantic tokens, selected-release static export, documentation-governed process, exported-site QA, and deterministic Lighthouse checks."
+  }
+}

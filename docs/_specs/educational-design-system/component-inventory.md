@@ -14,44 +14,44 @@ For phase 1, the primitives in this file are render targets. Authors and agents 
 
 ## Abstraction map from the museum site
 
-| Source family | Status | Phase 1 target | Reason |
-| --- | --- | --- | --- |
-| `chapter-hero.tsx` | Generalize | `LessonHero` | Strong orientation pattern, but chapter framing is topic-specific |
-| `chapter-section.tsx` | Generalize | `SectionBlock` | Good structural wrapper for labeled explanation sections |
-| `chapter-timeline.tsx` | Generalize | `SequenceTimeline` | Sequence pattern is reusable beyond history |
-| `chapter-visual-break.tsx` | Keep and generalize | `VisualBreak` | Useful pacing and narrative reset primitive |
-| `editorial-aside.tsx` | Keep and generalize | `EditorialAside` | Supports annotation and contextual support |
-| `pull-quote.tsx` | Generalize | `PullInsight` | Quote pattern should become evidence or insight oriented |
-| `transition-block.tsx` | Generalize | `NextStepBlock` | Strong navigation and sequencing behavior |
-| `editorial-card-grid.tsx` | Generalize | `ConceptGrid` | Good for concept summaries and modular overviews |
-| `editorial-summary-grid.tsx` | Generalize | `SummaryGrid` | Strong recap pattern |
-| `guide-callout.tsx` | Split and generalize | `WhyItMatters`, `WorkedExample` | Current callout role is overloaded |
-| `reading-cluster-grid.tsx` | Generalize | `ReadingMapGrid` | Useful for curated resource navigation |
-| `narrative-card-grid.tsx` | Defer | `ProfileGrid` later | Valuable, but not essential for phase 1 baseline |
-| `historical-anchor-grid` concept | Rename and generalize | `SourceAnchorGrid` | Source and proof blocks are reusable; historical naming is not |
-| `math-block.tsx` | Defer | `FormulaBlock` later | Useful for some disciplines, not part of baseline minimum |
-| home-specific sections | Decompose | Recipe parts, not primitives | These are page compositions, not reusable primitives |
+| Source family                    | Status                | Phase 1 target                  | Reason                                                            |
+| -------------------------------- | --------------------- | ------------------------------- | ----------------------------------------------------------------- |
+| `chapter-hero.tsx`               | Generalize            | `LessonHero`                    | Strong orientation pattern, but chapter framing is topic-specific |
+| `chapter-section.tsx`            | Generalize            | `SectionBlock`                  | Good structural wrapper for labeled explanation sections          |
+| `chapter-timeline.tsx`           | Generalize            | `SequenceTimeline`              | Sequence pattern is reusable beyond history                       |
+| `chapter-visual-break.tsx`       | Keep and generalize   | `VisualBreak`                   | Useful pacing and narrative reset primitive                       |
+| `editorial-aside.tsx`            | Keep and generalize   | `EditorialAside`                | Supports annotation and contextual support                        |
+| `pull-quote.tsx`                 | Generalize            | `PullInsight`                   | Quote pattern should become evidence or insight oriented          |
+| `transition-block.tsx`           | Generalize            | `NextStepBlock`                 | Strong navigation and sequencing behavior                         |
+| `editorial-card-grid.tsx`        | Generalize            | `ConceptGrid`                   | Good for concept summaries and modular overviews                  |
+| `editorial-summary-grid.tsx`     | Generalize            | `SummaryGrid`                   | Strong recap pattern                                              |
+| `guide-callout.tsx`              | Split and generalize  | `WhyItMatters`, `WorkedExample` | Current callout role is overloaded                                |
+| `reading-cluster-grid.tsx`       | Generalize            | `ReadingMapGrid`                | Useful for curated resource navigation                            |
+| `narrative-card-grid.tsx`        | Defer                 | `ProfileGrid` later             | Valuable, but not essential for phase 1 baseline                  |
+| `historical-anchor-grid` concept | Rename and generalize | `SourceAnchorGrid`              | Source and proof blocks are reusable; historical naming is not    |
+| `math-block.tsx`                 | Defer                 | `FormulaBlock` later            | Useful for some disciplines, not part of baseline minimum         |
+| home-specific sections           | Decompose             | Recipe parts, not primitives    | These are page compositions, not reusable primitives              |
 
 ## Phase-1 block render contracts
 
-| Block type | Render target | Minimum payload |
-| --- | --- | --- |
-| `hero` | `LessonHero` | `title`, `dek` |
-| `whyItMatters` | `WhyItMatters` | `summary`, `stakes` |
-| `section` | `SectionBlock` | `title`, `body` |
-| `conceptGrid` | `ConceptGrid` | `items[]` |
-| `summaryGrid` | `SummaryGrid` | `items[]` |
-| `comparisonGrid` | `ComparisonGrid` | `columns`, `rows` |
-| `sequenceTimeline` | `SequenceTimeline` | `mode`, `items[]` |
-| `workedExample` | `WorkedExample` | `prompt`, `steps[]` |
-| `editorialAside` | `EditorialAside` | `body` |
-| `pullInsight` | `PullInsight` | `quote` |
-| `visualBreak` | `VisualBreak` | `title` or `body` or `visualRef` |
-| `reflectionPrompt` | `ReflectionPrompt` | `prompt` |
-| `nextStep` | `NextStepBlock` | `title`, `primaryAction` |
-| `sourceAnchorGrid` | `SourceAnchorGrid` | `items[]` |
-| `glossary` | `GlossaryBlock` | `terms[]` |
-| `readingMapGrid` | `ReadingMapGrid` | `clusters[]` |
+| Block type         | Render target      | Minimum payload                  |
+| ------------------ | ------------------ | -------------------------------- |
+| `hero`             | `LessonHero`       | `title`, `dek`                   |
+| `whyItMatters`     | `WhyItMatters`     | `summary`, `stakes`              |
+| `section`          | `SectionBlock`     | `title`, `body`                  |
+| `conceptGrid`      | `ConceptGrid`      | `items[]`                        |
+| `summaryGrid`      | `SummaryGrid`      | `items[]`                        |
+| `comparisonGrid`   | `ComparisonGrid`   | `columns`, `rows`                |
+| `sequenceTimeline` | `SequenceTimeline` | `mode`, `items[]`                |
+| `workedExample`    | `WorkedExample`    | `prompt`, `steps[]`              |
+| `editorialAside`   | `EditorialAside`   | `body`                           |
+| `pullInsight`      | `PullInsight`      | `quote`                          |
+| `visualBreak`      | `VisualBreak`      | `title` or `body` or `visualRef` |
+| `reflectionPrompt` | `ReflectionPrompt` | `prompt`                         |
+| `nextStep`         | `NextStepBlock`    | `title`, `primaryAction`         |
+| `sourceAnchorGrid` | `SourceAnchorGrid` | `items[]`                        |
+| `glossary`         | `GlossaryBlock`    | `terms[]`                        |
+| `readingMapGrid`   | `ReadingMapGrid`   | `clusters[]`                     |
 
 These block contracts are the bridge between the content schema and the component layer. If a page cannot be expressed through this block set, either the recipe is wrong or the system needs a new block type and primitive pair.
 
@@ -298,12 +298,12 @@ Sprint 3 should follow these rules:
 
 ## Deferred or removed phase-1 candidates
 
-| Candidate | Decision | Why |
-| --- | --- | --- |
-| `ProfileGrid` | Defer | Useful for biography-heavy experiences, not required for the baseline |
-| `FormulaBlock` | Defer | Important for STEM-specific sites but not universal enough for phase 1 |
-| Home-only chronology and scene sections | Do not elevate as primitives | They belong inside recipes, not the primitive layer |
-| Topic-specific narrative cards | Rename or remove | They should return only if a later recipe truly needs them |
+| Candidate                               | Decision                     | Why                                                                    |
+| --------------------------------------- | ---------------------------- | ---------------------------------------------------------------------- |
+| `ProfileGrid`                           | Defer                        | Useful for biography-heavy experiences, not required for the baseline  |
+| `FormulaBlock`                          | Defer                        | Important for STEM-specific sites but not universal enough for phase 1 |
+| Home-only chronology and scene sections | Do not elevate as primitives | They belong inside recipes, not the primitive layer                    |
+| Topic-specific narrative cards          | Rename or remove             | They should return only if a later recipe truly needs them             |
 
 ## Testing expectations for this inventory
 

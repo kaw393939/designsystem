@@ -1,0 +1,21 @@
+schema: visual-brief/v1
+id: bseai-formation-wheel
+experienceId: bseai-program
+forUnit: bseai-formation-model
+kind: system-map
+visualClass: diagram
+intent: Show the seven capacities as one reinforcing formation system rather than as disconnected skills.
+mustShow:
+  - the updated trivium of read, write, and reason
+  - the updated quadrivium of quantify, compute, orchestrate, and represent
+  - a central public-practice or responsibility anchor that ties the capacities together
+accessibilityNeeds:
+  - short alt text
+  - long description
+  - mobile-safe labels
+sourceRefs:
+  - sourceId: bseai
+  - sourceId: renesaince
+styleProfile: Clean labeled wheel or ring diagram with strong grouping, calm spacing, and no decorative clutter.
+captionDirection: Emphasize that the capacities reinforce one another and show up in the quality of artifacts and decisions.
+longDescriptionDirection: Explain the grouped structure, the role of each capacity, and how the center ties them to public action.

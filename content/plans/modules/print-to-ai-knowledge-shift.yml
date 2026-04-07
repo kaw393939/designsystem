@@ -1,0 +1,16 @@
+schema: module-brief/v1
+id: print-to-ai-knowledge-shift
+experienceId: ai-second-renaissance
+title: Print to AI Knowledge Shift
+job: Help learners compare the printing press and AI as institutional shifts in the cost of knowledge and skill production.
+sequencePosition: 1
+learningOutcomes:
+  - Explain why lowering the cost of symbolic production redistributes institutional power.
+  - Distinguish technological novelty from institutional consequence.
+curatorialQuestions:
+  - What changed when texts became cheap to copy?
+  - What changes when skills become cheap to produce and adapt?
+candidateUnits:
+  - print-to-ai-knowledge-shift
+sourceRefs:
+  - renesaince

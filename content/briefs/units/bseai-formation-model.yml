@@ -1,0 +1,28 @@
+schema: unit-brief/v1
+id: bseai-formation-model
+experienceId: bseai-program
+moduleId: bseai-formation-model
+recipe: concept-explainer
+title: The Seven Capacities BSEAI Is Trying to Form
+dominantJob: Explain the updated trivium and quadrivium as a student-facing seven-capacity formation model.
+learningObjective: Explain how reading, writing, reasoning, quantifying, computing, orchestrating, and representing show up in real artifacts and conduct.
+curatorialJob: Translate internal doctrine into visible, legible formation language rather than abstract educational philosophy.
+targetAudience:
+  - prospective-students
+  - current-students
+  - faculty-reviewers
+sourceRefs:
+  - sourceId: bseai
+  - sourceId: renesaince
+  - sourceId: identity
+misconceptions:
+  - Technical skill alone is enough.
+  - Formation language is soft and unrelated to output quality.
+requiredEvidence:
+  - seven-capacity model
+  - capability-to-artifact chain
+  - public-responsibility note
+requiredVisuals:
+  - bseai-formation-wheel
+assessmentIdea: Complete a first capacity audit and identify one strength and one growth edge.
+nextStepIntent: Move into the course spine and studio so the capacities become visible in work.

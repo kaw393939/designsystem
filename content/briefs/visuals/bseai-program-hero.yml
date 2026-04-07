@@ -1,0 +1,23 @@
+schema: visual-brief/v1
+id: bseai-program-hero
+experienceId: bseai-program
+forUnit: bseai-homepage
+kind: editorial-illustration
+visualClass: illustration
+intent: Show the degree as a path from historical shift and formation to visible public capability and deployment.
+mustShow:
+  - a print-to-AI transition or analogy cue without turning into a literal history collage
+  - a learner or builder moving through interpretation, studio work, and public proof
+  - a legible route from program framing into artifact production
+accessibilityNeeds:
+  - short alt text
+  - long description
+  - mobile-safe composition
+sourceRefs:
+  - sourceId: renesaince
+    sections:
+      - Why the printing press is the right analogy
+  - sourceId: bseai
+styleProfile: Editorial illustration with restrained institutional tone, visible structure, and no hype-tech clichés.
+captionDirection: Emphasize that the degree responds to AI abundance by forming judgment, proof, and public capability.
+longDescriptionDirection: Explain the main pathway from historical context through formation and studio work into public deployment.

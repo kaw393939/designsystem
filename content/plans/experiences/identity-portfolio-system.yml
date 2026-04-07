@@ -1,0 +1,20 @@
+schema: experience-north-star/v1
+id: identity-portfolio-system
+title: Build a Portfolio That Turns Identity Into Opportunity
+audience:
+  - students
+  - early-career builders
+learnerTransformation: Learners leave with a coherent public identity, proof strategy, and portfolio publishing plan.
+curatorialThesis: Identity, design, psychology, and proof-of-work form one legible public signal system.
+siteMode: studio
+sourceRefs:
+  - identity
+primaryRecipes:
+  - learning-homepage
+  - module-overview
+  - concept-explainer
+  - assignment-project
+requiredVisualClasses:
+  - diagram
+  - comparison-table
+description: Minimal checked-in phase-2 planning chain for the first file-backed source-to-unit workflow slice.

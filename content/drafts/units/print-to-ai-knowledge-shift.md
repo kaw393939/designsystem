@@ -1,0 +1,106 @@
+---
+schema: unit-draft/v1
+id: print-to-ai-knowledge-shift
+status: working_draft
+kind: concept
+recipe: timeline-story
+title: Why the Printing Press and AI Reshape Institutions in Similar Ways
+objective: Explain how lowering the cost of copying or producing symbolic work
+  redistributes authority, access, and opportunity.
+audiences:
+  - students
+  - early-career builders
+sourceRefs:
+  - sourceId: renesaince
+    sections:
+      - Why the printing press is the right analogy
+      - The Renaissance and Reformation as institutional power redistribution
+blocks:
+  - type: hero
+    title: Why the Printing Press and AI Reshape Institutions in Similar Ways
+    dek: Explain how lowering the cost of copying or producing symbolic work
+      redistributes authority, access, and opportunity.
+    visualRef:
+      visualRef: renaissance-to-ai-hero
+      caption: The analogy matters because both eras change who can participate in producing and distributing symbolic work.
+      alt: Split-scene illustration pairing a print shop with a modern AI workspace.
+  - type: whyItMatters
+    summary: The useful comparison is not that the printing press and AI look alike as technologies.
+      It is that both reduce the cost of producing symbolic work and force institutions to renegotiate who gets to teach, publish, certify, and profit.
+    stakes: If learners read AI only as a tool trend, they miss the institutional redesign problem sitting underneath labor demand, trust, and education.
+  - type: sequenceTimeline
+    title: One analogy becomes useful when it is framed as a sequence of institutional consequences.
+    summary: Follow the shift from cheaper symbolic production to new struggles over legitimacy, labor, and education.
+    mode: timeline
+    items:
+      - label: "1"
+        title: Copying text becomes dramatically cheaper in the print era.
+        summary: Once presses lower the cost of reproducing books and pamphlets, knowledge can move through more hands and more institutions than scriptoria alone could support.
+      - label: "2"
+        title: Institutions fight over who gets to interpret the new abundance.
+        summary: Religious authorities, universities, printers, and merchants all compete to decide which texts count, who can circulate them, and how legitimacy is assigned.
+      - label: "3"
+        title: AI lowers the cost of producing many forms of symbolic and procedural work.
+        summary: Drafting, summarizing, coding, image generation, and feedback loops become cheaper to produce, which shifts attention from raw output to judgment, trust, and system design.
+      - label: "4"
+        title: Education now has to teach orchestration, interpretation, and proof.
+        summary: When production gets cheaper, institutions matter even more because they decide how quality, authorship, and responsibility are made legible.
+  - type: section
+    id: institutional-shift
+    title: The core claim is institutional, not gadget-centered.
+    body: |
+      The strongest version of the analogy compares what happens after symbolic production becomes easier, not the devices themselves. The printing press expanded who could reproduce texts, accelerate translation, and circulate arguments. AI expands who can draft, revise, code, visualize, and simulate expert-like work.
+
+      In both cases, the first-order effect is abundance. The second-order effect is conflict over trust. Which outputs count? Which institutions adapt fast enough to absorb the new productive capacity? Which learners gain advantage because they can direct the new tools inside coherent systems instead of using them as novelty?
+
+      The educational consequence is clear: students need practice turning faster production into better judgment, stronger evidence, and more legible public work.
+  - type: visualBreak
+    title: Labor demand is one signal that the institutional shift is already underway.
+    body: The chart does not prove the whole analogy by itself, but it shows that employers are already treating AI capability as a real labor-market variable rather than a passing curiosity.
+    visualRef:
+      visualRef: ai-labor-demand-chart
+      caption: US AI-related job postings rose from 1.4 percent to 1.8 percent of all postings from 2023 to 2024.
+      alt: Two-bar chart showing AI-related US job postings at 1.4 percent in 2023 and 1.8 percent in 2024.
+  - type: summaryGrid
+    id: takeaways
+    items:
+      - title: Cheaper production changes institutions first
+        takeaway: The shared pattern is a drop in symbolic production cost followed by new fights over legitimacy, access, and trust.
+      - title: AI shifts value toward judgment and proof
+        takeaway: When outputs are cheaper to produce, learners stand out by curating evidence, making decisions visible, and designing trustworthy systems.
+  - type: nextStep
+    title: Extend the analogy into practice and labor strategy.
+    summary: Move from the historical frame into the kinds of work, proof, and educational design choices this shift now rewards.
+    primaryAction:
+      label: Review the current status
+      href: /status/
+      kind: primary
+    secondaryAction:
+      label: Revisit the research note
+      href: /process/
+      kind: secondary
+    context: The next page should help the learner translate the analogy into portfolio, curriculum, and labor-market choices.
+  - type: sourceAnchorGrid
+    id: sources
+    title: Source anchors
+    items:
+      - title: Enterprise AI Degree Vision for the Second Renaissance
+        description: Canonical research note behind the printing-press and AI institutional comparison.
+        href: docs/_research/renesaince.md
+        type: Source document
+summary: Help learners compare two knowledge revolutions without collapsing them
+  into a superficial analogy.
+module: print-to-ai-knowledge-shift
+notes:
+  - Started from UnitBrief print-to-ai-knowledge-shift.
+  - Keep renesaince as the canonical source id until a broader multi-source
+    drafting pass is needed.
+  - Add both the illustration and deterministic chart proofs before freezing the Sprint 9 AI release version.
+briefRef: print-to-ai-knowledge-shift
+---
+
+Draft scaffold started from UnitBrief print-to-ai-knowledge-shift and expanded into the first Sprint 9 file-backed AI experience proof.
+
+Canonical source: docs/_research/renesaince.md
+
+Replace the placeholder block copy below with researched content before freezing a publishable version.

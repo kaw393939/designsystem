@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "books:batch-transcribe": "tsx scripts/batch-transcribe-books.ts",
+    "books:generate-chapter-candidates": "node scripts/generate-transcript-chapter-candidates.mjs",
     "clean:next": "node scripts/clean-next.mjs",
-    "dev": "next dev",
-    "build": "npm run clean:next && next build",
+    "dev": "node scripts/next-dev.mjs",
+    "build": "npm run site -- build experience",
     "preview": "node scripts/preview-export.mjs",
     "start": "npm run preview",
     "lint": "eslint .",
+    "site": "tsx scripts/site.ts",
+    "site:validate": "npm run site -- validate schema && npm run site -- validate workflow && npm run site -- validate release && npm run site -- validate visuals",
     "typecheck": "npm run clean:next && tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -20,11 +24,14 @@
     "lighthouse": "npm run build && lhci autorun"
   },
   "dependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "better-sqlite3": "^12.8.0",
     "next": "16.1.7",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4.1.14",
@@ -39,7 +46,9 @@
     "jsdom": "^27.0.1",
     "prettier": "^3.6.2",
     "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "yaml": "^2.8.3"
   }
 }

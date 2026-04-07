@@ -28,6 +28,7 @@ Use this loop for every meaningful workstream or sprint.
 8. Resolve implementation issues until the implementation QA artifact is approved.
 9. If the sprint contributes to a releasable build, create or update release QA under `docs/_qa/releases/`.
 10. Publish only after release validation passes.
+11. After publication, update the README and index docs and archive any superseded kickoff or repair docs that no longer belong in the active path.
 
 ## Deterministic verification rule
 
@@ -132,6 +133,7 @@ These verify whether a build is safe to publish.
 3. create release QA artifact
 4. resolve findings if needed
 5. publish
+6. update the repo status docs and archive any superseded kickoff or repair docs
 
 ## What an LLM should read first
 

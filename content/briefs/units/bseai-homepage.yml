@@ -1,0 +1,30 @@
+schema: unit-brief/v1
+id: bseai-homepage
+experienceId: bseai-program
+moduleId: bseai-orientation
+recipe: learning-homepage
+title: BSEAI Is a Formation-and-Deployment Degree for AI-Native Builders
+dominantJob: Orient visitors to the degree promise and send each major audience to the right next path quickly.
+learningObjective: Explain what the program forms, why it exists now, and how the public routes fit together.
+curatorialJob: Keep the homepage action-oriented with a strict CTA ladder, one proof strip, and clear route entry points instead of a theory dump.
+targetAudience:
+  - prospective-students
+  - current-students
+  - faculty-reviewers
+  - employers-and-collaborators
+sourceRefs:
+  - sourceId: bseai
+  - sourceId: renesaince
+    sections:
+      - Why the printing press is the right analogy
+misconceptions:
+  - The site is mainly a recruiting microsite.
+  - The degree is a generic AI survey with updated branding.
+requiredEvidence:
+  - program promise and differentiator map
+  - audience-specific CTA ladder
+  - artifact-ladder proof strip
+requiredVisuals:
+  - bseai-program-hero
+assessmentIdea: Explain which path you would take first and why.
+nextStepIntent: Move the visitor into why-now, course spine, studio, or the active course wrapper without additional explanation.

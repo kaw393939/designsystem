@@ -1,0 +1,326 @@
+{
+  "schema": "site-registry/v1",
+  "routes": [
+    {
+      "id": "overview",
+      "href": "/",
+      "title": "Overview",
+      "navLabel": "Overview",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true
+    },
+    {
+      "id": "tokens",
+      "href": "/tokens/",
+      "title": "Tokens",
+      "navLabel": "Tokens",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true
+    },
+    {
+      "id": "layouts",
+      "href": "/layouts/",
+      "title": "Layouts",
+      "navLabel": "Layouts",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true
+    },
+    {
+      "id": "primitives",
+      "href": "/primitives/",
+      "title": "Primitives",
+      "navLabel": "Primitives",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true,
+      "requiredUnitIds": [
+        "concept-feedback-loops",
+        "assignment-field-observation",
+        "reading-map-design-ethics"
+      ],
+      "requiredVisualIds": [
+        "feedback-loop-map",
+        "kitchen-queue-diagram",
+        "observation-memo-sketch",
+        "field-note-break"
+      ]
+    },
+    {
+      "id": "recipes",
+      "href": "/recipes/",
+      "title": "Recipes",
+      "navLabel": "Recipes",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true
+    },
+    {
+      "id": "process",
+      "href": "/process/",
+      "title": "Process",
+      "navLabel": "Process",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true
+    },
+    {
+      "id": "status",
+      "href": "/status/",
+      "title": "Status",
+      "navLabel": "Status",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true
+    },
+    {
+      "id": "examples-module",
+      "href": "/examples/module/",
+      "title": "Module Overview Example",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "examples-lesson",
+      "href": "/examples/lesson/",
+      "title": "Lesson Example",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "examples-reading-map",
+      "href": "/examples/reading-map/",
+      "title": "Reading Map Example",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "recipes-feedback-loops",
+      "href": "/recipes/feedback-loops/",
+      "title": "Feedback Loops Concept Page",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true,
+      "requiredUnitIds": ["recipe-concept-feedback-loops"],
+      "requiredVisualIds": ["feedback-loop-park-system", "shade-bench-diagram"]
+    },
+    {
+      "id": "recipes-public-space-observation",
+      "href": "/recipes/public-space-observation/",
+      "title": "Public Square Lesson Page",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true,
+      "requiredUnitIds": ["recipe-lesson-public-space-observation"],
+      "requiredVisualIds": [
+        "public-square-overview",
+        "public-square-route-diagram"
+      ]
+    },
+    {
+      "id": "experience-identity-portfolio",
+      "href": "/experiences/identity-portfolio/",
+      "title": "Identity Portfolio System",
+      "navLabel": "Identity Portfolio",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true
+    },
+    {
+      "id": "experience-identity-portfolio-signal",
+      "href": "/experiences/identity-portfolio/signal/",
+      "title": "Identity Signal Step",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true,
+      "requiredUnitIds": ["choose-primary-archetype"],
+      "requiredVisualIds": ["archetype-signal-map"]
+    },
+    {
+      "id": "experience-identity-portfolio-style",
+      "href": "/experiences/identity-portfolio/style/",
+      "title": "Identity Style Step",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "experience-identity-portfolio-proof",
+      "href": "/experiences/identity-portfolio/proof/",
+      "title": "Identity Proof Step",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "experience-identity-portfolio-build",
+      "href": "/experiences/identity-portfolio/build/",
+      "title": "Identity Build Step",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "experience-identity-portfolio-publish",
+      "href": "/experiences/identity-portfolio/publish/",
+      "title": "Identity Publish Step",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "experience-identity-portfolio-diagnose",
+      "href": "/experiences/identity-portfolio/diagnose/",
+      "title": "Identity Diagnose Route",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "experience-identity-portfolio-examples",
+      "href": "/experiences/identity-portfolio/examples/",
+      "title": "Identity Examples Route",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "experience-identity-portfolio-labs-archetypes",
+      "href": "/experiences/identity-portfolio/labs/archetypes/",
+      "title": "Identity Archetypes Lab",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "experience-identity-portfolio-labs-psychology",
+      "href": "/experiences/identity-portfolio/labs/psychology/",
+      "title": "Identity Psychology Lab",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "experience-identity-portfolio-labs-persuasion",
+      "href": "/experiences/identity-portfolio/labs/persuasion/",
+      "title": "Identity Persuasion Lab",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "experience-identity-portfolio-system-map",
+      "href": "/experiences/identity-portfolio/system-map/",
+      "title": "Identity System Map",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "experience-identity-portfolio-sources",
+      "href": "/experiences/identity-portfolio/sources/",
+      "title": "Identity Sources Route",
+      "includeInPrimaryNav": false,
+      "includeInSitemap": true
+    },
+    {
+      "id": "experience-ai-second-renaissance",
+      "href": "/experiences/ai-second-renaissance/",
+      "title": "AI and the Second Renaissance",
+      "navLabel": "AI Renaissance",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true,
+      "requiredUnitIds": ["print-to-ai-knowledge-shift"],
+      "requiredVisualIds": [
+        "renaissance-to-ai-hero",
+        "ai-labor-demand-chart"
+      ]
+    },
+    {
+      "id": "experience-bseai",
+      "href": "/experiences/bseai/",
+      "title": "BSEAI Formation and Deployment",
+      "navLabel": "BSEAI",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true,
+      "requiredUnitIds": ["bseai-homepage", "bseai-program-pillars"],
+      "requiredVisualIds": ["bseai-program-hero"]
+    },
+    {
+      "id": "experience-bseai-why-now",
+      "href": "/experiences/bseai/why-now/",
+      "title": "Why This Degree Exists Now",
+      "navLabel": "Why Now",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true,
+      "requiredUnitIds": ["bseai-why-now", "print-to-ai-knowledge-shift"],
+      "requiredVisualIds": [
+        "renaissance-to-ai-hero",
+        "ai-labor-demand-chart"
+      ]
+    },
+    {
+      "id": "experience-bseai-philosophy",
+      "href": "/experiences/bseai/philosophy/",
+      "title": "Formation Model",
+      "navLabel": "Formation",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true,
+      "requiredUnitIds": ["bseai-formation-model"],
+      "requiredVisualIds": ["bseai-formation-wheel"]
+    },
+    {
+      "id": "experience-bseai-course-spine",
+      "href": "/experiences/bseai/course-spine/",
+      "title": "Course Spine",
+      "navLabel": "Course Spine",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true,
+      "requiredUnitIds": ["bseai-course-spine-overview"],
+      "requiredVisualIds": ["bseai-course-artifact-ladder"]
+    },
+    {
+      "id": "experience-bseai-studio",
+      "href": "/experiences/bseai/studio/",
+      "title": "Studio Entry",
+      "navLabel": "Studio",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true,
+      "requiredUnitIds": ["bseai-studio-introduction"],
+      "requiredVisualIds": ["archetype-signal-map"]
+    },
+    {
+      "id": "experience-bseai-modules",
+      "href": "/experiences/bseai/modules/",
+      "title": "Module Library",
+      "navLabel": "Modules",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true,
+      "requiredUnitIds": ["bseai-module-library"]
+    },
+    {
+      "id": "experience-bseai-course-is117",
+      "href": "/experiences/bseai/courses/is117/",
+      "title": "IS117 Wrapper",
+      "navLabel": "IS117",
+      "includeInPrimaryNav": true,
+      "includeInSitemap": true,
+      "requiredUnitIds": ["is117-path-entry"],
+      "requiredVisualIds": ["archetype-signal-map"]
+    }
+  ],
+  "approvedUnits": [
+    { "id": "concept-feedback-loops", "status": "approved", "kind": "concept" },
+    {
+      "id": "assignment-field-observation",
+      "status": "approved",
+      "kind": "assignment"
+    },
+    {
+      "id": "reading-map-design-ethics",
+      "status": "approved",
+      "kind": "reading-map"
+    },
+    {
+      "id": "recipe-concept-feedback-loops",
+      "status": "approved",
+      "kind": "concept"
+    },
+    {
+      "id": "recipe-lesson-public-space-observation",
+      "status": "approved",
+      "kind": "lesson"
+    }
+  ],
+  "approvedVisuals": [
+    { "id": "feedback-loop-map", "status": "approved" },
+    { "id": "kitchen-queue-diagram", "status": "approved" },
+    { "id": "observation-memo-sketch", "status": "approved" },
+    { "id": "field-note-break", "status": "approved" },
+    { "id": "feedback-loop-park-system", "status": "approved" },
+    { "id": "shade-bench-diagram", "status": "approved" },
+    { "id": "public-square-overview", "status": "approved" },
+    { "id": "public-square-route-diagram", "status": "approved" }
+  ]
+}

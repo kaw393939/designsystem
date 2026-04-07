@@ -2,11 +2,22 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import "./globals.css";
+import { atlasSiteDescription, atlasSiteTitle } from "@/lib/archetype-atlas-content";
+import { normalizeSiteUrl } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Educational Design System",
-  description:
-    "Static-first educational site scaffold with semantic tokens, documentation-governed process, exported-site QA, and deterministic Lighthouse checks.",
+  title: {
+    default: atlasSiteTitle,
+    template: `%s | ${atlasSiteTitle}`,
+  },
+  description: atlasSiteDescription,
+  metadataBase: new URL(
+    normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"),
+  ),
+  applicationName: atlasSiteTitle,
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 type RootLayoutProps = {
