@@ -8,6 +8,7 @@ import {
   archetypeProfiles,
   familyOverviews,
 } from "@/lib/archetype-atlas-content";
+import { withBasePath } from "@/lib/site-config";
 
 const familyMoodboard: Record<string, string> = {
   paradise: "/archetype-atlas/walkthroughs/paradise-moodboard.png",
@@ -63,6 +64,7 @@ export default async function ArchetypeDetailPage({
   }
 
   const family = familyOverviews.find((f) => f.id === profile.familyId);
+  const familyMoodboardPath = familyMoodboard[profile.familyId];
   const siblings = archetypeProfiles.filter(
     (p) => p.familyId === profile.familyId && p.slug !== profile.slug,
   );
@@ -74,7 +76,7 @@ export default async function ArchetypeDetailPage({
         <div className="archetype-hero-grid">
           <div className="archetype-hero-image">
             <img
-              src={profile.imagePath}
+              src={withBasePath(profile.imagePath)}
               alt={`${profile.name} archetype poster`}
               className="atlas-image atlas-image--portrait"
             />
@@ -206,10 +208,10 @@ export default async function ArchetypeDetailPage({
           <p className="mt-4 type-body text-(--ink-body) leading-relaxed">
             {profile.colorAndImagery}
           </p>
-          {familyMoodboard[profile.familyId] && (
+          {familyMoodboardPath && (
             <figure className="mt-6">
               <img
-                src={familyMoodboard[profile.familyId]}
+                src={withBasePath(familyMoodboardPath)}
                 alt={`${family?.title} family mood board`}
                 className="atlas-image"
               />
@@ -420,7 +422,7 @@ export default async function ArchetypeDetailPage({
                 className="archetype-sibling-card group"
               >
                 <img
-                  src={s.imagePath}
+                  src={withBasePath(s.imagePath)}
                   alt={`${s.name} archetype poster`}
                   className="archetype-sibling-img"
                 />

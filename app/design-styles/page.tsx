@@ -7,6 +7,7 @@ import { PageShell } from "@/components/page-shell";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
 import { designStyles } from "@/lib/archetype-atlas-content";
+import { withBasePath } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Style Lab",
@@ -42,7 +43,7 @@ export default function DesignStylesPage() {
       <ContentGrid minCardWidth="19rem">
         {designStyles.map((style) => (
           <TonePanel key={style.slug} tone="reading" className="card-shell overflow-hidden p-0">
-            <img src={style.imagePath} alt={`${style.name} style board`} className="atlas-card-image" />
+            <img src={withBasePath(style.imagePath)} alt={`${style.name} style board`} className="atlas-card-image" />
             <div className="space-y-4 p-6">
               <div>
                 <h2 className="type-section text-(--ink-strong)">{style.name}</h2>

@@ -6,6 +6,7 @@ import { PageShell } from "@/components/page-shell";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
 import { heroExamples } from "@/lib/archetype-atlas-content";
+import { withBasePath } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Hero Examples",
@@ -55,7 +56,7 @@ export default function HeroExamplesPage() {
                   </p>
                   <h2 className="mt-2 type-section text-(--ink-strong)">{example.title}</h2>
                 </div>
-                <img src={example.imagePath} alt={`${example.title} concept board`} className="atlas-image" />
+                <img src={withBasePath(example.imagePath)} alt={`${example.title} concept board`} className="atlas-image" />
                 <div className="atlas-detail-card">
                   <h3 className="type-concept text-(--ink-strong)">Why it works</h3>
                   <ul className="mt-3 space-y-2 pl-5 type-body text-(--ink-body)">

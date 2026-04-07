@@ -14,6 +14,7 @@ import {
   heroExamples,
   selectionSteps,
 } from "@/lib/archetype-atlas-content";
+import { withBasePath } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Overview",
@@ -44,7 +45,7 @@ export default function HomePage() {
 
           <figure className="atlas-figure atlas-figure--hero">
             <img
-              src="/archetype-atlas/styles/swiss-grid.png"
+              src={withBasePath("/archetype-atlas/styles/swiss-grid.png")}
               alt="Swiss-grid style board used as the visual anchor for the archetype atlas overview."
               className="atlas-image"
             />
@@ -119,7 +120,7 @@ export default function HomePage() {
         <ContentGrid minCardWidth="17rem">
           {designStyles.slice(0, 4).map((style) => (
             <TonePanel key={style.slug} tone="reading" className="card-shell overflow-hidden p-0">
-              <img src={style.imagePath} alt={`${style.name} style board`} className="atlas-card-image" />
+              <img src={withBasePath(style.imagePath)} alt={`${style.name} style board`} className="atlas-card-image" />
               <div className="p-6">
                 <h2 className="type-concept text-(--ink-strong)">{style.name}</h2>
                 <p className="mt-3 type-body text-(--ink-body)">{style.stance}</p>

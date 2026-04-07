@@ -10,6 +10,7 @@ import {
   archetypeProfiles,
   familyOverviews,
 } from "@/lib/archetype-atlas-content";
+import { withBasePath } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Archetypes",
@@ -55,7 +56,7 @@ export default function ArchetypesIndexPage() {
                     className="card-shell overflow-hidden p-0 transition-shadow duration-200 group-hover:shadow-lg"
                   >
                     <img
-                      src={profile.imagePath}
+                      src={withBasePath(profile.imagePath)}
                       alt={`${profile.name} archetype poster`}
                       className="atlas-card-image"
                     />

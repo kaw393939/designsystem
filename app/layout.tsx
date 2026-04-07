@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 import "./globals.css";
 import { atlasSiteDescription, atlasSiteTitle } from "@/lib/archetype-atlas-content";
-import { normalizeSiteUrl } from "@/lib/site-config";
+import { normalizeSiteUrl, withBasePath } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ),
   applicationName: atlasSiteTitle,
   icons: {
-    icon: "/icon.svg",
+    icon: withBasePath("/icon.svg"),
   },
 };
 

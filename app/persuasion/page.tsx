@@ -12,6 +12,7 @@ import {
   archetypePersuasionMap,
   persuasionMethods,
 } from "@/lib/persuasion-content";
+import { withBasePath } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Persuasion Methods — Cialdini × Archetypes",
@@ -72,7 +73,7 @@ export default function PersuasionPage() {
             primary={
               <TonePanel tone="reading" className="card-shell overflow-hidden p-0">
                 <img
-                  src={method.imagePath}
+                  src={withBasePath(method.imagePath)}
                   alt={`${method.name} principle illustration`}
                   className="atlas-card-image w-full"
                 />

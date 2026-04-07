@@ -6,6 +6,27 @@ export function normalizeBasePath(value = ""): string {
   return `/${value.replace(/^\/+|\/+$/g, "")}`;
 }
 
+export function withBasePath(path: string): string {
+  if (
+    !path ||
+    path.startsWith("data:") ||
+    path.startsWith("http://") ||
+    path.startsWith("https://") ||
+    path.startsWith("//") ||
+    !path.startsWith("/")
+  ) {
+    return path;
+  }
+
+  const basePath = normalizeBasePath(process.env.NEXT_PUBLIC_BASE_PATH || "");
+
+  if (!basePath || path === basePath || path.startsWith(`${basePath}/`)) {
+    return path;
+  }
+
+  return `${basePath}${path}`;
+}
+
 export function normalizeRoute(value = "/"): string {
   if (!value || value === "/") {
     return "/";
