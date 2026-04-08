@@ -66,7 +66,7 @@ export default function IdentityPortfolioPublishPage() {
             alignment="split"
             media={<WeakTieOpportunityMap />}
             caption="From page to opportunity"
-            credit="Deployment model for the identity course"
+            credit="Publishing model for the identity course"
             annotation={
               <p>
                 The portfolio becomes a system only when the page leaves the browser and enters real conversations.
@@ -88,7 +88,7 @@ export default function IdentityPortfolioPublishPage() {
       />
 
       <ConceptGrid
-        title="Deployment kit to keep in circulation"
+        title="Publishing toolkit to keep in circulation"
         summary="These are the assets and habits that turn one page into repeated public exposure."
         items={deploymentKitItems}
         columns={2}

@@ -20,11 +20,11 @@ export default function BseaiStudioPage() {
         title:
           "Studio is where the degree stops sounding good and starts becoming publicly reviewable.",
         summary:
-          "This route bridges the degree into signal, proof, build, and publish work. It exists so the program can show what it actually asks students to make, not just what it says it values.",
+          "This page bridges the degree into signal, proof, build, and publish work so the program can show what students actually make, not just what it says it values.",
         note:
           "The portfolio is the first public-practice system, not a side assignment beside the curriculum.",
         palette: "rose",
-        badges: ["Signal", "Proof", "Deploy"],
+        badges: ["Signal", "Proof", "Publish"],
         actions: [
           {
             label: "Open identity studio",

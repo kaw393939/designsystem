@@ -13,6 +13,8 @@ type SiteHeaderNavItem = {
 type SiteHeaderNavProps = {
   items: readonly SiteHeaderNavItem[];
   contextualItems?: readonly SiteHeaderNavItem[];
+  className?: string;
+  linkClassName?: string;
 };
 
 function normalizePath(pathname: string) {
@@ -39,6 +41,8 @@ function normalizePath(pathname: string) {
 export function SiteHeaderNav({
   items,
   contextualItems = [],
+  className = "flex flex-wrap gap-2",
+  linkClassName = "",
 }: SiteHeaderNavProps) {
   const pathname = usePathname();
   const currentPath = normalizePath(pathname || "/");
@@ -66,7 +70,7 @@ export function SiteHeaderNav({
   const visibleItems = contextualItem ? [...items, contextualItem] : [...items];
 
   return (
-    <nav aria-label="Primary" className="flex flex-wrap gap-2">
+    <nav aria-label="Primary" className={className}>
       {visibleItems.map((item) => {
         const isCurrent = matchesCurrentPath(item);
 
@@ -79,7 +83,7 @@ export function SiteHeaderNav({
               isCurrent
                 ? "border-(--accent-strong) bg-[rgba(255,255,255,0.92)] text-(--ink-strong) shadow-[0_12px_32px_rgba(44,52,43,0.08)]"
                 : ""
-            }`.trim()}
+            } ${linkClassName}`.trim()}
           >
             {item.label}
           </Link>

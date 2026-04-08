@@ -23,7 +23,7 @@ export default function IdentityPortfolioSourcesPage() {
 
   return (
     <IdentityRouteShell
-      eyebrow="Reference route"
+      eyebrow="Reference"
       title="Follow the reading trail without losing the practical thread"
       dek="Follow the longer research trail here: the core documents, evidence base, and supporting readings behind the course decisions."
       currentHref={currentHref}
@@ -46,7 +46,7 @@ export default function IdentityPortfolioSourcesPage() {
             <h2 className="type-concept text-(--ink-strong)">{item.title}</h2>
             <p className="mt-3 type-body text-(--ink-body)">{item.summary}</p>
             <Link href={item.href} className="action-secondary mt-5 inline-flex w-fit">
-              Open route
+              Open page
             </Link>
           </TonePanel>
         ))}
@@ -64,13 +64,13 @@ export default function IdentityPortfolioSourcesPage() {
           Start with the core research file.
         </h2>
         <p className="mt-3 type-body text-(--ink-body)">
-          docs/_research/identity-system-core.md is the primary working model behind this experience. It explains the system in student language from need to opportunity.
+          The primary working model behind this experience explains the system in student language from need to opportunity.
         </p>
         <p className="mt-3 type-body text-(--ink-body)">
-          Open docs/_research/identity.md when you want the longer evidence base, and docs/_research/mysystem.md when you want the shorter blueprint version.
+          The longer evidence base covers the full research trail. The shorter blueprint version gives you the condensed overview.
         </p>
         <p className="mt-3 type-body text-(--ink-body)">
-          The route set in this experience turns that stack into a usable build path: signal, style, proof, build, and publish.
+          This experience turns that research into a usable build path: signal, style, proof, build, and publish.
         </p>
       </TonePanel>
     </IdentityRouteShell>

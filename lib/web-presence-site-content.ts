@@ -63,7 +63,7 @@ export const webPresencePathCards = [
   {
     title: "Deliverables",
     summary:
-      "Keep the portfolio final and museum final visible as concrete public products with review criteria, failure modes, and a three-week timeline.",
+      "Keep the portfolio final and museum final visible as concrete public products with review criteria, common mistakes, and a three-week timeline.",
     href: "/deliverables",
     cta: "Review deliverables",
   },
@@ -79,32 +79,32 @@ export const webPresencePathCards = [
 export const webPresenceSystemSteps = [
   {
     title: "Need",
-    summary: "Name the tension or problem the page is actually solving before you start decorating.",
+    summary: "Figure out the real problem the page is solving before you worry about making it look cool.",
     tag: "1",
   },
   {
     title: "Signal",
-    summary: "Decide what someone should understand on the first read and which archetype should shape that impression.",
+    summary: "Decide what you want people to get right away and what overall vibe should shape that first impression.",
     tag: "2",
   },
   {
     title: "Style",
-    summary: "Make the visual feel support the same promise — through hierarchy, pacing, image choice, and density.",
+    summary: "Choose a look that supports the same message through layout, hierarchy, images, and pacing.",
     tag: "3",
   },
   {
     title: "Proof",
-    summary: "Put visible evidence close to the claim so trust arrives before the visitor bounces.",
+    summary: "Put real proof near the main claim so people trust the page fast.",
     tag: "4",
   },
   {
     title: "CTA",
-    summary: "Tell the visitor what to do next in language that fits the same signal — do not drop into generic ‘contact us’ mode.",
+    summary: "Tell the visitor what to do next in a voice that still matches the page.",
     tag: "5",
   },
   {
     title: "Publish and repeat",
-    summary: "Put the page live, see what people actually remember, and tighten the next version around that feedback.",
+    summary: "Put the page live, see what people actually notice, and use that to improve the next version.",
     tag: "6",
   },
 ];
@@ -112,9 +112,9 @@ export const webPresenceSystemSteps = [
 export const webPresenceProducts: WebPresenceProduct[] = [
   {
     title: "Portfolio site",
-    audience: "A signal about the student as a professional",
+    audience: "For your portfolio",
     summary:
-      "A signal-first personal portfolio that makes one person legible, credible, and actionable to one specific audience.",
+      "A personal portfolio that quickly shows who you are, what you are good at, and why someone should trust you.",
     mustDo: [
       "Communicate one clear archetype on the first read.",
       "State a specific professional promise on the first screen.",
@@ -136,9 +136,9 @@ export const webPresenceProducts: WebPresenceProduct[] = [
   },
   {
     title: "Museum site",
-    audience: "A signal about a chosen subject",
+    audience: "For your museum site",
     summary:
-      "A curated, designed public experience centered on a subject the student chose and built through AI-agent orchestration.",
+      "A designed public-facing site about a subject you chose, with real curation instead of just a pile of information.",
     mustDo: [
       "Communicate the archetype of the subject on the first read.",
       "Show a site promise that explains why the subject deserves a serious public experience.",
@@ -182,11 +182,11 @@ export const webPresenceTimelineItems = [
 ];
 
 export const strongWorkItems = [
-  "The intention is clear and explicitly stated in the signal brief.",
-  "The product is honest about what it is and who it is for.",
-  "Proof is real and visible rather than implied through adjectives.",
-  "Agent specs become more precise over the three weeks, not more vague.",
-  "The student can explain the decisions instead of only showing the output.",
+  "The goal of the page is clear and easy to say out loud.",
+  "The site is honest about what it is and who it is for.",
+  "The proof is real and easy to spot.",
+  "The build prompts get more specific over time, not more vague.",
+  "The student can explain the choices instead of only showing the final screen.",
 ];
 
 export const portfolioFailureModes = [
@@ -206,17 +206,17 @@ export const museumFailureModes = [
 export const workbookPortfolioPrompts: WorkbookPrompt[] = [
   {
     title: "Audience",
-    summary: "Name one specific person in one specific situation — not a category like ‘employers’ or ‘people in tech.’",
+    summary: "Name one real person in one real situation, not a giant category like ‘employers’ or ‘people in tech.’",
     example:
       "A startup founder hiring their second engineer who needs evidence of fast building and clear communication.",
   },
   {
     title: "Need",
-    summary: "State the tension that person has right now and why a bad first impression from your page would be costly.",
+    summary: "Say what problem that person has right now and why a weak first impression from your page would hurt.",
   },
   {
     title: "Promise",
-    summary: "Write what the portfolio offers that person on the first read, in plain language.",
+    summary: "Write what your portfolio should make that person understand right away, in plain language.",
   },
   {
     title: "Archetype application",
@@ -231,15 +231,15 @@ export const workbookPortfolioPrompts: WorkbookPrompt[] = [
 export const workbookMuseumPrompts: WorkbookPrompt[] = [
   {
     title: "Subject",
-    summary: "State the museum topic in one sentence so the site starts from a clear object of attention.",
+    summary: "Describe the museum topic in one sentence so the site starts from something clear and specific.",
   },
   {
     title: "Ideal visitor",
-    summary: "Name who the site is for and what they already know before they arrive.",
+    summary: "Say who the site is for and what they probably already know before they get there.",
   },
   {
     title: "First 10 seconds",
-    summary: "Describe what the visitor should understand or feel immediately from the first look.",
+    summary: "Describe what the visitor should understand or feel in the first few seconds.",
   },
   {
     title: "Subject archetype",
@@ -252,11 +252,11 @@ export const workbookMuseumPrompts: WorkbookPrompt[] = [
 ];
 
 export const workbookPairReviewPrompts = [
-  "What kind of person does this portfolio brief make you expect to meet on the page?",
-  "Does the archetype choice feel coherent with the promise, or is there a tension?",
-  "What kind of subject does the museum brief make you expect to encounter?",
-  "Does the museum archetype fit the subject or does it still feel like personal taste?",
-  "What one thing would strengthen the agent spec note in each brief?",
+  "What kind of person do you expect to meet from this portfolio brief?",
+  "Does the vibe match the promise, or do those feel disconnected?",
+  "What kind of subject do you expect this museum site to be about?",
+  "Does the chosen vibe fit the subject, or does it just feel like personal taste?",
+  "What one thing would make the build prompt clearer?",
 ];
 
 export const workbookPrinciples = [
@@ -595,4 +595,4 @@ export const instructorPrompts = [
 ];
 
 export const degreeConnection =
-  "This unit is the identity and signal layer of the broader formation model: reading yourself and a subject clearly, writing precise enough specs to brief an agent, and building toward visible proof are core habits the degree is trying to form, not just portfolio tactics.";
+  "This unit goes beyond portfolio advice. Learning to read yourself and a subject clearly, writing specs precise enough for a collaborator or AI tool to follow, and building toward visible proof are core habits the degree is trying to form — not just skills for one class.";

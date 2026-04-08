@@ -2,19 +2,20 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import "./globals.css";
-import { atlasSiteDescription, atlasSiteTitle } from "@/lib/archetype-atlas-content";
+import { SiteJourneyProvider } from "@/components/site-journey-provider";
 import { normalizeSiteUrl, withBasePath } from "@/lib/site-config";
+import { primarySiteDescription, primarySiteTitle } from "@/lib/site-navigation";
 
 export const metadata: Metadata = {
   title: {
-    default: atlasSiteTitle,
-    template: `%s | ${atlasSiteTitle}`,
+    default: primarySiteTitle,
+    template: `%s | ${primarySiteTitle}`,
   },
-  description: atlasSiteDescription,
+  description: primarySiteDescription,
   metadataBase: new URL(
     normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"),
   ),
-  applicationName: atlasSiteTitle,
+  applicationName: primarySiteTitle,
   icons: {
     icon: withBasePath("/icon.svg"),
   },
@@ -26,8 +27,10 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" data-scroll-behavior="smooth">
+      <body>
+        <SiteJourneyProvider>{children}</SiteJourneyProvider>
+      </body>
     </html>
   );
 }

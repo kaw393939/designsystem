@@ -100,7 +100,7 @@ export default function IdentityPortfolioPersuasionLabPage() {
 
       <NextStepBlock
         title="Take one trust move back to the proof route"
-        summary="Choose the pattern, then apply it where claim, artifact, and CTA sit together on the live page."
+        summary="Choose the pattern, then apply it where claim, evidence, and call to action sit together on the live page."
         context="The lab names the move. The proof route is where it becomes visible."
         primaryAction={{
           label: "Return to proof",

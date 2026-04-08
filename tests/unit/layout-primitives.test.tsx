@@ -1,9 +1,29 @@
 import { render, screen, within } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { LessonShell } from "@/components/lesson-shell";
 import { PageShell } from "@/components/page-shell";
 import { SplitLayout } from "@/components/split-layout";
+
+vi.mock("@/components/brief-fab", () => ({
+  BriefFab: () => null,
+}));
+
+vi.mock("@/components/site-journey-provider", () => ({
+  useSiteJourney: () => ({
+    currentPage: null,
+    previousPage: null,
+    recentPages: [],
+    lastTourPage: null,
+    lastSupportPage: null,
+    briefCount: 0,
+    setBriefCount: vi.fn(),
+    hasHydrated: true,
+    isResumeBandDismissed: false,
+    dismissResumeBand: vi.fn(),
+    restoreResumeBand: vi.fn(),
+  }),
+}));
 
 describe("layout shells and primitives", () => {
   it("renders PageShell with a skip link and core landmarks", () => {

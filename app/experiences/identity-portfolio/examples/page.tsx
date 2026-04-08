@@ -51,7 +51,7 @@ export default function IdentityPortfolioExamplesPage() {
     <IdentityRouteShell
       eyebrow="Support route"
       title="See what gets clearer when the signal finally holds"
-      dek="Open these examples when you need before-and-after receipts that show what changes when one signal finally drives the page."
+      dek="Open these examples when you need before-and-after evidence that shows what changes when one signal finally drives the page."
       currentHref={currentHref}
       actions={[
         {
@@ -98,7 +98,7 @@ export default function IdentityPortfolioExamplesPage() {
       <ContentGrid minCardWidth="18rem">
         {exampleRouteCards.map((card) => (
           <TonePanel key={card.href} tone="proof" className="card-shell p-6">
-            <p className="type-meta text-(--accent-strong)">More receipts</p>
+            <p className="type-meta text-(--accent-strong)">More evidence</p>
             <h2 className="mt-3 type-concept text-(--ink-strong)">{card.title}</h2>
             <p className="mt-3 type-body text-(--ink-body)">{card.summary}</p>
             <Link href={card.href} className="action-secondary mt-5 inline-flex w-fit">

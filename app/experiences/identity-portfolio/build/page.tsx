@@ -47,7 +47,7 @@ export default function IdentityPortfolioBuildPage() {
     >
       <SequenceTimeline
         title="From brief to live page"
-        summary="Follow this sequence when the goal is a finished page with a clear next step, not a full theory tour."
+        summary="Follow this sequence when the target is a finished page with a clear next step, not a full theory tour."
         mode="process"
         items={assignmentLadderItems}
       />
@@ -65,7 +65,7 @@ export default function IdentityPortfolioBuildPage() {
       />
 
       <ConceptGrid
-        title="Use these six questions as the pre-publish gate"
+        title="Use these six questions as a pre-publish checklist"
         summary="Before you ship, check whether the page is clear, proven, actionable, and still aligned with the signal."
         items={signalAuditItems}
         columns={3}
@@ -79,9 +79,9 @@ export default function IdentityPortfolioBuildPage() {
         prompt="Before you publish, make sure the signal and the next step are surviving contact with the real page."
         questions={[
           "Can a stranger name the signal after a quick scan of the hero and the first proof block?",
-          "Is the strongest artifact visible early enough to earn trust fast?",
-          "Does the CTA make sense immediately after the proof?",
-          "Did the visual lane and proof choice reinforce the same story?",
+          "Is the strongest piece of work visible early enough to earn trust fast?",
+          "Does the call to action make sense immediately after the proof?",
+          "Did the visual direction and proof choice reinforce the same story?",
           "What part of the current page is still attractive but strategically vague?",
         ]}
         timeEstimate="15 minutes"

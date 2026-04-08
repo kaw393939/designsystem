@@ -8,6 +8,8 @@ import {
   StudentPortraitBadge,
 } from "@/components/human-signal-visuals";
 import { PageShell } from "@/components/page-shell";
+import { RouteContextPanel } from "@/components/route-context-panel";
+import { RouteStatusBadge } from "@/components/route-status-badge";
 import { SplitLayout } from "@/components/split-layout";
 import { SectionHeading } from "@/components/section-heading";
 import { StudentFastPath } from "@/components/student-fast-path";
@@ -49,16 +51,54 @@ export default function StatusPage() {
   return (
     <PageShell>
       <EditorialBand tone="proof" paddingScale="hero">
-        <SectionHeading
-          eyebrow="Status"
-          title="What is done, what is not, and where the line is."
-          body="Features that are built, tested, and live count as done. Features that are designed but not shipped yet do not. This page keeps that line obvious."
-          headingLevel={1}
-        />
+        <div className="grid gap-8 xl:grid-cols-[1.08fr_0.92fr] xl:items-start">
+          <div className="measure-wide">
+            <RouteStatusBadge status="Recommended support" />
+            <div className="mt-4">
+              <SectionHeading
+                eyebrow="Support route · Status"
+                title="Use status when you want the honest version of what is done and what is not."
+                body="Built, tested, and selected routes count as dependable. Planned or half-finished work does not."
+                headingLevel={1}
+              />
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/tour" className="action-primary">
+                Open the tour map
+              </Link>
+              <Link href="/examples" className="action-secondary">
+                Open examples
+              </Link>
+            </div>
+          </div>
+          <RouteContextPanel
+            tone="reading"
+            eyebrow="Primary use"
+            title="Use status to separate the dependable baseline from future work."
+            sections={[
+              {
+                label: "Open this when",
+                content:
+                  "You need to know which routes and support pages are dependable right now, which ones are still being hardened, and what should stay out of your assumptions for now.",
+              },
+              {
+                label: "This helps with",
+                content:
+                  "The difference between live public routes, active support pages, continuity-only wrappers, and items that still belong to future release work.",
+              },
+              {
+                label: "Best next move",
+                content:
+                  "Read the done and pending columns here, then go back to the live page you actually want to use with the right expectations.",
+              },
+            ]}
+          />
+        </div>
       </EditorialBand>
 
       <StudentFastPath
-        title="Use this page when you want the honest version, not the hype."
+        label="Quick support path"
+        title="Need the honest version, not the hype?"
         summary="Check what is done, note what is still pending, then go back to the live routes with a clean picture of what is actually dependable."
         steps={statusFastPathSteps}
         primaryAction={{
@@ -81,12 +121,10 @@ export default function StatusPage() {
               Honest status is part of the product
             </p>
             <h2 className="mt-3 type-concept text-(--ink-strong)">
-              You need a clean line between trust and ambition.
+              You need a clean line between what is solid and what is still just a plan.
             </h2>
             <p className="mt-3 type-body text-(--ink-body)">
-              A stronger-looking site should not become less honest. This page
-              keeps the project grounded by showing what is already dependable
-              and what still belongs to future work.
+              A polished site should not blur the line between finished work and future work.
             </p>
             <div className="mt-6 space-y-4">
               {statusReaders.map((reader) => (
@@ -122,7 +160,7 @@ export default function StatusPage() {
       <SplitLayout
         primary={
           <CalloutBand
-            label="Completed"
+            label="Done"
             title="Already dependable"
             tone="proof"
           >
@@ -137,7 +175,7 @@ export default function StatusPage() {
         }
         secondary={
           <CalloutBand
-            label="Still Pending"
+            label="Not done yet"
             title="Still not there yet"
             tone="warning"
           >

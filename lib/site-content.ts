@@ -45,6 +45,9 @@ export const completedItems = [
   "Sprint 6 accessibility smoke audits and keyboard-focus fixes",
   "Reduced-motion and forced-colors coverage on representative long-form routes",
   "Documented root-path and GitHub Pages-style maintainer verification routine",
+  "Canonical `/tour/*`, `/browse/*`, and `/examples/*` route families with legacy continuity wrappers kept reachable but out of sitemap where they formerly looked canonical",
+  "Sprint 4 instructor-guide alignment, support-route cleanup, flat-wrapper continuity handoffs, and selected-release continuity notes for the route-family IA",
+  "Focused browser and unit validation for the route-family IA, selected release, and selected sitemap surface",
 ];
 
 export const pendingItems = [

@@ -24,7 +24,7 @@ export default function IdentityPortfolioStylePage() {
   return (
     <IdentityRouteShell
       eyebrow="Step 2"
-      title="Pick the visual lane on purpose"
+      title="Pick the visual direction on purpose"
       dek="Turn the signal into hierarchy, pacing, contrast, imagery, and tone choices that make the page legible in the first few seconds."
       currentHref={currentHref}
       actions={[
@@ -44,12 +44,12 @@ export default function IdentityPortfolioStylePage() {
         ratio="feature"
         primary={
           <TonePanel tone="reading" className="p-6">
-            <p className="type-meta text-(--accent-strong)">Visual lane</p>
+            <p className="type-meta text-(--accent-strong)">Visual direction</p>
             <h2 className="mt-3 type-concept text-(--ink-strong)">
               Style should confirm the signal at a glance.
             </h2>
             <p className="mt-3 type-body text-(--ink-body)">
-              Choose hierarchy, contrast, imagery, and pacing that match the promise you picked in signal. When the lane is coherent, proof and action read like continuation instead of correction.
+              Choose hierarchy, contrast, imagery, and pacing that match the promise you picked in signal. When the direction is coherent, proof and action read like continuation instead of correction.
             </p>
           </TonePanel>
         }
@@ -164,7 +164,7 @@ export default function IdentityPortfolioStylePage() {
 
       <NextStepBlock
         title="Once the first read is stable, earn trust near the promise"
-        summary="The next route is about proof: which artifact, outcome, or receipt should sit close enough to the claim that belief arrives quickly."
+        summary="The next step is about proof: which work sample, outcome, or evidence should sit close enough to the claim that belief arrives quickly."
         context="Perception gets the read started. Proof makes the signal worth acting on."
         primaryAction={{
           label: "Continue to proof",

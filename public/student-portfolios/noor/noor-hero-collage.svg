@@ -1,0 +1,38 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#F5EBDD"/>
+  <rect x="52" y="56" width="428" height="788" rx="28" fill="#D8B299"/>
+  <rect x="98" y="106" width="340" height="688" rx="24" fill="#F9F1E7"/>
+  <rect x="548" y="78" width="598" height="744" rx="34" fill="#FBF6EF" stroke="#DFC6B3" stroke-width="4"/>
+  <circle cx="268" cy="388" r="148" fill="#B96957"/>
+  <path d="M180 584C180 510.993 239.193 451.8 312.2 451.8H319.8C392.807 451.8 452 510.993 452 584V715H180V584Z" fill="#2D4B3E"/>
+  <circle cx="312" cy="328" r="92" fill="#3B2A22"/>
+  <path d="M243 330C243 278.086 285.086 236 337 236H338C389.914 236 432 278.086 432 330V335H243V330Z" fill="#3B2A22"/>
+  <rect x="610" y="122" width="474" height="252" rx="22" fill="#EFE1D2"/>
+  <rect x="640" y="156" width="192" height="18" rx="9" fill="#AE725B"/>
+  <rect x="640" y="190" width="328" height="18" rx="9" fill="#CEB2A0"/>
+  <rect x="640" y="220" width="292" height="12" rx="6" fill="#D8C0B1"/>
+  <rect x="640" y="245" width="246" height="12" rx="6" fill="#D8C0B1"/>
+  <rect x="640" y="285" width="186" height="56" rx="18" fill="#B55F4D"/>
+  <rect x="850" y="156" width="194" height="160" rx="20" fill="#F8F2EA" stroke="#D6B8A3" stroke-width="3"/>
+  <rect x="874" y="184" width="146" height="12" rx="6" fill="#355748"/>
+  <rect x="874" y="208" width="120" height="10" rx="5" fill="#C8AB97"/>
+  <rect x="874" y="234" width="146" height="54" rx="16" fill="#DDB69A"/>
+  <rect x="608" y="416" width="238" height="308" rx="22" fill="#FFF9F1" stroke="#D5B8A4" stroke-width="3"/>
+  <rect x="636" y="450" width="182" height="108" rx="18" fill="#C36F58"/>
+  <rect x="636" y="580" width="124" height="12" rx="6" fill="#B17863"/>
+  <rect x="636" y="604" width="154" height="10" rx="5" fill="#CFB29F"/>
+  <rect x="636" y="626" width="132" height="10" rx="5" fill="#CFB29F"/>
+  <rect x="884" y="416" width="226" height="160" rx="22" fill="#F7EDE2"/>
+  <path d="M924 528L976 468L1028 508L1080 446" stroke="#355748" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="924" cy="528" r="12" fill="#355748"/>
+  <circle cx="976" cy="468" r="12" fill="#355748"/>
+  <circle cx="1028" cy="508" r="12" fill="#355748"/>
+  <circle cx="1080" cy="446" r="12" fill="#355748"/>
+  <rect x="884" y="604" width="226" height="120" rx="22" fill="#FDF7EE" stroke="#D4B7A4" stroke-width="3"/>
+  <rect x="916" y="640" width="162" height="12" rx="6" fill="#B86450"/>
+  <rect x="916" y="666" width="126" height="10" rx="5" fill="#CFB29F"/>
+  <rect x="916" y="688" width="144" height="10" rx="5" fill="#CFB29F"/>
+  <circle cx="1100" cy="138" r="46" fill="#355748" fill-opacity="0.15"/>
+  <circle cx="136" cy="140" r="18" fill="#355748" fill-opacity="0.22"/>
+  <circle cx="170" cy="170" r="9" fill="#B55F4D" fill-opacity="0.58"/>
+</svg>

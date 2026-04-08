@@ -66,6 +66,16 @@ export default function ReadingMapExamplePage() {
         </ProseBlock>
       </EditorialBand>
 
+      <CalloutBand
+        label="Structural example"
+        title="This page shows a resource-map layout, not the main proof pages."
+        tone="warning"
+      >
+        <p>
+          For the strongest proof examples, return to <Link href="/examples" className="underline hover:no-underline">/examples</Link> and open the proof walkthroughs first.
+        </p>
+      </CalloutBand>
+
       <StudentFastPath
         title="Use this page when you need a guided way into the reading instead of a giant source dump."
         summary="Start with the suggested order, pick one cluster, then return to the course or guide pages with a clearer sense of what matters."
@@ -87,13 +97,11 @@ export default function ReadingMapExamplePage() {
           <div className="space-y-6">
             <ProseBlock>
               <p>
-                A reading map is different from a lesson. It has to cluster
-                sources, suggest order, and keep a strong next move without
-                pretending every link matters equally.
+                A reading map clusters sources, suggests order, and keeps a strong next move
+                without pretending every link matters equally.
               </p>
               <p>
-                The goal is simple: the page should feel inviting, not like a
-                test.
+                The page should feel inviting, not like a test.
               </p>
             </ProseBlock>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -115,9 +123,9 @@ export default function ReadingMapExamplePage() {
             tone="reflection"
           >
             <ol className="space-y-2 pl-5">
-              <li>Read the foundation spec.</li>
-              <li>Check the active QA artifacts.</li>
-              <li>Only then move into the next sprint brief.</li>
+              <li>Read the overview document first.</li>
+              <li>Check the current review notes.</li>
+              <li>Only then move into the next planning brief.</li>
             </ol>
           </CalloutBand>
         }
@@ -164,7 +172,7 @@ export default function ReadingMapExamplePage() {
         }
         caption="Reading-map movement visual"
         credit="Source-path sketch"
-        annotation="Use the wide visual to suggest movement and return instead of letting it sit there as filler."
+        annotation="Use the wide visual to suggest movement and return."
       />
 
       <CalloutBand

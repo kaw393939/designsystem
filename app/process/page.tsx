@@ -9,6 +9,8 @@ import {
 } from "@/components/human-signal-visuals";
 import { PageShell } from "@/components/page-shell";
 import { ProseBlock } from "@/components/prose-block";
+import { RouteContextPanel } from "@/components/route-context-panel";
+import { RouteStatusBadge } from "@/components/route-status-badge";
 import { SectionHeading } from "@/components/section-heading";
 import { SplitLayout } from "@/components/split-layout";
 import { StudentFastPath } from "@/components/student-fast-path";
@@ -60,24 +62,61 @@ export default function ProcessPage() {
   return (
     <PageShell>
       <EditorialBand tone="synthesis" paddingScale="hero">
-        <SectionHeading
-          eyebrow="Process"
-          title="How work goes from raw content to a site you can trust."
-          body="Use this page when you need to know what to read, what to update, and what counts as done."
-          headingLevel={1}
-        />
-        <ProseBlock className="mt-6">
-          <p>
-            This is not about bureaucracy. It is about knowing where the
-            source of truth lives, how changes get reviewed, and what to
-            check before you believe something is ready to ship.
-          </p>
-        </ProseBlock>
+        <div className="grid gap-8 xl:grid-cols-[1.08fr_0.92fr] xl:items-start">
+          <div className="measure-wide">
+            <RouteStatusBadge status="Recommended support" />
+            <div className="mt-4">
+              <SectionHeading
+                eyebrow="Support route · Process"
+                title="Use process when you need to know what is real, reviewed, and safe to change."
+                body="Open this when you need the source-of-truth chain, the release checks, and the line between shipped and planned work before you touch the repo."
+                headingLevel={1}
+              />
+            </div>
+            <ProseBlock className="mt-6">
+              <p>
+                It shows where the truth lives, how changes get reviewed, and which checks make the
+                selected release safe to trust.
+              </p>
+            </ProseBlock>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/status" className="action-primary">
+                Review status
+              </Link>
+              <Link href="/tour" className="action-secondary">
+                Open the tour map
+              </Link>
+            </div>
+          </div>
+          <RouteContextPanel
+            tone="reading"
+            eyebrow="Primary use"
+            title="Use process to verify the system, then go back to the page you are changing."
+            sections={[
+              {
+                label: "Open this when",
+                content:
+                  "You need to know which spec is active, which release is selected, and what checks make a page safe to trust or edit.",
+              },
+              {
+                label: "This helps with",
+                content:
+                  "Source-of-truth order, selected-release discipline, QA sequence, and the difference between live pages and inactive or historical ones.",
+              },
+              {
+                label: "Best next move",
+                content:
+                  "Check the boundary here, then go back to status, the tour, or the exact page you want to change with a cleaner understanding of what is real."
+              },
+            ]}
+          />
+        </div>
       </EditorialBand>
 
       <StudentFastPath
-          title="Use this page when you need to know what is real, reviewed, and safe to build on."
-          summary="Read the build loop, check which items are done on the status page, then look at the live pages so process becomes concrete."
+        label="Quick support path"
+        title="Need the honest source-of-truth version?"
+        summary="Read the build loop, check what is done on the status page, then look at the live pages so process becomes concrete."
         steps={processFastPathSteps}
         primaryAction={{
           label: "Review status",
@@ -98,11 +137,11 @@ export default function ProcessPage() {
               Why the process page matters
             </p>
             <h2 className="mt-3 type-concept text-(--ink-strong)">
-              A good process makes the work easier to trust — nothing more.
+              A good process just makes the work easier to trust.
             </h2>
             <p className="mt-3 type-body text-(--ink-body)">
-              This page keeps it practical: where the source of truth lives,
-              how changes get reviewed, and what to check before shipping.
+              It stays practical: where the source of truth lives, how changes get reviewed, and
+              what to check before shipping.
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {processReaders.map((reader) => (
@@ -132,7 +171,7 @@ export default function ProcessPage() {
         primary={
           <CalloutBand
             label="Build Loop"
-            title="Work is only done when it has been reviewed and verified."
+            title="Work is only done after review and checks."
             tone="neutral"
           >
             <ol className="space-y-3 pl-5">
@@ -145,7 +184,7 @@ export default function ProcessPage() {
         secondary={
           <CalloutBand
             label="Reading Order"
-            title="Start with these files, in this order."
+            title="Start with these files."
             tone="reflection"
           >
             <ol className="space-y-3 pl-5">
@@ -160,7 +199,7 @@ export default function ProcessPage() {
       <ContentGrid minCardWidth="18rem">
         <CalloutBand
           label="Quality Checks"
-          title="The exported, public-facing site is what gets tested."
+          title="The exported public site is what gets tested."
           tone="proof"
         >
           <ul className="space-y-3 pl-5">
@@ -172,7 +211,7 @@ export default function ProcessPage() {
 
         <CalloutBand
           label="Automated Testing"
-          title="These same quality checks also run automatically in CI."
+          title="These same checks also run automatically in CI."
           tone="next"
         >
           <ul className="space-y-3 pl-5">
@@ -187,7 +226,7 @@ export default function ProcessPage() {
             Where to check the live baseline
           </p>
           <h2 className="mt-2 type-concept text-(--ink-strong)">
-            Check the shipped version, not just the plan.
+            Check the shipped version, not just the roadmap.
           </h2>
           <p className="mt-3 type-body text-(--ink-body)">
             Review status first, then inspect the recipes guide and selected

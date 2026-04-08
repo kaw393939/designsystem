@@ -19,7 +19,7 @@ export function LessonShell({
 }: LessonShellProps) {
   return (
     <div
-      className={`grid gap-8 xl:grid-cols-[minmax(0,1fr)_18rem] ${className}`.trim()}
+      className={`grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] ${className}`.trim()}
     >
       <div className="flex min-w-0 flex-col gap-8">
         {progress && !localNav?.length ? (

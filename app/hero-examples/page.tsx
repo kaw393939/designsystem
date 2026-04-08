@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { CalloutBand } from "@/components/callout-band";
 import { EditorialBand } from "@/components/editorial-band";
 import { PageShell } from "@/components/page-shell";
+import { RouteStatusBadge } from "@/components/route-status-badge";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
 import { heroExamples } from "@/lib/archetype-atlas-content";
@@ -17,21 +19,31 @@ export default function HeroExamplesPage() {
     <PageShell>
       <EditorialBand tone="emphasis" paddingScale="hero">
         <div className="measure-wide">
-          <p className="type-meta text-(--accent-strong)">Live hero examples</p>
+          <RouteStatusBadge status="Wrapper-specific" />
+          <p className="mt-4 type-meta text-(--accent-strong)">Legacy continuity route</p>
           <h1 className="type-hero mt-4 text-balance text-(--ink-strong)">
-            Real hero sections that show how picking a different archetype changes everything.
+            These older hero examples now point to the main examples pages.
           </h1>
           <p className="mt-6 type-body text-(--ink-body)">
-            These are live coded examples, not just mood boards. Study how the same basic ingredients — headline, supporting text, evidence, and call-to-action button — feel completely different when filtered through Sage, Hero, Outlaw, Creator, Magician, and Caregiver logic.
+            Keep this gallery for older links or a hero-first archive view. The main examples
+            family now splits proof structure from full student examples.
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/examples/proof-blocks" className="action-primary">
+              Open proof anatomy
+            </Link>
+            <Link href="/examples/student-exemplars" className="action-secondary">
+              Open student exemplars
+            </Link>
+          </div>
         </div>
       </EditorialBand>
 
       <section className="space-y-6">
         <SectionHeading
           eyebrow="How to read them"
-          title="The hero is where mixed signals become obvious."
-          body="Each example keeps the same basic ingredients: eyebrow label, headline, deck (supporting paragraph), proof strip, and CTA (call-to-action button). What changes is the archetype and the visual style carrying it."
+          title="Read these like fast side-by-side comparisons."
+          body="Each example uses the same basic pieces: label, headline, supporting copy, proof section, and call to action. What changes is the archetype and style carrying them."
         />
       </section>
 
@@ -71,9 +83,9 @@ export default function HeroExamplesPage() {
         ))}
       </div>
 
-      <CalloutBand label="Use this well" title="Copy, hierarchy, and proof must belong to the same person." tone="warning">
+      <CalloutBand label="Use this well" title="The copy, hierarchy, and proof should sound like the same person." tone="warning">
         <p>
-          The most common failure is styling the hero as one archetype while writing the deck or CTA in another. If the headline sounds like Sage and the CTA sounds like generic startup enthusiasm, the signal breaks.
+          If the headline sounds like Sage and the button sounds like generic hype, the vibe breaks.
         </p>
       </CalloutBand>
     </PageShell>

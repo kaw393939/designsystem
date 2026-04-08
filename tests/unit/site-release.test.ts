@@ -9,6 +9,37 @@ import {
 } from "@/lib/site-release";
 
 const identityReleaseRouteIds = [
+  "overview",
+  "tour",
+  "tour-signal",
+  "tour-archetype",
+  "tour-style",
+  "tour-proof",
+  "tour-build",
+  "tour-publish",
+  "browse",
+  "browse-archetypes",
+  "browse-design-lineages",
+  "browse-attention-trust",
+  "browse-sources",
+  "examples",
+  "examples-proof-blocks",
+  "examples-student-exemplars",
+  "examples-module",
+  "examples-lesson",
+  "examples-reading-map",
+  "instructor-guide",
+  "tokens",
+  "layouts",
+  "recipes",
+  "process",
+  "status",
+];
+
+const identityNonPublicSelectedRouteIds = [
+  "archetypes",
+  "design-styles",
+  "persuasion",
   "experience-identity-portfolio",
   "experience-identity-portfolio-signal",
   "experience-identity-portfolio-style",
@@ -24,6 +55,11 @@ const identityReleaseRouteIds = [
   "experience-identity-portfolio-sources",
 ];
 
+const identitySelectedRouteIds = [
+  ...identityReleaseRouteIds,
+  ...identityNonPublicSelectedRouteIds,
+];
+
 describe("site release selection", () => {
   it("selects the identity course release and derives navigation plus audit routes", () => {
     const context = assertValidSiteSelection();
@@ -31,12 +67,22 @@ describe("site release selection", () => {
     expect(context.experience.id).toBe("identity-portfolio-system");
     expect(context.release.id).toBe("identity-portfolio-system-proof-release");
     expect(context.primaryNavRoutes.map((route) => route.id)).toEqual([
-      "experience-identity-portfolio",
+      "overview",
+      "tour",
+      "browse",
+      "examples",
+      "instructor-guide",
     ]);
     expect(context.sitemapRoutes.map((route) => route.id)).toEqual(
       identityReleaseRouteIds,
     );
     expect(context.auditRoutes).toHaveLength(context.sitemapRoutes.length);
+    expect(context.routes.map((route) => route.id)).toContain(
+      "experience-identity-portfolio-signal",
+    );
+    expect(context.sitemapRoutes.map((route) => route.id)).not.toContain(
+      "experience-identity-portfolio-signal",
+    );
     expect(getSelectedSiteMetadata()).toEqual({
       title: "Identity Portfolio System",
       description:
@@ -200,7 +246,8 @@ describe("site release selection", () => {
     });
 
     expect(result.isValid).toBe(true);
-    expect(result.routes.map((route) => route.id)).toEqual(identityReleaseRouteIds);
+    expect(result.routes.map((route) => route.id)).toEqual(identitySelectedRouteIds);
+    expect(result.sitemapRoutes.map((route) => route.id)).toEqual(identityReleaseRouteIds);
     expect(result.resolvedUnitSelections).toEqual([
       {
         reference: "choose-primary-archetype@v2026-04-05T031355Z",
@@ -223,6 +270,20 @@ describe("site release selection", () => {
         assetRefs: ["diagram.mmd", "diagram.svg"],
       },
     ]);
+  });
+
+  it("keeps only the chosen non-public continuity surfaces selected in the identity release", () => {
+    const context = assertValidSiteSelection();
+    const routeIds = context.routes.map((route) => route.id);
+    const nonPublicRouteIds = routeIds.filter(
+      (routeId) => !context.sitemapRoutes.some((route) => route.id === routeId),
+    );
+
+    expect(nonPublicRouteIds).toEqual(identityNonPublicSelectedRouteIds);
+    expect(routeIds).not.toContain("playbook");
+    expect(routeIds).not.toContain("workbook");
+    expect(routeIds).not.toContain("deliverables");
+    expect(routeIds).not.toContain("hero-examples");
   });
 
   it("loads and validates the checked-in AI proof release with file-backed visuals", () => {

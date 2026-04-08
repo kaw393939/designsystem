@@ -18,14 +18,14 @@ export default function FeedbackLoopsRecipePage() {
     return (
       <PageShell>
         <CalloutBand
-          label="Use the live route instead"
-          title="This concept page is parked in the current release, so start from a page that is actually live."
+          label="Use a live page instead"
+          title="This concept page is not available in this version, so start from a page that is actually live."
           tone="next"
           titleAsPageHeading
         >
           <p>
             Use the recipes guide for the pattern, or jump into the current
-            experience if you want the real build flow.
+            experience if you want the working version.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href="/recipes" className="action-primary">

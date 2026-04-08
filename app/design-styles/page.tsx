@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { CalloutBand } from "@/components/callout-band";
 import { ContentGrid } from "@/components/content-grid";
 import { EditorialBand } from "@/components/editorial-band";
 import { PageShell } from "@/components/page-shell";
+import { RouteStatusBadge } from "@/components/route-status-badge";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
 import { designStyles } from "@/lib/archetype-atlas-content";
@@ -18,21 +20,31 @@ export default function DesignStylesPage() {
     <PageShell>
       <EditorialBand tone="emphasis" paddingScale="hero">
         <div className="measure-wide">
-          <p className="type-meta text-(--accent-strong)">Style lab</p>
+          <RouteStatusBadge status="Wrapper-specific" />
+          <p className="mt-4 type-meta text-(--accent-strong)">Legacy continuity route</p>
           <h1 className="type-hero mt-4 text-balance text-(--ink-strong)">
-            Choose the visual style after you have locked in the archetype.
+            The design styles page has moved.
           </h1>
           <p className="mt-6 type-body text-(--ink-body)">
-            Swiss, brutalist, punk, editorial, and systems-modern are not brand personalities — they are visual styles, like camera lenses that change how the same subject looks. Each one shapes hierarchy, pacing, texture, and emotional pressure differently.
+            Keep this page for older links or the older board view. The main design-lineages room
+            now lives under Browse.
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/browse/design-lineages" className="action-primary">
+              Go to the main page
+            </Link>
+            <Link href="/tour/style" className="action-secondary">
+              Return to the style step
+            </Link>
+          </div>
         </div>
       </EditorialBand>
 
       <section className="space-y-6">
         <SectionHeading
           eyebrow="Clarity vs. friction"
-          title="Use style to control how fast the meaning lands."
-          body="Swiss and systems-modern make things easy to understand fast. Punk, grunge, and brutalist styles (raw, unpolished, confrontational on purpose) can add energy and tension. The key: never be confusing by accident."
+          title="Use style to control how fast people get the point."
+          body="Swiss and systems-modern clarify fast. Punk, grunge, and brutalist styles add tension. Use friction on purpose, not by accident."
         />
         <div className="style-spectrum">
           <span>Clarity first</span>
@@ -79,9 +91,10 @@ export default function DesignStylesPage() {
         ))}
       </ContentGrid>
 
-      <CalloutBand label="Language" title="Not muddying. Controlled friction." tone="warning">
+      <CalloutBand label="Language" title="Controlled friction, not random mess." tone="warning">
         <p>
-          If the goal is curiosity, subculture, critique, or appetite, a page can use rougher texture, interruption, and anti-default composition on purpose. The standard is still coherence. The friction should intensify the signal, not erase it.
+          Rough texture, interruption, and anti-default composition can work. They still have to
+          make sense. Friction should sharpen the vibe, not hide it.
         </p>
       </CalloutBand>
     </PageShell>

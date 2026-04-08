@@ -64,7 +64,7 @@ export default function IdentityPortfolioExperiencePage() {
               Read the promise before you polish the surface.
             </h2>
             <p className="mt-3 type-body text-(--ink-body)">
-              This opening route gives you the operating model: what the work helps with, what signal should lead, and which five decisions turn a polished page into something people can understand and remember.
+              This page gives you the operating model: what the work helps with, what signal should lead, and which five decisions turn a polished page into something people can understand and remember.
             </p>
             <div className="mt-6 rounded-(--radius-card) border border-(--border-neutral) bg-[rgba(255,255,255,0.76)] p-5">
               <StudentPortraitBadge
@@ -99,7 +99,7 @@ export default function IdentityPortfolioExperiencePage() {
         <div className="space-y-3">
           <p className="type-meta text-(--accent-strong)">Core path</p>
           <h2 className="type-section text-balance text-(--ink-strong)">
-            Five routes, one working system.
+            Five steps, one working system.
           </h2>
           <p className="measure-reading type-body text-(--ink-body)">
             Move through these in order if you want the shortest path from human need to a page people can understand, trust, and act on.

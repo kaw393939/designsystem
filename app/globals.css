@@ -54,14 +54,21 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100dvh;
   background: var(--page-reading);
   color: var(--ink-strong);
   font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 h1,
@@ -144,6 +151,7 @@ a {
   border: 1px solid var(--border-neutral);
   border-radius: var(--radius-panel);
   box-shadow: var(--shadow-panel);
+  contain: layout style;
   transition:
     border-color var(--motion-fast) ease,
     transform var(--motion-gentle) ease,
@@ -224,6 +232,18 @@ a {
   transform: translateY(-1px);
 }
 
+.action-primary:active,
+.action-secondary:active {
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .action-primary:hover,
+  .action-secondary:hover {
+    transform: none;
+  }
+}
+
 .atlas-image {
   display: block;
   width: 100%;
@@ -263,6 +283,7 @@ a {
   padding: 0.9rem 1rem;
   font-size: 0.85rem;
   line-height: 1.45;
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 
@@ -325,6 +346,7 @@ a {
   border-radius: 1.5rem;
   padding: 1.6rem;
   box-shadow: 0 20px 52px rgba(44, 52, 43, 0.12);
+  contain: layout paint;
 }
 
 .hero-example__eyebrow {
@@ -624,6 +646,28 @@ a {
 }
 
 /* ────────────────────────────────────────────────────
+   Safari and WebKit optimizations
+   ──────────────────────────────────────────────────── */
+
+@supports not (backdrop-filter: blur(1px)) {
+  .atlas-figure-caption {
+    background: rgba(15, 20, 17, 0.92);
+  }
+}
+
+/* Safari: prevent elastic overscroll background bleed */
+@supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Safari rounds sub-pixel borders differently — sharpen panels */
+  .panel-shell {
+    -webkit-transform: translateZ(0);
+  }
+}
+
+/* ────────────────────────────────────────────────────
    Archetype detail page
    ──────────────────────────────────────────────────── */
 
@@ -787,4 +831,56 @@ a {
   height: 5rem;
   object-fit: cover;
   border-radius: 0.75rem;
+}
+
+/* ── Print styles ─────────────────────────────────────────── */
+@media print {
+  body {
+    background: white;
+    color: black;
+    -webkit-font-smoothing: auto;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  header,
+  footer,
+  nav,
+  [data-brief-fab],
+  [data-resume-band],
+  .action-primary,
+  .action-secondary {
+    display: none !important;
+  }
+
+  .panel-shell {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+    contain: unset;
+  }
+
+  .hero-example {
+    contain: unset;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+
+  img {
+    max-width: 100% !important;
+    break-inside: avoid;
+  }
+
+  h1, h2, h3, h4 {
+    break-after: avoid;
+  }
 }

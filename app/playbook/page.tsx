@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { CalloutBand } from "@/components/callout-band";
 import { ContentGrid } from "@/components/content-grid";
 import { EditorialBand } from "@/components/editorial-band";
 import { PageShell } from "@/components/page-shell";
+import { RouteContextPanel } from "@/components/route-context-panel";
+import { RouteStatusBadge } from "@/components/route-status-badge";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
 import { selectionSteps } from "@/lib/archetype-atlas-content";
@@ -13,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 const fontRules = [
-  "Let the display face carry the archetype. Let the body face carry readability.",
+  "Let the headline font carry the archetype. Let the body font carry readability.",
   "Use one expressive type decision at a time. If the display is loud, keep the body neutral.",
   "A monospace accent works best as metadata, proof labels, or technical flavor, not as your whole voice.",
   "If the font choice makes the proof harder to read, the font is serving taste over strategy.",
@@ -32,7 +35,7 @@ const proofRules = [
   "Sage proof is method, citations, diagrams, and evidence visible near the claim.",
   "Outlaw proof is the teardown, the before/after critique, or the exposed default.",
   "Magician proof is transformation shown as a change in state.",
-  "Everyman and Caregiver proof lives in believable human outcomes and practical receipts.",
+  "Everyman and Caregiver proof lives in believable human outcomes and practical evidence.",
 ];
 
 const brandDifferences = [
@@ -58,21 +61,64 @@ export default function PlaybookPage() {
     <PageShell>
       <EditorialBand tone="emphasis" paddingScale="hero">
         <div className="measure-wide">
-          <p className="type-meta text-(--accent-strong)">Selection playbook</p>
+          <RouteStatusBadge status="Wrapper-specific" />
+          <p className="mt-4 type-meta text-(--accent-strong)">Legacy continuity route</p>
           <h1 className="type-hero mt-4 text-balance text-(--ink-strong)">
-            Pick the archetype through audience, promise, and proof pressure, not through taste alone.
+            This old playbook page now points back to the real tour steps.
           </h1>
           <p className="mt-6 type-body text-(--ink-body)">
-            This page turns the archetype decision into a repeatable process. Use it for a personal brand, a business brand, or any online presence that needs a legible first read.
+            Keep this page for older links or to compare the old flat flow. The main path now runs
+            through the Signal, Archetype, and Style steps.
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/tour/signal" className="action-primary">
+              Open the signal step
+            </Link>
+            <Link href="/tour/archetype" className="action-secondary">
+              Open the archetype step
+            </Link>
+            <Link href="/tour/style" className="action-secondary">
+              Open the style step
+            </Link>
+          </div>
         </div>
       </EditorialBand>
 
       <section className="space-y-6">
+        <RouteContextPanel
+          eyebrow="Continuity policy"
+          title="Open this only for older links or comparison."
+          tone="reflection"
+          sections={[
+            {
+              label: "Open it when",
+              content:
+                "You landed on an older /playbook link or need the archived prompts while comparing them with the main tour.",
+            },
+            {
+              label: "Go here now",
+              content: (
+                <>
+                  Start at <Link href="/tour/signal" className="underline hover:no-underline">/tour/signal</Link>,
+                  then move through <Link href="/tour/archetype" className="underline hover:no-underline">/tour/archetype</Link>{" "}
+                  and <Link href="/tour/style" className="underline hover:no-underline">/tour/style</Link>.
+                </>
+              ),
+            },
+            {
+              label: "Why it remains",
+              content:
+                "The older flat playbook framing is still here for continuity and comparison, but it is no longer the main student path.",
+            },
+          ]}
+        />
+      </section>
+
+      <section className="space-y-6">
         <SectionHeading
           eyebrow="Sequence"
-          title="Five steps keep the choice honest."
-          body="If you start with the archetype name, you will usually choose the flattering label. If you start with the visitor's tension and the page's job, the choice gets sharper fast."
+          title="Use five steps so the choice is real."
+          body="Start with the visitor, the tension, and the job of the page."
         />
         <ContentGrid minCardWidth="17rem">
           {selectionSteps.map((step) => (
@@ -90,8 +136,8 @@ export default function PlaybookPage() {
       <section className="space-y-6">
         <SectionHeading
           eyebrow="Personal vs business"
-          title="The same archetype behaves differently depending on the object of the brand."
-          body="A Hero portfolio reads as a person who performs under pressure. A Hero company reads as a team or institution that delivers under pressure. The same structure, different scale."
+          title="The same archetype feels different on a person than on a company."
+          body="A Hero portfolio reads like one person who performs under pressure. A Hero company reads like a team or institution that does the same. Same signal, different scale."
         />
         <ContentGrid minCardWidth="18rem">
           {brandDifferences.map((item) => (
@@ -106,8 +152,8 @@ export default function PlaybookPage() {
       <section className="space-y-6">
         <SectionHeading
           eyebrow="Design translation"
-          title="After the archetype is chosen, force it through type, vocabulary, proof, and CTA language."
-          body="This is where most weak brand work fails. The page chooses one archetype, then uses typography, proof, or call-to-action language from a different one."
+          title="Once you pick the archetype, make the rest of the page match."
+          body="Weak brand pages usually mix signals. They pick one archetype, then use type, proof, or call-to-action language from another."
         />
         <ContentGrid minCardWidth="17rem">
           <CalloutBand label="Fonts" title="Type should carry the tone without blocking the read." tone="reading">
@@ -134,9 +180,9 @@ export default function PlaybookPage() {
         </ContentGrid>
       </section>
 
-      <CalloutBand label="Reminder" title="Pick the style lens second, not first." tone="warning">
+      <CalloutBand label="Reminder" title="Pick the visual style second, not first." tone="warning">
         <p>
-          Swiss, brutalist, punk, and editorial modes are delivery systems. They change how the archetype lands, but they do not replace the archetype decision. Choose the signal first. Then choose how much clarity or controlled friction the page needs.
+          Swiss, brutalist, punk, and editorial styles are delivery choices. They change how the archetype lands, but they do not replace the archetype decision. Pick the signal first. Then decide how much clarity or friction the page needs.
         </p>
       </CalloutBand>
     </PageShell>

@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { CalloutBand } from "@/components/callout-band";
 import { ContentGrid } from "@/components/content-grid";
 import { EditorialBand } from "@/components/editorial-band";
 import { SequenceTimeline } from "@/components/educational-primitives";
 import { PageShell } from "@/components/page-shell";
+import { RouteContextPanel } from "@/components/route-context-panel";
+import { RouteStatusBadge } from "@/components/route-status-badge";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
 import {
@@ -24,15 +27,55 @@ export default function DeliverablesPage() {
     <PageShell>
       <EditorialBand tone="emphasis" paddingScale="hero">
         <div className="measure-wide">
-          <p className="type-meta text-(--accent-strong)">Final deliverable brief</p>
+          <RouteStatusBadge status="Wrapper-specific" />
+          <p className="mt-4 type-meta text-(--accent-strong)">Legacy continuity route</p>
           <h1 className="type-hero mt-4 text-balance text-(--ink-strong)">
-            Keep both finals concrete, public, and easy to evaluate.
+            This old deliverables page now points back to the publish step.
           </h1>
           <p className="mt-6 type-body text-(--ink-body)">
-            For your final presentations, you will show two live public sites on Zoom: a personal portfolio and a museum site. This page puts the submission requirements, review method, timeline, and common pitfalls in one place so nothing sneaks up on you.
+            Keep this page for older links or the archived final-review view. The main finish line
+            now lives in the Publish step.
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/tour/publish" className="action-primary">
+              Open the publish step
+            </Link>
+            <Link href="/tour/build" className="action-secondary">
+              Return to the build step
+            </Link>
+          </div>
         </div>
       </EditorialBand>
+
+      <section className="space-y-6">
+        <RouteContextPanel
+          eyebrow="Continuity policy"
+          title="Open this only for older links or comparison."
+          tone="reflection"
+          sections={[
+            {
+              label: "Open it when",
+              content:
+                "You landed on an older /deliverables link or need the archived final-review framing while comparing it with the main publish step.",
+            },
+            {
+              label: "Go here now",
+              content: (
+                <>
+                  Finish in <Link href="/tour/publish" className="underline hover:no-underline">/tour/publish</Link>,
+                  or jump back to <Link href="/tour/build" className="underline hover:no-underline">/tour/build</Link>{" "}
+                  if the build plan still needs work before publishing.
+                </>
+              ),
+            },
+            {
+              label: "Why it remains",
+              content:
+                "The older flat deliverables brief is still here for continuity and comparison, but it no longer defines the main finish line.",
+            },
+          ]}
+        />
+      </section>
 
       <ContentGrid minCardWidth="20rem">
         {webPresenceProducts.map((product) => (
@@ -66,8 +109,8 @@ export default function DeliverablesPage() {
       </ContentGrid>
 
       <SequenceTimeline
-        title="Three-week timeline"
-        summary="The deliverable brief is explicit that the last three weeks are for coherence, proof, and final public readiness rather than for endless reinvention."
+        title="Last 3 weeks"
+        summary="The last three weeks are for tightening the signal, proof, and public readiness of the page, not endlessly reinventing it."
         mode="process"
         items={webPresenceTimelineItems}
       />
@@ -75,8 +118,8 @@ export default function DeliverablesPage() {
       <section className="space-y-6">
         <SectionHeading
           eyebrow="Strong work"
-          title="Clarity, honesty, and visible proof matter more than perfect polish."
-          body="The brief says strong work is work with a clear stated intention, real receipts, increasingly precise agent specs, and a student who can explain the decisions."
+          title="Strong work is clear, believable, and backed up."
+          body="Strong work says what it is trying to do, shows real evidence, gets more specific over time, and can explain the decisions behind it."
         />
         <ContentGrid minCardWidth="16rem">
           {strongWorkItems.map((item) => (
@@ -89,9 +132,9 @@ export default function DeliverablesPage() {
 
       <section className="space-y-6">
         <SectionHeading
-          eyebrow="Failure modes"
-          title="Most weak finals fail at signal, proof, or curation — not at visual polish."
-          body="These are the specific mistakes the brief warns about. Knowing them upfront helps you diagnose what to fix instead of guessing."
+          eyebrow="Common mistakes"
+          title="Most weak finals fail because the signal or proof is shaky."
+          body="These are the common misses. Knowing them early helps you fix the real problem instead of guessing."
         />
         <ContentGrid minCardWidth="19rem">
           <CalloutBand label="Portfolio" title="Common portfolio misses" tone="reading">
@@ -111,9 +154,10 @@ export default function DeliverablesPage() {
         </ContentGrid>
       </section>
 
-      <CalloutBand label="One reminder" title="The goal is understanding, trust, and action for the right person." tone="warning">
+      <CalloutBand label="One reminder" title="The right person should get it, trust it, and know what to do next." tone="warning">
         <p>
-          The brief closes on a blunt point: the system is not trying to make a page look impressive. It is trying to make the right person understand the student clearly, trust what they see, and know what to do next.
+          The page does not need to look impressive first. It needs to be clear, trustworthy, and
+          easy to act on.
         </p>
       </CalloutBand>
     </PageShell>

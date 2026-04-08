@@ -5,171 +5,124 @@ import { CalloutBand } from "@/components/callout-band";
 import { ContentGrid } from "@/components/content-grid";
 import { EditorialBand } from "@/components/editorial-band";
 import { PageShell } from "@/components/page-shell";
+import { RouteVisualPanel } from "@/components/route-visual-panel";
+import { RouteStatusBadge } from "@/components/route-status-badge";
 import { SectionHeading } from "@/components/section-heading";
+import { StudentPortfolioPreviewCard } from "@/components/student-portfolio-preview-card";
 import { TonePanel } from "@/components/tone-panel";
+import { routeVisualPlans } from "@/lib/route-imagery";
 import {
-  atlasHomeHighlights,
-  designStyles,
-  familyOverviews,
-  heroExamples,
-  selectionSteps,
-} from "@/lib/archetype-atlas-content";
-import { withBasePath } from "@/lib/site-config";
+  guidedTourSteps,
+  siteEntryIntents,
+} from "@/lib/site-navigation";
+import { studentPortfolioPreviews } from "@/lib/student-portfolio-examples";
 
 export const metadata: Metadata = {
-  title: "Overview",
+  title: "Start",
 };
 
 export default function HomePage() {
+  const supportIntents = siteEntryIntents.filter(
+    (intent) => intent.id === "reference-browser" || intent.id === "instructor",
+  );
+
   return (
     <PageShell>
       <EditorialBand tone="emphasis" paddingScale="hero" className="overflow-hidden">
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
           <div className="measure-wide">
-            <p className="type-meta text-(--accent-strong)">Brand archetype atlas</p>
+            <RouteStatusBadge status="Entry" />
+            <p className="mt-4 type-meta text-(--accent-strong)">Step-by-step build path + extra help</p>
             <h1 className="type-hero mt-4 text-balance text-(--ink-strong)">
-              Pick one brand personality, lock in a visual style, and build a site that lands on the first look.
+              Pick the path that helps you build your site right now.
             </h1>
             <p className="mt-6 type-body text-(--ink-body)">
-              This is your practical field guide for building personal and business brand sites. You will learn how to choose a brand archetype (think: the core personality your site projects), pair it with a visual style, pick the right words and fonts, and turn those decisions into hero sections, proof blocks, and pages people actually trust.
+              Use the tour if you are starting from scratch or stuck. Open browse for
+              extra comparisons. Open examples to see finished pages and proof. Build a site that
+              feels clear, credible, and ready to share.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/playbook" className="action-primary">
-                Start the playbook
+              <Link href="/tour/signal" className="action-primary">
+                Start my site
               </Link>
-              <Link href="/archetypes" className="action-secondary">
-                Browse all archetypes
+              <Link href="/tour/build" className="action-secondary">
+                Jump back in
               </Link>
             </div>
           </div>
 
-          <figure className="atlas-figure atlas-figure--hero">
-            <img
-              src={withBasePath("/archetype-atlas/styles/swiss-grid.png")}
-              alt="Swiss-grid style board used as the visual anchor for the archetype atlas overview."
-              className="atlas-image"
-            />
-            <figcaption className="atlas-figure-caption">
-              Strategy first: archetype, style lens, proof, then CTA.
-            </figcaption>
-          </figure>
+          <div className="space-y-4">
+            <RouteVisualPanel plan={routeVisualPlans.start} />
+            <TonePanel tone="synthesis" className="p-6">
+              <p className="type-meta text-(--accent-strong)">The 6 steps</p>
+              <ol className="mt-5 space-y-3">
+                {guidedTourSteps.map((step, index) => (
+                  <li
+                    key={step.id}
+                    className="rounded-(--radius-card) border border-(--border-neutral) bg-[rgba(255,255,255,0.66)] px-4 py-4"
+                  >
+                    <div className="flex gap-3">
+                      <span className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-(--border-neutral) text-sm font-semibold text-(--ink-body)">
+                        {index + 1}
+                      </span>
+                      <div>
+                        <p className="type-caption font-semibold text-(--ink-strong)">{step.publicLabel}</p>
+                        <p className="mt-1 type-annotation text-(--ink-body)">{step.summary}</p>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </TonePanel>
+          </div>
         </div>
       </EditorialBand>
 
       <section className="space-y-6">
         <SectionHeading
-          eyebrow="What this atlas does"
-          title="It turns brand personality into concrete design moves."
-          body="The goal is not to hand out personality labels. The goal is to help you choose one dominant signal — the first impression your site makes — pair it with a visual style, and build pages that feel intentional instead of mixed or generic."
+          eyebrow="Live outputs"
+          title="Open finished student portfolios, not just description cards."
+          body="These are full pages with their own visual systems and generated artwork. Use them to see how the same process can lead to very different public-facing portfolios."
         />
-        <ContentGrid minCardWidth="17rem">
-          {atlasHomeHighlights.map((item) => (
-            <TonePanel key={item.title} tone="reading" className="card-shell p-6">
-              <h2 className="type-concept text-(--ink-strong)">{item.title}</h2>
-              <p className="mt-3 type-body text-(--ink-body)">{item.summary}</p>
-            </TonePanel>
+        <ContentGrid minCardWidth="20rem">
+          {studentPortfolioPreviews.map((portfolio) => (
+            <StudentPortfolioPreviewCard key={portfolio.slug} portfolio={portfolio} />
           ))}
         </ContentGrid>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/examples/student-exemplars" className="action-primary inline-flex">
+            Open student exemplars
+          </Link>
+          <Link href="/examples" className="action-secondary inline-flex">
+            Open examples family
+          </Link>
+        </div>
       </section>
 
       <section className="space-y-6">
         <SectionHeading
-          eyebrow="Four cluster rooms"
-          title="Four families instead of a flat list of twelve."
-          body="Each family groups archetypes by the kind of emotional response they promise — safety, ambition, belonging, or authority. Starting from a family makes the comparison easier because you can see the trade-offs before you commit."
+          eyebrow="Need extra help?"
+          title="Open support routes when you need comparisons or teaching help, not another restart."
+          body="The main hero already handles starting fresh or jumping back in. Use these routes when you need reference depth or facilitation support."
         />
-        <ContentGrid minCardWidth="16rem">
-          {familyOverviews.map((family) => (
-            <TonePanel key={family.id} tone="synthesis" className="card-shell p-6">
-              <p className="type-meta text-(--accent-strong)">{family.archetypesLabel}</p>
-              <h2 className="mt-3 type-concept text-(--ink-strong)">{family.title}</h2>
-              <p className="mt-3 type-body text-(--ink-body)">{family.summary}</p>
-              <Link href={`/archetypes#${family.id}`} className="action-secondary mt-5 inline-flex w-fit">
-                Open this family
+        <ContentGrid minCardWidth="17rem">
+          {supportIntents.map((intent) => (
+            <TonePanel key={intent.id} tone={intent.tone} className="card-shell p-6">
+              <RouteStatusBadge status={intent.status} />
+              <h2 className="mt-4 type-concept text-(--ink-strong)">{intent.title}</h2>
+              <p className="mt-3 type-body text-(--ink-body)">{intent.summary}</p>
+              <Link href={intent.href} className="action-secondary mt-5 inline-flex w-fit">
+                {intent.actionLabel}
               </Link>
             </TonePanel>
           ))}
         </ContentGrid>
       </section>
 
-      <section className="space-y-6">
-        <SectionHeading
-          eyebrow="How to choose"
-          title="A good archetype decision is a sequence, not a vibe check."
-          body="Start from what your audience needs to feel, pick the personality that delivers that feeling, translate it into real design choices, and only then decide whether the page should be crystal-clear or carry some deliberate tension."
-        />
-        <ContentGrid minCardWidth="18rem">
-          {selectionSteps.map((step) => (
-            <TonePanel key={step.title} tone="proof" className="card-shell p-6">
-              <h2 className="type-concept text-(--ink-strong)">{step.title}</h2>
-              <p className="mt-3 type-body text-(--ink-body)">{step.summary}</p>
-              <p className="mt-4 type-caption text-(--signal)">
-                <strong>Prompt:</strong> {step.prompt}
-              </p>
-            </TonePanel>
-          ))}
-        </ContentGrid>
-      </section>
-
-      <section className="space-y-6">
-        <SectionHeading
-          eyebrow="Style contrast"
-          title="Swiss keeps it clean. Punk and brutalist add deliberate edge."
-          body="If your page needs to be understood in seconds, start with Swiss grid or systems-modern structure — think clean lines, clear hierarchy. If you want to provoke curiosity, tension, or rebellious energy, lean into brutalist or punk styling on purpose — but keep at least one layer stable so the message still comes through."
-        />
-        <ContentGrid minCardWidth="17rem">
-          {designStyles.slice(0, 4).map((style) => (
-            <TonePanel key={style.slug} tone="reading" className="card-shell overflow-hidden p-0">
-              <img src={withBasePath(style.imagePath)} alt={`${style.name} style board`} className="atlas-card-image" />
-              <div className="p-6">
-                <h2 className="type-concept text-(--ink-strong)">{style.name}</h2>
-                <p className="mt-3 type-body text-(--ink-body)">{style.stance}</p>
-                <p className="mt-3 type-caption text-(--signal)">
-                  <strong>Best for:</strong> {style.bestFor}
-                </p>
-              </div>
-            </TonePanel>
-          ))}
-        </ContentGrid>
-        <div>
-          <Link href="/design-styles" className="action-secondary inline-flex">
-            Enter the style lab
-          </Link>
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <SectionHeading
-          eyebrow="Live hero sections"
-          title="Live coded hero sections, not just mood boards."
-          body="Each example below is a real hero section — the first thing visitors see — so you can study how picking a different archetype changes the headline, the supporting text, the evidence strip, the call-to-action button, and the overall visual feel."
-        />
-        <ContentGrid minCardWidth="19rem">
-          {heroExamples.slice(0, 3).map((example) => (
-            <TonePanel key={example.slug} tone="synthesis" className="card-shell p-6">
-              <p className="type-meta text-(--accent-strong)">
-                {example.archetype} x {example.style}
-              </p>
-              <h2 className="mt-3 type-concept text-(--ink-strong)">{example.title}</h2>
-              <p className="mt-3 type-body text-(--ink-body)">{example.headline}</p>
-              <p className="mt-3 type-caption text-(--ink-body)">{example.deck}</p>
-            </TonePanel>
-          ))}
-        </ContentGrid>
-        <div>
-          <Link href="/hero-examples" className="action-primary inline-flex">
-            Study the hero examples
-          </Link>
-        </div>
-      </section>
-
-      <CalloutBand
-        label="Naming the contrast"
-        title="Not muddying. Controlled friction."
-        tone="warning"
-      >
+      <CalloutBand label="Guardrail" title="Do not open every room at once." tone="warning">
         <p>
-          When a page needs intrigue, rebellion, or appetite, the design can add texture, interruption, and edge on purpose. The useful term is controlled friction: enough roughness to shape the feeling, but not so much that the signal becomes unreadable.
+          If you still do not know who the page is for, what problem it solves, or what people
+          should get from it fast, go back to the tour first.
         </p>
       </CalloutBand>
     </PageShell>

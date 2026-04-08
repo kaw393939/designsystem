@@ -47,7 +47,7 @@ function buildDefaultPreface(unit: EducationalUnitSpec): RecipePreface {
       eyebrow: "Lesson page",
       title: `${unit.title} gives you a guided way in.`,
       summary:
-        "Use this page when you want a clear arc, a usable pace, and a visible path from prompt to action.",
+        "Need a clear arc, a usable pace, and a visible path from prompt to action?",
       note:
         "The structure matters because it keeps the lesson easy to enter, follow, and use.",
       palette: "amber",
@@ -62,7 +62,7 @@ function buildDefaultPreface(unit: EducationalUnitSpec): RecipePreface {
       summary:
         "A strong reading map gives you a first sequence, a reason each cluster matters, and a clean way back out.",
       note:
-        "The point is guidance, not overwhelm.",
+        "Keep the pattern guided, not overwhelming.",
       palette: "sky",
       steps: ["Start", "Cluster", "Compare", "Return"],
     };

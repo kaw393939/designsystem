@@ -9,6 +9,8 @@ import {
 } from "@/components/human-signal-visuals";
 import { PageShell } from "@/components/page-shell";
 import { ProseBlock } from "@/components/prose-block";
+import { RouteContextPanel } from "@/components/route-context-panel";
+import { RouteStatusBadge } from "@/components/route-status-badge";
 import { SectionHeading } from "@/components/section-heading";
 import { SplitLayout } from "@/components/split-layout";
 import { StudentFastPath } from "@/components/student-fast-path";
@@ -36,7 +38,7 @@ function formatRequiredOrder() {
 const recipeStudents = [
   { name: "Ari", label: "Needs a concept page that feels teachable", palette: "sage" as const },
   { name: "Noor", label: "Needs an assignment flow that feels doable", palette: "amber" as const },
-  { name: "Eli", label: "Needs a route that proves the system can ship", palette: "sky" as const },
+  { name: "Eli", label: "Needs a page that proves the system can ship", palette: "sky" as const },
 ];
 
 const recipeFastPathSteps = [
@@ -51,9 +53,9 @@ const recipeFastPathSteps = [
       "Use the recipe coverage section to see the structure each page type expects before you start assembling content.",
   },
   {
-    title: "Copy a working exemplar",
+    title: "Copy a working example",
     summary:
-      "Open an exemplar route and borrow the flow that already feels readable, grounded, and student-usable.",
+      "Open an example page and borrow the flow that already feels readable, grounded, and student-usable.",
   },
 ] as const;
 
@@ -80,24 +82,57 @@ export default function RecipesPage() {
   return (
     <PageShell>
       <EditorialBand tone="emphasis" paddingScale="hero">
-        <p className="type-meta text-(--accent-strong)">
-          Recipe guide
-        </p>
-        <h1 className="type-hero measure-hero mt-4 text-balance text-(--ink-strong)">
-          Use these recipes when you need a page pattern that already knows how to teach.
-        </h1>
-        <ProseBlock lead className="mt-6">
-          <p>
-            This page is the shortcut when you know the page job but do not
-            want to invent the structure from scratch. Pick the pattern, check
-            the order, then borrow a working flow.
-          </p>
-        </ProseBlock>
+        <div className="grid gap-8 xl:grid-cols-[1.08fr_0.92fr] xl:items-start">
+          <div className="measure-wide">
+            <RouteStatusBadge status="Recommended support" />
+            <p className="mt-4 type-meta text-(--accent-strong)">Support route · Recipes</p>
+            <h1 className="type-hero measure-hero mt-4 text-balance text-(--ink-strong)">
+              Use recipes when you already know what kind of page you are making and just need a pattern that works.
+            </h1>
+            <ProseBlock lead className="mt-6">
+              <p>
+                Come here after the main decision is clear. Borrow a working page pattern instead
+                of guessing the structure from scratch.
+              </p>
+            </ProseBlock>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/tour/build" className="action-primary">
+                Return to the build step
+              </Link>
+              <Link href="/examples" className="action-secondary">
+                Open the examples page
+              </Link>
+            </div>
+          </div>
+          <RouteContextPanel
+            tone="reading"
+            eyebrow="Primary use"
+            title="Patterns you can actually borrow."
+            sections={[
+              {
+                label: "Open this when",
+                content:
+                  "You already know whether the page is a lesson, concept, reading map, or something else and need a pattern that already works.",
+              },
+              {
+                label: "This helps with",
+                content:
+                  "Build briefs, block order, and choosing which example is the best one to copy from.",
+              },
+              {
+                label: "Best next move",
+                content:
+                  "Pick the pattern that fits, then go back to build and use it there.",
+              },
+            ]}
+          />
+        </div>
       </EditorialBand>
 
       <StudentFastPath
-        title="Use this page when you want a page pattern you can actually build from."
-        summary="Start with the guide notes, check the recipe order, then open a working exemplar and copy the flow instead of guessing."
+        label="Quick support path"
+        title="Need a page pattern you can actually copy?"
+        summary="Start with the guide notes, check the expected block order, then open a working example and borrow what already reads well."
         steps={recipeFastPathSteps}
         primaryAction={
           conceptExemplarIsActive
@@ -130,15 +165,14 @@ export default function RecipesPage() {
         primary={
           <TonePanel tone="reading" className="p-6">
             <p className="type-meta text-(--accent-strong)">
-              Why the recipe layer matters
+              Why recipes help
             </p>
             <h2 className="mt-3 type-concept text-(--ink-strong)">
-              A recipe helps when it keeps the page clear from the first screen.
+              A recipe is useful when it makes the page clearer faster.
             </h2>
             <p className="mt-3 type-body text-(--ink-body)">
-              You are not here to admire block order. You are here to tell
-              whether the page opens clearly, whether the proof feels guided,
-              and whether the next move is obvious. That is the job.
+              Check whether the page opens clearly, whether the proof feels guided, and whether the
+              next move is obvious.
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {recipeStudents.map((student) => (
@@ -183,8 +217,8 @@ export default function RecipesPage() {
       <section className="space-y-6">
         <SectionHeading
           eyebrow="Recipe Coverage"
-          title="Seven page types now share one reliable build pattern."
-          body="The structure matters because it keeps pages readable as they scale, especially when the content gets dense or the route has to carry more than one job."
+          title="These page types already have working patterns."
+          body="The structure matters because it keeps the page readable even when the content gets dense or the page has to do more than one job."
         />
         <ContentGrid minCardWidth="18rem">
           {recipeCoverage.map((recipe) => (
@@ -210,8 +244,8 @@ export default function RecipesPage() {
       <section className="space-y-6">
         <SectionHeading
           eyebrow="Exemplar Routes"
-          title="Open a working page instead of guessing what this pattern should look like."
-          body="If a dedicated recipe route is live, open it directly. If this release parks it, the button sends you to the closest active example so you still have something usable to copy from."
+          title="Open a working page instead of guessing what the pattern should look like."
+          body="If a dedicated recipe route is live, open it. If not, the button sends you to the closest active example so you still have something useful to copy from."
         />
         <ContentGrid minCardWidth="18rem">
           {recipeExemplarCards.map((card) => {
@@ -239,7 +273,7 @@ export default function RecipesPage() {
                 </p>
                 {!isActive ? (
                   <p className="mt-4 type-caption text-(--signal)">
-                    This release parks the dedicated exemplar, so the button
+                    This version does not include the dedicated example, so the button
                     below opens the closest live page pattern.
                   </p>
                 ) : null}
@@ -261,10 +295,9 @@ export default function RecipesPage() {
         tone="proof"
       >
         <p>
-          The checks still catch missing or misordered blocks before a page
-          becomes the one you borrow. If a dedicated recipe route is parked in
-          this release, this guide points you to the closest live example
-          instead of a dead end.
+          These checks catch missing or misordered blocks before a page becomes worth borrowing.
+          If a dedicated recipe page is not available in this version, this guide sends you to the
+          closest live example instead.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link href="/primitives" className="action-secondary">

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { ContentGrid } from "@/components/content-grid";
 import { EditorialBand } from "@/components/editorial-band";
 import {
@@ -7,6 +9,8 @@ import {
 } from "@/components/human-signal-visuals";
 import { PagePreviewCard } from "@/components/page-preview-card";
 import { PageShell } from "@/components/page-shell";
+import { RouteContextPanel } from "@/components/route-context-panel";
+import { RouteStatusBadge } from "@/components/route-status-badge";
 import { SectionHeading } from "@/components/section-heading";
 import { SplitLayout } from "@/components/split-layout";
 import { StudentFastPath } from "@/components/student-fast-path";
@@ -58,23 +62,55 @@ export default function TokensPage() {
   return (
     <PageShell>
       <EditorialBand tone="emphasis" paddingScale="hero">
-        <p className="type-meta text-(--accent-strong)">
-          Token guide
-        </p>
-        <h1 className="type-hero measure-hero mt-4 text-(--ink-strong)">
-          Use tokens when something feels off and you need to know why.
-        </h1>
-        <p className="type-body measure-reading mt-6 text-(--ink-body)">
-          This page is for the moments when a page feels flat, noisy, or
-          weirdly inconsistent. Design tokens — the named color, type, and
-          spacing roles — are what make a page feel intentional instead of
-          accidental.
-        </p>
+        <div className="grid gap-8 xl:grid-cols-[1.08fr_0.92fr] xl:items-start">
+          <div className="measure-wide">
+            <RouteStatusBadge status="Recommended support" />
+            <p className="mt-4 type-meta text-(--accent-strong)">Support route · Tokens</p>
+            <h1 className="type-hero measure-hero mt-4 text-(--ink-strong)">
+              Use the token guide when the page idea is clear but the vibe still feels off.
+            </h1>
+            <p className="type-body measure-reading mt-6 text-(--ink-body)">
+              Use this page to figure out why the design still feels off after the main idea is
+              clear. Fix tone, hierarchy, and page states here.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/tour/style" className="action-primary">
+                Return to the style step
+              </Link>
+              <Link href="/layouts" className="action-secondary">
+                Open layout guide
+              </Link>
+            </div>
+          </div>
+          <RouteContextPanel
+            tone="reading"
+            eyebrow="Primary use"
+            title="Keep token work attached to a real page problem."
+            sections={[
+              {
+                label: "Open this when",
+                content:
+                  "The page direction is already chosen, but the design still feels flat, noisy, inconsistent, or just wrong.",
+              },
+              {
+                label: "This helps with",
+                content:
+                  "Tone roles, hierarchy, layout rhythm, and the difference between proof, warning, reflection, and next-step states.",
+              },
+              {
+                label: "Best next move",
+                content:
+                  "Adjust the token choice, then go back to style or build and see whether the page now feels more coherent on first look.",
+              },
+            ]}
+          />
+        </div>
       </EditorialBand>
 
       <StudentFastPath
-        title="Use this page when the site feels off and you need to name why."
-        summary="Start with color roles, then check hierarchy, then open a real page preview so the token logic stops being abstract."
+        label="Quick support path"
+        title="Need to name why the site feels off?"
+        summary="Start with color roles, then check hierarchy, then open a real page preview so the token logic stops feeling abstract."
         steps={tokenFastPathSteps}
         primaryAction={{
           label: "Open lesson example",
@@ -104,14 +140,11 @@ export default function TokensPage() {
               What the token layer protects
             </p>
             <h2 className="mt-3 type-concept text-(--ink-strong)">
-              Tokens matter because people feel inconsistency before they can name it.
+              People feel inconsistency before they can explain it.
             </h2>
             <p className="mt-3 type-body text-(--ink-body)">
-              You will probably never say "semantic color role" in conversation, but you
-              will notice when a reflection section looks exactly like a proof section, or
-              when a "next steps" box blends into regular text. Tokens — basically named
-              design values — keep those visual jobs distinct so each part of the page
-              does its own thing.
+              You will notice when a reflection section looks exactly like a proof section, or when
+              a next-steps box blends into regular text. Tokens keep those jobs visually separate.
             </p>
             <div className="mt-6 space-y-4">
               {tokenWitnesses.map((witness) => (
@@ -160,8 +193,8 @@ export default function TokensPage() {
           <TonePanel tone="reading" className="p-8">
             <SectionHeading
               eyebrow="Typography Roles"
-              title="Hierarchy is explicit, not implied."
-              body="Each text role is named for what it does in the learning flow so the same system can style lessons, module pages, and reading maps without flattening their voices."
+              title="Hierarchy should be obvious, not hidden."
+              body="Each text role is named for what it does so the same system can style lessons, module pages, and reading maps without making them all feel the same."
             />
             <div className="mt-8 space-y-4">
               {typographyRoles.map((role) => (

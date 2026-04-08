@@ -52,12 +52,12 @@ export default function IdentityPortfolioArchetypesLabPage() {
         ratio="feature"
         primary={
           <TonePanel tone="reading" className="p-6">
-            <p className="type-meta text-(--accent-strong)">Brand doctrine</p>
+            <p className="type-meta text-(--accent-strong)">Core idea</p>
             <h2 className="mt-3 type-concept text-(--ink-strong)">
               Choose one dominant myth and let the whole page support it.
             </h2>
             <p className="mt-3 type-body text-(--ink-body)">
-              Mark and Pearson treat archetypes as recurring human meanings, not surface moods. The point of the lab is to choose the public promise that should organize the first read, then keep imagery, proof, and tone inside the same lane.
+              Mark and Pearson treat archetypes as recurring human meanings, not surface moods. The point of the lab is to choose the public promise that should organize the first read, then keep imagery, proof, and tone inside the same direction.
             </p>
             <p className="mt-4 type-caption text-(--signal)">
               <strong>Book line:</strong> The meaning of a brand is its most precious and irreplaceable asset.

@@ -11,29 +11,55 @@ function getRoutePath(route: string) {
   return `${basePath ? `/${basePath}` : ""}${route}`;
 }
 
-test("selected release drives primary navigation and sitemap output", async ({
+test("selected release keeps non-selected exemplar routes parked and reroutes recipes to live examples", async ({
   page,
 }) => {
-  await page.goto(getRoutePath("/"));
-
-  const identityNavLink = page.getByRole("link", {
-    name: "Identity Portfolio",
-    exact: true,
-  });
+  await page.goto(getRoutePath("/recipes/"));
 
   await expect(
-    page.getByText("identity-portfolio-system-proof-release"),
+    page.getByRole("link", { name: "Open lesson example" }).first(),
   ).toBeVisible();
-  await expect(identityNavLink).toBeVisible();
-  await expect(identityNavLink).toHaveAttribute("aria-current", "page");
-
-  await page.goto(getRoutePath("/status/"));
   await expect(
-    page.getByRole("link", { name: "Status", exact: true }),
-  ).toHaveAttribute("aria-current", "page");
+    page.getByRole("link", { name: "Open concept exemplar" }),
+  ).toHaveCount(0);
 
+  await page.goto(getRoutePath("/primitives/"));
+  await expect(
+    page.getByRole("heading", {
+      name: "This page is not active in the current version of the site.",
+    }),
+  ).toBeVisible();
+});
+
+test("selected release sitemap exposes the canonical public route-family surface", async ({
+  page,
+}) => {
   await page.goto(getRoutePath("/sitemap.xml"));
-  await expect(page.locator("body")).toContainText("/experiences/identity-portfolio/");
-  await expect(page.locator("body")).toContainText("/experiences/identity-portfolio/signal/");
-  await expect(page.locator("body")).toContainText("/experiences/identity-portfolio/labs/archetypes/");
+
+  const sitemapText = (await page.locator("body").textContent()) ?? "";
+
+  expect(sitemapText).toContain("/tour/");
+  expect(sitemapText).toContain("/tour/signal/");
+  expect(sitemapText).toContain("/tour/publish/");
+  expect(sitemapText).toContain("/browse/");
+  expect(sitemapText).toContain("/browse/archetypes/");
+  expect(sitemapText).toContain("/browse/design-lineages/");
+  expect(sitemapText).toContain("/browse/attention-trust/");
+  expect(sitemapText).toContain("/browse/sources/");
+  expect(sitemapText).toContain("/examples/");
+  expect(sitemapText).toContain("/examples/proof-blocks/");
+  expect(sitemapText).toContain("/examples/student-exemplars/");
+  expect(sitemapText).toContain("/instructor-guide/");
+  expect(sitemapText).toContain("/recipes/");
+  expect(sitemapText).toContain("/layouts/");
+  expect(sitemapText).toContain("/tokens/");
+  expect(sitemapText).toContain("/process/");
+  expect(sitemapText).toContain("/status/");
+  expect(sitemapText).not.toMatch(/https?:\/\/[^\/\s<]+\/archetypes\/(\s|$)/);
+  expect(sitemapText).not.toMatch(/https?:\/\/[^\/\s<]+\/design-styles\/(\s|$)/);
+  expect(sitemapText).not.toMatch(/https?:\/\/[^\/\s<]+\/persuasion\/(\s|$)/);
+  expect(sitemapText).not.toContain("/experiences/identity-portfolio/");
+  expect(sitemapText).not.toContain("/playbook/");
+  expect(sitemapText).not.toContain("/workbook/");
+  expect(sitemapText).not.toContain("/deliverables/");
 });

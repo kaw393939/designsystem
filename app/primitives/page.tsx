@@ -71,7 +71,7 @@ export default function PrimitivesPage() {
       <PageShell>
         <CalloutBand
           label="Not available yet"
-          title="This page is not active in the current version of the site."
+          title="This page is not active in the current release."
           tone="next"
           titleAsPageHeading
         >
@@ -98,7 +98,7 @@ export default function PrimitivesPage() {
   const readingMapUnit = getSelectedReleaseUnit("reading-map-design-ethics");
 
   return (
-    <PageShell maxWidthClassName="max-w-7xl">
+    <PageShell>
       <LessonShell localNav={primitiveGuideNavItems} progress="Building blocks">
         <EditorialBand tone="emphasis" paddingScale="hero">
           <p className="type-meta">Teaching blocks</p>
@@ -108,16 +108,14 @@ export default function PrimitivesPage() {
           </h1>
           <ProseBlock lead className="mt-6">
             <p>
-              This page shows you how the teaching blocks — orientation,
-              explanation, proof, and next steps — work together so each
-              page feels clear and intentional. Think of them as the LEGO
-              pieces that snap together to build any lesson.
+              See how orientation, explanation, proof, and next steps work together so each page
+              feels clear and intentional.
             </p>
           </ProseBlock>
         </EditorialBand>
 
         <StudentFastPath
-          title="Use this page when you want to understand how the teaching blocks actually work."
+          title="Need to understand how the teaching blocks actually work?"
           summary="Learn what gets stored vs. what gets styled, read what each block is for, then look at real examples so the system clicks."
           steps={primitiveFastPathSteps}
           primaryAction={{
@@ -136,16 +134,14 @@ export default function PrimitivesPage() {
           primary={
             <TonePanel tone="reading" className="p-6">
               <p className="type-meta text-(--accent-strong)">
-                What the primitive layer should protect
+                What the teaching blocks should protect
               </p>
               <h2 className="mt-3 type-concept text-(--ink-strong)">
                 These blocks matter because they keep the teaching flow intact even when content changes.
               </h2>
               <p className="mt-3 type-body text-(--ink-body)">
-                When the blocks are well-defined, the page can evolve without
-                losing its sense of direction. You — the learner — should
-                experience this as "this page knows where it is going," not as
-                a visible system of components.
+                When the blocks are well-defined, the page can evolve without losing its sense of
+                direction. The reader should feel guided, not shown a component system.
               </p>
               <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {primitiveReaders.map((reader) => (
@@ -203,7 +199,7 @@ export default function PrimitivesPage() {
                 tone={note.tone}
                 className="card-shell p-6"
               >
-                <p className="type-meta">Pedagogical layer</p>
+                <p className="type-meta">Teaching block</p>
                 <h2 className="mt-3 type-concept">{note.name}</h2>
                 <p className="mt-3 type-body">{note.purpose}</p>
               </TonePanel>

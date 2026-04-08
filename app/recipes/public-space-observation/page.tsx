@@ -22,14 +22,14 @@ export default function PublicSpaceObservationRecipePage() {
     return (
       <PageShell>
         <CalloutBand
-          label="Use the live route instead"
-          title="This lesson page is parked in the current release, so start from the live route instead."
+          label="Use the live page instead"
+          title="This lesson page is not available in this version, so start from a live page instead."
           tone="next"
           titleAsPageHeading
         >
           <p>
             Use the recipes guide if you need the pattern, or jump into the
-            current experience if you want the real build flow.
+            current experience if you want the working version.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href="/recipes" className="action-primary">

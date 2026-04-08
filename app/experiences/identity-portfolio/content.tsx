@@ -16,7 +16,7 @@ export const identityCoreRouteCards = [
   },
   {
     label: "Step 2",
-    title: "Pick the visual lane",
+    title: "Pick the visual direction",
     summary:
       "Turn that signal into hierarchy, contrast, imagery, and pacing that feel legible in the first second.",
     href: "/experiences/identity-portfolio/style/",
@@ -25,14 +25,14 @@ export const identityCoreRouteCards = [
     label: "Step 3",
     title: "Earn trust with proof",
     summary:
-      "Put a real artifact near the promise so trust comes from evidence instead of adjectives.",
+      "Put a real piece of work near the promise so trust comes from evidence instead of adjectives.",
     href: "/experiences/identity-portfolio/proof/",
   },
   {
     label: "Step 4",
     title: "Build the page stack",
     summary:
-      "Assemble the hero, proof block, and CTA into a page stack that tells people what to do next.",
+      "Assemble the hero, proof block, and call to action into a page stack that tells people what to do next.",
     href: "/experiences/identity-portfolio/build/",
   },
   {
@@ -49,11 +49,11 @@ export const identitySupportRouteCards = [
     label: "If stuck",
     title: "Diagnose the page problem",
     summary:
-      "When the page feels wrong, this route helps you tell whether the issue lives in signal, style, proof, or follow-through.",
+      "Use this page to tell whether the issue lives in signal, style, proof, or follow-through.",
     href: "/experiences/identity-portfolio/diagnose/",
   },
   {
-    label: "Receipts",
+    label: "Evidence",
     title: "See concrete examples",
     summary:
       "See before-and-after moves, stronger proof blocks, and page patterns that read clearly on the first pass.",
@@ -63,7 +63,7 @@ export const identitySupportRouteCards = [
     label: "Optional lab",
     title: "Compare archetypes",
     summary:
-      "Browse the twelve archetypes as meaning systems, proof styles, and visual lanes before you commit.",
+      "Browse the twelve archetypes as meaning systems, proof styles, and visual directions before you commit.",
     href: "/experiences/identity-portfolio/labs/archetypes/",
   },
   {
@@ -140,7 +140,7 @@ export const courseMapItems = [
     label: "Step 1",
     title: "Decode the system",
     summary:
-      "Start by extracting the need, signal, perception, trust, action, deployment, and opportunity logic from the core research.",
+      "Start by extracting the need, signal, perception, trust, action, publishing, and opportunity logic from the core research.",
   },
   {
     label: "Step 2",
@@ -158,7 +158,7 @@ export const courseMapItems = [
     label: "Step 4",
     title: "Build action paths, not just claims",
     summary:
-      "Assemble the homepage, proof block, and CTA so the portfolio tells people what to do next.",
+      "Assemble the homepage, proof block, and call to action so the portfolio tells people what to do next.",
   },
   {
     label: "Step 5",
@@ -193,14 +193,14 @@ export const assignmentLadderItems = [
     label: "Step 3",
     title: "Choose proof that actually earns trust",
     summary:
-      "Pick the project or artifact that proves the promise fastest and place it close enough to the claim that trust does not lag.",
+      "Pick the project or work sample that proves the promise fastest and place it close enough to the claim that trust does not lag.",
     href: "/experiences/identity-portfolio/proof/",
   },
   {
     label: "Step 4",
     title: "Build the page stack",
     summary:
-      "Turn the signal into a homepage with one proof block and one clear CTA using the build patterns in this site.",
+      "Turn the signal into a homepage with one proof block and one clear call to action using the build patterns in this site.",
     href: "/experiences/identity-portfolio/build/",
   },
   {
@@ -226,7 +226,7 @@ export const assignmentDeliverableItems: SummaryItemSpec[] = [
   {
     title: "First-screen direction",
     takeaway:
-      "A headline, visual direction, proof cue, and CTA that reinforce the same signal within seconds.",
+      "A headline, visual direction, proof cue, and call to action that reinforce the same signal within seconds.",
     action: {
       label: "Open the style step",
       href: "/experiences/identity-portfolio/style/",
@@ -257,19 +257,19 @@ export const moduleRoadmapItems = [
     label: "Module 2",
     title: "Design the first read",
     summary:
-      "Turn the signal into perception so hierarchy, imagery, proof selection, and CTA language all reinforce the same story.",
-    output: "Homepage wireframe + visual lane decisions",
+      "Turn the signal into perception so hierarchy, imagery, proof selection, and call-to-action language all reinforce the same story.",
+    output: "Homepage wireframe + visual direction decisions",
   },
   {
     label: "Module 3",
     title: "Build proof, not posture",
     summary:
-      "Turn projects into evidence pages so trust comes from artifacts, process, and outcomes rather than self-description alone.",
+      "Turn projects into evidence pages so trust comes from work samples, process, and outcomes rather than self-description alone.",
     output: "One proof block + one annotated case study",
   },
   {
     label: "Module 4",
-    title: "Deploy into weak ties",
+    title: "Publish into weak ties",
     summary:
       "The site leaves the browser and enters the world through posts, demos, meetups, follow-ups, and repeated public signal reinforcement.",
     output: "Publishing plan + repeat loop",
@@ -337,19 +337,19 @@ export const decisionStudioScenarioItems = [
   {
     title: "Too many projects, zero center",
     summary:
-      "Every project is decent on its own, but the collection has no center of gravity. Tighten the visual lane and cut the extra directions.",
+      "Every project is decent on its own, but the collection has no center of gravity. Tighten the visual direction and cut the extra directions.",
     tag: "Common failure",
     href: "/experiences/identity-portfolio/style/",
   },
   {
     title: "Smart page, no trust",
     summary:
-      "The copy sounds thoughtful, but there is no screenshot, metric, artifact, or outcome near the claim. Fix proof, not adjectives.",
+      "The copy sounds thoughtful, but there is no screenshot, metric, work sample, or outcome near the claim. Fix proof, not adjectives.",
     tag: "Common failure",
     href: "/experiences/identity-portfolio/proof/",
   },
   {
-    title: "I need receipts fast",
+    title: "I need evidence fast",
     summary:
       "When someone asks what the work actually looks like, go straight to examples and source-backed patterns.",
     tag: "Common failure",
@@ -409,7 +409,7 @@ export const designLineageItems = [
   {
     title: "Proof-driven storytelling",
     summary:
-      "Pair narrative with evidence so the site persuades through receipts instead of vague personality claims.",
+      "Pair narrative with evidence so the site persuades through proof instead of vague personality claims.",
     visualSignal: "Before and after frames, annotated outcomes, captions with stakes.",
     example:
       "Think: before this redesign bounce was wild, after it dropped. That hits way harder than 'I love solving problems.'",
@@ -448,7 +448,7 @@ export const psychologyPrincipleItems = [
       "Pages land better when they give people choice, visible skill, and a human reason to care.",
     pageMove: "Offer choices, proof, and connection instead of generic inspiration.",
     example:
-      "Example: give me one clear next click, one good artifact, and one reason this work matters to an actual person.",
+      "Example: give me one clear next click, one good work sample, and one reason this work matters to an actual person.",
     href: "/experiences/identity-portfolio/build/",
   },
   {
@@ -458,7 +458,7 @@ export const psychologyPrincipleItems = [
       "People use shortcuts under pressure, so the hierarchy has to work in seconds.",
     pageMove: "Make the hierarchy obvious and the next step easy to spot.",
     example:
-      "Example: if the CTA is hiding under three cute panels and a giant quote block, people are just going to miss it.",
+      "Example: if the call to action is hiding under three cute panels and a giant quote block, people are just going to miss it.",
     href: "/experiences/identity-portfolio/style/",
   },
   {
@@ -476,7 +476,7 @@ export const psychologyPrincipleItems = [
     scholar: "Cialdini and marketing ethics",
     summary:
       "Authority, reciprocity, and social proof should be structural and verifiable, not cosmetic overlays.",
-    pageMove: "Use receipts, real credentials, and honest next steps.",
+    pageMove: "Use evidence, real credentials, and honest next steps.",
     example:
       "Example: a real screenshot plus a caption beats 'trusted by amazing people' with zero proof every single time.",
     href: "/experiences/identity-portfolio/proof/",
@@ -490,7 +490,7 @@ export const archetypeExplorerItems: IdentitySignalExplorerItem[] = [
     summary:
       "The Sage signal feels trustworthy because it privileges method, evidence, and quiet confidence over visual hype.",
     need: "Competence and clarity",
-    persuasion: "Authority plus consistency; lead with method, receipts, and calm proof.",
+    persuasion: "Authority plus consistency; lead with method, evidence, and calm proof.",
     palette: "sage",
     routeHref: "/examples/lesson/",
     routeLabel: "See the long-form lesson example",
@@ -553,7 +553,7 @@ export const archetypeExplorerItems: IdentitySignalExplorerItem[] = [
     routeLabel: "Browse supportive recipe pages",
     visualMoves: ["warm human imagery", "calm spacing", "accessibility cues", "supportive copy"],
     vocabulary: ["guide", "support", "welcome", "steady", "care"],
-    proofMoves: ["helpful checklist", "onboarding guide", "accessibility receipt"],
+    proofMoves: ["helpful checklist", "onboarding guide", "accessibility evidence"],
     people: [
       { name: "Imani", label: "Inclusive UX student" },
       { name: "Rosa", label: "Community design lead" },
@@ -737,13 +737,13 @@ export const persuasionPatternItems = [
     title: "Reciprocity",
     visualCue: "Offer a helpful framework, checklist, or guide before asking for attention.",
     vocabularyCue: "Use share, guide, give, help, support.",
-    guardrail: "The value has to be real, not bait for a CTA.",
+    guardrail: "The value has to be real, not bait for a button.",
     example: "Give the checklist first, ask for the meeting second.",
     href: "/experiences/identity-portfolio/publish/",
   },
   {
     title: "Consistency",
-    visualCue: "Use one signal across hero, proof, CTA, and follow-up so the audience sees the same story repeatedly.",
+    visualCue: "Use one signal across hero, proof, call to action, and follow-up so the audience sees the same story repeatedly.",
     vocabularyCue: "Repeat a stable promise in slightly different forms across the route.",
     guardrail: "Consistency should clarify meaning, not flatten personality.",
     example:
@@ -894,7 +894,7 @@ export const referenceLibraryClusters: ReadingMapClusterSpec[] = [
   {
     title: "Show me a real page, not another theory paragraph",
     summary:
-      "Open these when you need receipts and page structure right now.",
+      "Open these when you need evidence and page structure right now.",
     links: [
       {
         label: "Overview page example",
@@ -1081,25 +1081,25 @@ export const fieldGuideItems = [
   {
     title: "Homepage is giving chaos",
     summary:
-      "Cut to one need, one dominant signal, one proof angle, and one CTA before you add another block.",
+      "Cut to one need, one dominant signal, one proof angle, and one call to action before you add another block.",
     href: "/experiences/identity-portfolio/signal/",
   },
   {
     title: "Looks polished, still generic",
     summary:
-      "Return to the style route and rewrite the design choices so the same signal appears in copy, visuals, and proof.",
+      "Return to the style step and rewrite the design choices so the same signal appears in copy, visuals, and proof.",
     href: "/experiences/identity-portfolio/style/",
   },
   {
     title: "People say cool and then vanish",
     summary:
-      "Use the publish route: post the page, bring it into weak ties, follow up, and watch what questions repeat.",
+      "Use the publish step: post the page, bring it into weak ties, follow up, and watch what questions repeat.",
     href: "/experiences/identity-portfolio/publish/",
   },
   {
-    title: "Story works, receipts are weak",
+    title: "Story works, evidence is weak",
     summary:
-      "Replace broad self-description with one artifact that makes the promise visible in under a minute.",
+      "Replace broad self-description with one work sample that makes the promise visible in under a minute.",
     href: "/experiences/identity-portfolio/proof/",
   },
 ] as const;
@@ -1118,8 +1118,8 @@ export const styleGuardrails = [
 
 export const systemGuardrails = [
   "Every page needs one dominant job: attention, understanding, trust, or action.",
-  "Deployment is part of the system, not the bonus round after the portfolio is done.",
-  "The route map should reduce confusion, not preserve every good idea on one screen.",
+  "Publishing is part of the system, not the bonus round after the portfolio is done.",
+  "The page map should reduce confusion, not preserve every good idea on one screen.",
 ];
 
 export const proofGuardrails = [
@@ -1222,7 +1222,7 @@ export function IdentitySystemDiagram() {
                     : index === 3
                       ? "Proof and ethical persuasion reduce uncertainty honestly."
                       : index === 4
-                        ? "A clear CTA tells the reader what to do next."
+                        ? "A clear call to action tells the reader what to do next."
                         : index === 5
                           ? "Posts, conversations, and follow-ups put the signal into circulation."
                           : "Repeated exposure creates interviews, clients, collaborators, and invitations."}

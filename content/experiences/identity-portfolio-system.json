@@ -4,10 +4,14 @@
   "title": "Identity Portfolio System",
   "theme": "identity-portfolio-system",
   "audience": "Students and early-career builders who need a coherent public signal before they diversify their portfolio voice.",
-  "homepage": "experience-identity-portfolio",
+  "homepage": "overview",
   "description": "File-backed Sprint 9 proof experience for portfolio identity, archetype coherence, and selected-release diagram rendering.",
   "navigation": [
-    "experience-identity-portfolio"
+    "overview",
+    "tour",
+    "browse",
+    "examples",
+    "instructor-guide"
   ],
   "unitRefs": [
     "choose-primary-archetype"

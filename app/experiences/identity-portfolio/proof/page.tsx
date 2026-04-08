@@ -28,7 +28,7 @@ export default function IdentityPortfolioProofPage() {
     <IdentityRouteShell
       eyebrow="Step 3"
       title="Put proof near the promise"
-      dek="Choose the artifact, result, or receipt that reduces uncertainty quickly enough that the page no longer relies on adjectives to sound credible."
+      dek="Choose the work sample, result, or evidence that reduces uncertainty quickly enough that the page no longer relies on adjectives to sound credible."
       currentHref={currentHref}
       actions={[
         {
@@ -49,7 +49,7 @@ export default function IdentityPortfolioProofPage() {
           <TonePanel tone="proof" className="p-5">
             <PersuasionPatternBoard />
             <p className="mt-4 type-caption text-(--ink-body)">
-              Use these as honest trust moves, not as hacks. The point is to reduce uncertainty with visible evidence.
+              Use these as honest trust moves, not hacks. Reduce uncertainty with visible evidence.
             </p>
           </TonePanel>
         }
@@ -57,10 +57,10 @@ export default function IdentityPortfolioProofPage() {
           <TonePanel tone="reading" className="p-6">
             <p className="type-meta text-(--accent-strong)">Proof block rule</p>
             <h2 className="mt-3 type-concept text-(--ink-strong)">
-              Trust moves fastest when the claim and the receipt stay close together.
+              Trust moves fastest when the claim and the evidence stay close together.
             </h2>
             <p className="mt-3 type-body text-(--ink-body)">
-              If the strongest artifact is buried below the fold or separated from the promise by too much filler, the page starts sounding smarter than it looks.
+              If the strongest piece of work is buried below the fold or separated from the promise by too much filler, the page starts sounding smarter than it looks.
             </p>
           </TonePanel>
         }
@@ -92,7 +92,7 @@ export default function IdentityPortfolioProofPage() {
               <strong>Example:</strong> {item.example}
             </p>
             <Link href={item.href} prefetch={false} className="action-secondary mt-5 inline-flex w-fit">
-              Open related route
+              Open related page
             </Link>
           </TonePanel>
         ))}
@@ -100,7 +100,7 @@ export default function IdentityPortfolioProofPage() {
 
       <NextStepBlock
         title="Once proof is doing its job, assemble the page and the next step"
-        summary="The build route turns the signal, the visual lane, and the proof choice into the actual page stack and CTA people can act on."
+        summary="The build step turns the signal, the visual direction, and the proof choice into the actual page stack and call to action people can act on."
         context="Proof earns the read. Build makes the next move obvious."
         primaryAction={{
           label: "Continue to build",

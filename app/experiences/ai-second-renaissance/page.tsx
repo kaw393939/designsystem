@@ -22,7 +22,7 @@ export default function AiSecondRenaissanceExperiencePage() {
       <PageShell>
         <CalloutBand
           label="Start with the live experience"
-          title="This AI history experience is parked in the current release, so it should not be your first stop right now."
+          title="This AI history experience is not available in this version, so it should not be your first stop right now."
           tone="next"
           titleAsPageHeading
         >
@@ -53,9 +53,9 @@ export default function AiSecondRenaissanceExperiencePage() {
         eyebrow: "Experience route",
         title: "Read the AI shift as an institutional story, not a hype cycle.",
         summary:
-          "This experience starts where many students actually are: curious about AI, anxious about labor pressure, and unsure whether the right response is speed, skepticism, or strategy. The page reframes that tension through historical comparison, visible stakes, and practical signal-building.",
+          "This experience starts where many students actually are: curious about AI, anxious about labor pressure, and unsure whether the right response is speed, skepticism, or strategy. The page reframes that tension through historical comparison, visible stakes, and practical next steps.",
         note:
-          "The goal is not to make AI feel magical. It is to help learners recognize pattern, power, and the kinds of human judgment that remain valuable when generation gets cheap.",
+          "Read AI through pattern, power, and the kinds of human judgment that still matter when generation gets cheap.",
         palette: "sky",
         badges: ["History", "Labor", "Signal"],
       }}

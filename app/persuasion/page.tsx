@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { CalloutBand } from "@/components/callout-band";
-import { ContentGrid } from "@/components/content-grid";
 import { EditorialBand } from "@/components/editorial-band";
 import { PageShell } from "@/components/page-shell";
 import { SectionHeading } from "@/components/section-heading";
@@ -15,55 +15,72 @@ import {
 import { withBasePath } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Persuasion Methods — Cialdini × Archetypes",
+  title: "Persuasion and Trust",
   description:
-    "How to combine Robert Cialdini's six principles of persuasion with brand archetypes to build hero sections and CTAs that actually convert.",
+    "How different persuasion moves fit different archetypes, proof choices, and next-step styles.",
 };
+
+function studentText(text: string) {
+  return text.replace(/\bCTAs\b/g, "buttons").replace(/\bCTA\b/g, "button");
+}
+
+function takeSentences(text: string, count = 2) {
+  return studentText(text.split(/(?<=[.!?])\s+/).filter(Boolean).slice(0, count).join(" "));
+}
 
 export default function PersuasionPage() {
   return (
     <PageShell>
-      {/* ── Hero ─────────────────────────────────────── */}
       <EditorialBand tone="emphasis" paddingScale="hero">
         <div className="measure-wide">
           <p className="type-meta text-(--accent-strong)">
             Cialdini × Archetypes
           </p>
           <h1 className="type-hero mt-4 text-balance text-(--ink-strong)">
-            Six principles of persuasion. Twelve archetypes. One system to
-            connect them.
+            Six persuasion moves. Twelve archetypes. One way to make a page
+            feel believable.
           </h1>
           <p className="mt-6 type-body text-(--ink-body)">
-            Robert Cialdini identified six psychological triggers that drive
-            human compliance: reciprocity, commitment, social proof, authority,
-            liking, and scarcity. Each archetype naturally leans on one or two
-            of these. Understanding the overlap means you can design hero
-            sections and CTAs that feel authentic to the archetype{" "}
-            <em>and</em> psychologically effective — instead of just guessing
-            which button color converts best.
+            These six moves explain why people trust, click, or hold back. Use them to match the
+            proof and the next step to the kind of promise the page is making.
           </p>
         </div>
       </EditorialBand>
 
-      {/* ── Quick orientation ────────────────────────── */}
       <section className="space-y-6">
         <SectionHeading
           eyebrow="How this works"
-          title="Pick the method. See which archetypes own it. Then build the hero."
-          body="Each principle below includes a definition, the psychology behind it, the archetypes that use it best, a fully worked hero-section example, and implementation notes you can take straight into code."
+          title="Pick a persuasion move, see which archetypes fit it, then try it on the hero."
+          body="Each section shows the move, who it fits, a sample first screen, and the easiest way to break it."
         />
       </section>
 
-      {/* ── Six methods — deep dives ─────────────────── */}
+      <CalloutBand
+        label="Shorter version"
+        title="Need the shorter version?"
+        tone="warning"
+      >
+        <p>
+          Open <Link href="/browse/attention-trust" className="underline hover:no-underline">/browse/attention-trust</Link> if you just need a fast proof-and-next-step comparison. Stay here if you want the longer reference with all six moves.
+        </p>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <Link href="/browse/attention-trust" className="action-primary">
+            Open the browse room
+          </Link>
+          <Link href="/tour/proof" className="action-secondary">
+            Return to the proof step
+          </Link>
+        </div>
+      </CalloutBand>
+
       {persuasionMethods.map((method, idx) => (
         <section
           key={method.slug}
           id={method.slug}
           className="scroll-mt-28 space-y-8"
         >
-          {/* Section header with image */}
           <SectionHeading
-            eyebrow={`Principle ${idx + 1} of 6`}
+            eyebrow={`Move ${idx + 1} of 6`}
             title={method.name}
             body={method.tagline}
           />
@@ -72,17 +89,19 @@ export default function PersuasionPage() {
             ratio="feature"
             primary={
               <TonePanel tone="reading" className="card-shell overflow-hidden p-0">
-                <img
+                <Image
                   src={withBasePath(method.imagePath)}
                   alt={`${method.name} principle illustration`}
+                  width={1200}
+                  height={900}
                   className="atlas-card-image w-full"
                 />
                 <div className="p-6 space-y-4">
                   <h3 className="type-concept text-(--ink-strong)">
-                    What is {method.name}?
+                    In plain language
                   </h3>
                   <p className="type-body text-(--ink-body)">
-                    {method.definition}
+                    {takeSentences(method.definition, 2)}
                   </p>
                 </div>
               </TonePanel>
@@ -91,16 +110,16 @@ export default function PersuasionPage() {
               <div className="space-y-6">
                 <TonePanel tone="proof" className="p-6 space-y-4">
                   <h3 className="type-concept text-(--ink-strong)">
-                    Why it works
+                    Works best when
                   </h3>
                   <p className="type-body text-(--ink-body)">
-                    {method.whyItWorks}
+                    {takeSentences(method.whyItWorks, 2)}
                   </p>
                 </TonePanel>
 
                 <TonePanel tone="reflection" className="p-6 space-y-4">
                   <h3 className="type-concept text-(--ink-strong)">
-                    Strongest archetypes
+                    Usually fits these archetypes
                   </h3>
                   <div className="space-y-3">
                     {method.strongArchetypes.map((arch) => (
@@ -115,7 +134,7 @@ export default function PersuasionPage() {
                           {arch.name}
                         </Link>
                         <p className="mt-1 type-caption text-(--ink-body)">
-                          {arch.reason}
+                          {takeSentences(arch.reason, 1)}
                         </p>
                       </div>
                     ))}
@@ -129,11 +148,10 @@ export default function PersuasionPage() {
           <TonePanel tone="synthesis" className="card-shell p-6 space-y-6">
             <div className="flex items-center gap-3">
               <p className="type-meta text-(--accent-strong)">
-                Live hero example — {method.heroExample.archetype} archetype
+                Sample first screen — {method.heroExample.archetype}
               </p>
             </div>
 
-            {/* Simulated hero section */}
             <div className="rounded-(--radius-card) border-2 border-(--border-proof) bg-(--surface-proof) p-8 space-y-4">
               <p className="type-meta text-(--accent-strong) uppercase tracking-widest">
                 {method.heroExample.archetype}
@@ -142,34 +160,29 @@ export default function PersuasionPage() {
                 {method.heroExample.headline}
               </h2>
               <p className="type-body text-(--ink-body) measure-reading">
-                {method.heroExample.deck}
+                {studentText(method.heroExample.deck)}
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <span className="inline-flex items-center rounded-full bg-(--accent-strong) px-6 py-3 type-meta text-white font-semibold shadow-md">
-                  {method.heroExample.ctaLabel}
+                  {studentText(method.heroExample.ctaLabel)}
                 </span>
                 <span className="type-caption text-(--ink-body)">
-                  {method.heroExample.ctaSubtext}
+                  {studentText(method.heroExample.ctaSubtext)}
                 </span>
               </div>
             </div>
-
-            <p className="type-caption text-(--ink-body) italic">
-              Visual direction: {method.heroExample.visualDirection}
-            </p>
           </TonePanel>
 
-          {/* Implementation notes */}
           <SplitLayout
             ratio="balanced"
             primary={
               <TonePanel tone="next" className="p-6 space-y-4">
                 <h3 className="type-concept text-(--ink-strong)">
-                  Implementation notes
+                  Put it on the page
                 </h3>
                 <ul className="space-y-2 pl-5 type-body text-(--ink-body) list-disc">
-                  {method.implementationNotes.map((note) => (
-                    <li key={note}>{note}</li>
+                  {method.implementationNotes.slice(0, 3).map((note) => (
+                    <li key={note}>{studentText(note)}</li>
                   ))}
                 </ul>
               </TonePanel>
@@ -177,10 +190,10 @@ export default function PersuasionPage() {
             secondary={
               <TonePanel tone="warning" className="p-6 space-y-4">
                 <h3 className="type-concept text-(--ink-strong)">
-                  Common mistake
+                  What breaks it
                 </h3>
                 <p className="type-body text-(--ink-body)">
-                  {method.commonMistake}
+                  {takeSentences(method.commonMistake, 1)}
                 </p>
               </TonePanel>
             }
@@ -188,12 +201,11 @@ export default function PersuasionPage() {
         </section>
       ))}
 
-      {/* ── Archetype × Method mapping table ────────── */}
       <section className="space-y-6">
         <SectionHeading
           eyebrow="Quick reference"
-          title="Every archetype, mapped to its primary and secondary persuasion method."
-          body="Use this table when you know the archetype and need to decide which persuasion lever to pull first."
+          title="Which persuasion moves usually fit each archetype best."
+          body="Use this when you already know the archetype and need a fast first move."
         />
 
         <TonePanel tone="reading" className="card-shell overflow-x-auto p-0">
@@ -204,10 +216,10 @@ export default function PersuasionPage() {
                   Archetype
                 </th>
                 <th className="px-4 py-3 text-left type-meta text-(--ink-strong)">
-                  Primary
+                  Start with
                 </th>
                 <th className="px-4 py-3 text-left type-meta text-(--ink-strong)">
-                  Secondary
+                  Backup
                 </th>
                 <th className="px-4 py-3 text-left type-meta text-(--ink-strong)">
                   Why
@@ -230,7 +242,7 @@ export default function PersuasionPage() {
                   </td>
                   <td className="px-4 py-3">{row.primaryMethod}</td>
                   <td className="px-4 py-3">{row.secondaryMethod}</td>
-                  <td className="px-4 py-3 type-caption">{row.reasoning}</td>
+                  <td className="px-4 py-3 type-caption">{takeSentences(row.reasoning, 1)}</td>
                 </tr>
               ))}
             </tbody>
@@ -241,43 +253,37 @@ export default function PersuasionPage() {
       {/* ── Closing guidance ──────────────────────────── */}
       <CalloutBand
         label="Use this responsibly"
-        title="Persuasion is a design tool, not a manipulation tool."
+        title="Persuasion is a design tool, not a trick."
         tone="warning"
       >
         <p>
-          Every principle on this page can be used ethically or exploitatively.
-          The difference is whether the visitor benefits from saying yes. If
-          your CTA leads to genuine value, persuasion is service. If it leads
-          to regret, it is manipulation. Cialdini himself has written
-          extensively about this distinction — the goal is to direct attention,
-          not to deceive.
+          The test is simple: does the visitor benefit from saying yes? If the next step leads to
+          real value, persuasion is helping. If it leads to regret, it is manipulation.
         </p>
       </CalloutBand>
 
-      <EditorialBand tone="reflection" paddingScale="reading">
+      <EditorialBand tone="reflection" paddingScale="regular">
         <div className="measure-wide space-y-4">
           <h2 className="type-section text-(--ink-strong)">
-            Where to go from here
+            What to open next
           </h2>
           <p className="type-body text-(--ink-body)">
-            Now that you know which persuasion methods pair with which
-            archetypes, go build something. Start with the{" "}
+            Start with the{" "}
             <Link
-              href="/hero-examples"
+                href="/examples/proof-blocks"
               className="text-(--accent-strong) underline hover:no-underline"
             >
-              Hero Examples
+                proof-block examples
             </Link>{" "}
-            page to see live coded hero sections, or jump to the{" "}
+              to see how stronger evidence changes the page, or jump to the{" "}
             <Link
-              href="/archetypes"
+                href="/browse/archetypes"
               className="text-(--accent-strong) underline hover:no-underline"
             >
-              Archetypes
+                archetypes room
             </Link>{" "}
-            section to deep-dive into a specific archetype and see how its
-            persuasion emphasis plays out across fonts, layout, proof, and
-            CTAs.
+            to compare a specific archetype and see how the trust move shows up across proof,
+            layout, and the next step.
           </p>
         </div>
       </EditorialBand>

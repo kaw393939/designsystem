@@ -27,6 +27,7 @@ fi
 mkdir -p public/archetype-atlas/archetypes
 mkdir -p public/archetype-atlas/styles
 mkdir -p public/archetype-atlas/examples
+mkdir -p public/archetype-atlas/routes
 
 generate() {
   local output_path="$1"
@@ -136,5 +137,85 @@ generate \
   public/archetype-atlas/examples/magician-systems-hero-board.png \
   landscape \
   "Website hero concept board for a Magician archetype personal brand using systems-modern design logic: transformation narrative, layered cards, light paths, prototypes, teal, violet, charcoal palette, future-facing and credible, premium editorial art direction, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/start-orientation-board.png \
+  landscape \
+  "Editorial concept board for a web presence workshop homepage: student designer at a desk choosing between route cards, archetype portraits, style swatches, proof artifacts, and a laptop hero mockup, warm sage, parchment, sky, and brass palette, premium magazine art direction, intelligent educational systems mood, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/tour-storyboard.png \
+  landscape \
+  "Six-panel storyboard for a guided web-presence build path: audience note, archetype portrait, style board, proof receipt, page wireframe, and live publish moment, cinematic editorial collage, warm paper textures, disciplined hierarchy, human-centered learning studio, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/browse-comparison-board.png \
+  landscape \
+  "Comparison-room concept board for a design-system workshop: archetype portraits, style boards, research cards, trust cues, and route map pinned across a studio wall, gallery-meets-workshop atmosphere, sage, indigo, rust, and cream palette, premium editorial art direction, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/examples-proof-spread.png \
+  landscape \
+  "Outcome-proof editorial spread for a web presence workshop: one side a student portfolio site, the other a museum experience page, visible proof artifacts, screenshots, annotations, and before-to-after confidence, refined classroom studio aesthetic, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/signal-brief-board.png \
+  landscape \
+  "Audience and promise planning board for a web-presence workshop: portrait of a student persona, sticky-note brief with problem and promise, first-screen website mockup, field-research scraps, calm evidence-first composition, sage, amber, and cream palette, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/proof-receipt-board.png \
+  landscape \
+  "Proof-receipt board for a web-presence workshop: testimonial portrait, metric card, screenshot, artifact photo, and CTA mockup arranged as a trust-building evidence spread, serious but inviting editorial design, deep green, cream, and copper palette, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/build-wireframe-board.png \
+  landscape \
+  "Wireframe-and-review board for a web-presence build step: page skeleton sketches, section blocks, proof placement notes, sticky critique tags, laptop mockup, calm editorial systems aesthetic, sage, graphite, cream, and brass palette, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/publish-release-board.png \
+  landscape \
+  "Public-release board for a web-presence workshop: live website on laptop and phone, social share card, peer review notes, reaction cues, follow-up checklist, editorial launch montage, deep green, cream, sky, and copper palette, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/sources-provenance-map.png \
+  landscape \
+  "Research provenance map for a design workshop sources page: books, transcripts, archival cards, QA notes, diagrams, and linked evidence clusters pinned across a studio table, elegant documentary-editorial composition, parchment, indigo, sage, and rust palette, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/student-exemplar-spread.png \
+  landscape \
+  "End-to-end exemplar spread for a student web-presence workshop: portfolio site and museum site shown as finished outcomes with decision trail artifacts, proof objects, annotations, and public-facing share moments, premium editorial classroom spread, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/examples/portfolio-exemplar-board.png \
+  landscape \
+  "Portfolio exemplar board for a student web-presence workshop: polished portfolio homepage, proof receipts, project cards, recruiter-facing clarity, careful editorial layout, warm neutral and deep green palette, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/examples/museum-exemplar-board.png \
+  landscape \
+  "Museum-site exemplar board for a student web-presence workshop: curated subject homepage, exhibit navigation, archive imagery, editorial hierarchy, public-facing cultural site mood, parchment, ink, rust, and blue palette, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/archetypes-compare-strip.png \
+  landscape \
+  "Archetype comparison hero strip for a web-presence workshop browse room: trio of archetype portraits and family-cluster cues arranged as a compare board, sage, hero, and caregiver energy, refined editorial museum display, parchment, deep green, cobalt, and brass palette, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/design-lineages-strip.png \
+  landscape \
+  "Design-lineages hero strip for a web-presence workshop browse room: Swiss grid, brutalist, and editorial style boards aligned in one compare surface, typography samples, image crops, hierarchy cues, refined design-museum mood, cream, graphite, signal red, ink blue palette, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/routes/attention-trust-strip.png \
+  landscape \
+  "Attention-and-trust hero strip for a web-presence workshop browse room: authority, reciprocity, and social proof shown as three contrasting trust levers with testimonial objects, badges, screenshots, and interface fragments, serious editorial systems style, deep green, copper, cream, and slate palette, no readable text, no logo, no watermark"
+
+generate \
+  public/archetype-atlas/examples/proof-blocks-before-after-board.png \
+  landscape \
+  "Before-and-after proof-block montage for a web-presence workshop example page: weak claim-heavy proof section contrasted with strong receipt-first proof section, annotations, screenshots, testimonial card, metric chip, CTA refinement, premium editorial critique board, no readable text, no logo, no watermark"
 
 echo "Archetype atlas image generation complete."

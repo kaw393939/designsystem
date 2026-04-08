@@ -43,7 +43,7 @@ export function IdentityRouteShell({
   children: ReactNode;
 }) {
   return (
-    <PageShell maxWidthClassName="max-w-[90rem]">
+    <PageShell>
       <EditorialBand tone="emphasis" paddingScale="hero">
         <p className="type-meta text-(--accent-strong)">Core path</p>
         <div className="mt-4 flex flex-wrap gap-3">
@@ -95,8 +95,8 @@ export function IdentityRouteUnavailable({ title }: { title: string }) {
         titleAsPageHeading
       >
         <p>
-          This route exists in the redesign, but the selected release is not exposing it as a live page yet.
-          Use the active identity homepage or the recipes guide while the split is still in progress.
+          This route exists in the redesign, but the selected release does not expose it yet. Use
+          the active identity homepage or the recipes guide while the split is still in progress.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link href={homepageHref} className="action-primary">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ContentGrid } from "@/components/content-grid";
 import { EditorialBand } from "@/components/editorial-band";
 import { PageShell } from "@/components/page-shell";
+import { RouteStatusBadge } from "@/components/route-status-badge";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
 import {
@@ -23,13 +24,23 @@ export default function ArchetypesIndexPage() {
     <PageShell>
       <EditorialBand tone="emphasis" paddingScale="hero">
         <div className="measure-wide">
-          <p className="type-meta text-(--accent-strong)">Archetype atlas</p>
+          <RouteStatusBadge status="Wrapper-specific" />
+          <p className="mt-4 type-meta text-(--accent-strong)">Legacy continuity route</p>
           <h1 className="type-hero mt-4 text-balance text-(--ink-strong)">
-            Twelve archetypes. Four families. One deep-dive page each.
+            The archetypes comparison page has moved.
           </h1>
           <p className="mt-6 type-body text-(--ink-body)">
-            Pick a family below to see its three archetypes side by side, or jump straight to any archetype for the full breakdown: the story behind it, which human needs it taps into, a design walkthrough, what would feel obviously wrong, and a live hero preview.
+            Keep this page for older links or the atlas-style index. The main compare room now
+            lives under Browse.
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/browse/archetypes" className="action-primary">
+              Go to the main page
+            </Link>
+            <Link href="/tour/archetype" className="action-secondary">
+              Return to the archetype step
+            </Link>
+          </div>
         </div>
       </EditorialBand>
 
@@ -82,20 +93,18 @@ export default function ArchetypesIndexPage() {
         );
       })}
 
-      <EditorialBand tone="reflection" paddingScale="reading">
+      <EditorialBand tone="reflection" paddingScale="regular">
         <div className="measure-wide space-y-4">
           <h2 className="type-section text-(--ink-strong)">
-            A note on mixing
+            Pick one main archetype.
           </h2>
           <p className="type-body text-(--ink-body)">
-            You will be tempted to pick two or three. Do not. A page can have secondary
-            traits — a Sage-primary with slight Creator warmth, for example — but if the
-            first read does not communicate one clear archetype, it communicates none.
+            A page can have secondary traits, but the first read should still land as one clear
+            archetype.
           </p>
           <p className="type-body text-(--ink-body)">
-            <strong>The test:</strong> show the page to someone for five seconds. Ask them
-            to describe the feeling. If they say two different archetypes, the work is not
-            done.
+            <strong>Five-second test:</strong> if two people name two different archetypes, the work
+            is not done.
           </p>
         </div>
       </EditorialBand>

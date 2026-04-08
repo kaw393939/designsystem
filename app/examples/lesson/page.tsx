@@ -48,7 +48,7 @@ const lessonFastPathSteps = [
 
 export default function LessonExamplePage() {
   return (
-    <PageShell maxWidthClassName="max-w-7xl">
+    <PageShell>
       <LessonShell localNav={lessonNavItems} progress="Lesson 2 of 6">
         <EditorialBand tone="reading" paddingScale="hero">
           <p className="type-meta text-(--accent-strong)">
@@ -59,12 +59,21 @@ export default function LessonExamplePage() {
           </h1>
           <ProseBlock lead className="mt-6">
             <p>
-              Use this when the page has real explanation to carry. The goal is
-              pace: clear orientation, support blocks that actually help, and a
-              next move at the end.
+              Use this when the page has real explanation to carry. Keep the pace clear: orient,
+              support, then end with a next move.
             </p>
           </ProseBlock>
         </EditorialBand>
+
+        <CalloutBand
+          label="Structural example"
+          title="This page shows a reusable lesson layout, not the main proof pages."
+          tone="warning"
+        >
+          <p>
+            For the strongest proof examples, return to <Link href="/examples" className="underline hover:no-underline">/examples</Link> and open the proof walkthroughs first.
+          </p>
+        </CalloutBand>
 
         <StudentFastPath
           title="Use this page when you need a lesson that feels paced instead of overwhelming."
@@ -84,13 +93,13 @@ export default function LessonExamplePage() {
         <section id="orientation" className="space-y-6">
           <SectionHeading
             eyebrow="Orientation"
-            title="The lesson shell keeps orientation and reading width in the same frame."
+            title="The lesson layout keeps orientation and reading width in the same frame."
             body="You should know where you are, how far you have left, and what section you are in without the navigation taking over."
           />
           <ProseBlock>
             <p>
-              The reading measure is explicit, the rhythm stays steady, and the
-              local nav sits outside the main prose so it helps instead of
+              The line length is set intentionally, the rhythm stays steady, and the
+              side navigation sits outside the main text so it helps instead of
               interrupting. On smaller screens, it drops inline instead of
               acting like sticky furniture.
             </p>
@@ -110,7 +119,7 @@ export default function LessonExamplePage() {
         <section id="comparison" className="space-y-6">
           <SectionHeading
             eyebrow="Comparison"
-            title="Split layouts let explanation and support work together without fighting."
+            title="Side-by-side layouts let explanation and support work together without fighting."
             body="One side can carry the main idea while the other gives proof, caution, or a quick example."
           />
           <SplitLayout
@@ -119,7 +128,7 @@ export default function LessonExamplePage() {
               <ProseBlock>
                 <p>
                   Use the main side for the explanation people actually came
-                  for. Let the side panel hold the receipt, warning, or quick
+                  for. Let the side panel hold the proof, warning, or quick
                   shortcut.
                 </p>
               </ProseBlock>
@@ -179,7 +188,7 @@ export default function LessonExamplePage() {
             tone="reflection"
           >
             <p>
-              Which parts of this page are now handled by reusable structure,
+              Which parts of this page are now handled by the layout,
               and which parts still need better lesson content?
             </p>
             <Link

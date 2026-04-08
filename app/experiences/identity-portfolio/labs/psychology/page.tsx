@@ -74,10 +74,10 @@ export default function IdentityPortfolioPsychologyLabPage() {
               <strong>Use it like this:</strong> {item.pageMove}
             </p>
             <p className="mt-3 type-caption text-(--ink-body)">
-              <strong>IRL:</strong> {item.example}
+              <strong>In practice:</strong> {item.example}
             </p>
             <Link href={item.href} className="action-secondary mt-5 inline-flex w-fit">
-              Open related route
+              Open related page
             </Link>
           </TonePanel>
         ))}
@@ -85,7 +85,7 @@ export default function IdentityPortfolioPsychologyLabPage() {
 
       <NextStepBlock
         title="Take the principle back into the live route"
-        summary="Once the concept clarifies the move, return to the route that owns the actual page decision."
+        summary="Once the concept clarifies the move, return to the step that owns the actual page decision."
         context="Theory earns its place when it shortens revision time."
         primaryAction={{
           label: "Return to diagnose",

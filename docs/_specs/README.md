@@ -25,13 +25,24 @@ For active planning and implementation, treat these documents as authoritative i
 5. `identity-portfolio-redesign/content-doctrine.md`
 6. `identity-portfolio-redesign/migration-plan.md`
 7. `identity-portfolio-redesign/homepage-section-inventory.md`
-8. `educational-design-system/phase-2-sprint-plan.md`
-9. `educational-design-system/phase-3-sprint-plan.md`
-10. `educational-design-system/planning-qa-spec.md`
-11. `bseai-content-production/README.md`, `bseai-content-production/operating-runbook.md`, and `bseai-content-production/first-content-checklist.md` for the pre-implementation BSEAI content system
-12. the active domain specs under `educational-design-system/`
-13. `educational-design-system/phase-1-sprint-plan.md` for published-baseline context
-14. the detailed sprint briefs under `educational-design-system/sprints/`
+8. `guided-reference-site-refactor/README.md` for the current guided-tour plus browse-reference site refactor
+9. `guided-reference-site-refactor/spec.md`
+10. `guided-reference-site-refactor/page-jobs.md`
+11. `guided-reference-site-refactor/content-doctrine.md`
+12. `guided-reference-site-refactor/decision-rubrics.md`
+13. `guided-reference-site-refactor/migration-plan.md`
+14. `guided-reference-site-refactor/implementation-workstreams.md`
+15. `guided-reference-site-refactor/sprints/guided-reference-sprint-1-entry-and-tour-foundation.md`
+16. `guided-reference-site-refactor/sprints/guided-reference-sprint-2-guided-tour-completion.md`
+17. `guided-reference-site-refactor/sprints/guided-reference-sprint-3-browse-and-examples-families.md`
+18. `guided-reference-site-refactor/sprints/guided-reference-sprint-4-instructor-support-cleanup-and-release-hardening.md`
+19. `educational-design-system/phase-2-sprint-plan.md`
+20. `educational-design-system/phase-3-sprint-plan.md`
+21. `educational-design-system/planning-qa-spec.md`
+22. `bseai-content-production/README.md`, `bseai-content-production/operating-runbook.md`, and `bseai-content-production/first-content-checklist.md` for the pre-implementation BSEAI content system
+23. the active domain specs under `educational-design-system/`
+24. `educational-design-system/phase-1-sprint-plan.md` for published-baseline context
+25. the detailed sprint briefs under `educational-design-system/sprints/`
 
 Archived materials under `_archive/` are historical context only.
 
@@ -45,29 +56,51 @@ Archived materials under `_archive/` are historical context only.
 6. `identity-portfolio-redesign/content-doctrine.md`
 7. `identity-portfolio-redesign/migration-plan.md`
 8. `identity-portfolio-redesign/homepage-section-inventory.md`
-9. `../_research/identity-system-core.md`
-10. `../_research/identity-system-student-handout.md`
-11. `../_research/identity-system-maintainer-doctrine.md`
-12. `../_research/identity.md`
-13. `../_research/mysystem.md`
-14. `educational-design-system/phase-2-sprint-plan.md`
-15. `educational-design-system/phase-3-sprint-plan.md`
-16. `educational-design-system/planning-qa-spec.md`
-17. `bseai-content-production/README.md`
-18. `bseai-content-production/operating-runbook.md`
-19. `bseai-content-production/first-content-checklist.md`
-20. `educational-design-system/content-schema.md`
-21. `educational-design-system/workflow-state-machine.md`
-22. `educational-design-system/agentic-orchestration.md`
-23. `educational-design-system/observable-state.md`
-24. `educational-design-system/component-inventory.md`
-25. `educational-design-system/page-recipes.md`
-26. `educational-design-system/visual-asset-pipeline.md`
-27. `educational-design-system/deployment.md`
-28. `educational-design-system/cli-command-surface.md`
-29. `educational-design-system/phase-1-sprint-plan.md`
-30. `educational-design-system/sprints/*.md`
-31. the latest relevant QA artifact under `docs/_qa/`
+9. `guided-reference-site-refactor/README.md`
+10. `guided-reference-site-refactor/spec.md`
+11. `guided-reference-site-refactor/page-jobs.md`
+12. `guided-reference-site-refactor/content-doctrine.md`
+13. `guided-reference-site-refactor/decision-rubrics.md`
+14. `guided-reference-site-refactor/migration-plan.md`
+15. `guided-reference-site-refactor/implementation-workstreams.md`
+16. `guided-reference-site-refactor/sprints/guided-reference-sprint-1-entry-and-tour-foundation.md`
+17. `guided-reference-site-refactor/sprints/guided-reference-sprint-2-guided-tour-completion.md`
+18. `guided-reference-site-refactor/sprints/guided-reference-sprint-3-browse-and-examples-families.md`
+19. `guided-reference-site-refactor/sprints/guided-reference-sprint-4-instructor-support-cleanup-and-release-hardening.md`
+20. `../_research/identity-system-core.md`
+21. `../_research/identity-system-student-handout.md`
+22. `../_research/identity-system-maintainer-doctrine.md`
+23. `../_research/identity.md`
+24. `../_research/mysystem.md`
+25. `../_research/books/transcripts/the-hero-and-the-outlaw/source-brief.md`
+26. `../_projects/identity-first-site/project-brief.md`
+27. `../_projects/identity-first-site/archetype-gallery.md`
+28. `../_projects/identity-first-site/visual-design-literacy-gallery.md`
+29. `../_projects/identity-first-site/psychology-attention-persuasion-gallery.md`
+30. `../_projects/identity-first-site/multimedia-delivery-strategy.md`
+31. `../_projects/bseaid-degree/qa-reviews/03-curatorial-editorial-experience-review.md`
+32. `../_projects/bseaid-degree/qa-reviews/04-brand-identity-systems-review.md`
+33. `../_projects/bseaid-degree/qa-reviews/06-accessibility-inclusive-design-review.md`
+34. `../_projects/bseaid-degree/qa-reviews/09-ux-student-journey-review.md`
+35. `../_projects/bseaid-degree/qa-reviews/13-synthesis-action-plan.md`
+36. `educational-design-system/phase-2-sprint-plan.md`
+37. `educational-design-system/phase-3-sprint-plan.md`
+38. `educational-design-system/planning-qa-spec.md`
+39. `bseai-content-production/README.md`
+40. `bseai-content-production/operating-runbook.md`
+41. `bseai-content-production/first-content-checklist.md`
+42. `educational-design-system/content-schema.md`
+43. `educational-design-system/workflow-state-machine.md`
+44. `educational-design-system/agentic-orchestration.md`
+45. `educational-design-system/observable-state.md`
+46. `educational-design-system/component-inventory.md`
+47. `educational-design-system/page-recipes.md`
+48. `educational-design-system/visual-asset-pipeline.md`
+49. `educational-design-system/deployment.md`
+50. `educational-design-system/cli-command-surface.md`
+51. `educational-design-system/phase-1-sprint-plan.md`
+52. `educational-design-system/sprints/*.md`
+53. the latest relevant QA artifact under `docs/_qa/`
 
 ## Active docs
 
@@ -80,6 +113,17 @@ Archived materials under `_archive/` are historical context only.
 - `identity-portfolio-redesign/content-doctrine.md`: voice, density, and example rules for the redesign
 - `identity-portfolio-redesign/migration-plan.md`: current-to-target route migration plan for the redesign
 - `identity-portfolio-redesign/homepage-section-inventory.md`: exact block-by-block extraction ledger for the current homepage
+- `guided-reference-site-refactor/README.md`: entrypoint for the current guided-tour plus browse-reference refactor of the root site
+- `guided-reference-site-refactor/spec.md`: the active planning source of truth for the dual-mode museum-school refactor
+- `guided-reference-site-refactor/page-jobs.md`: global IA, page jobs, audience entry ladders, and route-family contracts for the refactor
+- `guided-reference-site-refactor/content-doctrine.md`: curatorial, cognitive-load, evidence-tier, and room-template rules for the refactor
+- `guided-reference-site-refactor/decision-rubrics.md`: archetype selection rubric, congruence checks, and browse-to-build decision-output contracts
+- `guided-reference-site-refactor/migration-plan.md`: current-surface to target-surface migration and alias plan for the refactor
+- `guided-reference-site-refactor/implementation-workstreams.md`: bounded sprint and workstream sequence for implementing the refactor package one UX objective at a time
+- `guided-reference-site-refactor/sprints/guided-reference-sprint-1-entry-and-tour-foundation.md`: the Sprint 1 brief for the lobby, route-family shell, and guided-tour frame foundation
+- `guided-reference-site-refactor/sprints/guided-reference-sprint-2-guided-tour-completion.md`: the Sprint 2 brief for making the canonical guided tour complete under `/tour/*`
+- `guided-reference-site-refactor/sprints/guided-reference-sprint-3-browse-and-examples-families.md`: the Sprint 3 brief for making browse and examples real support and proof families under `/browse/*` and `/examples/*`
+- `guided-reference-site-refactor/sprints/guided-reference-sprint-4-instructor-support-cleanup-and-release-hardening.md`: the active Sprint 4 brief for instructor alignment, support-route cleanup, continuity policy, and release hardening after the Sprint 3 route-family cutover
 - `../_research/identity-system-core.md`: the primary research model behind the identity redesign
 - `../_research/identity-system-student-handout.md`: the shortest student-facing version of the identity system
 - `../_research/identity-system-maintainer-doctrine.md`: the maintainer guardrails for keeping the identity routes coherent
@@ -116,6 +160,12 @@ Sprint 0 has been archived because it is now purely historical kickoff material.
 ### QA artifacts
 
 - `../_qa/`: durable planning, implementation, and release QA records
+
+The current planning artifact for the guided-reference refactor is:
+
+- `../_qa/planning/specs/guided-reference-site-refactor.qa.md`
+
+That artifact records the planning review for the active guided-tour plus browse-reference package.
 
 ## Archive policy
 

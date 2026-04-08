@@ -15,7 +15,7 @@ export default function BseaiExperiencePage() {
   }
 
   return (
-    <PageShell maxWidthClassName="max-w-7xl">
+    <PageShell>
       <div className="space-y-10">
         <UnitRenderer unit={getSelectedReleaseUnit("bseai-homepage")} headingLevel={2} />
         <CalloutBand
@@ -29,7 +29,7 @@ export default function BseaiExperiencePage() {
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href="/experiences/bseai/philosophy/" className="action-primary">
-              Open formation model
+              Open teaching philosophy
             </Link>
             <Link href="/experiences/bseai/course-spine/" className="action-secondary">
               Open course spine
