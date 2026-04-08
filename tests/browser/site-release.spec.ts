@@ -26,7 +26,7 @@ test("selected release keeps non-selected exemplar routes parked and reroutes re
   await page.goto(getRoutePath("/primitives/"));
   await expect(
     page.getByRole("heading", {
-      name: "This page is not active in the current version of the site.",
+      name: "The reusable building blocks that make every lesson page feel guided instead of thrown together.",
     }),
   ).toBeVisible();
 });
@@ -38,23 +38,17 @@ test("selected release sitemap exposes the canonical public route-family surface
 
   const sitemapText = (await page.locator("body").textContent()) ?? "";
 
-  expect(sitemapText).toContain("/tour/");
-  expect(sitemapText).toContain("/tour/signal/");
-  expect(sitemapText).toContain("/tour/publish/");
-  expect(sitemapText).toContain("/browse/");
-  expect(sitemapText).toContain("/browse/archetypes/");
-  expect(sitemapText).toContain("/browse/design-lineages/");
-  expect(sitemapText).toContain("/browse/attention-trust/");
-  expect(sitemapText).toContain("/browse/sources/");
-  expect(sitemapText).toContain("/examples/");
-  expect(sitemapText).toContain("/examples/proof-blocks/");
-  expect(sitemapText).toContain("/examples/student-exemplars/");
-  expect(sitemapText).toContain("/instructor-guide/");
-  expect(sitemapText).toContain("/recipes/");
-  expect(sitemapText).toContain("/layouts/");
-  expect(sitemapText).toContain("/tokens/");
   expect(sitemapText).toContain("/process/");
   expect(sitemapText).toContain("/status/");
+  expect(sitemapText).toContain("/tokens/");
+  expect(sitemapText).toContain("/layouts/");
+  expect(sitemapText).toContain("/primitives/");
+  expect(sitemapText).toContain("/recipes/");
+  expect(sitemapText).toContain("/recipes/feedback-loops/");
+  expect(sitemapText).toContain("/recipes/public-space-observation/");
+  expect(sitemapText).toContain("/examples/module/");
+  expect(sitemapText).toContain("/examples/lesson/");
+  expect(sitemapText).toContain("/examples/reading-map/");
   expect(sitemapText).not.toMatch(/https?:\/\/[^\/\s<]+\/archetypes\/(\s|$)/);
   expect(sitemapText).not.toMatch(/https?:\/\/[^\/\s<]+\/design-styles\/(\s|$)/);
   expect(sitemapText).not.toMatch(/https?:\/\/[^\/\s<]+\/persuasion\/(\s|$)/);

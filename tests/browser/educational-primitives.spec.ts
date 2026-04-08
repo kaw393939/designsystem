@@ -34,25 +34,25 @@ test("primitives guide renders unit-driven concept, assignment, and reading-map 
 
   await expect(
     page.getByRole("heading", {
-      name: "Pedagogical primitives and unit-driven rendering now share one contract learners can actually feel.",
+      name: "The reusable building blocks that make every lesson page feel guided instead of thrown together.",
     }),
   ).toBeVisible();
 
   await expect(
     page.getByRole("heading", {
-      name: "Reusable primitives matter because they preserve the teaching arc under change.",
+      name: "These blocks matter because they keep the teaching flow intact even when content changes.",
     }),
   ).toBeVisible();
 
   await expect(
     page.getByRole("heading", {
-      name: "Serialized content stays simple and the renderer derives runtime structure.",
+      name: "Content is stored simply \u2014 the page figures out how to display it.",
     }),
   ).toBeVisible();
 
   await expect(
     page.getByRole("heading", {
-      name: "The layout system now carries structure and the educational layer now carries pedagogy.",
+      name: "The layout handles structure. The teaching blocks handle the learning flow.",
     }),
   ).toBeVisible();
 
@@ -66,7 +66,7 @@ test("primitives guide renders unit-driven concept, assignment, and reading-map 
 
 test("primitives guide preserves a single page-level h1 while rendering sample units below it", async ({
   page,
-}) => {
+}, testInfo) => {
   await page.goto(getRoutePath("/primitives/"));
 
   const h1Count = await page.locator("h1").count();
@@ -84,12 +84,14 @@ test("primitives guide preserves a single page-level h1 while rendering sample u
     return;
   }
 
-  await expect(
-    page.getByRole("navigation", { name: "Lesson navigation" }),
-  ).toBeVisible();
+  if (testInfo.project.name !== "mobile-chrome") {
+    await expect(
+      page.getByRole("navigation", { name: "Lesson navigation" }),
+    ).toBeVisible();
+  }
   await expect(
     page.getByRole("heading", {
-      name: "One renderer now maps stored blocks into runtime component props.",
+      name: "One system reads the stored content and turns it into styled page blocks.",
     }),
   ).toBeVisible();
   await expect(

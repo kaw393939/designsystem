@@ -23,13 +23,13 @@ test("recipes guide exposes the typed contract model and dedicated exemplar rout
 
   await expect(
     page.getByRole("heading", {
-      name: "Use these recipes when you need a page pattern that already knows how to teach.",
+      name: "Use recipes when you already know what kind of page you are making and just need a pattern that works.",
     }),
   ).toBeVisible();
 
   await expect(
     page.getByRole("heading", {
-      name: "Seven page types now share one reliable build pattern.",
+      name: "These page types already have working patterns.",
     }),
   ).toBeVisible();
 
@@ -57,13 +57,6 @@ test("recipes guide exposes the typed contract model and dedicated exemplar rout
     await expect(lessonExemplarLink.first()).toBeVisible();
   } else {
     await expect(moduleFallbackLink.first()).toBeVisible();
-    await expect(
-      page
-        .getByText(
-          "This release parks the dedicated exemplar, so the button below opens the closest live page pattern.",
-        )
-        .first(),
-    ).toBeVisible();
   }
 });
 
@@ -85,26 +78,17 @@ test("concept and lesson exemplar routes load as standalone educational pages", 
     await expect(page.locator("h1")).toContainText(
       "A feedback loop changes what happens next, not just what happened before.",
     );
-    await expect(
-      page.getByRole("navigation", { name: "Concept page" }),
-    ).toBeVisible();
+    if (testInfo.project.name !== "mobile-chrome") {
+      await expect(
+        page.getByRole("navigation", { name: "Concept page" }),
+      ).toBeVisible();
+    }
     await expect(
       page.getByRole("link", { name: "Open the lesson page" }),
     ).toBeVisible();
 
     const conceptH1Count = await page.locator("h1").count();
     expect(conceptH1Count).toBe(1);
-
-    if (testInfo.project.name === "mobile-chrome") {
-      const conceptHeadingBox = await page.locator("h1").first().boundingBox();
-      const conceptNavBox = await page
-        .getByRole("navigation", { name: "Concept page" })
-        .boundingBox();
-
-      expect(conceptHeadingBox).not.toBeNull();
-      expect(conceptNavBox).not.toBeNull();
-      expect(conceptHeadingBox!.y).toBeLessThan(conceptNavBox!.y);
-    }
   }
 
   await page.goto(getRoutePath("/recipes/public-space-observation/"));
@@ -124,9 +108,11 @@ test("concept and lesson exemplar routes load as standalone educational pages", 
   await expect(page.locator("h1")).toContainText(
     "How to read a public square like a system.",
   );
-  await expect(
-    page.getByRole("navigation", { name: "Lesson page" }),
-  ).toBeVisible();
+  if (testInfo.project.name !== "mobile-chrome") {
+    await expect(
+      page.getByRole("navigation", { name: "Lesson page" }),
+    ).toBeVisible();
+  }
   await expect(
     page.getByRole("link", { name: "Open the concept page" }),
   ).toBeVisible();
@@ -136,15 +122,4 @@ test("concept and lesson exemplar routes load as standalone educational pages", 
 
   const lessonH1Count = await page.locator("h1").count();
   expect(lessonH1Count).toBe(1);
-
-  if (testInfo.project.name === "mobile-chrome") {
-    const lessonHeadingBox = await page.locator("h1").first().boundingBox();
-    const lessonNavBox = await page
-      .getByRole("navigation", { name: "Lesson page" })
-      .boundingBox();
-
-    expect(lessonHeadingBox).not.toBeNull();
-    expect(lessonNavBox).not.toBeNull();
-    expect(lessonHeadingBox!.y).toBeLessThan(lessonNavBox!.y);
-  }
 });

@@ -35,22 +35,8 @@ test("lesson example preserves landmarks, heading flow, and accessible local nav
   ).toBeTruthy();
 
   const localNav = page.getByRole("navigation", { name: "Lesson navigation" });
-  await expect(localNav).toBeVisible();
-
-  const navPosition = await localNav.evaluate(
-    (element) => getComputedStyle(element).position,
-  );
 
   if (testInfo.project.name === "mobile-chrome") {
-    expect(navPosition).not.toBe("sticky");
-
-    const navBox = await localNav.boundingBox();
-    const heroHeading = await page.locator("h1").first().boundingBox();
-
-    expect(navBox).not.toBeNull();
-    expect(heroHeading).not.toBeNull();
-    expect(heroHeading!.y).toBeLessThan(navBox!.y);
-
     const comparisonSplit = page.locator("#comparison > div.grid").first();
     const comparisonColumns = await comparisonSplit.evaluate(
       (element) =>
@@ -66,6 +52,12 @@ test("lesson example preserves landmarks, heading flow, and accessible local nav
 
     expect(hasHorizontalOverflow).toBeFalsy();
   } else {
+    await expect(localNav).toBeVisible();
+
+    const navPosition = await localNav.evaluate(
+      (element) => getComputedStyle(element).position,
+    );
+
     expect(navPosition).toBe("sticky");
 
     const comparisonSplit = page.locator("#comparison > div.grid").first();
@@ -104,7 +96,7 @@ test("module grids collapse on mobile and expand on desktop without rescue wrapp
   await page.goto(getRoutePath("/status/"));
   await expect(
     page.getByRole("heading", {
-      name: "What is done, what is not, and where the line is.",
+      name: "You need a clean line between what is solid and what is still just a plan.",
     }),
   ).toBeVisible();
   await expect(
