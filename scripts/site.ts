@@ -1951,6 +1951,7 @@ try {
       },
       () => {
         // indexBook is async — wrap in a sync-compatible call
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
         const { execSync: execSyncLocal } = require("node:child_process");
         // Run as a subprocess to handle the async nature
         const scriptContent = `

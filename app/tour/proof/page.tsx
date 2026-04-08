@@ -43,7 +43,7 @@ export default function TourProofPage() {
       ]}
       misconception={
         <p>
-          Do not swap adjectives in for proof. If the page says "trusted" or "innovative" but
+          Do not swap adjectives in for proof. If the page says &ldquo;trusted&rdquo; or &ldquo;innovative&rdquo; but
           shows nothing real nearby, people will not buy it.
         </p>
       }

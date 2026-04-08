@@ -111,7 +111,7 @@ export default function BrowseDesignLineagesPage() {
         tone="next"
       >
         <p>
-          Go back to the style step with one direction, two clear no's, and a stronger idea of how the
+          Go back to the style step with one direction, two clear no&apos;s, and a stronger idea of how the
           first screen should handle typography, layout, and imagery.
         </p>
       </CalloutBand>

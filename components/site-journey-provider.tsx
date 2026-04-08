@@ -198,6 +198,8 @@ export function SiteJourneyProvider({ children }: SiteJourneyProviderProps) {
     const initialState = loadPersistedJourneyState();
     const initialBriefCount = countFilledTourBriefFields(loadTourBriefDraft(window.localStorage));
 
+    // Hydrating from localStorage — legitimate external-system sync
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPersistedState({
       ...initialState,
       briefCount: initialBriefCount || initialState.briefCount,
@@ -219,6 +221,8 @@ export function SiteJourneyProvider({ children }: SiteJourneyProviderProps) {
       visitedAt: Date.now(),
     };
 
+    // Syncing current route into journey state — legitimate navigation tracking
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCurrentPage((existingPage) => {
       if (existingPage?.path === nextEntry.path && existingPage.title === nextEntry.title) {
         return existingPage;

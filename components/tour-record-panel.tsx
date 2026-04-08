@@ -97,6 +97,8 @@ export function TourRecordPanel({
   useEffect(() => {
     const storedDraft = loadTourBriefDraft(typeof window === "undefined" ? null : window.localStorage);
 
+    // Hydrating from localStorage — legitimate external-system sync
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDraft(storedDraft);
     setBriefCount(countFilledTourBriefFields(storedDraft));
     setHasLoaded(true);

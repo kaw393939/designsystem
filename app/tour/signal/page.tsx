@@ -57,7 +57,7 @@ export default function TourSignalPage() {
       ]}
       misconception={
         <p>
-          Do not use giant categories like "people in tech" or "museum visitors." That is too
+          Do not use giant categories like &ldquo;people in tech&rdquo; or &ldquo;museum visitors.&rdquo; That is too
           vague to guide a real first screen.
         </p>
       }

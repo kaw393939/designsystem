@@ -128,7 +128,7 @@ export default function IdentityPortfolioArchetypesLabPage() {
             Public figures and brands become easier to read once the archetype is clear.
           </h2>
           <p className="measure-reading type-body text-(--ink-body)">
-            These examples come from the book and from the cases it uses to show how the public reads meaning in real time. Use them to sharpen the promise, not to copy someone else's surface style.
+            These examples come from the book and from the cases it uses to show how the public reads meaning in real time. Use them to sharpen the promise, not to copy someone else&apos;s surface style.
           </p>
         </div>
         <ContentGrid minCardWidth="18rem">
