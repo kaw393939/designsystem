@@ -26,6 +26,10 @@ import {
   readingMapUnit,
 } from "@/lib/educational-primitives-content";
 
+vi.mock("@/lib/site-visual-resolver", () => ({
+  resolveVisualReferenceToRenderable: () => null,
+}));
+
 vi.mock("next/link", () => ({
   default: ({
     href,

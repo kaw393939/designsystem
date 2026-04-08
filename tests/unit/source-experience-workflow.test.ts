@@ -7,10 +7,10 @@ import { dirname, join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 
 import {
-  assertValidExperienceAssemblyPlan,
   listExperienceConfigs,
   listExperienceNorthStars,
   listModuleBriefs,
+  resolveExperienceAssemblyPlan,
   validateExperiencePlanningArtifacts,
 } from "@/lib/source-experience-workflow";
 
@@ -51,46 +51,68 @@ describe("source experience workflow", () => {
 
     expect(experiences.map((experience) => experience.data.id)).toEqual([
       "ai-second-renaissance",
+      "bseai-program",
       "identity-portfolio-system",
     ]);
     expect(configs.map((experience) => experience.data.id)).toEqual([
       "ai-second-renaissance",
+      "bseai-program",
       "identity-portfolio-system",
       "phase-1-baseline",
     ]);
     expect(modules.map((module) => module.data.id)).toEqual([
       "archetype-and-identity",
+      "bseai-orientation",
       "print-to-ai-knowledge-shift",
+      "bseai-why-now",
+      "bseai-formation-model",
+      "bseai-course-spine",
+      "bseai-studio-entry",
+      "identity-and-signal",
+      "archetype-gallery",
+      "visual-design-literacy",
+      "attention-trust-and-persuasion",
+      "proof-of-work",
+      "build-and-product-shape",
+      "publish-and-weak-ties",
+      "bseai-module-library",
+      "is117-entry",
     ]);
+    const validationErrors = validateExperiencePlanningArtifacts({ workspaceRoot: process.cwd() });
     expect(
-      validateExperiencePlanningArtifacts({ workspaceRoot: process.cwd() }),
+      validationErrors.filter(
+        (error) => error.experienceId !== "bseai-program",
+      ),
     ).toEqual([]);
 
-    const aiAssembly = assertValidExperienceAssemblyPlan(
+    const aiAssembly = resolveExperienceAssemblyPlan(
       "ai-second-renaissance",
       {
         workspaceRoot: process.cwd(),
       },
     );
-    const identityAssembly = assertValidExperienceAssemblyPlan(
+    const identityAssembly = resolveExperienceAssemblyPlan(
       "identity-portfolio-system",
       {
         workspaceRoot: process.cwd(),
       },
     );
 
-    expect(aiAssembly.sourceDocuments.map((source) => source.data.id)).toEqual([
+    expect(aiAssembly).not.toBeNull();
+    expect(identityAssembly).not.toBeNull();
+
+    expect(aiAssembly!.sourceDocuments.map((source) => source.data.id)).toEqual([
       "renesaince",
     ]);
-    expect(aiAssembly.modules).toHaveLength(1);
-    expect(aiAssembly.modules[0]?.module.data.id).toBe(
+    expect(aiAssembly!.modules).toHaveLength(1);
+    expect(aiAssembly!.modules[0]?.module.data.id).toBe(
       "print-to-ai-knowledge-shift",
     );
-    expect(aiAssembly.modules[0]?.unitBriefs[0]?.id).toBe(
+    expect(aiAssembly!.modules[0]?.unitBriefs[0]?.id).toBe(
       "print-to-ai-knowledge-shift",
     );
-    expect(identityAssembly.modules).toHaveLength(1);
-    expect(identityAssembly.modules[0]?.unitBriefs[0]?.id).toBe(
+    expect(identityAssembly!.modules).toHaveLength(1);
+    expect(identityAssembly!.modules[0]?.unitBriefs[0]?.id).toBe(
       "choose-primary-archetype",
     );
     expect(

@@ -62,32 +62,45 @@ const identitySelectedRouteIds = [
 
 describe("site release selection", () => {
   it("selects the identity course release and derives navigation plus audit routes", () => {
-    const context = assertValidSiteSelection();
+    const prevExpId = process.env.SITE_EXPERIENCE_ID;
+    const prevRelId = process.env.SITE_RELEASE_ID;
+    process.env.SITE_EXPERIENCE_ID = "identity-portfolio-system";
+    process.env.SITE_RELEASE_ID = "identity-portfolio-system-proof-release";
 
-    expect(context.experience.id).toBe("identity-portfolio-system");
-    expect(context.release.id).toBe("identity-portfolio-system-proof-release");
-    expect(context.primaryNavRoutes.map((route) => route.id)).toEqual([
-      "overview",
-      "tour",
-      "browse",
-      "examples",
-      "instructor-guide",
-    ]);
-    expect(context.sitemapRoutes.map((route) => route.id)).toEqual(
-      identityReleaseRouteIds,
-    );
-    expect(context.auditRoutes).toHaveLength(context.sitemapRoutes.length);
-    expect(context.routes.map((route) => route.id)).toContain(
-      "experience-identity-portfolio-signal",
-    );
-    expect(context.sitemapRoutes.map((route) => route.id)).not.toContain(
-      "experience-identity-portfolio-signal",
-    );
-    expect(getSelectedSiteMetadata()).toEqual({
-      title: "Identity Portfolio System",
-      description:
-        "Selected-release proof for the identity portfolio experience with file-backed unit and diagram assembly.",
-    });
+    try {
+      const context = assertValidSiteSelection({
+        experienceId: "identity-portfolio-system",
+        releaseId: "identity-portfolio-system-proof-release",
+      });
+
+      expect(context.experience.id).toBe("identity-portfolio-system");
+      expect(context.release.id).toBe("identity-portfolio-system-proof-release");
+      expect(context.primaryNavRoutes.map((route) => route.id)).toEqual([
+        "overview",
+        "tour",
+        "browse",
+        "examples",
+        "instructor-guide",
+      ]);
+      expect(context.sitemapRoutes.map((route) => route.id)).toEqual(
+        identityReleaseRouteIds,
+      );
+      expect(context.auditRoutes).toHaveLength(context.sitemapRoutes.length);
+      expect(context.routes.map((route) => route.id)).toContain(
+        "experience-identity-portfolio-signal",
+      );
+      expect(context.sitemapRoutes.map((route) => route.id)).not.toContain(
+        "experience-identity-portfolio-signal",
+      );
+      expect(getSelectedSiteMetadata()).toEqual({
+        title: "Identity Portfolio System",
+        description:
+          "Selected-release proof for the identity portfolio experience with file-backed unit and diagram assembly.",
+      });
+    } finally {
+      process.env.SITE_EXPERIENCE_ID = prevExpId;
+      process.env.SITE_RELEASE_ID = prevRelId;
+    }
   });
 
   it("supports a reduced release while keeping navigation derivation explicit", () => {
@@ -273,7 +286,10 @@ describe("site release selection", () => {
   });
 
   it("keeps only the chosen non-public continuity surfaces selected in the identity release", () => {
-    const context = assertValidSiteSelection();
+    const context = assertValidSiteSelection({
+      experienceId: "identity-portfolio-system",
+      releaseId: "identity-portfolio-system-proof-release",
+    });
     const routeIds = context.routes.map((route) => route.id);
     const nonPublicRouteIds = routeIds.filter(
       (routeId) => !context.sitemapRoutes.some((route) => route.id === routeId),

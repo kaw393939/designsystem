@@ -63,19 +63,15 @@ describe("GuidedStepShell", () => {
       }),
     ).toBeInTheDocument();
     expect(screen.getByText("Step 1 of 6")).toBeInTheDocument();
-    expect(screen.getByText("Prerequisite")).toBeInTheDocument();
-    expect(screen.getByText("Output")).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: "Current tour record" }),
-    ).toBeInTheDocument();
-    expect(screen.getByText("Prospective museum visitor")).toBeInTheDocument();
-    expect(screen.getByText("Common misconception")).toBeInTheDocument();
-    expect(screen.getByText("Formative check")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Choose the signal" })).toHaveAttribute(
+    expect(screen.getByText("Before you start")).toBeInTheDocument();
+    expect(screen.getByText("Leave with")).toBeInTheDocument();
+    expect(screen.getByText("Avoid")).toBeInTheDocument();
+    expect(screen.getByText("Quick check")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Pick the vibe" })).toHaveAttribute(
       "href",
       "/tour/archetype",
     );
-    expect(screen.getByRole("link", { name: "See a fast route opener" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "See a quick page opener" })).toHaveAttribute(
       "href",
       "/examples/module",
     );

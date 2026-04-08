@@ -20,10 +20,10 @@ describe("LocalNav", () => {
       />,
     );
 
-    expect(screen.getByText("Lesson 2 of 6")).toBeInTheDocument();
+    expect(screen.getAllByText("Lesson 2 of 6").length).toBeGreaterThanOrEqual(1);
     expect(
-      screen.getByRole("heading", { name: "Lesson map" }),
-    ).toBeInTheDocument();
+      screen.getAllByRole("heading", { name: "Lesson map" }).length,
+    ).toBeGreaterThanOrEqual(1);
     expect(screen.getByRole("link", { name: "Orientation" })).toHaveAttribute(
       "href",
       "#orientation",

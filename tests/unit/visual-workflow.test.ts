@@ -136,11 +136,17 @@ describe("visual asset workflow", () => {
     expect(briefs.map((brief) => brief.data.id)).toEqual([
       "ai-labor-demand-chart",
       "archetype-signal-map",
+      "bseai-course-artifact-ladder",
+      "bseai-formation-wheel",
+      "bseai-program-hero",
       "renaissance-to-ai-hero",
     ]);
     expect(drafts.map((draft) => draft.data.id)).toEqual([
       "ai-labor-demand-chart",
       "archetype-signal-map",
+      "bseai-course-artifact-ladder",
+      "bseai-formation-wheel",
+      "bseai-program-hero",
       "renaissance-to-ai-hero",
     ]);
     expect(validateVisualArtifacts({ workspaceRoot: process.cwd() })).toEqual(
@@ -160,6 +166,9 @@ describe("visual asset workflow", () => {
     expect(publishableVersions.map((artifact) => artifact.reference)).toEqual([
       "ai-labor-demand-chart@v2026-04-05T031424Z",
       "archetype-signal-map@v2026-04-05T031424Z",
+      "bseai-course-artifact-ladder@v2026-04-06T043757Z",
+      "bseai-formation-wheel@v2026-04-06T043748Z",
+      "bseai-program-hero@v2026-04-06T043708Z",
       "renaissance-to-ai-hero@v2026-04-05T031424Z",
     ]);
   });

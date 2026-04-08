@@ -9,6 +9,7 @@ import { MediaBlock } from "@/components/media-block";
 import { ProseBlock } from "@/components/prose-block";
 import { SplitLayout } from "@/components/split-layout";
 import { TonePanel } from "@/components/tone-panel";
+import { resolveVisualReferenceToRenderable } from "@/lib/site-visual-resolver";
 import type {
   ActionLinkSpec,
   ComparisonColumnSpec,
@@ -140,13 +141,10 @@ function VisualPlaceholder({ visual, className = "" }: VisualPlaceholderProps) {
   );
 }
 
-async function ResolvedVisualMedia({
+function ResolvedVisualMedia({
   visual,
   className = "",
 }: VisualPlaceholderProps) {
-  const { resolveVisualReferenceToRenderable } = await import(
-    "@/lib/site-visual-resolver"
-  );
   const resolvedVisual = resolveVisualReferenceToRenderable(visual.visualRef);
 
   if (

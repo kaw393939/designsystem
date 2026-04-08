@@ -26,13 +26,13 @@ describe("page recipe validation", () => {
       { id: "worked-example", label: "Worked example" },
       {
         id: "takeaways",
-        label: "Carry three moves into your own observation.",
+        label: "Carry these three moves into your own observation.",
       },
       { id: "reflection", label: "Reflection" },
       { id: "sources", label: "Method sources" },
       {
         id: "next-step",
-        label: "Return to the concept page or review the recipe guide.",
+        label: "Keep going",
       },
     ]);
   });

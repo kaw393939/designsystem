@@ -25,7 +25,9 @@
   },
   "dependencies": {
     "@types/better-sqlite3": "^7.6.13",
+    "@types/katex": "^0.16.8",
     "better-sqlite3": "^12.8.0",
+    "katex": "^0.16.45",
     "next": "16.1.7",
     "react": "19.2.3",
     "react-dom": "19.2.3"
