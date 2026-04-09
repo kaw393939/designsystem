@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Add proof and publish",
@@ -130,33 +131,33 @@ export default function ProofAndPublishPage() {
       <TonePanel tone="reading" className="p-6">
         <p className="type-body text-(--ink-body)">
           For the full walk-throughs, see{" "}
-          <a
+          <Link
             href="/tour/proof"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the Proof tour
-          </a>
+          </Link>
           ,{" "}
-          <a
+          <Link
             href="/tour/build"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the Build tour
-          </a>
+          </Link>
           , and{" "}
-          <a
+          <Link
             href="/tour/publish"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the Publish tour
-          </a>
+          </Link>
           . To explore trust and proof patterns, visit{" "}
-          <a
+          <Link
             href="/browse/attention-trust"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the trust and proof room
-          </a>
+          </Link>
           .
         </p>
       </TonePanel>
@@ -170,12 +171,12 @@ export default function ProofAndPublishPage() {
           Write a build brief before next class. You will hand it to a
           classmate for peer review.
         </p>
-        <a
+        <Link
           href="/modules/web-presence-framework/practice"
           className="action-primary mt-4 inline-block"
         >
           Continue to Practice →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

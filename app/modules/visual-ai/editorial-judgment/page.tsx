@@ -4,6 +4,7 @@ import { EditorialBand } from "@/components/editorial-band";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
 import { editorialRubric } from "@/lib/module-content/visual-ai";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Editorial judgment",
@@ -295,12 +296,12 @@ export default function EditorialJudgmentPage() {
             response. If you cannot iterate to a clean result, use typography,
             whitespace, or a simple gradient. Your page&apos;s credibility
             depends on not publishing visual noise. See{" "}
-            <a
+            <Link
               href="/tour/proof"
               className="underline text-(--accent-strong) hover:text-(--accent-hover)"
             >
               the proof tour
-            </a>{" "}
+            </Link>{" "}
             for how this course handles image quality decisions.
           </p>
         </TonePanel>
@@ -312,12 +313,12 @@ export default function EditorialJudgmentPage() {
           You now have a framework for deciding when to generate, when to
           photograph, and when to skip. Next: put it all together in practice.
         </p>
-        <a
+        <Link
           href="/modules/visual-ai/practice"
           className="action-primary mt-4 inline-block"
         >
           Continue to Practice →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

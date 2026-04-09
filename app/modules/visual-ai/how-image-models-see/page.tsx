@@ -8,6 +8,7 @@ import {
   modelComparisonRows,
   specificityLadder,
 } from "@/lib/module-content/visual-ai";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "How image models see",
@@ -53,12 +54,12 @@ export default function HowImageModelsSeePage() {
         <div className="mt-6 space-y-4">
           <p className="type-body text-(--ink-body)">
             In{" "}
-            <a
+            <Link
               href="/modules/ai-foundations/how-models-learn"
               className="underline text-(--accent-strong)"
             >
               Module 2 Lesson 2
-            </a>
+            </Link>
             , you learned that language models turn words into vectors —
             coordinates in a learned space where similar meanings cluster
             together. Image models do the same thing with visual data.
@@ -243,12 +244,12 @@ export default function HowImageModelsSeePage() {
           training data. Your job is to describe what you want in terms close
           enough to those patterns. Next: how to write prompts that work.
         </p>
-        <a
+        <Link
           href="/modules/visual-ai/prompting-for-images"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 2 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

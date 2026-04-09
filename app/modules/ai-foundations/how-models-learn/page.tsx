@@ -6,6 +6,7 @@ import { EmbeddingsDiagram } from "@/components/embeddings-diagram";
 import { MathBlock } from "@/components/math-block";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "How models learn",
@@ -270,12 +271,12 @@ export default function HowModelsLearnPage() {
           responses. Next, meet the people who built these systems — and
           understand why their choices shaped the tools you use today.
         </p>
-        <a
+        <Link
           href="/modules/ai-foundations/the-people-who-built-this"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 3 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

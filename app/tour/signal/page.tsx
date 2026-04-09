@@ -17,6 +17,7 @@ import {
   workbookPairReviewPrompts,
   workbookPortfolioPrompts,
 } from "@/lib/web-presence-site-content";
+import Link from "next/link";
 
 const step = getGuidedTourStep("signal");
 
@@ -157,12 +158,12 @@ export default function TourSignalPage() {
               Module 1: Web Presence Framework covers the full Signal → Publish
               framework in semester depth.
             </p>
-            <a
+            <Link
               href="/modules/web-presence-framework"
               className="action-secondary mt-4 inline-block"
             >
               Open Module 1 →
-            </a>
+            </Link>
           </TonePanel>
         </div>
       </details>

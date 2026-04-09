@@ -11,6 +11,7 @@ import { designStyles } from "@/lib/archetype-atlas-content";
 import { routeVisualPlans } from "@/lib/route-imagery";
 import { browseRoomCards } from "@/lib/site-navigation";
 import { withBasePath } from "@/lib/site-config";
+import Link from "next/link";
 
 const room = browseRoomCards.find((card) => card.id === "browse-design-lineages");
 
@@ -122,9 +123,9 @@ export default function BrowseDesignLineagesPage() {
         tone="synthesis"
       >
         <p>
-          <a href="/modules/web-presence-framework" className="underline">
+          <Link href="/modules/web-presence-framework" className="underline">
             Open Module 1: Web Presence Framework →
-          </a>
+          </Link>
         </p>
       </CalloutBand>
     </SupportRouteShell>

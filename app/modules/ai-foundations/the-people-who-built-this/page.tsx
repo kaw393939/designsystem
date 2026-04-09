@@ -9,6 +9,7 @@ import {
   getPeopleByEraCluster,
   institutionProfiles,
 } from "@/lib/module-content/ai-foundations";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "The people who built this",
@@ -179,12 +180,12 @@ export default function ThePeopleWhoBuiltThisPage() {
           Now put what you have learned into practice: pick a primary source
           paper and write a one-paragraph summary.
         </p>
-        <a
+        <Link
           href="/modules/ai-foundations/practice"
           className="action-primary mt-4 inline-block"
         >
           Continue to Practice →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

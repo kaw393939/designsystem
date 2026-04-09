@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "From brief to build",
@@ -135,12 +136,12 @@ export default function FromBriefToBuildPage() {
       <TonePanel tone="reading" className="p-6">
         <p className="type-body text-(--ink-body)">
           For the full walk-through, see{" "}
-          <a
+          <Link
             href="/tour/build"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the Build tour
-          </a>
+          </Link>
           .
         </p>
       </TonePanel>
@@ -154,12 +155,12 @@ export default function FromBriefToBuildPage() {
           Take a build brief (yours or a classmate&apos;s) and build the first
           screen. Bring it to class for studio review.
         </p>
-        <a
+        <Link
           href="/modules/studio-and-publish/review-and-revision"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 2 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

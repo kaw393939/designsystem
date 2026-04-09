@@ -11,6 +11,7 @@ import { persuasionMethods } from "@/lib/persuasion-content";
 import { routeVisualPlans } from "@/lib/route-imagery";
 import { withBasePath } from "@/lib/site-config";
 import { browseRoomCards } from "@/lib/site-navigation";
+import Link from "next/link";
 
 const room = browseRoomCards.find((card) => card.id === "browse-attention-trust");
 
@@ -125,9 +126,9 @@ export default function BrowseAttentionTrustPage() {
         tone="synthesis"
       >
         <p>
-          <a href="/modules/identity-and-proof" className="underline">
+          <Link href="/modules/identity-and-proof" className="underline">
             Open Module 5: Identity and Proof →
-          </a>
+          </Link>
         </p>
       </CalloutBand>
     </SupportRouteShell>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { EditorialBand } from "@/components/editorial-band";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Checkpoint",
@@ -146,12 +147,12 @@ export default function VisualAICheckpointPage() {
           identity and proof — building a coherent identity system and
           evidence strategy.
         </p>
-        <a
+        <Link
           href="/modules/identity-and-proof"
           className="action-primary mt-4 inline-block"
         >
           Continue to Module 5 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

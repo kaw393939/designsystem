@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { TonePanel } from "@/components/tone-panel";
 import { briefSections, briefRubric } from "@/lib/module-content/agentic-workflow";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Practice",
@@ -149,12 +150,12 @@ export default function PracticePage() {
           checkpoint session. You will trade briefs with a classmate and compare
           results.
         </p>
-        <a
+        <Link
           href="/modules/agentic-workflow/checkpoint"
           className="action-primary mt-4 inline-block"
         >
           Continue to Checkpoint →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

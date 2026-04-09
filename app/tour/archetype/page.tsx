@@ -16,6 +16,7 @@ import {
 } from "@/lib/site-navigation";
 import { withBasePath } from "@/lib/site-config";
 import { archetypeFamilies } from "@/lib/web-presence-site-content";
+import Link from "next/link";
 
 const step = getGuidedTourStep("archetype");
 
@@ -192,12 +193,12 @@ export default function TourArchetypePage() {
           Module 1: Web Presence Framework unpacks archetype selection,
           congruence, and common traps across four lessons.
         </p>
-        <a
+        <Link
           href="/modules/web-presence-framework"
           className="action-secondary mt-4 inline-block"
         >
           Open Module 1 →
-        </a>
+        </Link>
       </TonePanel>
     </GuidedStepShell>
   );

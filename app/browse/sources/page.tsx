@@ -8,6 +8,7 @@ import { SupportRouteShell } from "@/components/support-route-shell";
 import { TonePanel } from "@/components/tone-panel";
 import { routeVisualPlans } from "@/lib/route-imagery";
 import { browseRoomCards } from "@/lib/site-navigation";
+import Link from "next/link";
 
 const room = browseRoomCards.find((card) => card.id === "browse-sources");
 
@@ -103,9 +104,9 @@ export default function BrowseSourcesPage() {
         tone="synthesis"
       >
         <p>
-          <a href="/modules/ai-foundations" className="underline">
+          <Link href="/modules/ai-foundations" className="underline">
             Open Module 2: AI Foundations →
-          </a>
+          </Link>
         </p>
       </CalloutBand>
     </SupportRouteShell>

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Identity signals",
@@ -133,12 +134,12 @@ export default function IdentitySignalsPage() {
       <TonePanel tone="reading" className="p-6">
         <p className="type-body text-(--ink-body)">
           Explore the full identity portfolio system in{" "}
-          <a
+          <Link
             href="/experiences/identity-portfolio"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the identity portfolio experience
-          </a>
+          </Link>
           .
         </p>
       </TonePanel>
@@ -152,12 +153,12 @@ export default function IdentitySignalsPage() {
           Map your own site&apos;s identity signals. Where do they align?
           Where do they contradict? Bring your notes to class.
         </p>
-        <a
+        <Link
           href="/modules/identity-and-proof/building-proof"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 2 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

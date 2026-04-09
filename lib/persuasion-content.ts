@@ -140,7 +140,7 @@ export const persuasionMethods: PersuasionMethod[] = [
     strongArchetypes: [
       {
         name: "Everyperson",
-        slug: "everyperson",
+        slug: "everyman",
         reason:
           "The Everyperson's entire design language says 'people like you belong here.' Testimonials, community numbers, and peer stories are its lifeblood.",
       },
@@ -250,7 +250,7 @@ export const persuasionMethods: PersuasionMethod[] = [
       },
       {
         name: "Everyperson",
-        slug: "everyperson",
+        slug: "everyman",
         reason:
           "The Everyperson generates liking through similarity. 'We are just like you' is the most powerful liking trigger when it feels authentic.",
       },
@@ -384,7 +384,7 @@ export const archetypePersuasionMap: ArchetypePersuasionMapping[] = [
   },
   {
     archetype: "Everyperson",
-    slug: "everyperson",
+    slug: "everyman",
     primaryMethod: "Social Proof",
     secondaryMethod: "Liking",
     reasoning:

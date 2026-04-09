@@ -9,6 +9,7 @@ import {
   promptAnatomySections,
   promptExamples,
 } from "@/lib/module-content/visual-ai";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Prompting for images",
@@ -193,12 +194,12 @@ export default function PromptingForImagesPage() {
           page&apos;s actual needs. Next: when to use these images and when not
           to.
         </p>
-        <a
+        <Link
           href="/modules/visual-ai/editorial-judgment"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 3 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

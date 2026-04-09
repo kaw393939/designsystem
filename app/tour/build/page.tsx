@@ -18,6 +18,7 @@ import {
   studioReviewCriteria,
   workbookChecklist,
 } from "@/lib/web-presence-site-content";
+import Link from "next/link";
 
 const step = getGuidedTourStep("build");
 
@@ -155,18 +156,18 @@ export default function TourBuildPage() {
           judgment.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
-          <a
+          <Link
             href="/modules/agentic-workflow"
             className="action-secondary inline-block"
           >
             Open Module 3 →
-          </a>
-          <a
+          </Link>
+          <Link
             href="/modules/visual-ai"
             className="action-secondary inline-block"
           >
             Open Module 4 →
-          </a>
+          </Link>
         </div>
       </TonePanel>
     </GuidedStepShell>

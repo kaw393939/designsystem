@@ -20,6 +20,7 @@ import {
   webPresenceProducts,
   webPresenceTimelineItems,
 } from "@/lib/web-presence-site-content";
+import Link from "next/link";
 
 const step = getGuidedTourStep("publish");
 
@@ -141,12 +142,12 @@ export default function TourPublishPage() {
           Module 6: Studio and Publish covers the full build-review-deploy
           cycle and professional practice beyond the semester.
         </p>
-        <a
+        <Link
           href="/modules/studio-and-publish"
           className="action-secondary mt-4 inline-block"
         >
           Open Module 6 →
-        </a>
+        </Link>
       </TonePanel>
     </GuidedStepShell>
   );

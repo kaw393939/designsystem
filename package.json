@@ -18,6 +18,7 @@
     "test:watch": "vitest",
     "test:browser": "playwright test",
     "test:browser:headed": "playwright test --headed",
+    "test:links": "node scripts/check-internal-links.mjs",
     "test:browser:install": "playwright install chromium",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

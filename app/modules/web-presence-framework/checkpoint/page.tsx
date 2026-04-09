@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { TonePanel } from "@/components/tone-panel";
 import { studioReviewCriteria } from "@/lib/web-presence-site-content";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Checkpoint",
@@ -161,12 +162,12 @@ export default function WebPresenceCheckpointPage() {
           foundations — where the tools came from, how they learn, and who
           built them.
         </p>
-        <a
+        <Link
           href="/modules/ai-foundations"
           className="action-primary mt-4 inline-block"
         >
           Continue to Module 2 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

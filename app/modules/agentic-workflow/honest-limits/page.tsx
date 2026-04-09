@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
 import { limitationCategories } from "@/lib/module-content/agentic-workflow";
 import { getPeopleByEraCluster } from "@/lib/module-content/ai-foundations";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "When AI helps and when it does not",
@@ -229,12 +230,12 @@ export default function HonestLimitsPage() {
           into practice: write a brief, give it to an AI tool, and evaluate what
           comes back.
         </p>
-        <a
+        <Link
           href="/modules/agentic-workflow/practice"
           className="action-primary mt-4 inline-block"
         >
           Continue to Practice →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

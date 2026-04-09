@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { TonePanel } from "@/components/tone-panel";
 import { studioReviewCriteria } from "@/lib/web-presence-site-content";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Checkpoint",
@@ -165,9 +166,9 @@ export default function StudioPublishCheckpointPage() {
           Proof → Build → Publish → Iterate — is now yours. The site is never
           done. That is the point.
         </p>
-        <a href="/modules" className="action-primary mt-4 inline-block">
+        <Link href="/modules" className="action-primary mt-4 inline-block">
           Back to modules →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

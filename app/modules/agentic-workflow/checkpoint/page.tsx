@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { EditorialBand } from "@/components/editorial-band";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Checkpoint",
@@ -189,12 +190,12 @@ export default function CheckpointPage() {
           the result. That is the agentic workflow. Next up: Module 4 on visual
           AI — how to prompt for images with editorial judgment.
         </p>
-        <a
+        <Link
           href="/modules/visual-ai"
           className="action-primary mt-4 inline-block"
         >
           Continue to Module 4 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

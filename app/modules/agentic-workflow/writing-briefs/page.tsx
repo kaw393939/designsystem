@@ -7,6 +7,7 @@ import {
   briefRubric,
   briefSections,
 } from "@/lib/module-content/agentic-workflow";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Writing briefs AI can follow",
@@ -197,12 +198,12 @@ export default function WritingBriefsPage() {
           an AI tool can follow it. Next: the honest limits — when AI helps
           and when it does not.
         </p>
-        <a
+        <Link
           href="/modules/agentic-workflow/honest-limits"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 3 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

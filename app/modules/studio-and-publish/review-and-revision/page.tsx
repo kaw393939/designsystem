@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Review and revision",
@@ -162,12 +163,12 @@ export default function ReviewAndRevisionPage() {
           Revise your page based on the review you received. Document what you
           changed and why. Bring the before-and-after to class.
         </p>
-        <a
+        <Link
           href="/modules/studio-and-publish/deployment-and-iteration"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 3 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

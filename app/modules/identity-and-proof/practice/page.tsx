@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { EditorialBand } from "@/components/editorial-band";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Practice",
@@ -122,12 +123,12 @@ export default function IdentityProofPracticePage() {
           Bring your claim-evidence map and redesigned proof layout to class.
           You will exchange them with a classmate in the checkpoint.
         </p>
-        <a
+        <Link
           href="/modules/identity-and-proof/checkpoint"
           className="action-primary mt-4 inline-block"
         >
           Continue to Checkpoint →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

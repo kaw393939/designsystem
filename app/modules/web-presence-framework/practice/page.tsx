@@ -6,6 +6,7 @@ import {
   museumAuditItems,
   portfolioAuditItems,
 } from "@/lib/web-presence-site-content";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Practice",
@@ -122,12 +123,12 @@ export default function WebPresencePracticePage() {
           Bring your audit notes to class. You will exchange them with a
           classmate in the checkpoint.
         </p>
-        <a
+        <Link
           href="/modules/web-presence-framework/checkpoint"
           className="action-primary mt-4 inline-block"
         >
           Continue to Checkpoint →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

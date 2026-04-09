@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { TonePanel } from "@/components/tone-panel";
 import { studioReviewCriteria } from "@/lib/web-presence-site-content";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Checkpoint",
@@ -160,12 +161,12 @@ export default function IdentityProofCheckpointPage() {
           signals, evidence that lands, and a portfolio that proves itself.
           Continue to Module 6 to learn the full build-review-publish cycle.
         </p>
-        <a
+        <Link
           href="/modules/studio-and-publish"
           className="action-primary mt-4 inline-block"
         >
           Continue to Module 6 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { TonePanel } from "@/components/tone-panel";
 import { editorialRubric } from "@/lib/module-content/visual-ai";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Practice",
@@ -106,12 +107,12 @@ export default function VisualAIPracticePage() {
           Once you have three annotated images with rubric evaluations, move to
           the checkpoint for peer review.
         </p>
-        <a
+        <Link
           href="/modules/visual-ai/checkpoint"
           className="action-primary mt-4 inline-block"
         >
           Continue to Checkpoint →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

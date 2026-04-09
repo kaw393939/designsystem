@@ -13,6 +13,7 @@ import {
 } from "@/lib/site-navigation";
 import { designStyles } from "@/lib/archetype-atlas-content";
 import { withBasePath } from "@/lib/site-config";
+import Link from "next/link";
 
 const step = getGuidedTourStep("style");
 
@@ -138,12 +139,12 @@ export default function TourStylePage() {
           Module 1: Web Presence Framework teaches visual direction as part
           of a coherent identity system across all six tour steps.
         </p>
-        <a
+        <Link
           href="/modules/web-presence-framework"
           className="action-secondary mt-4 inline-block"
         >
           Open Module 1 →
-        </a>
+        </Link>
       </TonePanel>
     </GuidedStepShell>
   );

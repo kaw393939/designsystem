@@ -124,9 +124,9 @@ export default function BrowseArchetypesPage() {
         tone="synthesis"
       >
         <p>
-          <a href="/modules/web-presence-framework" className="underline">
+          <Link href="/modules/web-presence-framework" className="underline">
             Open Module 1: Web Presence Framework →
-          </a>
+          </Link>
         </p>
       </CalloutBand>
     </SupportRouteShell>

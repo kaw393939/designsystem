@@ -10,6 +10,7 @@ import {
   eras,
   getPeopleByEraCluster,
 } from "@/lib/module-content/ai-foundations";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Where AI came from",
@@ -334,12 +335,12 @@ export default function WhereAiCameFromPage() {
           Now you know the story. Next, see how these models actually learn —
           what happens inside the machine when you type a prompt.
         </p>
-        <a
+        <Link
           href="/modules/ai-foundations/how-models-learn"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 2 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

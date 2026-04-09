@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Deployment and iteration",
@@ -145,12 +146,12 @@ export default function DeploymentAndIterationPage() {
       <TonePanel tone="reading" className="p-6">
         <p className="type-body text-(--ink-body)">
           For the full walk-through, see{" "}
-          <a
+          <Link
             href="/tour/publish"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the Publish tour
-          </a>
+          </Link>
           .
         </p>
       </TonePanel>
@@ -164,12 +165,12 @@ export default function DeploymentAndIterationPage() {
           Deploy your revised page. Run the three-question check with someone
           who has not seen it. Document what you learn.
         </p>
-        <a
+        <Link
           href="/modules/studio-and-publish/professional-practice"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 4 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

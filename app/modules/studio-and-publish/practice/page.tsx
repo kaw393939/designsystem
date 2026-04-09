@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { EditorialBand } from "@/components/editorial-band";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Practice",
@@ -131,12 +132,12 @@ export default function StudioPublishPracticePage() {
           Bring your before/after documentation to class for the final
           checkpoint review.
         </p>
-        <a
+        <Link
           href="/modules/studio-and-publish/checkpoint"
           className="action-primary mt-4 inline-block"
         >
           Continue to Checkpoint →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

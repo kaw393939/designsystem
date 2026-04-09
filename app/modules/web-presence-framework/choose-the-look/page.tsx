@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Choose the look",
@@ -145,19 +146,19 @@ export default function ChooseTheLookPage() {
       <TonePanel tone="reading" className="p-6">
         <p className="type-body text-(--ink-body)">
           For the full walk-through, see{" "}
-          <a
+          <Link
             href="/tour/style"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the Style tour
-          </a>
+          </Link>
           . To compare design directions side by side, visit{" "}
-          <a
+          <Link
             href="/browse/design-lineages"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the design lineages room
-          </a>
+          </Link>
           .
         </p>
       </TonePanel>
@@ -172,12 +173,12 @@ export default function ChooseTheLookPage() {
           direction. Be ready to explain how each reference connects to your
           archetype.
         </p>
-        <a
+        <Link
           href="/modules/web-presence-framework/proof-and-publish"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 4 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

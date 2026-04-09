@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Pick the vibe",
@@ -61,12 +62,12 @@ export default function PickTheVibePage() {
           <TonePanel tone="reading" className="p-6">
             <p className="type-body text-(--ink-body)">
               Browse all twelve archetypes with examples and visual cues in{" "}
-              <a
+              <Link
                 href="/browse/archetypes"
                 className="underline text-(--accent-strong) hover:text-(--accent-hover)"
               >
                 the archetype room
-              </a>
+              </Link>
               .
             </p>
           </TonePanel>
@@ -144,19 +145,19 @@ export default function PickTheVibePage() {
       <TonePanel tone="reading" className="p-6">
         <p className="type-body text-(--ink-body)">
           For the full walk-through, see{" "}
-          <a
+          <Link
             href="/tour/archetype"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the Archetype tour
-          </a>
+          </Link>
           . To compare vibe options side by side, visit{" "}
-          <a
+          <Link
             href="/browse/archetypes"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the archetype room
-          </a>
+          </Link>
           .
         </p>
       </TonePanel>
@@ -170,12 +171,12 @@ export default function PickTheVibePage() {
           Name your primary archetype and write one sentence on why it fits
           your audience. Be ready to defend the choice.
         </p>
-        <a
+        <Link
           href="/modules/web-presence-framework/choose-the-look"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 3 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

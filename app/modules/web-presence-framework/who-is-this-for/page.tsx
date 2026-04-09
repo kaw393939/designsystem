@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Who is this for",
@@ -133,19 +134,19 @@ export default function WhoIsThisForPage() {
       <TonePanel tone="reading" className="p-6">
         <p className="type-body text-(--ink-body)">
           For the full walk-through of the Signal step, see{" "}
-          <a
+          <Link
             href="/tour/signal"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the Signal tour
-          </a>
+          </Link>
           . For a quick page opener example, see{" "}
-          <a
+          <Link
             href="/examples"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the examples room
-          </a>
+          </Link>
           .
         </p>
       </TonePanel>
@@ -159,12 +160,12 @@ export default function WhoIsThisForPage() {
           Write down one sentence naming your audience and their need. Come to
           class ready to say it out loud.
         </p>
-        <a
+        <Link
           href="/modules/web-presence-framework/pick-the-vibe"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 2 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

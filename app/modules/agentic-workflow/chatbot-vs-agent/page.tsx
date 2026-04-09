@@ -10,6 +10,7 @@ import {
   concepts,
 } from "@/lib/module-content/agentic-workflow";
 import { getPeopleByEraCluster } from "@/lib/module-content/ai-foundations";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Chatbot vs. agent",
@@ -311,12 +312,12 @@ export default function ChatbotVsAgentPage() {
           The difference is not the tool. It is the instruction. Next: how to
           write briefs that actually work.
         </p>
-        <a
+        <Link
           href="/modules/agentic-workflow/writing-briefs"
           className="action-primary mt-4 inline-block"
         >
           Continue to Lesson 2 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

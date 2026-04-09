@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { EditorialBand } from "@/components/editorial-band";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Checkpoint",
@@ -147,12 +148,12 @@ export default function CheckpointPage() {
           you learn the difference between chatting with AI and orchestrating it
           with a brief.
         </p>
-        <a
+        <Link
           href="/modules/agentic-workflow"
           className="action-primary mt-4 inline-block"
         >
           Continue to Module 3 →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

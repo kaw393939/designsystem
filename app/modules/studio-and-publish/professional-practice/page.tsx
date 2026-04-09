@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Professional practice",
@@ -189,12 +190,12 @@ export default function ProfessionalPracticePage() {
           quarterly, and yearly checks. Name the first career inflection point
           that would trigger a redesign.
         </p>
-        <a
+        <Link
           href="/modules/studio-and-publish/practice"
           className="action-primary mt-4 inline-block"
         >
           Continue to Practice →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );

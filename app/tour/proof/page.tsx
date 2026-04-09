@@ -12,6 +12,7 @@ import {
   guidedTourRecordExamples,
 } from "@/lib/site-navigation";
 import { proofBlockFields, workbookPrinciples } from "@/lib/web-presence-site-content";
+import Link from "next/link";
 
 const step = getGuidedTourStep("proof");
 
@@ -110,12 +111,12 @@ export default function TourProofPage() {
           Module 5: Identity and Proof covers evidence types, trust
           mechanics, and portfolio-as-proof in semester depth.
         </p>
-        <a
+        <Link
           href="/modules/identity-and-proof"
           className="action-secondary mt-4 inline-block"
         >
           Open Module 5 →
-        </a>
+        </Link>
       </TonePanel>
     </GuidedStepShell>
   );

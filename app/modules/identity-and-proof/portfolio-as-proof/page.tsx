@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EditorialBand } from "@/components/editorial-band";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Portfolio as proof system",
@@ -149,12 +150,12 @@ export default function PortfolioAsProofPage() {
       <TonePanel tone="reading" className="p-6">
         <p className="type-body text-(--ink-body)">
           See annotated portfolio examples in{" "}
-          <a
+          <Link
             href="/experiences/identity-portfolio"
             className="underline text-(--accent-strong) hover:text-(--accent-hover)"
           >
             the identity portfolio experience
-          </a>
+          </Link>
           .
         </p>
       </TonePanel>
@@ -169,12 +170,12 @@ export default function PortfolioAsProofPage() {
           next scroll? Identify the one section where identity and proof are
           weakest.
         </p>
-        <a
+        <Link
           href="/modules/identity-and-proof/practice"
           className="action-primary mt-4 inline-block"
         >
           Continue to Practice →
-        </a>
+        </Link>
       </TonePanel>
     </>
   );
