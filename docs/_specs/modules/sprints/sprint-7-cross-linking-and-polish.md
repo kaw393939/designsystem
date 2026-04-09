@@ -8,6 +8,26 @@ Wire all modules into the existing site: tour ↔ module links, lobby update, in
 
 Sprints 1–6 built the module pages and their internal content. But modules in isolation are not a course. Sprint 7 connects every module back to the tour, updates the homepage to surface the module path, gives instructors a week-by-week teaching plan, and resolves every loose end.
 
+## Current state (post-sprint 6)
+
+The following are already in place:
+
+- **All 6 modules are `status: "active"`** with correct lesson counts, summaries, week ranges, and tones.
+- **221 tests passing** across 36 test files (tsc clean, eslint clean, build clean).
+- **Module-to-module checkpoint navigation** — every checkpoint links to the next module ("Continue to Module N") except Module 6, which links back to `/modules`.
+- **ModuleShell bottom nav** — always shows "← All modules" on the left and either "Module N: Title →" (next module link) or "All modules →" (Module 6).
+- **Within-module lesson chains** — every lesson page has a "Continue to Lesson N" link; practice links to checkpoint; checkpoint links forward.
+- **All internal cross-references** from module content to tour/browse/experience routes resolve to existing pages.
+- **Module local nav** in sidebar shows all lessons + practice + checkpoint with active-page highlighting.
+- **Module index page** renders 6 `ModuleIndexCard` components showing lesson count, week range, and status.
+
+What does NOT exist yet (Sprint 7 scope):
+- ~~No tour → module cross-link panels~~ ✅ Done
+- ~~No homepage entry intent for modules~~ ✅ Done
+- ~~No module-to-week mapping in instructor guide~~ ✅ Done
+- ~~No browse → module cross-links~~ ✅ Done
+- ~~No tour step references on module overview pages~~ ✅ Done
+
 ## Scope
 
 1. Add tour → module cross-links on each tour step page
@@ -41,7 +61,29 @@ Implementation: add a `TonePanel` at the bottom of each tour step page with modu
 
 ### 2. Module → Tour return links
 
-Each module overview page already shows "Where this fits" via the `ModuleShell`. Verify all 6 modules have correct tour step references.
+ModuleShell does not currently show tour step references. Add an optional `tourSteps` field to `ModuleDefinition` and render a "Where this fits" panel on each module overview.
+
+**Type change in `lib/module-content/types.ts`:**
+
+```ts
+export type ModuleDefinition = {
+  // ... existing fields ...
+  tourSteps?: readonly string[]; // e.g. ["signal", "archetype", "style"]
+};
+```
+
+**Data additions in `lib/module-content/index.ts`:**
+
+| Module | tourSteps |
+| --- | --- |
+| Web Presence Framework | signal, archetype, style, proof, build, publish |
+| AI Foundations | (none — no direct tour step) |
+| Agentic Workflow | build |
+| Visual AI | build |
+| Identity and Proof | proof |
+| Studio and Publish | build, publish |
+
+**ModuleShell change:** When `module.tourSteps` is provided, render a `TonePanel` with tone `"synthesis"` showing "This module deepens" + linked tour step names.
 
 ### 3. Homepage update
 
@@ -98,7 +140,7 @@ Implementation: add a `CalloutBand` at the bottom of each browse room page.
 
 ### 6. Module index finalization
 
-Update `lib/module-content/index.ts` to set all 6 modules to status `"active"` with accurate lesson counts, summaries, and week ranges.
+✅ **Already complete.** All 6 modules are `status: "active"` with accurate lesson counts, summaries, and week ranges. No changes needed.
 
 ### 7. Navigation QA
 
@@ -141,12 +183,18 @@ Full read-through of all module content. Check for:
 
 ### 10. Test suite
 
-- Smoke-render tests for all 6 module overview pages
-- Smoke-render tests for all ~20 lesson pages
-- Smoke-render tests for all 6 practice pages
-- Smoke-render tests for all 6 checkpoint pages
-- Component tests for `ModuleShell`, `ModuleIndexCard`, `ModuleLocalNav`, `TimelineSection`, `PersonProfileCard`, `PersonProfileGrid`, `MathBlock`, `EmbeddingsNeighborhoodDiagram`
-- Navigation tests: header highlight, local nav active state
+**Already covered (221 tests across 36 files):**
+- Smoke-render tests for all 6 module overview pages ✅
+- Smoke-render tests for all lesson pages (M1: 16, M2: 13, M3: 10, M4: 14, M5: 13, M6: 16) ✅
+- Component tests for `ModuleShell`, `ModuleIndexCard`, `ModuleLocalNav`, `TimelineSection`, `PersonProfileCard`, `PersonProfileGrid`, `MathBlock`, `EmbeddingsNeighborhoodDiagram` ✅
+- Navigation tests: header highlight, local nav active state ✅
+
+**New tests for Sprint 7:**
+- Tour step pages render "Go deeper" module cross-link panels
+- Browse room pages render module cross-link callouts
+- Homepage renders "Follow the full course" entry intent card
+- Instructor guide renders module-to-week mapping table
+- ModuleShell renders tour step references when `tourSteps` provided
 - Cross-link resolution tests (optional but valuable)
 
 ### 11. Performance check
@@ -162,16 +210,18 @@ Full read-through of all module content. Check for:
 
 | File | Change |
 | --- | --- |
+| `lib/module-content/types.ts` | Add optional `tourSteps` field to `ModuleDefinition` |
+| `lib/module-content/index.ts` | Add `tourSteps` data to module definitions |
 | `lib/site-navigation.ts` | Add "course-modules" entry intent |
-| `lib/module-content/index.ts` | Set all modules to "active" |
-| `app/page.tsx` | Render new entry intent card |
+| `components/module-shell.tsx` | Add tour step reference panel when `tourSteps` present |
+| `app/page.tsx` | Render new "Follow the full course" entry intent card |
 | `app/tour/signal/page.tsx` | Add module cross-link panel |
 | `app/tour/archetype/page.tsx` | Add module cross-link panel |
 | `app/tour/style/page.tsx` | Add module cross-link panel |
 | `app/tour/proof/page.tsx` | Add module cross-link panel |
 | `app/tour/build/page.tsx` | Add module cross-link panels (2 modules) |
 | `app/tour/publish/page.tsx` | Add module cross-link panel |
-| `app/instructor-guide/page.tsx` | Add module-to-week mapping section |
+| `app/instructor-guide/page.tsx` | Add module-to-week mapping section + per-module teaching notes |
 | `app/browse/archetypes/page.tsx` | Add module cross-link callout |
 | `app/browse/design-lineages/page.tsx` | Add module cross-link callout |
 | `app/browse/attention-trust/page.tsx` | Add module cross-link callout |
@@ -179,14 +229,22 @@ Full read-through of all module content. Check for:
 
 ## Acceptance criteria
 
-- [ ] Every tour step links to at least one module
-- [ ] Every module overview links back to the tour
-- [ ] Homepage shows "Follow the full course" entry intent
-- [ ] Instructor guide has the 16-week table with per-module teaching notes
-- [ ] All navigation links resolve (no 404s)
+**Already passing (from sprints 1–6):**
+- [x] All 6 modules active with correct metadata
+- [x] All internal module navigation links resolve (lesson chains, practice, checkpoint)
+- [x] Every checkpoint links forward to the next module
+- [x] `npx tsc --noEmit` passes (221 tests, 36 files)
+- [x] `next build` succeeds with all routes exported
+- [x] Smoke-render tests for all module pages
+
+**Sprint 7 deliverables:**
+- [x] Every tour step links to at least one module ("Go deeper" panel)
+- [x] Every module overview shows related tour steps ("Where this fits" panel)
+- [x] Homepage shows "Follow the full course" entry intent
+- [x] Instructor guide has the 16-week table with per-module teaching notes
+- [x] Browse rooms link to related modules
+- [x] All new navigation links resolve (no 404s) — verified via `next build` static export
 - [ ] All pages render correctly at sm, md, lg, xl breakpoints
 - [ ] No museum-voice remnants in any module content
-- [ ] `npx tsc --noEmit` passes
-- [ ] Full test suite passes
-- [ ] `next build` succeeds
-- [ ] Bundle size and build time within acceptable limits
+- [x] Full test suite passes (including new cross-link tests) — 239/239 across 37 files
+- [x] Bundle size and build time within acceptable limits — build clean

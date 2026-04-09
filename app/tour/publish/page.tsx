@@ -134,6 +134,20 @@ export default function TourPublishPage() {
           person making the same promise. If they do not match, this step still has work left.
         </p>
       </CalloutBand>
+
+      <TonePanel tone="synthesis" className="p-6">
+        <p className="type-meta text-(--accent-strong)">Go deeper</p>
+        <p className="mt-2 type-body text-(--ink-body)">
+          Module 6: Studio and Publish covers the full build-review-deploy
+          cycle and professional practice beyond the semester.
+        </p>
+        <a
+          href="/modules/studio-and-publish"
+          className="action-secondary mt-4 inline-block"
+        >
+          Open Module 6 →
+        </a>
+      </TonePanel>
     </GuidedStepShell>
   );
 }

@@ -163,6 +163,12 @@ export const primarySiteNavItems: readonly SitePrimaryNavItem[] = [
     matchHrefs: ["/tour", "/playbook", "/workbook", "/deliverables"],
   },
   {
+    id: "modules",
+    href: "/modules",
+    label: "Modules",
+    matchHrefs: ["/modules"],
+  },
+  {
     id: "browse",
     href: "/browse",
     label: "Browse",
@@ -211,6 +217,16 @@ export const siteEntryIntents: readonly SiteEntryIntent[] = [
     actionLabel: "Browse extra help",
     tone: "synthesis",
     status: "Optional reference",
+  },
+  {
+    id: "course-modules",
+    title: "Follow the full course",
+    summary:
+      "Work through the semester path from framework to professional practice, with AI foundations, prompting, and proof along the way.",
+    href: "/modules",
+    actionLabel: "Open course modules",
+    tone: "next",
+    status: "Required in tour",
   },
   {
     id: "instructor",

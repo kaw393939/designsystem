@@ -4,6 +4,7 @@ import { CalloutBand } from "@/components/callout-band";
 import { GuidedStepShell } from "@/components/guided-step-shell";
 import { RouteVisualPanel } from "@/components/route-visual-panel";
 import { SectionHeading } from "@/components/section-heading";
+import { TonePanel } from "@/components/tone-panel";
 import { routeVisualPlans } from "@/lib/route-imagery";
 import {
   buildTourRecordEntries,
@@ -102,6 +103,20 @@ export default function TourProofPage() {
           Keep the next step in the same voice the page has already established.
         </p>
       </CalloutBand>
+
+      <TonePanel tone="synthesis" className="p-6">
+        <p className="type-meta text-(--accent-strong)">Go deeper</p>
+        <p className="mt-2 type-body text-(--ink-body)">
+          Module 5: Identity and Proof covers evidence types, trust
+          mechanics, and portfolio-as-proof in semester depth.
+        </p>
+        <a
+          href="/modules/identity-and-proof"
+          className="action-secondary mt-4 inline-block"
+        >
+          Open Module 5 →
+        </a>
+      </TonePanel>
     </GuidedStepShell>
   );
 }

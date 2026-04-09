@@ -140,7 +140,7 @@ function GuidedStepCompanionSheet({
       <div className="absolute inset-x-3 bottom-3 top-16 overflow-hidden rounded-[1.75rem] border border-(--border-neutral) bg-(--surface-reading) shadow-[0_24px_80px_rgba(18,30,23,0.24)]">
         <div className="flex items-center justify-between border-b border-(--border-neutral) px-5 py-4">
           <div>
-            <p className="type-meta text-(--accent-strong)">Tour helper</p>
+            <p className="type-meta text-(--accent-strong)">Your tour progress</p>
             <h2 className="mt-2 type-concept text-(--ink-strong)">Keep your place</h2>
           </div>
           <button type="button" onClick={onClose} className="action-secondary px-4 py-2">
@@ -224,7 +224,7 @@ export function GuidedStepCompanion({
               onClick={() => setIsSheetOpen(true)}
               className="action-primary"
             >
-              Open tour helper
+              {showBriefTab ? "See your brief & progress" : "See all 6 steps"}
             </button>
             <p className="type-annotation text-(--ink-body)">{showBriefTab ? "Inside: My brief and 6-step path." : "See the 6-step path."}</p>
           </div>

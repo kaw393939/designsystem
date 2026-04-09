@@ -60,6 +60,34 @@ export function GuidedStepShell({
 
   return (
     <PageShell>
+      <nav aria-label="Tour progress" className="sticky top-18 z-30 -mx-5 flex items-center justify-center gap-1.5 bg-(--page-reading)/90 px-5 py-2.5 backdrop-blur sm:-mx-8 sm:gap-2 md:-mx-10 lg:-mx-12">
+        {guidedTourSteps.map((step, index) => {
+          const isCurrent = step.id === currentStepId;
+          const stepNumber = index + 1;
+          return isCurrent ? (
+            <span
+              key={step.id}
+              aria-label={`Step ${stepNumber}: ${step.publicLabel} (current)`}
+              aria-current="step"
+              className="flex h-8 items-center gap-1.5 rounded-full bg-(--accent-strong) px-3 text-sm font-semibold text-white"
+            >
+              <span>{stepNumber}</span>
+              <span className="hidden sm:inline">{step.publicLabel}</span>
+            </span>
+          ) : (
+            <Link
+              key={step.id}
+              href={step.href}
+              aria-label={`Step ${stepNumber}: ${step.publicLabel}`}
+              className="flex h-8 items-center gap-1.5 rounded-full px-3 text-sm font-semibold text-(--ink-body) transition hover:bg-(--surface-reading)"
+            >
+              <span>{stepNumber}</span>
+              <span className="hidden sm:inline">{step.publicLabel}</span>
+            </Link>
+          );
+        })}
+      </nav>
+
       <EditorialBand tone="emphasis" paddingScale="hero" className="overflow-hidden">
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start xl:gap-12">
           <div className="measure-wide">

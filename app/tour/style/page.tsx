@@ -131,6 +131,20 @@ export default function TourStylePage() {
           guesses.
         </p>
       </CalloutBand>
+
+      <TonePanel tone="synthesis" className="p-6">
+        <p className="type-meta text-(--accent-strong)">Go deeper</p>
+        <p className="mt-2 type-body text-(--ink-body)">
+          Module 1: Web Presence Framework teaches visual direction as part
+          of a coherent identity system across all six tour steps.
+        </p>
+        <a
+          href="/modules/web-presence-framework"
+          className="action-secondary mt-4 inline-block"
+        >
+          Open Module 1 →
+        </a>
+      </TonePanel>
     </GuidedStepShell>
   );
 }

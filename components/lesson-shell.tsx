@@ -8,6 +8,7 @@ type LessonShellProps = {
   progress?: string;
   tocTitle?: string;
   className?: string;
+  breadcrumb?: ReactNode;
 };
 
 export function LessonShell({
@@ -16,11 +17,14 @@ export function LessonShell({
   progress,
   tocTitle = "Lesson navigation",
   className = "",
+  breadcrumb,
 }: LessonShellProps) {
   return (
-    <div
-      className={`grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] ${className}`.trim()}
-    >
+    <>
+      {breadcrumb}
+      <div
+        className={`grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] ${className}`.trim()}
+      >
       <div className="flex min-w-0 flex-col gap-8">
         {progress && !localNav?.length ? (
           <div className="rounded-[var(--radius-card)] border border-[var(--border-next)] bg-[var(--surface-next)] px-4 py-3">
@@ -38,5 +42,6 @@ export function LessonShell({
         </aside>
       ) : null}
     </div>
+    </>
   );
 }

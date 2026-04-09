@@ -10,7 +10,7 @@ export const allModules: readonly ModuleDefinition[] = [
       "Orient yourself to the Signal → Publish framework and learn to audit any site with it.",
     leaveWith: "A completed site audit using the portfolio and museum checklists.",
     weekRange: "Weeks 1–3",
-    status: "coming",
+    status: "active",
     tone: "emphasis",
     lessons: [
       {
@@ -32,14 +32,15 @@ export const allModules: readonly ModuleDefinition[] = [
         summary: "Visual direction tied to your archetype choice.",
       },
       {
-        id: "add-proof-and-publish",
-        slug: "add-proof-and-publish",
+        id: "proof-and-publish",
+        slug: "proof-and-publish",
         title: "Add proof and publish",
         summary: "Proof plan plus deployment in one pass.",
       },
     ],
     hasPractice: true,
     hasCheckpoint: true,
+    tourSteps: ["signal", "archetype", "style", "proof", "build", "publish"],
   },
   {
     id: "ai-foundations",
@@ -51,7 +52,7 @@ export const allModules: readonly ModuleDefinition[] = [
     leaveWith:
       "A one-paragraph summary of a primary source paper that changed the field.",
     weekRange: "Weeks 4–5",
-    status: "preview",
+    status: "active",
     tone: "reading",
     lessons: [
       {
@@ -89,7 +90,7 @@ export const allModules: readonly ModuleDefinition[] = [
     leaveWith:
       "A build brief tested against an AI tool, with a written evaluation of the result.",
     weekRange: "Weeks 6–7",
-    status: "coming",
+    status: "active",
     tone: "next",
     lessons: [
       {
@@ -116,6 +117,7 @@ export const allModules: readonly ModuleDefinition[] = [
     ],
     hasPractice: true,
     hasCheckpoint: true,
+    tourSteps: ["build"],
   },
   {
     id: "visual-ai",
@@ -127,7 +129,7 @@ export const allModules: readonly ModuleDefinition[] = [
     leaveWith:
       "Three hero images with documented prompts and annotations on what worked.",
     weekRange: "Weeks 8–9",
-    status: "coming",
+    status: "active",
     tone: "synthesis",
     lessons: [
       {
@@ -154,6 +156,7 @@ export const allModules: readonly ModuleDefinition[] = [
     ],
     hasPractice: true,
     hasCheckpoint: true,
+    tourSteps: ["build"],
   },
   {
     id: "identity-and-proof",
@@ -165,7 +168,7 @@ export const allModules: readonly ModuleDefinition[] = [
     leaveWith:
       "A redesigned proof section on your own site using the audit criteria.",
     weekRange: "Weeks 10–12",
-    status: "coming",
+    status: "active",
     tone: "proof",
     lessons: [
       {
@@ -176,15 +179,15 @@ export const allModules: readonly ModuleDefinition[] = [
           "How audience, archetype, and visual direction create a coherent identity.",
       },
       {
-        id: "building-proof-that-lands",
-        slug: "building-proof-that-lands",
+        id: "building-proof",
+        slug: "building-proof",
         title: "Building proof that lands",
         summary:
           "Types of evidence, placement strategy, and trust mechanics.",
       },
       {
-        id: "portfolio-as-proof-system",
-        slug: "portfolio-as-proof-system",
+        id: "portfolio-as-proof",
+        slug: "portfolio-as-proof",
         title: "Portfolio as proof system",
         summary:
           "The portfolio itself as an identity proof artifact.",
@@ -192,6 +195,7 @@ export const allModules: readonly ModuleDefinition[] = [
     ],
     hasPractice: true,
     hasCheckpoint: true,
+    tourSteps: ["proof"],
   },
   {
     id: "studio-and-publish",
@@ -203,7 +207,7 @@ export const allModules: readonly ModuleDefinition[] = [
     leaveWith:
       "A published page revision with before/after documentation and a final portfolio review.",
     weekRange: "Weeks 13–16",
-    status: "coming",
+    status: "active",
     tone: "reflection",
     lessons: [
       {
@@ -236,6 +240,7 @@ export const allModules: readonly ModuleDefinition[] = [
     ],
     hasPractice: true,
     hasCheckpoint: true,
+    tourSteps: ["build", "publish"],
   },
 ] as const;
 

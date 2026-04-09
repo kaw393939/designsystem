@@ -118,6 +118,18 @@ export default function BrowseAttentionTrustPage() {
           it does not belong near the proof step.
         </p>
       </CalloutBand>
+
+      <CalloutBand
+        label="Course module"
+        title="Module 5 covers evidence types, trust mechanics, and portfolio-as-proof."
+        tone="synthesis"
+      >
+        <p>
+          <a href="/modules/identity-and-proof" className="underline">
+            Open Module 5: Identity and Proof →
+          </a>
+        </p>
+      </CalloutBand>
     </SupportRouteShell>
   );
 }

@@ -26,7 +26,7 @@ export function PageShell({
       </a>
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(160,190,168,0.28),transparent_26%),radial-gradient(circle_at_top_right,rgba(223,194,140,0.22),transparent_24%),linear-gradient(180deg,rgba(247,242,233,0.98),rgba(244,238,228,0.98))]" />
       <div
-        className={`mx-auto flex w-full ${maxWidthClassName} flex-col gap-8 px-5 pb-20 pt-8 sm:px-8 md:px-10 lg:px-12`}
+        className={`mx-auto flex w-full ${maxWidthClassName} flex-col gap-8 px-5 pb-28 pt-8 sm:px-8 md:px-10 lg:px-12`}
       >
         <div className="sticky top-3 z-40">
           <SiteHeader />

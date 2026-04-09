@@ -146,6 +146,29 @@ export default function TourBuildPage() {
           shortest brief that makes it buildable.
         </p>
       </CalloutBand>
+
+      <TonePanel tone="synthesis" className="p-6">
+        <p className="type-meta text-(--accent-strong)">Go deeper</p>
+        <p className="mt-2 type-body text-(--ink-body)">
+          Module 3: Agentic Workflow teaches how to write briefs AI can
+          follow. Module 4: Visual AI covers image prompting with editorial
+          judgment.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <a
+            href="/modules/agentic-workflow"
+            className="action-secondary inline-block"
+          >
+            Open Module 3 →
+          </a>
+          <a
+            href="/modules/visual-ai"
+            className="action-secondary inline-block"
+          >
+            Open Module 4 →
+          </a>
+        </div>
+      </TonePanel>
     </GuidedStepShell>
   );
 }

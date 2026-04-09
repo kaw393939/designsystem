@@ -99,6 +99,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      <TonePanel tone="next" className="p-8">
+        <p className="type-meta text-(--accent-strong)">Semester path</p>
+        <h2 className="mt-3 type-concept text-(--ink-strong)">
+          Follow the full course
+        </h2>
+        <p className="mt-3 type-body text-(--ink-body)">
+          Work through the semester path from framework to professional practice,
+          with AI foundations, prompting, and proof along the way.
+        </p>
+        <Link href="/modules" className="action-primary mt-5 inline-flex">
+          Open course modules
+        </Link>
+      </TonePanel>
+
       <section className="space-y-6">
         <SectionHeading
           eyebrow="Need extra help?"

@@ -25,7 +25,6 @@ function normalizePathname(pathname: string) {
 export function JourneyResumeBand() {
   const pathname = usePathname();
   const {
-    briefCount,
     hasHydrated,
     isResumeBandDismissed,
     dismissResumeBand,
@@ -45,7 +44,7 @@ export function JourneyResumeBand() {
   const showTourResume = lastTourPage && lastTourPage.path !== currentPath;
   const showSupportResume = lastSupportPage && lastSupportPage.path !== currentPath;
 
-  if (!showTourResume && !showSupportResume && !recentLinks.length && !briefCount) {
+  if (!showTourResume && !showSupportResume && !recentLinks.length) {
     return null;
   }
 
@@ -64,14 +63,11 @@ export function JourneyResumeBand() {
   }
 
   return (
-    <section data-resume-band className="panel-shell panel-emphasis px-5 py-4 sm:px-6">
+    <section data-resume-band className="panel-shell panel-emphasis px-4 py-3 sm:px-5">
       {showConfirm ? (
-        <div className="flex flex-col items-center gap-3 py-4 text-center">
+        <div className="flex flex-col items-center gap-3 py-2 text-center">
           <p className="type-caption text-(--ink-strong)">
             Hide &ldquo;continue where you left off&rdquo;?
-          </p>
-          <p className="type-annotation text-(--ink-body)">
-            You can bring it back any time from the same spot.
           </p>
           <div className="flex gap-3">
             <button
@@ -94,60 +90,41 @@ export function JourneyResumeBand() {
           </div>
         </div>
       ) : (
-        <>
-          <div className="flex items-start gap-4">
-            <div className="min-w-0 flex-1">
-              <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                <div className="max-w-3xl">
-                  <p className="type-meta text-(--accent-strong)">Continue where you left off</p>
-                  <h2 className="mt-2 type-concept text-(--ink-strong)">
-                    Keep moving without rebuilding the map in your head.
-                  </h2>
-                  <p className="mt-2 type-caption text-(--ink-body)">
-                    {briefCount
-                      ? `${briefCount} brief field${briefCount === 1 ? "" : "s"} saved in this browser.`
-                      : "Your recent pages stay visible here so you can jump back into the site quickly."}
-                  </p>
-                </div>
+        <div className="flex flex-wrap items-center gap-3">
+          {showTourResume ? (
+            <Link href={lastTourPage.path} className="action-primary">
+              Resume tour
+            </Link>
+          ) : null}
+          {showSupportResume ? (
+            <Link href={lastSupportPage.path} className="action-secondary">
+              Reopen last page
+            </Link>
+          ) : null}
 
-                <div className="flex flex-wrap gap-3">
-                  {showTourResume ? (
-                    <Link href={lastTourPage.path} className="action-primary">
-                      Resume {lastTourPage.title}
-                    </Link>
-                  ) : null}
-                  {showSupportResume ? (
-                    <Link href={lastSupportPage.path} className="action-secondary">
-                      Reopen {lastSupportPage.title}
-                    </Link>
-                  ) : null}
-                </div>
-              </div>
+          {recentLinks.length ? (
+            <>
+              <span className="hidden h-4 w-px bg-(--border-neutral) sm:block" aria-hidden="true" />
+              {recentLinks.map((page) => (
+                <Link key={`${page.path}-${page.visitedAt}`} href={page.path} className="action-secondary">
+                  {page.title}
+                </Link>
+              ))}
+            </>
+          ) : null}
 
-              {recentLinks.length ? (
-                <div className="mt-5 flex flex-wrap gap-3">
-                  {recentLinks.map((page) => (
-                    <Link key={`${page.path}-${page.visitedAt}`} href={page.path} className="action-secondary">
-                      {page.title}
-                    </Link>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-
-            <button
-              type="button"
-              onClick={() => setShowConfirm(true)}
-              aria-label="Dismiss continue where you left off"
-              className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-(--border-neutral) bg-[rgba(255,255,255,0.6)] text-(--ink-body) transition hover:bg-[rgba(255,255,255,0.9)] hover:text-(--ink-strong)"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-          </div>
-        </>
+          <button
+            type="button"
+            onClick={() => setShowConfirm(true)}
+            aria-label="Dismiss continue where you left off"
+            className="ml-auto flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-(--border-neutral) bg-[rgba(255,255,255,0.6)] text-(--ink-body) transition hover:bg-[rgba(255,255,255,0.9)] hover:text-(--ink-strong)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
       )}
     </section>
   );

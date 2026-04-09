@@ -105,31 +105,67 @@ export default function TourSignalPage() {
         </div>
       </section>
 
-      <section className="space-y-6">
-        <SectionHeading
-          eyebrow="Read it back"
-          title="If someone else reads it and gets it, you are on track."
-          body="These prompts are simple on purpose. They help you check whether the brief is specific enough to shape the next step."
-        />
-        <ContentGrid minCardWidth="17rem">
-          {workbookPairReviewPrompts.slice(0, 3).map((prompt) => (
-            <TonePanel key={prompt} tone="synthesis" className="p-6">
-              <p className="type-body text-(--ink-body)">{prompt}</p>
-            </TonePanel>
-          ))}
-        </ContentGrid>
-      </section>
+      <details className="group">
+        <summary className="flex cursor-pointer list-none items-center gap-2 type-meta text-(--accent-strong) [&::-webkit-details-marker]:hidden">
+          <span className="inline-block transition group-open:rotate-90" aria-hidden="true">›</span>
+          Read it back
+        </summary>
+        <section className="mt-4 space-y-6">
+          <SectionHeading
+            eyebrow="Read it back"
+            title="If someone else reads it and gets it, you are on track."
+            body="These prompts are simple on purpose. They help you check whether the brief is specific enough to shape the next step."
+          />
+          <ContentGrid minCardWidth="17rem">
+            {workbookPairReviewPrompts.slice(0, 3).map((prompt) => (
+              <TonePanel key={prompt} tone="synthesis" className="p-6">
+                <p className="type-body text-(--ink-body)">{prompt}</p>
+              </TonePanel>
+            ))}
+          </ContentGrid>
+        </section>
+      </details>
 
-      <CalloutBand
-        label="Why this matters"
-        title="This step sets the first screen."
-        tone="next"
-      >
-        <p>
-          Once the audience, problem, and promise are clear, the headline, proof, visual
-          direction, and call to action have something to follow.
-        </p>
-      </CalloutBand>
+      <details className="group">
+        <summary className="flex cursor-pointer list-none items-center gap-2 type-meta text-(--accent-strong) [&::-webkit-details-marker]:hidden">
+          <span className="inline-block transition group-open:rotate-90" aria-hidden="true">›</span>
+          Why this matters
+        </summary>
+        <div className="mt-4">
+          <CalloutBand
+            label="Why this matters"
+            title="This step sets the first screen."
+            tone="next"
+          >
+            <p>
+              Once the audience, problem, and promise are clear, the headline, proof, visual
+              direction, and call to action have something to follow.
+            </p>
+          </CalloutBand>
+        </div>
+      </details>
+
+      <details className="group">
+        <summary className="flex cursor-pointer list-none items-center gap-2 type-meta text-(--accent-strong) [&::-webkit-details-marker]:hidden">
+          <span className="inline-block transition group-open:rotate-90" aria-hidden="true">›</span>
+          Go deeper
+        </summary>
+        <div className="mt-4">
+          <TonePanel tone="synthesis" className="p-6">
+            <p className="type-meta text-(--accent-strong)">Go deeper</p>
+            <p className="mt-2 type-body text-(--ink-body)">
+              Module 1: Web Presence Framework covers the full Signal → Publish
+              framework in semester depth.
+            </p>
+            <a
+              href="/modules/web-presence-framework"
+              className="action-secondary mt-4 inline-block"
+            >
+              Open Module 1 →
+            </a>
+          </TonePanel>
+        </div>
+      </details>
     </GuidedStepShell>
   );
 }

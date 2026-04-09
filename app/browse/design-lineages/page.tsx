@@ -115,6 +115,18 @@ export default function BrowseDesignLineagesPage() {
           first screen should handle typography, layout, and imagery.
         </p>
       </CalloutBand>
+
+      <CalloutBand
+        label="Course module"
+        title="Module 1 teaches design lineage as part of a coherent identity system."
+        tone="synthesis"
+      >
+        <p>
+          <a href="/modules/web-presence-framework" className="underline">
+            Open Module 1: Web Presence Framework →
+          </a>
+        </p>
+      </CalloutBand>
     </SupportRouteShell>
   );
 }

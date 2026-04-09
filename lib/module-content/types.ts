@@ -22,4 +22,5 @@ export type ModuleDefinition = {
   lessons: readonly ModuleLesson[];
   hasPractice: boolean;
   hasCheckpoint: boolean;
+  tourSteps?: readonly string[];
 };

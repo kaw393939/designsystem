@@ -94,7 +94,7 @@ describe("SiteHeader", () => {
 
     render(<SiteHeader />);
 
-    const resumeLinks = screen.getAllByRole("link", { name: "Resume Pick the vibe" });
+    const resumeLinks = screen.getAllByRole("link", { name: "Resume tour" });
 
     expect(resumeLinks).toHaveLength(2);
     resumeLinks.forEach((link) => {
