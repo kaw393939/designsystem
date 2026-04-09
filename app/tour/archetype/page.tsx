@@ -185,6 +185,20 @@ export default function TourArchetypePage() {
           direction.
         </p>
       </CalloutBand>
+
+      <TonePanel tone="synthesis" className="p-6">
+        <p className="type-meta text-(--accent-strong)">Go deeper</p>
+        <p className="mt-2 type-body text-(--ink-body)">
+          Module 1: Web Presence Framework unpacks archetype selection,
+          congruence, and common traps across four lessons.
+        </p>
+        <a
+          href="/modules/web-presence-framework"
+          className="action-secondary mt-4 inline-block"
+        >
+          Open Module 1 →
+        </a>
+      </TonePanel>
     </GuidedStepShell>
   );
 }

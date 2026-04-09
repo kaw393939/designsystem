@@ -117,6 +117,18 @@ export default function BrowseArchetypesPage() {
           it collapse.
         </p>
       </CalloutBand>
+
+      <CalloutBand
+        label="Course module"
+        title="Module 1 covers archetype selection, congruence, and common traps."
+        tone="synthesis"
+      >
+        <p>
+          <a href="/modules/web-presence-framework" className="underline">
+            Open Module 1: Web Presence Framework →
+          </a>
+        </p>
+      </CalloutBand>
     </SupportRouteShell>
   );
 }

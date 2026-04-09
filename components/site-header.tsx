@@ -53,14 +53,14 @@ export function SiteHeader() {
     if (lastTourPage && lastTourPage.path !== currentPath) {
       return {
         href: lastTourPage.path,
-        label: `Resume ${lastTourPage.title}`,
+        label: "Resume tour",
       };
     }
 
     if (lastSupportPage && lastSupportPage.path !== currentPath) {
       return {
         href: lastSupportPage.path,
-        label: `Reopen ${lastSupportPage.title}`,
+        label: "Reopen last page",
       };
     }
 
@@ -127,7 +127,7 @@ export function SiteHeader() {
             </p>
 
             {resumeAction ? (
-              <Link href={resumeAction.href} className="action-primary mt-4 inline-flex md:hidden">
+              <Link href={resumeAction.href} className="action-primary mt-4 inline-flex max-w-56 truncate md:hidden">
                 {resumeAction.label}
               </Link>
             ) : null}
@@ -135,7 +135,7 @@ export function SiteHeader() {
 
           <div className="flex shrink-0 items-center gap-2">
             {resumeAction ? (
-              <Link href={resumeAction.href} className="action-primary hidden lg:inline-flex">
+              <Link href={resumeAction.href} className="action-primary hidden max-w-56 truncate md:inline-flex">
                 {resumeAction.label}
               </Link>
             ) : null}

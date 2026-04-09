@@ -73,13 +73,13 @@ describe("GuidedStepCompanion", () => {
       />,
     );
 
-    expect(screen.getByRole("button", { name: "Open tour helper" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "See your brief & progress" })).toBeInTheDocument();
     expect(
       screen.queryByRole("button", { name: "Open my brief" }),
     ).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Open the path" })).not.toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("button", { name: "Open tour helper" }));
+    fireEvent.click(screen.getByRole("button", { name: "See your brief & progress" }));
 
     expect(screen.getByRole("button", { name: "My brief" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "6-step path" })).toBeInTheDocument();

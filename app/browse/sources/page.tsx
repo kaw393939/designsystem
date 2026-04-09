@@ -96,6 +96,18 @@ export default function BrowseSourcesPage() {
           Answer the source question, then go back to the step or room that needed it.
         </p>
       </CalloutBand>
+
+      <CalloutBand
+        label="Course module"
+        title="Module 2 teaches source evaluation and reading within AI foundations."
+        tone="synthesis"
+      >
+        <p>
+          <a href="/modules/ai-foundations" className="underline">
+            Open Module 2: AI Foundations →
+          </a>
+        </p>
+      </CalloutBand>
     </SupportRouteShell>
   );
 }
