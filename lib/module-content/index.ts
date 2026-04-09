@@ -79,6 +79,7 @@ export const allModules: readonly ModuleDefinition[] = [
     ],
     hasPractice: true,
     hasCheckpoint: true,
+    tourSteps: ["build"],
   },
   {
     id: "agentic-workflow",

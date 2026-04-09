@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
+import { ArchetypeDetailCard } from "@/components/archetype-detail-card";
 import { CalloutBand } from "@/components/callout-band";
 import { ContentGrid } from "@/components/content-grid";
 import { RouteVisualPanel } from "@/components/route-visual-panel";
@@ -13,15 +13,9 @@ import {
   familyOverviews,
 } from "@/lib/archetype-atlas-content";
 import { routeVisualPlans } from "@/lib/route-imagery";
-import { withBasePath } from "@/lib/site-config";
 import { browseRoomCards } from "@/lib/site-navigation";
 
 const room = browseRoomCards.find((card) => card.id === "browse-archetypes");
-
-const candidateSlugs = ["sage", "hero", "caregiver"];
-const supportingProfiles = archetypeProfiles.filter((profile) =>
-  candidateSlugs.includes(profile.slug),
-);
 
 export const metadata: Metadata = {
   title: "Browse Archetypes",
@@ -52,6 +46,20 @@ export default function BrowseArchetypesPage() {
       ]}
       heroVisual={<RouteVisualPanel plan={routeVisualPlans.browseArchetypes} />}
     >
+      <CalloutBand
+        label="Decision filter"
+        title="Which archetype matches your signal?"
+        tone="next"
+      >
+        <p>
+          Review the profiles below, then{" "}
+          <Link href="/tour/archetype" className="underline">
+            return to the Archetype step
+          </Link>{" "}
+          to lock in your choice.
+        </p>
+      </CalloutBand>
+
       <section className="space-y-6">
         <SectionHeading
           eyebrow="The four families"
@@ -71,50 +79,26 @@ export default function BrowseArchetypesPage() {
 
       <section className="space-y-6">
         <SectionHeading
-          eyebrow="Compare the top three"
-          title="Compare a few likely fits, not all twelve at once."
-          body="These three often compete because they all sound competent in different ways. Listen for the tradeoff before you open a full profile."
+          eyebrow="All 12 archetypes"
+          title="Full profiles with psychology, brands, and visual identity."
+          body="Each card shows the summary by default. Expand the sections to see the full psychology profile, brand examples, and design guidance."
         />
-        <ContentGrid minCardWidth="18rem">
-          {supportingProfiles.map((profile) => (
-            <TonePanel key={profile.slug} tone="proof" className="overflow-hidden p-0">
-              <Image
-                src={withBasePath(profile.imagePath)}
-                alt={`${profile.name} archetype portrait`}
-                width={720}
-                height={720}
-                className="h-56 w-full object-cover"
-              />
-              <div className="p-6">
-                <p className="type-meta text-(--accent-strong)">{profile.familyTitle}</p>
-                <h2 className="mt-3 type-concept text-(--ink-strong)">{profile.name}</h2>
-                <p className="mt-3 type-body text-(--ink-body)">{profile.corePromise}</p>
-                <p className="mt-4 type-caption text-(--ink-body)">
-                  <strong>Gift:</strong> {profile.gift}
-                </p>
-                <p className="mt-2 type-caption text-(--ink-body)">
-                  <strong>Trap:</strong> {profile.trap}
-                </p>
-                <p className="mt-2 type-caption text-(--signal)">
-                  <strong>Five-second read:</strong> {profile.fiveSecondTest}
-                </p>
-                <Link href={`/archetypes/${profile.slug}`} className="action-secondary mt-5 inline-flex">
-                  Open full profile
-                </Link>
-              </div>
-            </TonePanel>
+        <ContentGrid minCardWidth="20rem">
+          {archetypeProfiles.map((profile) => (
+            <ArchetypeDetailCard key={profile.slug} archetype={profile} />
           ))}
         </ContentGrid>
       </section>
 
       <CalloutBand
-        label="What this changes"
+        label="Ready to choose?"
         title="Leave with one choice, one reason, and one thing to avoid."
         tone="next"
       >
         <p>
-          Go back to the vibe step ready to name the vibe, why it fits, and what would make
-          it collapse.
+          <Link href="/tour/archetype" className="underline">
+            Return to the Archetype step →
+          </Link>
         </p>
       </CalloutBand>
 

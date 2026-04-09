@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { CalloutBand } from "@/components/callout-band";
 import { ContentGrid } from "@/components/content-grid";
 import { GuidedStepShell } from "@/components/guided-step-shell";
+import { ProgressiveDisclosure } from "@/components/progressive-disclosure";
+import { PsychologyPrincipleCard } from "@/components/psychology-principle-card";
 import { RouteVisualPanel } from "@/components/route-visual-panel";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
@@ -136,6 +138,23 @@ export default function TourBuildPage() {
           </TonePanel>
         </ContentGrid>
       </section>
+
+      <ProgressiveDisclosure title="Writing briefs for AI tools">
+        <div className="space-y-4">
+          <PsychologyPrincipleCard
+            title="Brief anatomy — context, constraints, deliverables"
+            description="An effective AI brief has three parts: context (what the project is and who it is for), constraints (what to avoid, what style to match, what standards to meet), and deliverables (what the output should look like). Missing any part produces vague results."
+            application="Before handing a brief to an AI tool, check: does it tell the tool what, for whom, within what limits, and what 'done' looks like?"
+            tone="next"
+          />
+          <PsychologyPrincipleCard
+            title="Specificity gradient — more detail, better output"
+            description="AI tools respond proportionally to the specificity of the input. A brief that says 'make it look professional' produces generic results. One that says 'Sage archetype, Swiss style, serif headlines, dark green palette' produces something the student can actually evaluate."
+            application="Replace every adjective in the brief with a concrete reference: an archetype name, a color, a layout rule, or an example page."
+            tone="next"
+          />
+        </div>
+      </ProgressiveDisclosure>
 
       <CalloutBand
         label="Build Rule"

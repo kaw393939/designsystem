@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import { CalloutBand } from "@/components/callout-band";
 import { GuidedStepShell } from "@/components/guided-step-shell";
+import { ProgressiveDisclosure } from "@/components/progressive-disclosure";
+import { PsychologyPrincipleCard } from "@/components/psychology-principle-card";
 import { RouteVisualPanel } from "@/components/route-visual-panel";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
@@ -94,6 +96,29 @@ export default function TourProofPage() {
           ))}
         </div>
       </section>
+
+      <ProgressiveDisclosure title="What counts as evidence">
+        <div className="space-y-4">
+          <PsychologyPrincipleCard
+            title="Social proof — others like me chose this"
+            description="When visitors are uncertain, they look at what similar people did. Testimonials, user counts, and 'popular choice' badges work because they answer the unspoken question: is this safe for someone like me?"
+            application="Use testimonials from people who match your audience, not just impressive names. Peer proof beats celebrity proof."
+            tone="proof"
+          />
+          <PsychologyPrincipleCard
+            title="Authority — endorsed by a credible source"
+            description="People defer to experts because evaluating everything from scratch is cognitively expensive. Credentials, publications, institutional backing, and visible expertise all trigger trust shortcuts."
+            application="Show credentials near the claim they support. An expert quote below the headline beats a credentials page buried in the footer."
+            tone="proof"
+          />
+          <PsychologyPrincipleCard
+            title="Evidence tiers — anecdotal to experimental"
+            description="Not all proof is created equal. A single testimonial is anecdotal. Aggregated data is statistical. A controlled comparison is experimental. Stronger evidence goes closer to the main claim."
+            application="Audit your proof: what tier is it? Place your strongest evidence nearest to your biggest promise."
+            tone="proof"
+          />
+        </div>
+      </ProgressiveDisclosure>
 
       <CalloutBand
         label="Your call to action"

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { EditorialBand } from "@/components/editorial-band";
+import { ReturnToTourCTA } from "@/components/return-to-tour-cta";
 import { TonePanel } from "@/components/tone-panel";
 import { studioReviewCriteria } from "@/lib/web-presence-site-content";
 import Link from "next/link";
@@ -153,6 +154,9 @@ export default function WebPresenceCheckpointPage() {
           </li>
         </ol>
       </section>
+
+      {/* ── Return to tour ── */}
+      <ReturnToTourCTA tourSteps={["signal", "archetype", "style", "proof", "build", "publish"]} />
 
       {/* ── Closing ── */}
       <TonePanel tone="next" className="p-6">

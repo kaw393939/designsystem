@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { CalloutBand } from "@/components/callout-band";
 import { ContentGrid } from "@/components/content-grid";
 import { GuidedStepShell } from "@/components/guided-step-shell";
+import { ProgressiveDisclosure } from "@/components/progressive-disclosure";
+import { PsychologyPrincipleCard } from "@/components/psychology-principle-card";
 import { RouteVisualPanel } from "@/components/route-visual-panel";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
@@ -105,6 +107,29 @@ export default function TourSignalPage() {
           </TonePanel>
         </div>
       </section>
+
+      <ProgressiveDisclosure title="Why signals work — the psychology">
+        <div className="space-y-4">
+          <PsychologyPrincipleCard
+            title="First impressions form in milliseconds"
+            description="Visitors decide whether a page is credible before they read a single word. Visual structure, contrast, and clarity set the tone in under 50 milliseconds."
+            application="Your signal must be visible in the first screen — not buried after a scroll."
+            tone="synthesis"
+          />
+          <PsychologyPrincipleCard
+            title="Cognitive load determines who stays"
+            description="The more choices and competing messages a first screen presents, the faster visitors leave. A clear signal reduces cognitive load by answering one question immediately: is this for me?"
+            application="Strip the first screen down to one audience, one problem, one promise."
+            tone="synthesis"
+          />
+          <PsychologyPrincipleCard
+            title="Commitment starts with a micro-yes"
+            description="When a visitor recognizes themselves in your signal, they make a small internal commitment: 'This might be for me.' That micro-yes is the foundation for every action that follows."
+            application="Name the audience directly so the right visitors feel personally addressed."
+            tone="synthesis"
+          />
+        </div>
+      </ProgressiveDisclosure>
 
       <details className="group">
         <summary className="flex cursor-pointer list-none items-center gap-2 type-meta text-(--accent-strong) [&::-webkit-details-marker]:hidden">

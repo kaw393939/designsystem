@@ -3,6 +3,15 @@ import Link from "next/link";
 import { TonePanel } from "@/components/tone-panel";
 import type { ModuleDefinition } from "@/lib/module-content/types";
 
+const tourStepLabels: Record<string, string> = {
+  signal: "Signal",
+  archetype: "Archetype",
+  style: "Style",
+  proof: "Proof",
+  build: "Build",
+  publish: "Publish",
+};
+
 type ModuleIndexCardProps = {
   module: ModuleDefinition;
 };
@@ -30,6 +39,11 @@ export function ModuleIndexCard({ module }: ModuleIndexCardProps) {
       </div>
       <h3 className="mt-3 type-concept text-(--ink-strong)">{module.title}</h3>
       <p className="mt-2 flex-1 type-body text-(--ink-body)">{module.summary}</p>
+      {module.tourSteps && module.tourSteps.length > 0 && (
+        <p className="mt-2 type-caption text-(--accent-strong)">
+          Deepens: {module.tourSteps.map((s) => tourStepLabels[s] ?? s).join(", ")}
+        </p>
+      )}
       <div className="mt-4 flex items-center justify-between type-caption text-(--ink-body)">
         <span>
           {module.lessons.length} lesson{module.lessons.length !== 1 ? "s" : ""}

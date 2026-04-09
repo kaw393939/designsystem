@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
+import { DiagnosticQuestionCard } from "@/components/diagnostic-question-card";
 import { TonePanel } from "@/components/tone-panel";
 import { TourRecordPanel } from "@/components/tour-record-panel";
 import { useSiteJourney } from "@/components/site-journey-provider";
+import { getQuestionsForStep } from "@/lib/diagnostic-questions";
 import {
   guidedTourSteps,
   type GuidedTourStepId,
@@ -13,7 +15,7 @@ import {
 } from "@/lib/site-navigation";
 
 type GuidedStepCompanionMode = "mobile" | "desktop";
-type GuidedStepCompanionTab = "brief" | "path";
+type GuidedStepCompanionTab = "brief" | "path" | "stuck";
 
 type GuidedStepCompanionProps = {
   mode: GuidedStepCompanionMode;
@@ -114,6 +116,39 @@ function TabButton({
   );
 }
 
+function StuckTabContent({ currentStepId }: { currentStepId?: GuidedTourStepId }) {
+  const questions = currentStepId ? getQuestionsForStep(currentStepId) : [];
+
+  if (questions.length === 0) {
+    return (
+      <div>
+        <p className="type-meta text-(--accent-strong)">Stuck?</p>
+        <p className="mt-2 type-caption text-(--ink-body)">
+          Diagnostic questions are available on each tour step page.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <p className="type-meta text-(--accent-strong)">Stuck?</p>
+      <h2 className="mt-2 type-concept text-(--ink-strong)">Try one of these</h2>
+      <div className="mt-4 space-y-3">
+        {questions.map((q) => (
+          <DiagnosticQuestionCard
+            key={q.href + q.question}
+            question={q.question}
+            hint={q.hint}
+            href={q.href}
+            linkLabel={q.linkLabel}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function GuidedStepCompanionSheet({
   activeTab,
   currentStepId,
@@ -161,11 +196,18 @@ function GuidedStepCompanionSheet({
               label="6-step path"
               onClick={() => onTabChange("path")}
             />
+            <TabButton
+              isActive={activeTab === "stuck"}
+              label="Stuck?"
+              onClick={() => onTabChange("stuck")}
+            />
           </div>
         </div>
         <div className="h-[calc(100%-8.5rem)] overflow-y-auto px-5 py-5">
           {activeTab === "brief" ? (
             <TourRecordPanel entries={recordEntries} compact />
+          ) : activeTab === "stuck" ? (
+            <StuckTabContent currentStepId={currentStepId} />
           ) : (
             <GuidedTourPathList currentStepId={currentStepId} />
           )}
@@ -265,10 +307,17 @@ export function GuidedStepCompanion({
           label="6-step path"
           onClick={() => setActiveTab("path")}
         />
+        <TabButton
+          isActive={activeTab === "stuck"}
+          label="Stuck?"
+          onClick={() => setActiveTab("stuck")}
+        />
       </div>
       <div className="mt-5">
         {activeTab === "brief" ? (
           <TourRecordPanel entries={recordEntries} compact />
+        ) : activeTab === "stuck" ? (
+          <StuckTabContent currentStepId={currentStepId} />
         ) : (
           <GuidedTourPathList currentStepId={currentStepId} />
         )}

@@ -4,6 +4,8 @@ import Image from "next/image";
 import { CalloutBand } from "@/components/callout-band";
 import { ContentGrid } from "@/components/content-grid";
 import { GuidedStepShell } from "@/components/guided-step-shell";
+import { ProgressiveDisclosure } from "@/components/progressive-disclosure";
+import { PsychologyPrincipleCard } from "@/components/psychology-principle-card";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
 import {
@@ -175,6 +177,29 @@ export default function TourArchetypePage() {
           ))}
         </ContentGrid>
       </section>
+
+      <ProgressiveDisclosure title="The psychology behind archetypes">
+        <div className="space-y-4">
+          <PsychologyPrincipleCard
+            title="Archetypes are universal recognition patterns"
+            description="Carl Jung identified recurring character patterns that appear across cultures and centuries. When a brand matches an archetype, the audience recognizes the personality instantly — they have seen this character before in stories, leaders, and institutions."
+            application="Your archetype should feel familiar to the audience, not original. Familiar is faster to trust."
+            tone="synthesis"
+          />
+          <PsychologyPrincipleCard
+            title="Brand congruence builds or destroys trust"
+            description="When the archetype, visual design, tone of voice, and proof all point in the same direction, the page feels coherent. When any element contradicts the others — a playful Jester tone with a corporate stock photo — the visitor senses the mismatch unconsciously."
+            application="After choosing an archetype, audit every element: does the headline, image, proof, and CTA all match the same character?"
+            tone="synthesis"
+          />
+          <PsychologyPrincipleCard
+            title="Shadow traits reveal the trap"
+            description="Every archetype has a shadow — the failure mode it falls into when overplayed. The Sage becomes pedantic, the Hero becomes arrogant, the Caregiver becomes smothering. Naming the shadow keeps the choice honest."
+            application="Ask: what would this archetype look like if I pushed it too far? That is your warning sign."
+            tone="synthesis"
+          />
+        </div>
+      </ProgressiveDisclosure>
 
       <CalloutBand
         label="Leave with this"

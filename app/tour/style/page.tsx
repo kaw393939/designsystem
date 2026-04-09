@@ -4,6 +4,8 @@ import Image from "next/image";
 import { CalloutBand } from "@/components/callout-band";
 import { ContentGrid } from "@/components/content-grid";
 import { GuidedStepShell } from "@/components/guided-step-shell";
+import { ProgressiveDisclosure } from "@/components/progressive-disclosure";
+import { PsychologyPrincipleCard } from "@/components/psychology-principle-card";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
 import {
@@ -121,6 +123,29 @@ export default function TourStylePage() {
           ))}
         </ContentGrid>
       </section>
+
+      <ProgressiveDisclosure title="Design principles that persuade">
+        <div className="space-y-4">
+          <PsychologyPrincipleCard
+            title="Reciprocity — give before you ask"
+            description="When a page gives something valuable first — a free tool, clear guidance, an honest comparison — visitors feel a natural pull to give something back. The CTA becomes a fair exchange, not a cold ask."
+            application="Lead with your most useful content above the fold. Put the ask after the gift."
+            tone="synthesis"
+          />
+          <PsychologyPrincipleCard
+            title="Commitment & Consistency — small yeses build big ones"
+            description="Once someone reads your headline and nods, they have made a micro-commitment. Each scroll, each click, each field they fill in reinforces their self-image as someone who is interested. Design the page as a series of easy agreements."
+            application="Start with a low-friction opener (a question, a relatable problem). Let the CTA arrive as a natural next step, not a leap."
+            tone="synthesis"
+          />
+          <PsychologyPrincipleCard
+            title="Liking — mirror the audience's identity"
+            description="People are more persuaded by messages that reflect their own values, aesthetics, and language. A style choice that mirrors the audience's self-image feels trustworthy. One that contradicts it feels performative."
+            application="Check: would the audience recognize themselves in this design? If the style impresses designers but alienates the actual visitor, change it."
+            tone="synthesis"
+          />
+        </div>
+      </ProgressiveDisclosure>
 
       <CalloutBand
         label="Why this matters"

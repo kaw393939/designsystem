@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { EditorialBand } from "@/components/editorial-band";
+import { ReturnToTourCTA } from "@/components/return-to-tour-cta";
 import { TonePanel } from "@/components/tone-panel";
 import { readingList } from "@/lib/module-content/ai-foundations";
 import Link from "next/link";
@@ -127,6 +128,9 @@ export default function PracticePage() {
           </li>
         </ul>
       </TonePanel>
+
+      {/* ── Return to tour ── */}
+      <ReturnToTourCTA tourSteps={["build"]} />
 
       {/* ── Closing ── */}
       <TonePanel tone="next" className="p-6">

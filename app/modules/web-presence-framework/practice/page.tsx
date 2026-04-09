@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { EditorialBand } from "@/components/editorial-band";
+import { ReturnToTourCTA } from "@/components/return-to-tour-cta";
 import { TonePanel } from "@/components/tone-panel";
 import {
   museumAuditItems,
@@ -116,6 +117,9 @@ export default function WebPresencePracticePage() {
           </li>
         </ul>
       </TonePanel>
+
+      {/* ── Return to tour ── */}
+      <ReturnToTourCTA tourSteps={["signal", "archetype", "style", "proof", "build", "publish"]} />
 
       {/* ── Closing ── */}
       <TonePanel tone="next" className="p-6">

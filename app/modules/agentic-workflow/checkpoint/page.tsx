@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { EditorialBand } from "@/components/editorial-band";
+import { ReturnToTourCTA } from "@/components/return-to-tour-cta";
 import { TonePanel } from "@/components/tone-panel";
 import Link from "next/link";
 
@@ -182,6 +183,9 @@ export default function CheckpointPage() {
           </ol>
         </div>
       </section>
+
+      {/* ── Return to tour ── */}
+      <ReturnToTourCTA tourSteps={["build"]} />
 
       {/* ── Closing ── */}
       <TonePanel tone="next" className="p-6">

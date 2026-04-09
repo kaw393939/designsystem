@@ -8,6 +8,8 @@ The repository-level entrypoint for new maintainers or external LLMs is `README.
 
 The current phase-1 baseline release is `phase-1-baseline-release`, which is now published. Phase 2 implementation is active through the phase-2 sprint plan, the agentic orchestration spec, the completed Sprint 8 source-to-unit workflow implementation, the approved Sprint 9 planning brief for multi-experience assembly and visual workflow, the checked-in Sprint 8 planning chain under `content/`, and the explicit file-backed selected-unit compatibility path. Phase-3 observability planning is now locked through the phase-3 sprint plan and the observable-state spec.
 
+The content reorganization ("Integrated Progressive Path") spec is now active under `reorg/`. It connects the three existing content layers (tour, modules, identity-portfolio) through progressive disclosure, companion panel upgrades, browse room expansion, and module return loops across 4 sprints.
+
 The goal of this index is to make the doc hierarchy explicit so a human or an LLM can tell:
 
 1. which docs are authoritative
@@ -36,9 +38,17 @@ For active planning and implementation, treat these documents as authoritative i
 16. `guided-reference-site-refactor/sprints/guided-reference-sprint-2-guided-tour-completion.md`
 17. `guided-reference-site-refactor/sprints/guided-reference-sprint-3-browse-and-examples-families.md`
 18. `guided-reference-site-refactor/sprints/guided-reference-sprint-4-instructor-support-cleanup-and-release-hardening.md`
-19. `educational-design-system/phase-2-sprint-plan.md`
-20. `educational-design-system/phase-3-sprint-plan.md`
-21. `educational-design-system/planning-qa-spec.md`
+19. `reorg/spec.md` for the content reorganization and progressive path integration
+20. `reorg/page-jobs.md`
+21. `reorg/migration-map.md`
+22. `reorg/sprint-plan.md`
+23. `reorg/sprints/sprint-1-tour-progressive-disclosure.md`
+24. `reorg/sprints/sprint-2-companion-stuck-tab.md`
+25. `reorg/sprints/sprint-3-browse-room-expansion.md`
+26. `reorg/sprints/sprint-4-module-return-loops.md`
+27. `educational-design-system/phase-2-sprint-plan.md`
+28. `educational-design-system/phase-3-sprint-plan.md`
+29. `educational-design-system/planning-qa-spec.md`
 22. `bseai-content-production/README.md`, `bseai-content-production/operating-runbook.md`, and `bseai-content-production/first-content-checklist.md` for the pre-implementation BSEAI content system
 23. the active domain specs under `educational-design-system/`
 24. `educational-design-system/phase-1-sprint-plan.md` for published-baseline context
@@ -67,7 +77,15 @@ Archived materials under `_archive/` are historical context only.
 17. `guided-reference-site-refactor/sprints/guided-reference-sprint-2-guided-tour-completion.md`
 18. `guided-reference-site-refactor/sprints/guided-reference-sprint-3-browse-and-examples-families.md`
 19. `guided-reference-site-refactor/sprints/guided-reference-sprint-4-instructor-support-cleanup-and-release-hardening.md`
-20. `../_research/identity-system-core.md`
+20. `reorg/spec.md`
+21. `reorg/page-jobs.md`
+22. `reorg/migration-map.md`
+23. `reorg/sprint-plan.md`
+24. `reorg/sprints/sprint-1-tour-progressive-disclosure.md`
+25. `reorg/sprints/sprint-2-companion-stuck-tab.md`
+26. `reorg/sprints/sprint-3-browse-room-expansion.md`
+27. `reorg/sprints/sprint-4-module-return-loops.md`
+28. `../_research/identity-system-core.md`
 21. `../_research/identity-system-student-handout.md`
 22. `../_research/identity-system-maintainer-doctrine.md`
 23. `../_research/identity.md`
@@ -124,6 +142,14 @@ Archived materials under `_archive/` are historical context only.
 - `guided-reference-site-refactor/sprints/guided-reference-sprint-2-guided-tour-completion.md`: the Sprint 2 brief for making the canonical guided tour complete under `/tour/*`
 - `guided-reference-site-refactor/sprints/guided-reference-sprint-3-browse-and-examples-families.md`: the Sprint 3 brief for making browse and examples real support and proof families under `/browse/*` and `/examples/*`
 - `guided-reference-site-refactor/sprints/guided-reference-sprint-4-instructor-support-cleanup-and-release-hardening.md`: the active Sprint 4 brief for instructor alignment, support-route cleanup, continuity policy, and release hardening after the Sprint 3 route-family cutover
+- `reorg/spec.md`: the active spec for connecting tour, modules, and identity-portfolio into an integrated progressive path
+- `reorg/page-jobs.md`: route-level page-job contracts for every page touched by the reorganization
+- `reorg/migration-map.md`: content surfacing map showing what content moves where and what cross-links are added
+- `reorg/sprint-plan.md`: 4-sprint plan for progressive disclosure, companion upgrade, browse expansion, and module return loops
+- `reorg/sprints/sprint-1-tour-progressive-disclosure.md`: Sprint 1 brief for adding collapsible psychology/skill sections to all 6 tour step pages
+- `reorg/sprints/sprint-2-companion-stuck-tab.md`: Sprint 2 brief for adding the "Stuck?" diagnostic tab to the companion panel
+- `reorg/sprints/sprint-3-browse-room-expansion.md`: Sprint 3 brief for expanding archetype explorer and persuasion browse rooms
+- `reorg/sprints/sprint-4-module-return-loops.md`: Sprint 4 brief for adding return-to-tour CTAs and "Deepens" labels on module pages
 - `../_research/identity-system-core.md`: the primary research model behind the identity redesign
 - `../_research/identity-system-student-handout.md`: the shortest student-facing version of the identity system
 - `../_research/identity-system-maintainer-doctrine.md`: the maintainer guardrails for keeping the identity routes coherent

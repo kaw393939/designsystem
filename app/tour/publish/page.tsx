@@ -4,6 +4,8 @@ import { CalloutBand } from "@/components/callout-band";
 import { ContentGrid } from "@/components/content-grid";
 import { SequenceTimeline } from "@/components/educational-primitives";
 import { GuidedStepShell } from "@/components/guided-step-shell";
+import { ProgressiveDisclosure } from "@/components/progressive-disclosure";
+import { PsychologyPrincipleCard } from "@/components/psychology-principle-card";
 import { RouteVisualPanel } from "@/components/route-visual-panel";
 import { SectionHeading } from "@/components/section-heading";
 import { TonePanel } from "@/components/tone-panel";
@@ -124,6 +126,23 @@ export default function TourPublishPage() {
           </CalloutBand>
         </div>
       </section>
+
+      <ProgressiveDisclosure title="The deployment checklist">
+        <div className="space-y-4">
+          <PsychologyPrincipleCard
+            title="Pre-launch verification"
+            description="Before going live, verify three things: the page is accessible (screen reader, keyboard, contrast), it performs well (loads in under 3 seconds on mobile), and the content matches the brief (headline, proof, CTA all present and consistent)."
+            application="Run through the checklist with a partner. A second pair of eyes catches what you have gone blind to after hours of editing."
+            tone="reflection"
+          />
+          <PsychologyPrincipleCard
+            title="Ship, measure, improve"
+            description="Publishing is not the end — it is the first real test. Once the page is live, watch what people actually do: where they click, where they leave, what they say. The first published version is a hypothesis, not a finished product."
+            application="Set one measurable goal before publishing (e.g., 'visitors spend at least 30 seconds' or 'at least 10% click the CTA'). Check it one week after launch."
+            tone="reflection"
+          />
+        </div>
+      </ProgressiveDisclosure>
 
       <CalloutBand
         label="Publish Rule"
